@@ -160,23 +160,23 @@ or
 * [Network]
 * DHCP=yes
 
-# 26.Run these commands before the next reboot:
+# 26. Install networkmanager and dhcpcd if it is not included:
+
+* pacman -Syu networkmanager
+
+# 27.Run these commands before the next reboot:
 
 * sudo systemctl restart systemd-networkd
 * sudo systemctl enable systemd-networkd
 
-# 27.Reboot again:
+# 28.Reboot again:
 
 * sudo reboot
 
-# 28. Install intel firmware it is important:
+# 29. Install intel firmware it is important:
 
 * sudo pacman -Syu intel-ucode
 
-# 29. Install networkmanager and dhcpcd if it is not included:
-
-* pacman -Syu networkmanager
-* pacman -S dhcpcd 
 
 # 30. Install Xorg: 
 
