@@ -201,7 +201,7 @@ or
 * sudo pacman -Syu lxterminal
 
 # 35. Install the most optimal,lightweight and compatible with NVIDIA drivers GUI Deepin and extras: 
-
+* sudo mkdir Home
 * sudo pacman -S deepin
 * sudo pacman -S deepin-extras
 
