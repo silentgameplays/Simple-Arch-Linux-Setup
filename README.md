@@ -279,7 +279,7 @@ or
 * sudo pacman -Syu vlc
 
 
-That's it you are good for using pure ArchLinux with Deppin as GUI(others don't work too well with NVIDIA drivers,but give xfce4,mate,LXDE a shot as well)
+That's it you are good for using pure ArchLinux!Enjoy!
 
 Thank you!
 
