@@ -201,10 +201,10 @@ or
 * sudo pacman -Syu lxterminal
 
 # 35. Install the most optimal,lightweight and compatible with NVIDIA drivers GUI Deepin and extras: 
-* sudo mkdir home
+* sudo mkdir Home
 * sudo pacman -S deepin
 * sudo pacman -S deepin-extra
-
+* sudo pacman -S lightdm-deepin-greeter
 # 36. Enable the GUI to start at launch: 
 
 * sudo systemctl enable lightdm.service
