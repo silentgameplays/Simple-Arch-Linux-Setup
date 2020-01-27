@@ -221,6 +221,14 @@ or
 
 # 38. Enable the GUI to start at launch: 
 
+sudo nano /etc/lightdm/lightdm.conf
+# Find the following line:
+#greeter-session=example-gtk-gnome
+
+# Uncomment and change it as shown below.
+greeter-session=lightdm-deepin-greeter
+
+# Then run:
 * sudo systemctl enable lightdm.service
 * sudo systemctl start lightdm.service
 
