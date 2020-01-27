@@ -180,7 +180,7 @@ or
 
 # 30. Install Xorg: 
 
-* sudo pacman -Syu xorg 
+* sudo pacman -Syu xorg xorg-xinit xterm xf86-video-vesa mesa xorg-xrandr
 
 # 31. Install alsa audio drivers and utilities:
 
@@ -195,24 +195,61 @@ or
 
 * sudo pacman -Syu lxterminal
 
-# 34. Install the most optimal,lightweight and compatible with NVIDIA drivers GUI Deepin and extras: 
-* sudo mkdir Home
+# 34. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
+
+# Xfce
+
+* pacman -S xfsce4 xfce4-goodies
+
+# Deepin:
+
+* sudo mkdir home
 * sudo pacman -S deepin
 * sudo pacman -S deepin-extra
 
-# 35. Enable the GUI to start at launch: 
+# Gnome
 
-sudo nano /etc/lightdm/lightdm.conf
+* sudo pacman -S gnome gnome-extra
 
-# Find the following line:
-#greeter-session=example-gtk-gnome
+# KDE
 
-# Uncomment and change it as shown below.
-greeter-session=lightdm-deepin-greeter
+* sudo pacman -S plasma kde-applications
 
-# Then run:
+# Cinnamon:
+
+* sudo pacman -S cinnamon
+
+# MATE
+
+* sudo pacman -S mate mate-extra
+
+# LXDE
+
+* sudo pacman -S lxde
+
+# LXQt
+
+* sudo pacman -S lxqt
+
+# NB!:Removing anything can be done by:
+
+* sudo pacman -Rscn application
+
+# 35. Enable the GUI desktop to start at launch: 
+
 * sudo systemctl enable lightdm.service
 * sudo systemctl start lightdm.service
+
+# For GNOME its better to use the preinstalled:
+
+* systemctl enable gdm.service
+* systemctl start  gdm.service
+
+# For KDE use:
+
+* pacman -S sddm
+* systemctl enable sddm
+* systemctl start sddm
 
 # 36. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
 
@@ -227,9 +264,9 @@ greeter-session=lightdm-deepin-greeter
 
 * sudo pacman -Syu
 
-# 38. Install nvidia drivers and utilities:
+# 38. Install nvidia drivers and utilities last!:
 
-* sudo pacman -Syu nvidia-lts
+* sudo pacman -Syu nvidia
 * sudo pacman -Syu nvidia-utils
 * sudo pacman -S lib32-nvidia-utils
 * sudo reboot
