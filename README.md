@@ -203,7 +203,7 @@ or
 # 35. Install the most optimal,lightweight and compatible with NVIDIA drivers GUI Deepin and extras: 
 * sudo mkdir home
 * sudo pacman -S deepin
-* sudo pacman -S deepin-extras
+* sudo pacman -S deepin-extra
 
 # 36. Enable the GUI to start at launch: 
 
