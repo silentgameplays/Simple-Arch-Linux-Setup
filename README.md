@@ -195,7 +195,7 @@ or
 
 * sudo pacman -Syu nvidia-lts
 * sudo pacman -Syu nvidia-utils 
-
+* sudo reboot
 # 34. Install the terminal:
 
 * sudo pacman -Syu lxterminal
