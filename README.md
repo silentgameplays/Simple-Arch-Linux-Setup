@@ -190,49 +190,44 @@ or
 # 32. Check if alsamixer is working:
 
 * alsamixer
+# 33. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
 
-# 33. Install nvidia drivers and utilities:
-
-* sudo pacman -Syu nvidia-lts
-* sudo pacman -Syu nvidia-utils 
-* sudo reboot
-# 34. Install the terminal:
-
-* sudo pacman -Syu lxterminal
-
-# 35. Install the most optimal,lightweight and compatible with NVIDIA drivers GUI Deepin and extras: 
-* sudo mkdir Home
-* sudo pacman -S deepin
-* sudo pacman -S deepin-extra
-* sudo pacman -S lightdm-deepin-greeter
-# 36. Enable the GUI to start at launch: 
-
-* sudo systemctl enable lightdm.service
-* sudo systemctl start lightdm.service
-
-# 37. Once everythig is working we can enable multilib(same as multiarch) for Steam: 
-
-* sudo pacman -Suy
-# Edit the pacman mirror list:
-
-* sudo nano /etc/pacman.d/mirrorlist
+* sudo nano /etc/pacman.conf
 
 # Uncomment these lines:
 
 * [multilib]
 * Include = /etc/pacman.d/mirrorlist
 
-# 38. Update pacman libraries:
+# 34. Update pacman libraries:
 
-* sudo pacman -Sy
+* sudo pacman -Syu
 
-# 39. Install additional nvidia-utils,required for steam: 
+# 35. Install nvidia drivers and utilities:
+
+* sudo pacman -Syu nvidia-lts
+* sudo pacman -Syu nvidia-utils
 * sudo pacman -S lib32-nvidia-utils
+* sudo reboot
 
-# 40. Install Steam 
+# 36. Install the terminal:
+
+* sudo pacman -Syu lxterminal
+
+# 37. Install the most optimal,lightweight and compatible with NVIDIA drivers GUI Deepin and extras: 
+* sudo mkdir Home
+* sudo pacman -S deepin
+* sudo pacman -S deepin-extra
+
+# 38. Enable the GUI to start at launch: 
+
+* sudo systemctl enable lightdm.service
+* sudo systemctl start lightdm.service
+
+# 39. Install Steam 
 * sudo pacman -Suy steam
 
-# 41. Install VLC
+# 40. Install VLC
 
 * sudo pacman -Syu vlc
 
