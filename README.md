@@ -207,8 +207,8 @@ or
 
 # 36. Enable the GUI to start at launch: 
 
-* systemctl enable lightdm.service
-* systemctl start lightdm.service
+* sudo systemctl enable lightdm.service
+* sudo systemctl start lightdm.service
 
 # 37. Once everythig is working we can enable multilib(same as multiarch) for Steam: 
 
