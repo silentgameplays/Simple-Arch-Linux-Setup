@@ -1,5 +1,9 @@
 # ArchLinux-Installation-From-Scratch
 ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC
+# 0. Downloading the installation image and creating a bootable device using rufus:
+
+* Download image here via torrent or direct link:https://www.archlinux.org/download/
+* Use Rufus and select GPT and ISO mode for the image
 
 # 1.Creating partitions using cfdisk:
 
