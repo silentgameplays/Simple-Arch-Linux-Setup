@@ -180,7 +180,7 @@ or
 
 # 30. Install Xorg: 
 
-* sudo pacman -Syu xorg xorg-xinit xterm xf86-video-vesa mesa xorg-xrandr
+* sudo pacman -Syu xorg xorg-server xorg-xinit xterm xf86-video-vesa mesa xorg-xrandr
 
 # 31. Install alsa audio drivers and utilities:
 
@@ -237,11 +237,14 @@ or
 
 # 35. Enable the GUI desktop to start at launch: 
 
+# In case lightdm is missing: 
+* pacman -S lightdm
 * sudo systemctl enable lightdm.service
 * sudo systemctl start lightdm.service
 
 # For GNOME its better to use the preinstalled:
-
+# In case gdm is missing
+* pacman -S gdm
 * systemctl enable gdm.service
 * systemctl start  gdm.service
 
