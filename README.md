@@ -1,4 +1,4 @@
-# ArchLinux-Installation-From-Scratch
+# ArchLinux-Installation-From-Scratch-Simple
 ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC
 # 0. Downloading the installation image and creating a bootable device using rufus:
 
