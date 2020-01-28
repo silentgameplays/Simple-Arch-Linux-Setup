@@ -162,7 +162,7 @@ or
 
 # 26. Install networkmanager and dhcpcd if it is not included:
 
-* pacman -Syu networkmanager
+* sudo pacman -S networkmanager
 
 # 27.Run these commands before the next reboot:
 
@@ -180,12 +180,12 @@ or
 
 # 30. Install Xorg: 
 
-* sudo pacman -Syu xorg xorg-server xorg-xinit xterm xf86-video-vesa mesa xorg-xrandr
+* sudo pacman -S xorg xorg-server xorg-xinit xterm xf86-video-vesa mesa xorg-xrandr
 
 # 31. Install alsa audio drivers and utilities:
 
-* sudo pacman -Syu alsa
-* sudo pacman -Syu alsa-utils
+* sudo pacman -S alsa
+* sudo pacman -S alsa-utils
 
 # 32. Check if alsamixer is working:
 
@@ -193,7 +193,7 @@ or
 
 # 33. Install the terminal:
 
-* sudo pacman -Syu lxterminal
+* sudo pacman -S lxterminal
 
 # 34. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
@@ -263,24 +263,27 @@ or
 * [multilib]
 * Include = /etc/pacman.d/mirrorlist
 
-# 37. Update pacman libraries:
+# 37. Update pacman libraries and system:
 
 * sudo pacman -Syu
 
 # 38. Install nvidia drivers and utilities last!:
 
-* sudo pacman -Syu nvidia
-* sudo pacman -Syu nvidia-utils
+* sudo pacman -S nvidia
+* sudo pacman -S nvidia-utils
 * sudo pacman -S lib32-nvidia-utils
 * sudo reboot
 
 # 39. Install Steam 
-* sudo pacman -Suy steam
+* sudo pacman -S steam
 
-# 40. Install VLC
+# 40. Install VLC and other stuff
 
-* sudo pacman -Syu vlc
-
+* sudo pacman -S vlc
+* sudo pacman -S libreoffice-fresh
+* sudo pacman -S chromium
+* sudo pacman -S obs-studio
+* sudo pacman -S firefox
 
 That's it you are good for using pure ArchLinux!Enjoy!
 
