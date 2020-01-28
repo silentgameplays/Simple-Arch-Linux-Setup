@@ -175,7 +175,7 @@ or
 
 # 29. Install intel firmware it is important:
 
-* sudo pacman -Syu intel-ucode
+* sudo pacman -S intel-ucode
 
 
 # 30. Install Xorg: 
@@ -197,13 +197,14 @@ or
 
 # 34. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
+* sudo mkdir home
+
 # Xfce
 
 * pacman -S xfsce4 xfce4-goodies
 
 # Deepin:
 
-* sudo mkdir home
 * sudo pacman -S deepin
 * sudo pacman -S deepin-extra
 
@@ -244,15 +245,15 @@ or
 
 # For GNOME its better to use the preinstalled:
 # In case gdm is missing
-* pacman -S gdm
-* systemctl enable gdm.service
-* systemctl start  gdm.service
+* sudo pacman -S gdm
+* sudo systemctl enable gdm.service
+* sudo systemctl start  gdm.service
 
 # For KDE use:
 
-* pacman -S sddm
-* systemctl enable sddm
-* systemctl start sddm
+* sudo pacman -S sddm
+* suco systemctl enable sddm
+* sudo systemctl start sddm
 
 # 36. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
 
@@ -275,6 +276,7 @@ or
 * sudo reboot
 
 # 39. Install Steam 
+
 * sudo pacman -S steam
 
 # 40. Install VLC and other stuff
@@ -284,6 +286,14 @@ or
 * sudo pacman -S chromium
 * sudo pacman -S obs-studio
 * sudo pacman -S firefox
+
+# 41. Update the whole system using:
+
+* sudo pacman -Syu
+
+# 42. Clear terminal by using:
+
+* clear
 
 That's it you are good for using pure ArchLinux!Enjoy!
 
