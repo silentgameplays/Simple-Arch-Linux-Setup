@@ -237,6 +237,11 @@ or
 
 * sudo pacman -S lxqt
 
+# Budgie
+
+# NB! Also requires gnome installed before that!
+* sudo pacman -S budgie-desktop
+
 # NB!:Removing anything can be done by:
 
 * sudo pacman -Rscn application
