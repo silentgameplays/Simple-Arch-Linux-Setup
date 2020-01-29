@@ -262,7 +262,8 @@ or
 * sudo systemctl start sddm
 
 # For XFCE you might want to enable autologin in the conf file:
-sudo nano /etc/sddm.conf.d/autologin.conf
+
+* sudo nano /etc/sddm.conf.d/autologin.conf
 
 * [Autologin]
 * User=test
@@ -304,9 +305,13 @@ sudo nano /etc/sddm.conf.d/autologin.conf
 
 * sudo pacman -Syu
 
-# 42. Clear terminal by using:
+# 42.(Optional) Clear terminal by using:
 
 * clear
+
+# 43.(Optional) Show system status:
+
+* sudo systemctl status
 
 That's it you are good for using pure ArchLinux!Enjoy!
 
