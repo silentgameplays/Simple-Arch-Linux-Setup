@@ -166,13 +166,13 @@ or
 * sudo systemctl restart systemd-networkd
 * sudo systemctl enable systemd-networkd
 
-# 27. Install networkmanager:
-
-* sudo pacman -S networkmanager
-
-# 28.Reboot again:
+# 27.Reboot again:
 
 * sudo reboot
+
+# 28.Install networkmanager:
+
+* sudo pacman -S networkmanager
 
 # 29. Install intel firmware it is important:
 
@@ -196,7 +196,7 @@ or
 
 * alsamixer
 
-# 33. Install the terminal:
+# 33.(Optional) Install the terminal:
 
 * sudo pacman -S lxterminal
 
