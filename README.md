@@ -304,6 +304,7 @@ or
 * sudo pacman -S chromium
 * sudo pacman -S obs-studio
 * sudo pacman -S firefox
+* sudo pacman -S flatpak
 
 # 41. Update the whole system using:
 
