@@ -1,5 +1,5 @@
 # ArchLinux-Installation-From-Scratch-Simple
-ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC
+ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC it's a process,but the results are worth it you get a fully customizable system where you can manupulate GUI on the fly!
 # 0. Downloading the installation image and creating a bootable device using rufus:
 
 * Download image here via torrent or direct link:https://www.archlinux.org/download/
