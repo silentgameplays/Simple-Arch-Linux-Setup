@@ -137,7 +137,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC it's a process,but the re
 
 * nano /boot/efi/startup.nsh
 * bcf boot add 1 fs0:\EFI\GRUB\grubx64.efi “My grub bootloader”
-
+* exit
 # 23.Exiting root and rebboting:
 
 * exit
