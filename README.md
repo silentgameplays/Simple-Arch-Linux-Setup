@@ -160,14 +160,15 @@ or
 * [Network]
 * DHCP=yes
 
-# 26. Install networkmanager and dhcpcd if it is not included:
 
-* sudo pacman -S networkmanager
-
-# 27.Run these commands before the next reboot:
+# 26.Run these commands before the next reboot:
 
 * sudo systemctl restart systemd-networkd
 * sudo systemctl enable systemd-networkd
+
+# 27. Install networkmanager:
+
+* sudo pacman -S networkmanager
 
 # 28.Reboot again:
 
@@ -180,7 +181,11 @@ or
 
 # 30. Install Xorg: 
 
-* sudo pacman -S xorg xorg-server xorg-xinit xterm xf86-video-vesa mesa xorg-xrandr
+* sudo pacman -S xorg xorg-server xorg-xinit xterm xorg-xrandr
+
+# Optional for noveau drivers 
+
+* xf86-video-vesa mesa
 
 # 31. Install alsa audio drivers and utilities:
 
@@ -239,21 +244,29 @@ or
 # 35. Enable the GUI desktop to start at launch: 
 
 # In case lightdm is missing: 
+
 * pacman -S lightdm
 * sudo systemctl enable lightdm.service
 * sudo systemctl start lightdm.service
 
-# For GNOME its better to use the preinstalled:
-# In case gdm is missing
+# In case gdm is missing:
+
 * sudo pacman -S gdm
 * sudo systemctl enable gdm.service
 * sudo systemctl start  gdm.service
 
-# For KDE use:
+# For XFCE and KDE install sddm:
 
 * sudo pacman -S sddm
 * suco systemctl enable sddm
 * sudo systemctl start sddm
+
+# For XFCE you might want to enable autologin in the conf file:
+sudo nano /etc/sddm.conf.d/autologin.conf
+
+[Autologin]
+User=test
+Session=default
 
 # 36. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
 
@@ -268,7 +281,7 @@ or
 
 * sudo pacman -Syu
 
-# 38. Install nvidia drivers and utilities last!:
+# 38. Install NVIDIA or AMD drivers and utilities last!:
 
 * sudo pacman -S nvidia
 * sudo pacman -S nvidia-utils
