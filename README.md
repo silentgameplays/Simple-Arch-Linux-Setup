@@ -264,9 +264,9 @@ or
 # For XFCE you might want to enable autologin in the conf file:
 sudo nano /etc/sddm.conf.d/autologin.conf
 
-[Autologin]
-User=test
-Session=default
+* [Autologin]
+* User=test
+* Session=default
 
 # 36. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
 
