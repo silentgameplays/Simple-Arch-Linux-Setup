@@ -210,8 +210,7 @@ or
 
 # Deepin:
 
-* sudo pacman -S deepin
-* sudo pacman -S deepin-extra
+* sudo pacman -S deepin deepin-extra
 
 # Gnome
 
