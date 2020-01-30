@@ -286,11 +286,12 @@ or
 
 * sudo pacman -Syu
 
-# 38. Install NVIDIA or AMD drivers and utilities last!:
+# 38. Install NVIDIA or AMD proprietary drivers and utilities last!:
 
 * sudo pacman -S nvidia
 * sudo pacman -S nvidia-utils
 * sudo pacman -S lib32-nvidia-utils
+* sudo pacman -S nvidia-settings
 * sudo reboot
 
 # 39. Install Steam 
