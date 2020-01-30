@@ -149,9 +149,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC it's a process,but the re
 
 # 25.First steps after reboot under root or using sudo:
 * sudo systemctl enable dhcpcd.service
-* sudo pacman -S dhcpcd 
 * sudo nano /etc/systemd/network/enp0s3.network
+
 or
+
 * sudo vi /etc/systemd/network/enp0s3.network
 # Be sure that the below lines are entered into the file:
 
