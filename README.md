@@ -77,6 +77,14 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC it's a process,but the re
 * localectl set-locale LANG=en_US.UTF-8
 * locale-gen
 
+# To change or add settings to the generated locale file 
+# As root:
+
+* nano /etc/locale.conf
+
+# As user:
+* sudo nano /etc/locale.conf
+
 # 12.Adding a main user:
 
 * useradd -g users -G power,storage,wheel -m test
