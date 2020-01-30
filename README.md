@@ -1,9 +1,11 @@
 # Simple-ArchLinux-Install-Guide
-ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC it's a process,but the results are worth it you get a fully customizable system where you can make everything work exactly how you want it,sky is the limit!
+
+ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,flatpak it's a process,but the results are worth it.You will get a fully customizable system where you can make everything work exactly how you want it,sky is the limit!
+
 # 0. Downloading the installation image and creating a bootable device using rufus:
 
 * Download image here via torrent or direct link:https://www.archlinux.org/download/
-* Use Rufus and select GPT and ISO mode for the image
+* Use Rufus http://rufus.ie/ and select GPT and ISO mode for the image
 
 # 1.Creating partitions using cfdisk:
 
