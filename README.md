@@ -85,7 +85,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # For specific settings you can also use the uncomment the required locales method by editing the locale file itself
 
 * nano /etc/locale.gen
-
+* locale-gen
 # To change or add settings to the generated locale file 
 # As root:
 
