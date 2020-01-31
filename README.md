@@ -239,7 +239,7 @@ or
 * sudo pacman -S gnome gnome-extra
 
 # KDE
-* "exec startkde" > ~/.xinitrc
+* "exec startplasma-x11" > ~/.xinitrc
 * sudo pacman -S plasma kde-applications
 
 # Cinnamon:
