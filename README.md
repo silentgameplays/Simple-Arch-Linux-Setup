@@ -268,9 +268,10 @@ or
 
 # Budgie
 
-# NB! Also requires gnome installed before that!
+# NB! Also requires gnome gtk installed before that!
 
 * sudo pacman -S budgie-desktop
+* export XDG_CURRENT_DESKTOP=Budgie:GNOME
 * "exec budgie-desktop" > ~/.xinitrc
 
 # NB!:Removing anything can be done by:
@@ -294,8 +295,14 @@ or
 # For XFCE and KDE install sddm:
 
 * sudo pacman -S sddm
-* suco systemctl enable sddm
+* sudo systemctl enable sddm
 * sudo systemctl start sddm
+
+# For LXDE (optional):
+
+* sudo pacman -S lxdm
+* sudo systemctl enable lxdm
+* sudo systemctl start  lxdm
 
 # For XFCE you might want to enable autologin in the conf file:
 
