@@ -52,7 +52,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 5.Installing basic packages and stuff:
 
-* pacstrap /mnt base base-devel linux linux-firmware nano vim dhcpcd 
+* pacstrap /mnt base base-devel linux linux-firmware nano vim dhcpcd networkmanager netctl
 
 # 6. Generating fstab file:
 
