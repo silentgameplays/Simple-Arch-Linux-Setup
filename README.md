@@ -173,7 +173,11 @@ or
 * sudo vi /etc/systemd/network/enp0s3.network
 
 # For Wi-fi
-* sudo nano /etc/systemd/network/wlp0s3.network
+* sudo systemctl enable netctl-auto@wlp3s0.service
+* sudo netctl-auto list
+* sudo netctl-auto switch-to wlp3s0-PrettyFly
+* sudo netctl enable wlp3s0-PrettyFly
+
 
 
 # Be sure that the below lines are entered into the file:
