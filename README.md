@@ -182,12 +182,6 @@ or
 # For Wi-fi(you will need networkmanager and netctl installed via pacstrap)
 * wifi-menu
 
-* sudo systemctl enable netctl-auto@wlp3s0.service
-* sudo netctl-auto list
-* sudo netctl-auto switch-to wlp3s0-PrettyFly
-* sudo netctl enable wlp3s0-PrettyFly
-
-
 # 26.Run these commands before the next reboot:
 
 * sudo systemctl restart systemd-networkd
