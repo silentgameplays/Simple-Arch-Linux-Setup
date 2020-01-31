@@ -227,44 +227,51 @@ or
 * sudo mkdir home
 * cp /etc/X11/xinit/xinitrc ~/.xinitrc
 # Xfce
-* "exec startxfce4" > ~/.xinitrc
+
 * sudo pacman -S xfsce4 xfce4-goodies
+* "exec startxfce4" > ~/.xinitrc
 
 # Deepin:
-* "exec startdde" > ~/.xinitrc
+
 * sudo pacman -S deepin deepin-extra
+* "exec startdde" > ~/.xinitrc
 
 # Gnome
-* "exec gnome-session" > ~/.xinitrc
+
 * sudo pacman -S gnome gnome-extra
+* "exec gnome-session" > ~/.xinitrc
 
 # KDE
-* "exec startplasma-x11" > ~/.xinitrc
+
 * sudo pacman -S plasma kde-applications
+* "exec startplasma-x11" > ~/.xinitrc
 
 # Cinnamon:
-* "exec cinnamon-session" > ~/.xinitrc
+
 * sudo pacman -S cinnamon
+* "exec cinnamon-session" > ~/.xinitrc
 
 # MATE
-* "exec mate-session" > ~/.xinitrc
+
 * sudo pacman -S mate mate-extra
+* "exec mate-session" > ~/.xinitrc
 
 # LXDE
-* "exec startlxde" > ~/.xinitrc
+
 * sudo pacman -S lxde
+* "exec startlxde" > ~/.xinitrc
 
 # LXQt
-* "exec startlxqt" > ~/.xinitrc
+
 * sudo pacman -S lxqt
+* "exec startlxqt" > ~/.xinitrc
 
 # Budgie
 
 # NB! Also requires gnome installed before that!
 
-* "exec budgie-desktop" > ~/.xinitrc
-
 * sudo pacman -S budgie-desktop
+* "exec budgie-desktop" > ~/.xinitrc
 
 # NB!:Removing anything can be done by:
 
