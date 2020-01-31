@@ -46,6 +46,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # 4 Checking if everything worked:
 
 * lsblk
+* ip link
+# If you have wi-fi:
+* wifi-menu
 
 # 5.Installing basic packages and stuff:
 
