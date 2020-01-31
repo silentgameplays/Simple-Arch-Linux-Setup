@@ -213,7 +213,7 @@ or
 
 * sudo pacman -S alsa
 * sudo pacman -S alsa-utils
-
+* sudo pacman -S pulseaudio
 # 32. Check if alsamixer is working:
 
 * alsamixer
@@ -227,40 +227,43 @@ or
 * sudo mkdir home
 
 # Xfce
-
+* "exec startxfce4" > ~/.xinitrc
 * sudo pacman -S xfsce4 xfce4-goodies
 
 # Deepin:
-
+* "exec startdde" > ~/.xinitrc
 * sudo pacman -S deepin deepin-extra
 
 # Gnome
-
+* "exec gnome-session" > ~/.xinitrc
 * sudo pacman -S gnome gnome-extra
 
 # KDE
-
+* "exec startkde" > ~/.xinitrc
 * sudo pacman -S plasma kde-applications
 
 # Cinnamon:
-
+* "exec cinnamon-session" > ~/.xinitrc
 * sudo pacman -S cinnamon
 
 # MATE
-
+* "exec mate-session" > ~/.xinitrc
 * sudo pacman -S mate mate-extra
 
 # LXDE
-
+* "exec startlxde" > ~/.xinitrc
 * sudo pacman -S lxde
 
 # LXQt
-
+* "exec startlxqt" > ~/.xinitrc
 * sudo pacman -S lxqt
 
 # Budgie
 
 # NB! Also requires gnome installed before that!
+
+* "exec budgie-desktop" > ~/.xinitrc
+
 * sudo pacman -S budgie-desktop
 
 # NB!:Removing anything can be done by:
