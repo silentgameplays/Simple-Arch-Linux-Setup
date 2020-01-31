@@ -171,6 +171,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 or
 
 * sudo vi /etc/systemd/network/enp0s3.network
+
+# For Wi-fi
+* sudo nano /etc/systemd/network/wlp0s3.network
+
+
 # Be sure that the below lines are entered into the file:
 
 * [Match]
