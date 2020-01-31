@@ -181,12 +181,7 @@ or
 
 # For Wi-fi(you will need networkmanager and netctl installed via pacstrap)
 * wifi-menu
-* sudo systemctl enable netctl-auto@wlp3s0.service
-* sudo netctl list
-# Set it to auto-connect on boot
-* sudo netctl-auto enable * wlp3s0-WifiNameHere
-# To manually connect to a wifi network:
-* sudo netctl-auto switch-to wlp3s0-WifiNameHere
+* sudo systemctl enable NetworkManager.service
 
 # 26.Run these commands before the next reboot:
 
