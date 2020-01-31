@@ -195,7 +195,7 @@ or
 
 * sudo reboot
 
-# 28.Install networkmanager:
+# 28.Install networkmanager(if not installed):
 
 * sudo pacman -S networkmanager
 
