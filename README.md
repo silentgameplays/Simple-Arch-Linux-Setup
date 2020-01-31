@@ -225,7 +225,7 @@ or
 # 34. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
 * sudo mkdir home
-
+* cp /etc/X11/xinit/xinitrc ~/.xinitrc
 # Xfce
 * "exec startxfce4" > ~/.xinitrc
 * sudo pacman -S xfsce4 xfce4-goodies
