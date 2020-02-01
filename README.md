@@ -225,54 +225,54 @@ or
 # 34. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
 * sudo mkdir home
-* cp /etc/X11/xinit/xinitrc ~/.xinitrc
+*(Optional)cp /etc/X11/xinit/xinitrc ~/.xinitrc
 # Xfce
 
 * sudo pacman -S xfsce4 xfce4-goodies
-* sudo echo "exec startxfce4" > ~/.xinitrc
+*(Optional as root) echo "exec startxfce4" > ~/.xinitrc
 
 # Deepin:
 
 * sudo pacman -S deepin deepin-extra
-* sudo echo "exec startdde" > ~/.xinitrc
+*(Optional as root) echo "exec startdde" > ~/.xinitrc
 
 # Gnome
 
 * sudo pacman -S gnome gnome-extra
-* sudo echo "exec gnome-session" > ~/.xinitrc
+*(Optional as root)echo "exec gnome-session" > ~/.xinitrc
 
 # KDE
 
 * sudo pacman -S plasma kde-applications
-* sudo echo "exec startplasma-x11" > ~/.xinitrc
+*(Optional as root) echo "exec startplasma-x11" > ~/.xinitrc
 
 # Cinnamon:
 
 * sudo pacman -S cinnamon
-* sudo echo "exec cinnamon-session" > ~/.xinitrc
+*(Optional as root)echo "exec cinnamon-session" > ~/.xinitrc
 
 # MATE
 
 * sudo pacman -S mate mate-extra
-* sudo echo "exec mate-session" > ~/.xinitrc
+*(Optional as root)echo "exec mate-session" > ~/.xinitrc
 
 # LXDE
 
 * sudo pacman -S lxde
-* sudo echo "exec startlxde" > ~/.xinitrc
+*(Optional as root)echo "exec startlxde" > ~/.xinitrc
 
 # LXQt
 
 * sudo pacman -S lxqt
-* sudo echo "exec startlxqt" > ~/.xinitrc
+*(Optional as root)echo "exec startlxqt" > ~/.xinitrc
 
 # Budgie
 
 # NB! Also requires gnome gtk installed before that!
 
 * sudo pacman -S budgie-desktop
-* sudo echo "export XDG_CURRENT_DESKTOP=Budgie:GNOME" > ~/.xinitrc
-* sudo echo "exec budgie-desktop" > ~/.xinitrc
+*(Optional as root) echo "export XDG_CURRENT_DESKTOP=Budgie:GNOME" > ~/.xinitrc
+*(Optional as root) echo "exec budgie-desktop" > ~/.xinitrc
 
 # NB!:Removing anything can be done by:
 
