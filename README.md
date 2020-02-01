@@ -81,7 +81,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * localectl set-locale LANG=en_US.UTF-8
 * locale-gen
-# or a proper way to do it is to find this line en_US.UTF-8 in locale.gen file and uncomment it:
+# A proper way to do it is to find this lines en_US.UTF-8 in locale.gen file and uncomment them:
 
 * nano /etc/locale.gen
 * locale-gen
@@ -225,54 +225,43 @@ or
 # 34. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
 * sudo mkdir home
-*(Optional)cp /etc/X11/xinit/xinitrc ~/.xinitrc
 # Xfce
 
 * sudo pacman -S xfsce4 xfce4-goodies
-*(Optional as root) echo "exec startxfce4" > ~/.xinitrc
 
 # Deepin:
 
 * sudo pacman -S deepin deepin-extra
-*(Optional as root) echo "exec startdde" > ~/.xinitrc
 
 # Gnome
 
 * sudo pacman -S gnome gnome-extra
-*(Optional as root)echo "exec gnome-session" > ~/.xinitrc
 
 # KDE
 
 * sudo pacman -S plasma kde-applications
-*(Optional as root) echo "exec startplasma-x11" > ~/.xinitrc
 
 # Cinnamon:
 
 * sudo pacman -S cinnamon
-*(Optional as root)echo "exec cinnamon-session" > ~/.xinitrc
 
 # MATE
 
 * sudo pacman -S mate mate-extra
-*(Optional as root)echo "exec mate-session" > ~/.xinitrc
 
 # LXDE
 
 * sudo pacman -S lxde
-*(Optional as root)echo "exec startlxde" > ~/.xinitrc
 
 # LXQt
 
 * sudo pacman -S lxqt
-*(Optional as root)echo "exec startlxqt" > ~/.xinitrc
 
 # Budgie
 
 # NB! Also requires gnome gtk installed before that!
 
 * sudo pacman -S budgie-desktop
-*(Optional as root) echo "export XDG_CURRENT_DESKTOP=Budgie:GNOME" > ~/.xinitrc
-*(Optional as root) echo "exec budgie-desktop" > ~/.xinitrc
 
 # NB!:Removing anything can be done by:
 
