@@ -229,42 +229,42 @@ or
 # Xfce
 
 * sudo pacman -S xfsce4 xfce4-goodies
-* "exec startxfce4" > ~/.xinitrc
+* sudo echo "exec startxfce4" > ~/.xinitrc
 
 # Deepin:
 
 * sudo pacman -S deepin deepin-extra
-* "exec startdde" > ~/.xinitrc
+* sudo echo "exec startdde" > ~/.xinitrc
 
 # Gnome
 
 * sudo pacman -S gnome gnome-extra
-* "exec gnome-session" > ~/.xinitrc
+* sudo echo "exec gnome-session" > ~/.xinitrc
 
 # KDE
 
 * sudo pacman -S plasma kde-applications
-* "exec startplasma-x11" > ~/.xinitrc
+* sudo echo "exec startplasma-x11" > ~/.xinitrc
 
 # Cinnamon:
 
 * sudo pacman -S cinnamon
-* "exec cinnamon-session" > ~/.xinitrc
+* sudo echo "exec cinnamon-session" > ~/.xinitrc
 
 # MATE
 
 * sudo pacman -S mate mate-extra
-* "exec mate-session" > ~/.xinitrc
+* sudo echo "exec mate-session" > ~/.xinitrc
 
 # LXDE
 
 * sudo pacman -S lxde
-* "exec startlxde" > ~/.xinitrc
+* sudo echo "exec startlxde" > ~/.xinitrc
 
 # LXQt
 
 * sudo pacman -S lxqt
-* "exec startlxqt" > ~/.xinitrc
+* sudo echo "exec startlxqt" > ~/.xinitrc
 
 # Budgie
 
@@ -272,7 +272,7 @@ or
 
 * sudo pacman -S budgie-desktop
 * export XDG_CURRENT_DESKTOP=Budgie:GNOME
-* "exec budgie-desktop" > ~/.xinitrc
+* sudo echo "exec budgie-desktop" > ~/.xinitrc
 
 # NB!:Removing anything can be done by:
 
