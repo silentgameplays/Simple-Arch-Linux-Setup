@@ -179,11 +179,11 @@ or
 * [Network]
 * DHCP=yes
 
-# For Wi-fi(you will need networkmanager and netctl installed via pacstrap)
-* wifi-menu
+# For Wi-fi you will need networkmanager and netctl installed via pacstrap
+* sudo wifi-menu
 * sudo systemctl enable NetworkManager.service
 
-# 26.Run these commands before the next reboot:
+# 26.(For Wired/Cable) Run these commands before the next reboot:
 
 * sudo systemctl restart systemd-networkd
 * sudo systemctl enable systemd-networkd
