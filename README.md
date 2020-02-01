@@ -271,7 +271,7 @@ or
 # NB! Also requires gnome gtk installed before that!
 
 * sudo pacman -S budgie-desktop
-* export XDG_CURRENT_DESKTOP=Budgie:GNOME
+* sudo echo "export XDG_CURRENT_DESKTOP=Budgie:GNOME" > ~/.xinitrc
 * sudo echo "exec budgie-desktop" > ~/.xinitrc
 
 # NB!:Removing anything can be done by:
