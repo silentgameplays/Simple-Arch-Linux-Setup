@@ -81,11 +81,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * localectl set-locale LANG=en_US.UTF-8
 * locale-gen
-
-# For specific settings you can also use the uncomment the required locales method by editing the locale file itself
+# or a proper way to do it is to find this line en_US.UTF-8 in locale.gen file and uncomment it:
 
 * nano /etc/locale.gen
 * locale-gen
+# For specific settings you can also use the uncomment the required locales method by editing the locale file itself
 # To change or add settings to the generated locale file 
 # As root:
 
