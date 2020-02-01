@@ -193,9 +193,9 @@ or
 * sudo systemctl enable NetworkManager.service
 * sudo systemctl enable netctl-auto@wlp3s0.service
 # Set it to auto-connect on boot
-sudo netctl-auto enable wlp3s0-WifiNameHere
-sudo iw dev
-sudo netctl enable wlp3s0-WifiNameHere
+* sudo netctl-auto enable wlp3s0-WifiNameHere
+* sudo iw dev
+* sudo netctl enable wlp3s0-WifiNameHere
 # 28. Install intel firmware it is important:
 
 * sudo pacman -S intel-ucode
