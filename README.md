@@ -203,7 +203,7 @@ or
 
 # 30. Install Xorg: 
 
-* sudo pacman -S xorg xorg-server xorg-xinit xterm xorg-xrandr
+* sudo pacman -S xorg xorg-server xorg-xinit xorg-apps xterm xorg-xrandr
 
 # Optional for noveau drivers 
 
