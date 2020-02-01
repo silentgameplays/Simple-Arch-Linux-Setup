@@ -164,7 +164,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * umount -R /mnt
 * reboot
 
-# 25.First steps after reboot under root or using sudo:
+# 25.(For Wired/Cable)First steps after reboot under root or using sudo:
 * sudo systemctl enable dhcpcd.service
 * sudo nano /etc/systemd/network/enp0s3.network
 
@@ -179,22 +179,19 @@ or
 * [Network]
 * DHCP=yes
 
-# For Wi-fi you will need networkmanager and netctl installed via pacstrap
-* sudo wifi-menu
-* sudo systemctl enable NetworkManager.service
-
 # 26.(For Wired/Cable) Run these commands before the next reboot:
 
 * sudo systemctl restart systemd-networkd
 * sudo systemctl enable systemd-networkd
 
-# 27.Reboot again:
+# 27. For Wi-fi you will need networkmanager and netctl installed via pacstrap
+* sudo wifi-menu
+* sudo systemctl enable NetworkManager.service
+
+# 28.Reboot again:
 
 * sudo reboot
-
-# 28.Install networkmanager(if not installed):
-
-* sudo pacman -S networkmanager
+* 
 
 # 29. Install intel firmware it is important:
 
@@ -214,17 +211,15 @@ or
 * sudo pacman -S alsa
 * sudo pacman -S alsa-utils
 * sudo pacman -S pulseaudio
-# 32. Check if alsamixer is working:
 
-* alsamixer
-
-# 33.(Optional) Install the terminal:
+# 32.(Optional) Install the terminal:
 
 * sudo pacman -S lxterminal
 
-# 34. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
+# 33. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
 * sudo mkdir home
+
 # Xfce
 
 * sudo pacman -S xfsce4 xfce4-goodies
@@ -257,17 +252,12 @@ or
 
 * sudo pacman -S lxqt
 
-# Budgie
-
-# NB! Also requires gnome gtk installed before that!
-
-* sudo pacman -S budgie-desktop
 
 # NB!:Removing anything can be done by:
 
 * sudo pacman -Rscn application
 
-# 35. Enable the GUI desktop to start at launch: 
+# 34. Enable the GUI desktop to start at launch: 
 
 # In case lightdm is missing: 
 
@@ -301,7 +291,7 @@ or
 * User=test
 * Session=default
 
-# 36. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
+# 35. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
 
 * sudo nano /etc/pacman.conf
 
@@ -310,11 +300,11 @@ or
 * [multilib]
 * Include = /etc/pacman.d/mirrorlist
 
-# 37. Update pacman libraries and system:
+# 36. Update pacman libraries and system:
 
 * sudo pacman -Syu
 
-# 38. Install NVIDIA or AMD proprietary drivers and utilities last!:
+# 37. Install NVIDIA or AMD proprietary drivers and utilities last!:
 
 * sudo pacman -S nvidia
 * sudo pacman -S nvidia-utils
@@ -322,11 +312,11 @@ or
 * sudo pacman -S nvidia-settings
 * sudo reboot
 
-# 39. Install Steam 
+# 38. Install Steam 
 
 * sudo pacman -S steam
 
-# 40. Install VLC and other stuff
+# 39. Install VLC and other stuff
 
 * sudo pacman -S vlc
 * sudo pacman -S libreoffice-fresh
@@ -335,15 +325,15 @@ or
 * sudo pacman -S firefox
 * sudo pacman -S flatpak
 
-# 41. Update the whole system using:
+# 40. Update the whole system using:
 
 * sudo pacman -Syu
 
-# 42.(Optional) Clear terminal by using:
+# 41.(Optional) Clear terminal by using:
 
 * clear
 
-# 43.(Optional) Show system status:
+# 42.(Optional) Show system status:
 
 * sudo systemctl status
 
