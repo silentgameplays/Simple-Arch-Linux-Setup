@@ -47,7 +47,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * lsblk
 * ip link
-# If you have wi-fi:
+
+# If you have wi-fi(optional,use cable):
 * wifi-menu
 
 # 5.Installing basic packages and stuff:
@@ -164,7 +165,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * umount -R /mnt
 * reboot
 
-# 25.(For Wired/Cable)First steps after reboot under root or using sudo:
+# 25.First steps after reboot under root or using sudo:
 * sudo systemctl enable dhcpcd.service
 * sudo nano /etc/systemd/network/enp0s3.network
 
@@ -179,7 +180,7 @@ or
 * [Network]
 * DHCP=yes
 
-# 26.(For Wired/Cable) Run these commands before the next reboot:
+# 26.Run these commands:
 
 * sudo systemctl restart systemd-networkd
 * sudo systemctl enable systemd-networkd
@@ -187,12 +188,9 @@ or
 * sudo reboot
 * ping google.com 
 
-# 27. (For Wi-Fi) you will need networkmanager and netctl with dialog installed via pacstrap
+# 27.(Optional not recommended curses-based) (For Wi-Fi) you will need networkmanager and netctl with dialog installed via pacstrap
 * sudo wifi-menu
 * sudo systemctl enable NetworkManager.service
-
-* sudo reboot
-* ping google.com 
 
 # 28. Install intel firmware it is important:
 
