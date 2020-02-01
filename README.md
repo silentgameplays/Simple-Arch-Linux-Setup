@@ -188,20 +188,13 @@ or
 * sudo reboot
 * ping google.com 
 
-# 27.(Optional not recommended curses-based) (For Wi-Fi) you will need networkmanager and netctl with dialog installed via pacstrap
-* sudo wifi-menu
-* sudo systemctl enable NetworkManager.service
-* sudo systemctl enable netctl-auto@wlp3s0.service
-# Set it to auto-connect on boot
-* sudo netctl-auto enable wlp3s0-WifiNameHere
-* sudo iw dev
-* sudo netctl enable wlp3s0-WifiNameHere
-# 28. Install intel firmware it is important:
+
+# 27. Install intel firmware it is important:
 
 * sudo pacman -S intel-ucode
 
 
-# 29. Install Xorg: 
+# 28. Install Xorg: 
 
 * sudo pacman -S xorg xorg-server xorg-xinit xorg-apps xterm xorg-xrandr
 
@@ -209,17 +202,17 @@ or
 
 * xf86-video-vesa mesa
 
-# 30. Install alsa audio drivers and utilities:
+# 29. Install alsa audio drivers and utilities:
 
 * sudo pacman -S alsa
 * sudo pacman -S alsa-utils
 * sudo pacman -S pulseaudio
 
-# 31.(Optional) Install the terminal:
+# 30.(Optional) Install the terminal:
 
 * sudo pacman -S lxterminal
 
-# 32. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
+# 31. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
 * sudo mkdir home
 
@@ -260,7 +253,7 @@ or
 
 * sudo pacman -Rscn application
 
-# 33. Enable the GUI desktop to start at launch: 
+# 32. Enable the GUI desktop to start at launch: 
 
 # In case lightdm is missing: 
 
@@ -294,7 +287,7 @@ or
 * User=test
 * Session=default
 
-# 34. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
+# 33. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
 
 * sudo nano /etc/pacman.conf
 
@@ -303,11 +296,11 @@ or
 * [multilib]
 * Include = /etc/pacman.d/mirrorlist
 
-# 35. Update pacman libraries and system:
+# 34. Update pacman libraries and system:
 
 * sudo pacman -Syu
 
-# 36. Install NVIDIA or AMD proprietary drivers and utilities last!:
+# 35. Install NVIDIA or AMD proprietary drivers and utilities last!:
 
 * sudo pacman -S nvidia
 * sudo pacman -S nvidia-utils
@@ -315,11 +308,11 @@ or
 * sudo pacman -S nvidia-settings
 * sudo reboot
 
-# 37. Install Steam 
+# 36. Install Steam 
 
 * sudo pacman -S steam
 
-# 38. Install VLC and other stuff
+# 37. Install VLC and other stuff
 
 * sudo pacman -S vlc
 * sudo pacman -S libreoffice-fresh
@@ -328,15 +321,15 @@ or
 * sudo pacman -S firefox
 * sudo pacman -S flatpak
 
-# 39. Update the whole system using:
+# 38. Update the whole system using:
 
 * sudo pacman -Syu
 
-# 40.(Optional) Clear terminal by using:
+# 39.(Optional) Clear terminal by using:
 
 * clear
 
-# 41.(Optional) Show system status:
+# 40.(Optional) Show system status:
 
 * sudo systemctl status
 
