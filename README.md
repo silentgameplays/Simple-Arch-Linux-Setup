@@ -190,8 +190,8 @@ or
 
 # For Wi-Fi(Optional):
 # NB! Don't enable dhcpcd!
-* sudo wifi-menu
 * sudo systemctl enable NetworkManager.service
+* sudo wifi-menu
 * ping google.com 
 
 # 27. Install intel firmware it is important:
