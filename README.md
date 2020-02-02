@@ -188,6 +188,11 @@ or
 * sudo reboot
 * ping google.com 
 
+# For Wi-Fi(Optional):
+# NB! Don't enable dhcpcd!
+* sudo wifi-menu
+* sudo systemctl enable NetworkManager.service
+* ping google.com 
 
 # 27. Install intel firmware it is important:
 
