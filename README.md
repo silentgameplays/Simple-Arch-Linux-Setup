@@ -284,7 +284,8 @@ or
 
 # For LXDE (optional):
 
-* sudo pacman -S lxdm 
+* sudo pacman -S lxdm
+# or for gtk3
 * sudo pacman -S lxdm-gtk3
 * sudo systemctl enable lxdm
 * sudo systemctl start  lxdm
