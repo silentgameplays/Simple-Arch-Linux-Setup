@@ -191,7 +191,11 @@ or
 # For Wi-Fi(Optional):
 # NB! Don't enable dhcpcd!
 * sudo systemctl enable NetworkManager.service
-* sudo wifi-menu
+* sudo NetworkManager
+* sudo systemctl enable wpa_supplicant.service
+* sudo systemctl start NetworkManager.service
+* sudo reboot
+* sudo nmtui
 * ping google.com 
 
 # 27. Install intel firmware it is important:
