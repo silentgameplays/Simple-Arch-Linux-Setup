@@ -227,7 +227,7 @@ or
 
 # Xfce
 
-* sudo pacman -S xfsce4 xfce4-goodies
+* sudo pacman -S xfce4 xfce4-goodies
 
 # Deepin:
 
