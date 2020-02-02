@@ -165,7 +165,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * umount -R /mnt
 * reboot
 
-# 25.First steps after reboot under root or using sudo:
+# 25.The hard way to activate the wired connection using dhcpcd:
 * sudo systemctl enable dhcpcd.service
 * sudo nano /etc/systemd/network/enp0s3.network
 
@@ -174,28 +174,35 @@ or
 * sudo vi /etc/systemd/network/enp0s3.network
 
 # Be sure that the below lines are entered into the file:
-
 * [Match]
 * name=en*
 * [Network]
 * DHCP=yes
-
-# 26.Run these commands:
-
 * sudo systemctl restart systemd-networkd
 * sudo systemctl enable systemd-networkd
-
 * sudo reboot
 * ping google.com 
 
-# For Wi-Fi(Optional):
-# NB! Don't enable dhcpcd!
+# 26.The easy way to activate the wired connection using network manager.NB!Don't enable dhcpcd.service in the previous steps it will conflict with the networkmanager!Just ignore it and it will make your life easier:
+
 * sudo systemctl enable NetworkManager.service
 * sudo NetworkManager
 * sudo systemctl enable wpa_supplicant.service
 * sudo systemctl start NetworkManager.service
 * sudo reboot
 * sudo nmtui
+* Select the desired wired connection it should be activated by default if not activate it
+* ping google.com
+
+# For Wi-Fi(Optional):
+# NB! Don't enable dhcpcd.service!
+* sudo systemctl enable NetworkManager.service
+* sudo NetworkManager
+* sudo systemctl enable wpa_supplicant.service
+* sudo systemctl start NetworkManager.service
+* sudo reboot
+* sudo nmtui
+* Activate the desired Wi-Fi there by entering the password
 * ping google.com 
 
 # 27. Install intel firmware it is important:
