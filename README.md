@@ -262,7 +262,7 @@ or
 
 # LXQt
 
-* sudo pacman -S lxqt
+* sudo pacman -S lxqt  breeze-icons
 
 
 # NB!:Removing anything can be done by:
