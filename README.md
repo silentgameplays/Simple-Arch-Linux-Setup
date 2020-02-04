@@ -234,7 +234,7 @@ or
 
 # Xfce
 
-* sudo pacman -S xfce4 xfce4-goodies
+* sudo pacman -S xfce4 xfce4-goodies gvfs
 
 # Deepin:
 
