@@ -233,6 +233,8 @@ or
 # Xfce
 
 * sudo pacman -S xfce4 xfce4-goodies gvfs
+* pacman -S networkmanager network-manager-applet
+* sudo pacman -S pavucontrol
 
 # Deepin:
 
