@@ -220,9 +220,7 @@ or
 
 # 29. Install alsa audio drivers and utilities:
 
-* sudo pacman -S alsa
-* sudo pacman -S alsa-utils
-* sudo pacman -S pulseaudio
+* sudo pacman -S alsa alsa-utils pulseaudio pulseaudio-alsa pavolume
 
 # 30.(Optional) Install the terminal:
 
