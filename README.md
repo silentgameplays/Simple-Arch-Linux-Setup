@@ -235,7 +235,7 @@ or
 * sudo pacman -S xfce4 xfce4-goodies gvfs
 * pacman -S networkmanager network-manager-applet
 * sudo pacman -S pavucontrol
-
+* sudo pacman -S arc-gtk-theme
 # Deepin:
 
 * sudo pacman -S deepin deepin-extra
