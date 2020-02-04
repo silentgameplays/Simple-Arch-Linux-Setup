@@ -320,10 +320,12 @@ or
 
 # 35. Install NVIDIA or AMD proprietary drivers and utilities last!:
 
-* sudo pacman -S nvidia
-* sudo pacman -S nvidia-utils
-* sudo pacman -S lib32-nvidia-utils
-* sudo pacman -S nvidia-settings
+# For Nvidia
+* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl        vulkan-icd-loader lib32-vulkan-icd-loaderdia-settings
+
+
+# For AMD
+* sudo pacman -S mesa lib32-mesa mesa-vdpau lib32-mesa-vdpau lib32-vulkan-radeon vulkan-radeon glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader
 * sudo reboot
 
 # 36. Install Steam 
