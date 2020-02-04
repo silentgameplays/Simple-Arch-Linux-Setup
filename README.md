@@ -321,7 +321,7 @@ or
 # 35. Install NVIDIA or AMD proprietary drivers and utilities last!:
 
 # For Nvidia
-* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl        vulkan-icd-loader lib32-vulkan-icd-loaderdia-settings
+* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader 
 
 
 # For AMD
