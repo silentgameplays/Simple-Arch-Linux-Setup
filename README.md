@@ -233,9 +233,11 @@ or
 # Xfce
 
 * sudo pacman -S xfce4 xfce4-goodies gvfs
+# To make desktop look great
 * pacman -S networkmanager network-manager-applet
 * sudo pacman -S pavucontrol
 * sudo pacman -S arc-gtk-theme
+
 # Deepin:
 
 * sudo pacman -S deepin deepin-extra
@@ -352,6 +354,7 @@ or
 # 40.(Optional) Show system status:
 
 * sudo systemctl status
+# Tip for DOOM 2016 smooth gameplay enable mouse Razer Chroma effect in keyboard and mouse settings
 
 That's it you are good for using pure ArchLinux!Enjoy!
 
