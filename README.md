@@ -354,11 +354,12 @@ or
 # 40.(Optional) Show system status and other stuff:
 # Mounting drives via fstab 
 * sudo mkdir /yourdrivename  (test,backup,myfiles,whatever)
-* sudo mount /dev/sdx2 /yourdrivename 
+* sudo mount /dev/sdx2 /yourdrivename
+* lsblk -f (for UUID of sdx2)
 # Edit your /etc/fstab file:
 * sudo nano /etc/fstab
 # input the following lines:
-* /dev/sdx2/yourdrivename ext4 defaults 0 0
+* UUID=(value of sdx2 from lsblk) /dev/sdx2/yourdrivename ext4 defaults 0 0
 # show system status
 * sudo systemctl status
 # Tip for DOOM 2016 smooth gameplay enable mouse Razer Chroma effect in keyboard and mouse settings
