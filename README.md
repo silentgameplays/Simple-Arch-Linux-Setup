@@ -53,7 +53,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 5.Installing basic packages and stuff:
 
-* pacstrap /mnt base base-devel linux linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog 
+* pacstrap /mnt base base-devel linux linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog network-manager-applet
 
 # 6. Generating fstab file:
 
@@ -228,7 +228,7 @@ or
 
 # 31. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
-* sudo mkdir home
+
 
 # Xfce
 
@@ -239,7 +239,7 @@ or
 * sudo pacman -S arc-gtk-theme
 
 # Deepin:
-
+* sudo mkdir home 
 * sudo pacman -S deepin deepin-extra
 
 # Gnome
