@@ -165,25 +165,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * umount -R /mnt
 * reboot
 
-# 25.The hard way to activate the wired connection using dhcpcd:
-* sudo systemctl enable dhcpcd.service
-* sudo nano /etc/systemd/network/enp0s3.network
-
-or
-
-* sudo vi /etc/systemd/network/enp0s3.network
-
-# Be sure that the below lines are entered into the file:
-* [Match]
-* name=en*
-* [Network]
-* DHCP=yes
-* sudo systemctl restart systemd-networkd
-* sudo systemctl enable systemd-networkd
-* sudo reboot
-* ping google.com 
-
-# 26.The easy way to activate the wired connection using network manager.NB!Don't enable dhcpcd.service in the previous steps it will conflict with the networkmanager!Just ignore it and it will make your life easier:
+# 25.The easy way to activate the wired connection using network manager.NB!Don't enable dhcpcd.service in the previous steps it will conflict with the networkmanager!Just ignore it and it will make your life easier:
 
 * sudo systemctl enable NetworkManager.service
 * sudo NetworkManager
@@ -194,7 +176,7 @@ or
 * Select the desired wired connection it should be activated by default if not activate it
 * ping google.com
 
-# For Wi-Fi(Optional):
+# 26.For Wi-Fi(Optional):
 # NB! Don't enable dhcpcd.service!
 * sudo systemctl enable NetworkManager.service
 * sudo NetworkManager
@@ -352,6 +334,7 @@ or
 * clear
 
 # 40.(Optional) Show system status and other stuff:
+
 # Mounting drives via fstab 
 * sudo mkdir /yourdrivename  (test,backup,myfiles,whatever)
 * sudo mount /dev/sdx2 /yourdrivename
@@ -363,6 +346,18 @@ or
 # show system status
 * sudo systemctl status
 # Tip for DOOM 2016 smooth gameplay enable mouse Razer Chroma effect in keyboard and mouse settings
+# The hard way to activate the wired connection using dhcpcd:
+* sudo systemctl enable dhcpcd.service
+* sudo nano /etc/systemd/network/enp0s3.network
+# Be sure that the below lines are entered into the file:
+* [Match]
+* name=en*
+* [Network]
+* DHCP=yes
+* sudo systemctl restart systemd-networkd
+* sudo systemctl enable systemd-networkd
+* sudo reboot
+* ping google.com 
 
 That's it you are good for using pure ArchLinux!Enjoy!
 
