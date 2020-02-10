@@ -221,7 +221,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S arc-gtk-theme
 # Disable tearing in videogames
 * xfconf-query -c xfwm4 -p /general/use_compositing -s false
-
+# Check if compositing is enabled in xfwm4, you can run :
+* xfconf-query -c xfwm4 -p /general/use_compositing
 # Deepin:
 * sudo mkdir home 
 * sudo pacman -S deepin deepin-extra
