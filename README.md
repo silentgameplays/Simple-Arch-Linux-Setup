@@ -219,6 +219,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * pacman -S networkmanager network-manager-applet
 * sudo pacman -S pavucontrol
 * sudo pacman -S arc-gtk-theme
+# Disable tearing in videogames
+* xfconf-query -c xfwm4 -p /general/use_compositing -s false
 
 # Deepin:
 * sudo mkdir home 
