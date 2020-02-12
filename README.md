@@ -51,22 +51,19 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # If you have wi-fi(optional,use cable):
 * wifi-menu
 
-# 5.Installing basic packages and stuff:
+# 5.Installing basic packages and important stuff:
 
 * pacstrap /mnt base base-devel linux linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog network-manager-applet
 
 # 6. Generating fstab file:
 
 * genfstab -U /mnt >> /mnt/etc/fstab
+
 # 7.Switching to root.All the below commands must be used as root!
 
 * arch-chroot /mnt /bin/bash
 
-# 8.Checking network connection:
-
-* ip link
-
-# 9.Setting date,region and time,use these commands:
+# 8.Setting date,region and time,use these commands:
 
 * timedatectl set-ntp true
 * timedatectl list-timezones
@@ -74,32 +71,20 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 * hwclock --systohc
 
-# 10.Setting the hostname
+# 9.Setting the hostname
 
 * hostnamectl set-hostname myhostname
 
-# 11.Setting locales:
-
-* localectl set-locale LANG=en_US.UTF-8
-* locale-gen
+# 10.Setting locales:
 # A proper way to do it is to find this lines en_US.UTF-8 in locale.gen file and uncomment them:
-
 * nano /etc/locale.gen
 * locale-gen
-# For specific settings you can also use the uncomment the required locales method by editing the locale file itself
-# To change or add settings to the generated locale file 
-# As root:
 
-* nano /etc/locale.conf
-
-# As user:
-* sudo nano /etc/locale.conf
-
-# 12.Adding a main user:
+# 11.Adding a main user:
 
 * useradd -g users -G power,storage,wheel -m test
 
-# 13.Assigning passwords for root and main user
+# 12.Assigning passwords for root and main user
 
 # Password for root:
 
@@ -109,16 +94,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * passwd your_new_user
 
-# 14.Downloading the text editors(in case you did'not add them already):
-
-* pacman -S nano
-* pacman -S vim
-
-# 15.Installing sudo (in case it's not installed already):
-
-* pacman -S sudo
-
-# 16.Editing the sudoers file:
+# 13.Editing the sudoers file:
 
 * visudo
 
@@ -129,70 +105,69 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * :w! + Enter to exit and write changes
 * :q + Enter exit
 
-# 17.Grub and efi tools installation(very important step!):
+# 14.Grub and efi tools installation(very important step!):
 
 * pacman -S grub efibootmgr dosfstools os-prober mtools fuse2 
 
-# 18. Creating efi boot directory on the EFI partition:
+# 15. Creating efi boot directory on the EFI partition:
 
 * mkdir /boot/efi
 
-# 19. Mounting the FAT32 EFI partition:
+# 16. Mounting the FAT32 EFI partition:
 
 * mount /dev/sdx1 /boot/efi  #Mount FAT32 EFI partition 
 
-# 20. Grub installation and configuration(very important,otherwise system will not boot!): 
+# 17. Grub installation and configuration(very important,otherwise system will not boot!): 
 
 * grub-install --target=x86_64-efi   --bootloader-id=grub --efi-directory=/boot/efi 
 * grub-mkconfig -o /boot/grub/grub.cfg
 
-# 21.Additional security measures so that the boot does not become unbootable:
+# 18.Additional security measures so that the boot does not become unbootable:
 
 * mkdir /boot/efi/EFI/BOOT
 * cp /boot/efi/EFI/GRUB/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
 
-# 22.Creating and editing the efi boot file so that system becomes bootable:
+# 19.Creating and editing the efi boot file so that system becomes bootable:
 
 * nano /boot/efi/startup.nsh
+
 * bcf boot add 1 fs0:\EFI\GRUB\grubx64.efi “My grub bootloader”
 * exit
-# 23.Exiting root and rebboting:
+
+# 20.Exiting root and rebboting:
 
 * exit
 
-# 24.Unmounting the live partitions and rebooting:
+# 21.Unmounting the live partitions and rebooting:
 
 * umount -R /mnt
 * reboot
 
-# 25.The easy way to activate the wired connection using network manager.NB!Don't enable dhcpcd.service in the previous steps it will conflict with the networkmanager!Just ignore it and it will make your life easier:
+# 22.The easy way to activate the wired connection using network manager.NB!Don't enable dhcpcd.service in the previous steps it will conflict with the networkmanager!Just ignore it and it will make your life easier:
 
 * sudo systemctl enable NetworkManager.service
-* sudo NetworkManager
 * sudo systemctl enable wpa_supplicant.service
 * sudo systemctl start NetworkManager.service
 * sudo reboot
 * sudo nmtui
-* Select the desired wired connection it should be activated by default if not activate it
+* # Select the desired wired connection it should be activated by default if not activate it
 * ping google.com
 
-# 26.For Wi-Fi(Optional):
+# 23.For Wi-Fi(Optional):
 # NB! Don't enable dhcpcd.service!
 * sudo systemctl enable NetworkManager.service
-* sudo NetworkManager
 * sudo systemctl enable wpa_supplicant.service
 * sudo systemctl start NetworkManager.service
 * sudo reboot
 * sudo nmtui
-* Activate the desired Wi-Fi there by entering the password
+* # Activate the desired Wi-Fi there by entering the password
 * ping google.com 
 
-# 27. Install intel firmware it is important:
+# 24. Install intel firmware it is important:
 
 * sudo pacman -S intel-ucode
 
-
-# 28. Install Xorg: 
+# 25. Install Xorg: 
 
 * sudo pacman -S xorg xorg-server xorg-xinit xorg-apps xterm xorg-xrandr
 
@@ -200,19 +175,17 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * xf86-video-vesa mesa
 
-# 29. Install alsa audio drivers and utilities:
+# 26. Install alsa audio drivers and utilities:
 
 * sudo pacman -S alsa alsa-utils pulseaudio pulseaudio-alsa 
 
-# 30.(Optional) Install the terminal:
+# 27.(Optional) Install the terminal:
 
 * sudo pacman -S lxterminal
 
-# 31. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
+# 28. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
-
-
-# Xfce
+# Xfce (compatible display managers sddm)
 
 * sudo pacman -S xfce4 xfce4-goodies gvfs
 # To make desktop look great
@@ -223,40 +196,40 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * xfconf-query -c xfwm4 -p /general/use_compositing -s false
 # Check if compositing is enabled in xfwm4, you can run :
 * xfconf-query -c xfwm4 -p /general/use_compositing
-# Deepin:
+
+# Deepin (compatible display managers lightdm)
 * sudo mkdir home 
 * sudo pacman -S deepin deepin-extra
 
-# Gnome
+# Gnome(compatible display managers gdm/lightdm)
 
 * sudo pacman -S gnome gnome-extra
 
-# KDE
+# KDE (compatible display managers sddm)
 
 * sudo pacman -S plasma kde-applications
 
-# Cinnamon:
+# Cinnamon (compatible display managers gdm/lightdm):
 
 * sudo pacman -S cinnamon
 
-# MATE
+# MATE (compatible display managers gdm/lightdm)
 
 * sudo pacman -S mate mate-extra
 
-# LXDE
+# LXDE (compatible display managers sddm/lxdm)
 
 * sudo pacman -S lxde
 
-# LXQt
+# LXQt (compatible display managers sddm)
 
 * sudo pacman -S lxqt  breeze-icons
-
 
 # NB!:Removing anything can be done by:
 
 * sudo pacman -Rscn application
 
-# 32. Enable the GUI desktop to start at launch: 
+# 29. Enable the GUI desktop to start at launch via the required display manager: 
 
 # In case lightdm is missing: 
 
@@ -292,7 +265,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * User=test
 * Session=default
 
-# 33. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
+# 30. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
 
 * sudo nano /etc/pacman.conf
 
@@ -301,11 +274,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * [multilib]
 * Include = /etc/pacman.d/mirrorlist
 
-# 34. Update pacman libraries and system:
+# 31. Update pacman libraries and system:
 
 * sudo pacman -Syu
 
-# 35. Install NVIDIA or AMD proprietary drivers and utilities last!:
+# 32. Install NVIDIA or AMD proprietary drivers and utilities last!:
 
 # For Nvidia
 * sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader 
@@ -315,11 +288,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S mesa lib32-mesa mesa-vdpau lib32-mesa-vdpau lib32-vulkan-radeon vulkan-radeon glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader
 * sudo reboot
 
-# 36. Install Steam 
+# 33. Install Steam 
 
 * sudo pacman -S steam
 
-# 37. Install VLC and other stuff
+# 34. Install VLC and other stuff:
 
 * sudo pacman -S vlc
 * sudo pacman -S libreoffice-fresh
@@ -330,24 +303,27 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S wine
 * sudo pacman -S lutris
 
-# 38. Update the whole system using:
+# 35. Update the whole system using:
 
 * sudo pacman -Syu
 
-# 39.(Optional) Clear terminal by using:
+# 36.(Optional) Clear terminal by using:
 
 * clear
-# 40.(Optional) Show system status and other stuff:
-# Mounting drives the easy way:
+# 37.Auto-mounting drives the easy way:
 
 * sudo pacman -S gnome-disk-utility
 
+# Automount using gnomedisk:
+* 1.Edit mount options
+* 2. Add this line: 
+* nosuid,nodev,nofail,x-gvfs-show,auto
 # show system status
 * sudo systemctl status
 
-
-
-That's it you are good for using pure ArchLinux!Enjoy!
+That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced stuff:
+https://wiki.archlinux.org/
+Enjoy!
 
 Thank you!
 
