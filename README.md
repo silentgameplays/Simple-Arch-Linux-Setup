@@ -339,11 +339,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * clear
 # 40.(Optional) Show system status and other stuff:
 # Mounting drives the easy way:
+
 * sudo pacman -S gnome-disk-utility
-# Edit your /etc/fstab file:
-* sudo nano /etc/fstab
-# input the following lines:
-* UUID=(value of sdx2 from lsblk) /dev/sdx2/yourdrivename ext4 defaults 0 0
+
 # show system status
 * sudo systemctl status
 
