@@ -327,6 +327,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S obs-studio
 * sudo pacman -S firefox
 * sudo pacman -S flatpak
+* sudo pacman -S wine
+* sudo pacman -S lutris
 
 # 38. Update the whole system using:
 
@@ -335,33 +337,17 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # 39.(Optional) Clear terminal by using:
 
 * clear
-
 # 40.(Optional) Show system status and other stuff:
 # Mounting drives the easy way:
 * sudo pacman -S gnome-disk-utility
-# Mounting drives via fstab: 
-* sudo mkdir /yourdrivename  (test,backup,myfiles,whatever)
-* sudo mount /dev/sdx2 /yourdrivename
-* lsblk -f (for UUID of sdx2)
 # Edit your /etc/fstab file:
 * sudo nano /etc/fstab
 # input the following lines:
 * UUID=(value of sdx2 from lsblk) /dev/sdx2/yourdrivename ext4 defaults 0 0
 # show system status
 * sudo systemctl status
-# Tip for DOOM 2016 smooth gameplay enable mouse Razer Chroma effect in keyboard and mouse settings
-# The hard way to activate the wired connection using dhcpcd:
-* sudo systemctl enable dhcpcd.service
-* sudo nano /etc/systemd/network/enp0s3.network
-# Be sure that the below lines are entered into the file:
-* [Match]
-* name=en*
-* [Network]
-* DHCP=yes
-* sudo systemctl restart systemd-networkd
-* sudo systemctl enable systemd-networkd
-* sudo reboot
-* ping google.com 
+
+
 
 That's it you are good for using pure ArchLinux!Enjoy!
 
