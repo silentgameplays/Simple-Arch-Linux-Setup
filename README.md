@@ -314,7 +314,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo makepkg -si
 
 # Usage
-* sudo yay -S dxvk-bin
+* yay -S dxvk-bin
 
 # Making Origin games run on lutris properly require the following dependencies:
 * sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt libgcrypt
