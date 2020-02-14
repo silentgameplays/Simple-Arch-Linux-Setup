@@ -301,6 +301,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S firefox
 * sudo pacman -S flatpak
 * sudo pacman -S wine
+* sudo pacman -s wine-gecko
+* sudo pacman -s wine-mono
 * sudo pacman -S lutris
 
 # Installing AUR helper yay
@@ -313,7 +315,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo makepkg -si
 
-# Usage
+# Installing DXVK for DX10/DX11 conversion support:
 * yay -S dxvk-bin
 
 # Making Origin games run on lutris properly require the following dependencies:
