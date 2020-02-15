@@ -308,12 +308,12 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Installing AUR helper yay
 
 * sudo pacman -S git
-
-* sudo git clone https://aur.archlinux.org/yay.git
+# NB no sudo!
+* git clone https://aur.archlinux.org/yay.git
 
 * cd yay
 
-* sudo makepkg -si
+* makepkg -si
 
 # Installing DXVK for DX10/DX11 conversion support:
 * yay -S dxvk-bin
