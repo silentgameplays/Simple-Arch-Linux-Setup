@@ -301,8 +301,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S firefox
 * sudo pacman -S flatpak
 * sudo pacman -S wine
-* sudo pacman -s wine-gecko
-* sudo pacman -s wine-mono
+* sudo pacman -S wine-gecko
+* sudo pacman -S wine-mono
 * sudo pacman -S lutris
 
 # Installing AUR helper yay
