@@ -184,11 +184,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S lxterminal
 
 # 28. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
-# User directories:
-* sudo pacman -S xdg-user-dirs
-* sudo pacman -S xdg-user-dirs-update
-# Xfce (compatible display managers sddm)
 
+# Xfce (compatible display managers sddm)
 * sudo pacman -S xfce4 xfce4-goodies gvfs
 # To make desktop look great
 * pacman -S networkmanager network-manager-applet
@@ -211,6 +208,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S plasma kde-applications
 
+# For missing backends:
+sudo pacman -S packagekit-qt5
+
 # Cinnamon (compatible display managers gdm/lightdm):
 
 * sudo pacman -S cinnamon
@@ -227,9 +227,16 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S lxqt  breeze-icons
 
+# For all DE's after installing create user directories:
+* sudo pacman -S xdg-user-dirs
+* xdg-user-dirs-update
+
 # NB!:Removing anything can be done by:
 
 * sudo pacman -Rscn application
+# Clearing cache
+
+* sudo pacman -Rscc
 
 # 29. Enable the GUI desktop to start at launch via the required display manager: 
 
