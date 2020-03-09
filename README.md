@@ -325,21 +325,34 @@ sudo pacman -S packagekit-qt5
 * makepkg -si
 
 # Installing DXVK for DX10/DX11 conversion support:
+
 * yay -S dxvk-bin
+
 # Installing benchmarking tool phoronix
-yay -S phoronix-test-suite
+
+* yay -S phoronix-test-suite
+
+# Installing gamehub
+
+* yay -S gamehub 
 
 # Making Origin games run on lutris properly require the following dependencies:
 * sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt libgcrypt
+
 # 35. Update the whole system using:
 * sudo pacman -Syu
+
 # 36.(Optional) Clear terminal by using:
+
 * clear
+
 # 37.Auto-mounting drives the easy way:
+
 * sudo pacman -S gnome-disk-utility
+
 # Automount using gnomedisk:
-* 1.Edit mount options
-* 2. Add this line: 
+* Edit mount options
+* Add this line: 
 * nosuid,nodev,nofail,x-gvfs-show,auto
 # show system status
 * sudo systemctl status
