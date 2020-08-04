@@ -357,6 +357,21 @@ sudo pacman -S packagekit-qt5
 # show system status
 * sudo systemctl status
 
+# 38 Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
+* Download a Windows image from MS link below:
+* https://www.microsoft.com/en-us/software-download/windows10
+* Insert USB Drive
+* Launch Disks Utility
+* Select your USB Drive and in the top right=corner click the menu select Format Disk
+* In Partitioning select Compatible with modern systems and hard disks>2TB (GPT)
+* Click Format wait for it to finish 
+* Click Partition>For Use with Windows(NTFS) (in Volume labele type Windows or ESD)
+* Mount the USB and Open it
+* Go to the place where you downloaded Windows 10 ISO and select Open with Disk Image Mounter
+* Open Copy everything from the Windows 10 ISO and paste into your USB Drive,wait for it to finish(takes a while)
+# NB if having trouble with GNOME Disks Utility recognizing the NTFS file format
+* sudo pacman -S ntfs-3g
+
 That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced stuff:
 https://wiki.archlinux.org/
 Enjoy!
