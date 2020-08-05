@@ -98,12 +98,19 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * visudo
 
-# Uncomment the needed settings in sudoers file and add the main user into it:
+# Uncomment the settings in sudo file and add the main user to sudo(your username):
 
-# Lines safe to uncomment :ALL= ALL(ALL) ALL
-
+# Lines to uncomment:
+* sudo=ALL(ALL) ALL
+* ALL=ALL(ALL) ALL
+* wheel=ALL(ALL) ALL
+# Add yourself to the sudoers file under sudo:
+* username=ALL(ALL) ALL
+# Save changes to the sudoers file:
 * :w! + Enter to exit and write changes
 * :q + Enter exit
+# edit sudoers file with nano anytime:
+* sudo nano /etc/sudoers 
 
 # 14.Grub and efi tools installation(very important step!):
 
