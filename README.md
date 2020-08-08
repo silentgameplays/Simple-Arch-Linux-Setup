@@ -48,9 +48,6 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * lsblk
 * ip link
 
-# If you have wi-fi(optional,use cable):
-* wifi-menu
-
 # 5.Installing basic packages and important stuff:
 
 * pacstrap /mnt base base-devel linux linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog network-manager-applet
