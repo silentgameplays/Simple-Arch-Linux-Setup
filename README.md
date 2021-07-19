@@ -360,7 +360,15 @@ sudo pacman -S packagekit-qt5
 * nosuid,nodev,nofail,x-gvfs-show,auto
 # show system status
 * sudo systemctl status
-
+# refresh system databases in case something breaks
+* sudo pacman -Syyuu
+# full system update
+* sudo pacman -Syu
+# proper backup of arch using timeshift with yay
+* yay timeshift 
+* link to AUR https://aur.archlinux.org/packages/timeshift/
+# Cleaning up dependencies and other stuff
+* sudo pacman -Sc
 # 38 Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
 * Download a Windows image from MS link below:
 * https://www.microsoft.com/en-us/software-download/windows10
