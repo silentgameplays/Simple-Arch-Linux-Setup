@@ -392,8 +392,10 @@ sudo pacman -S packagekit-qt5
 * sudo systemctl enable libvirtd.service
 * sudo systemctl start libvirtd.service
 * sudo nano /etc/libvirt/libvirtd.conf 
-* # unix_sock_group = "libvirt"
-* # unix_sock_rw_perms = "0770"
+# Uncomment for usage with your user
+* unix_sock_group = "libvirt"
+* unix_sock_rw_perms = "0770"
+# Run these commands
 * sudo usermod -a -G libvirt $(whoami)
 * sudo systemctl restart libvirtd.service
 # NB if having trouble with GNOME Disks Utility recognizing the NTFS file format
