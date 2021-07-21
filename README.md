@@ -385,6 +385,17 @@ sudo pacman -S packagekit-qt5
 * Mount the USB and Open it
 * Go to the place where you downloaded Windows 10 ISO and select Open with Disk Image Mounter
 * Open Copy everything from the Windows 10 ISO and paste into your USB Drive,wait for it to finish(takes a while)
+# (Optional) Installing KVM
+* LC_ALL=C lscpu | grep Virtualization
+* zgrep CONFIG_KVM /proc/config.gz
+* sudo pacman -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
+* sudo systemctl enable libvirtd.service
+* sudo systemctl start libvirtd.service
+* sudo nano /etc/libvirt/libvirtd.conf 
+* # unix_sock_group = "libvirt"
+* # unix_sock_rw_perms = "0770"
+* sudo usermod -a -G libvirt $(whoami)
+* sudo systemctl restart libvirtd.service
 # NB if having trouble with GNOME Disks Utility recognizing the NTFS file format
 * sudo pacman -S ntfs-3g
 
