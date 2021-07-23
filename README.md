@@ -401,8 +401,22 @@ sudo pacman -S packagekit-qt5
 # NB if having trouble with GNOME Disks Utility recognizing the NTFS file format
 * sudo pacman -S ntfs-3g
 # (optional) Install Nvidia shadowplay for obs on Arch
-* Get nvidia-patch: https://github.com/keylase/nvidia-patch
-* Get obs-nvfbc: https://gitlab.com/fzwoch/obs-nvfbc
+* # Get nvidia-patch: https://github.com/keylase/nvidia-patch
+* Extract and go to the folder
+* Open in terminal
+* sudo ./patch-fbc.sh
+* # Get obs-nvfbc: https://gitlab.com/fzwoch/obs-nvfbc
+* Extract and go to folder
+* Open in terminal 
+* yay -S libgl-dev libobs-dev libsimde-dev meson ninja-build
+* meson build
+* ninja -C build
+* Go back to GUI and copy nvfbc.so
+* Enable hidden files and fodlers
+* Go to /home/user/.config/obs-studio
+* Create the following folders plugins->nvfbc->bin->64bit
+* paste nvfbc.so into 64bit
+* Go to OBS Studio and add the NvFBC Source to your scene
 That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced stuff:
 https://wiki.archlinux.org/
 Enjoy!
