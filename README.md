@@ -417,6 +417,8 @@ sudo pacman -S packagekit-qt5
 * Create the following folders plugins->nvfbc->bin->64bit
 * paste nvfbc.so into 64bit
 * Go to OBS Studio and add the NvFBC Source to your scene
+
+
 That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced stuff:
 https://wiki.archlinux.org/
 Enjoy!
