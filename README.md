@@ -400,7 +400,9 @@ sudo pacman -S packagekit-qt5
 * sudo systemctl restart libvirtd.service
 # NB if having trouble with GNOME Disks Utility recognizing the NTFS file format
 * sudo pacman -S ntfs-3g
-
+# (optional) Install Nvidia shadowplay for obs on Arch
+* Get nvidia-patch: https://github.com/keylase/nvidia-patch
+* Get obs-nvfbc: https://gitlab.com/fzwoch/obs-nvfbc
 That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced stuff:
 https://wiki.archlinux.org/
 Enjoy!
