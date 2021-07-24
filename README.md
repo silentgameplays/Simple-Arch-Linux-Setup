@@ -417,7 +417,14 @@ sudo pacman -S packagekit-qt5
 * Create the following folders plugins->nvfbc->bin->64bit
 * paste nvfbc.so into 64bit
 * Go to OBS Studio and add the NvFBC Source to your scene
-
+# NB! Optional (recommended) disabling kernel and driver updates for more stable experience
+* sudo nano /etc/pacman.conf
+# Uncomment
+* #IgnorePkg =nameofpackage1, nameofpackage2, nameofpackage3
+# It should look like this for kernel and driver and for example firefox:
+* IgnorePkg = linux, nvidia, firefox
+# For kernel only:
+* IgnorePkg = linux
 
 That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced stuff:
 https://wiki.archlinux.org/
