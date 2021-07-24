@@ -420,7 +420,7 @@ sudo pacman -S packagekit-qt5
 # NB! Optional (recommended) disabling kernel and driver updates for more stable experience
 * sudo nano /etc/pacman.conf
 # Uncomment
-* #IgnorePkg =nameofpackage1, nameofpackage2, nameofpackage3
+* #IgnorePkg =
 # It should look like this for kernel and driver and for example firefox:
 * IgnorePkg = linux, nvidia, firefox
 # For kernel only:
