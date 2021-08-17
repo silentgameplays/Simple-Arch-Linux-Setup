@@ -380,9 +380,9 @@ sudo pacman -S packagekit-qt5
 * exit
 # if there are no orphans left:error: argument '-' specified with empty stdin
 # Removing everything but essential packages
-* pacman -D --asdeps $(pacman -Qqe)
+* sudo pacman -D --asdeps $(pacman -Qqe)
 # Change the installation reason to "as explicitly" of only the essential packages, those you do not want to remove, in order to avoid targeting them: 
-* pacman -D --asexplicit base linux linux-firmware
+* sudo pacman -D --asexplicit base linux linux-firmware
 # 38 Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
 * Download a Windows image from MS link below:
 * https://www.microsoft.com/en-us/software-download/windows10
