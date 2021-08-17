@@ -453,8 +453,8 @@ Thank you!
 
 #gimalaji_blake
 #Silent Gameplay
-My YouTube!
-https://www.youtube.com/c/SilentGameplays/
-Small video on how to install ArchLinux with UEFI:
-https://youtu.be/5mNEMWPVcec
-Enjoy!
+* My YouTube!
+* https://www.youtube.com/c/SilentGameplays/
+* Small video on how to install ArchLinux with UEFI:
+* https://youtu.be/5mNEMWPVcec
+* Enjoy!
