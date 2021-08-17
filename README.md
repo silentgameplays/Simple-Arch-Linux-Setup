@@ -209,8 +209,12 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S gnome gnome-extra
 
 # KDE (compatible display managers sddm)
-
+# (Full)
 * sudo pacman -S plasma kde-applications
+# (Essential)
+* sudo pacman -S plasma-meta
+# (Minimalist)
+* sudo pacman -S plasma-desktop
 
 # For missing backends:
 sudo pacman -S packagekit-qt5
@@ -240,7 +244,8 @@ sudo pacman -S packagekit-qt5
 * sudo pacman -Rscn application
 # Clearing cache
 
-* sudo pacman -Rscc
+* sudo pacman -Scc
+* sudo pacman -Sc
 
 # 29. Enable the GUI desktop to start at launch via the required display manager: 
 
@@ -381,6 +386,10 @@ sudo pacman -S packagekit-qt5
 # if there are no orphans left:error: argument '-' specified with empty stdin
 # Removing everything but essential packages
 * sudo pacman -D --asdeps $(pacman -Qqe)
+# This will remove evrything including Desktop Environment and drivers,except for core essential stuff,use as a last resort or if you like tinkering.
+* su
+* pacman -Qtdq | pacman -Rns -
+* exit
 # Change the installation reason to "as explicitly" of only the essential packages, those you do not want to remove, in order to avoid targeting them: 
 * sudo pacman -D --asexplicit base linux linux-firmware
 # 38 Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
@@ -443,3 +452,9 @@ Enjoy!
 Thank you!
 
 #gimalaji_blake
+#Silent Gameplay
+My YouTube!
+https://www.youtube.com/c/SilentGameplays/
+Small video on how to install ArchLinux with UEFI:
+https://youtu.be/5mNEMWPVcec
+Enjoy!
