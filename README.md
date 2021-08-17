@@ -369,10 +369,20 @@ sudo pacman -S packagekit-qt5
 * link to AUR https://aur.archlinux.org/packages/timeshift/
 # Cleaning up dependencies and other stuff
 * sudo pacman -Sc
+* sudo pacman -Scc
 * sudo du -sh ~/.cache/
 * rm -rf ~/.cache/*
 * sudo pacman -Qtdq
 * sudo pacman -Rns $(pacman -Qtdq)
+# Recursively removing orphans when cluttered 
+* su
+* pacman -Qtdq | pacman -Rns -
+* exit
+# if there are no orphans left:error: argument '-' specified with empty stdin
+# Removing everything but essential packages
+* pacman -D --asdeps $(pacman -Qqe)
+# Change the installation reason to "as explicitly" of only the essential packages, those you do not want to remove, in order to avoid targeting them: 
+* pacman -D --asexplicit base linux linux-firmware
 # 38 Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
 * Download a Windows image from MS link below:
 * https://www.microsoft.com/en-us/software-download/windows10
