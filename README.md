@@ -49,8 +49,14 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * ip link
 
 # 5.Installing basic packages and important stuff:
-
-* pacstrap /mnt base base-devel linux linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog network-manager-applet
+# For Non-LTS kernel(rolling)
+* pacstrap /mnt base base-devel linux linux-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog network-manager-applet
+# (Optional)
+# For LTS kernel (Long Term Support)
+* pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog network-manager-applet
+# (Optional)
+# For both Non-LTS and LTS(have both options)
+* pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog network-manager-applet
 
 # 6. Generating fstab file:
 
@@ -298,9 +304,10 @@ sudo pacman -S packagekit-qt5
 
 # 32. Install NVIDIA or AMD proprietary drivers and utilities last!:
 
-# For Nvidia
+# For Nvidia Non-LTS (rolling)
 * sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader 
-
+# For Nvidia LTS(Long Term Support)
+* sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader 
 
 # For AMD
 * sudo pacman -S mesa lib32-mesa mesa-vdpau lib32-mesa-vdpau lib32-vulkan-radeon vulkan-radeon glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader
