@@ -6,6 +6,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * Download image here via torrent or direct link:https://www.archlinux.org/download/
 * Use Rufus http://rufus.ie/ and select GPT and ISO mode for the image
+# (Optional) by default all current Arch installation mediums have a guided installer:
+* python -m archinstall guided
+# Alternative
+* archinstall
 
 # 1.Creating partitions using cfdisk:
 
