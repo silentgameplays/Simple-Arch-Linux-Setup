@@ -191,26 +191,36 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 26. Install alsa audio drivers and utilities:
 
-* sudo pacman -S alsa alsa-utils pulseaudio pulseaudio-alsa 
+* sudo pacman -S alsa alsa-utils pulseaudio pulseaudio-alsa pavucontrol
 
-# 27.(Optional) Install the terminal:
+# 27.(Optional) Install another terminal and firewall:
 
 * sudo pacman -S lxterminal
+* sudo pacman -S ufw
 
 # 28. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
 # Xfce (compatible display managers sddm)
+
 * sudo pacman -S xfce4 xfce4-goodies gvfs
+
 # To make desktop look great
+
+* sudo pacman -S arc-gtk-theme
+# in case you missed it:
 * pacman -S networkmanager network-manager-applet
 * sudo pacman -S pavucontrol
-* sudo pacman -S arc-gtk-theme
-# Disable tearing in videogames
+
+# Disable tearing in videogames on xfce:
+
 * xfconf-query -c xfwm4 -p /general/use_compositing -s false
+
 # Check if compositing is enabled in xfwm4, you can run :
+
 * xfconf-query -c xfwm4 -p /general/use_compositing
 
 # Deepin (compatible display managers lightdm)
+
 * sudo mkdir home 
 * sudo pacman -S deepin deepin-extra
 
@@ -225,9 +235,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S plasma-meta
 # (Minimalist)
 * sudo pacman -S plasma-desktop
+# Or better minimalist and more up to date
+* sudo pacman -S plasma dolphin packagekit-qt5 konsole
 
-# For missing backends:
-sudo pacman -S packagekit-qt5
+# For missing backends on KDE:
+* sudo pacman -S packagekit-qt5
 
 # Cinnamon (compatible display managers gdm/lightdm):
 
@@ -251,7 +263,8 @@ sudo pacman -S packagekit-qt5
 
 # NB!:Removing anything can be done by:
 
-* sudo pacman -Rscn application
+* sudo pacman -Rscn application name
+
 # Clearing cache
 
 * sudo pacman -Scc
@@ -310,6 +323,7 @@ sudo pacman -S packagekit-qt5
 
 # For Nvidia Non-LTS (rolling)
 * sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader 
+
 # For Nvidia LTS(Long Term Support)
 * sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader 
 
@@ -333,10 +347,18 @@ sudo pacman -S packagekit-qt5
 * sudo pacman -S wine-gecko
 * sudo pacman -S wine-mono
 * sudo pacman -S lutris
+* sudo pacman -S openra
+* sudo pacman -S scummvm
+* sudo pacman -S pscx2
+* sudo pacman -S retroarch
+* sudo pacman -S qbittorrent
+* sudo pacman -S shotcut
+* sudo pacman -S libretro
+* sudo pacman -S dosbox
 
 # Installing AUR helper yay
-
 * sudo pacman -S git
+
 # NB no sudo!
 * git clone https://aur.archlinux.org/yay.git
 
@@ -352,18 +374,26 @@ sudo pacman -S packagekit-qt5
 
 * yay -S phoronix-test-suite
 
-# Installing gamehub
+# Installing gamehub,ecwolf,gzdoom,itch,teamviewer,some games (optional)
 
 * yay -S gamehub 
+* yay -S ecwolf
+* yay -S gzdoom
+* yay -S itch
+* yay -S teamviewer
+* yay -S dunelegacy
+* yay -S sdlpop 
 
 # Making Origin games run on lutris properly require the following dependencies:
 * sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt libgcrypt
 
 # 35. Update the whole system using:
 * sudo pacman -Syu
+* sudo pacman -Syyuu
+# (Optional) Check the history of CLI:
+* history
 
 # 36.(Optional) Clear terminal by using:
-
 * clear
 
 # 37.Auto-mounting drives the easy way:
@@ -383,13 +413,16 @@ sudo pacman -S packagekit-qt5
 # (Optional) backup of arch using timeshift with yay
 * yay timeshift 
 * link to AUR https://aur.archlinux.org/packages/timeshift/
-# Cleaning up dependencies and other stuff
+# Cleaning up dependencies,cache and other stuff
+
 * sudo pacman -Sc
 * sudo pacman -Scc
 * sudo du -sh ~/.cache/
 * rm -rf ~/.cache/*
 * sudo pacman -Qtdq
 * sudo pacman -Rns $(pacman -Qtdq)
+* yay -Scc
+
 # Recursively removing orphans when cluttered 
 * su
 * pacman -Qtdq | pacman -Rns -
@@ -398,11 +431,9 @@ sudo pacman -S packagekit-qt5
 # Removing everything but essential packages
 * sudo pacman -D --asdeps $(pacman -Qqe)
 # This will remove evrything including Desktop Environment and drivers,except for core essential stuff,use as a last resort or if you like tinkering.
-* su
-* pacman -Qtdq | pacman -Rns -
-* exit
 # Change the installation reason to "as explicitly" of only the essential packages, those you do not want to remove, in order to avoid targeting them: 
 * sudo pacman -D --asexplicit base linux linux-firmware
+
 # 38 Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
 * Download a Windows image from MS link below:
 * https://www.microsoft.com/en-us/software-download/windows10
@@ -415,19 +446,23 @@ sudo pacman -S packagekit-qt5
 * Mount the USB and Open it
 * Go to the place where you downloaded Windows 10 ISO and select Open with Disk Image Mounter
 * Open Copy everything from the Windows 10 ISO and paste into your USB Drive,wait for it to finish(takes a while)
-# (Optional) Installing KVM
+
+# (Optional) Installing KVM an QEMU
 * LC_ALL=C lscpu | grep Virtualization
 * zgrep CONFIG_KVM /proc/config.gz
 * sudo pacman -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
 * sudo systemctl enable libvirtd.service
 * sudo systemctl start libvirtd.service
 * sudo nano /etc/libvirt/libvirtd.conf 
+
 # Uncomment for usage with your user
 * unix_sock_group = "libvirt"
 * unix_sock_rw_perms = "0770"
+
 # Run these commands
 * sudo usermod -a -G libvirt $(whoami)
 * sudo systemctl restart libvirtd.service
+
 # NB if having trouble with GNOME Disks Utility recognizing the NTFS file format
 * sudo pacman -S ntfs-3g
 # (optional) Install Nvidia shadowplay for obs on Arch
@@ -458,6 +493,10 @@ sudo pacman -S packagekit-qt5
 
 That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced stuff:
 https://wiki.archlinux.org/
+and don't forget to install and use 
+* sudo pacman -S man
+$ man <your command here>
+example man pacman
 Enjoy!
 
 Thank you!
