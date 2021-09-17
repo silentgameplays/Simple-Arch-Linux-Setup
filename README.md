@@ -382,6 +382,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * yay -S gzdoom
 * yay -S itch
 * yay -S teamviewer
+* sudo systemctl enable teamviewerd.service
+* sudo systemctl start teamviewerd.service
 * yay -S dunelegacy
 * yay -S sdlpop 
 
