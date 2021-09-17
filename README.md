@@ -500,6 +500,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * IgnorePkg = linux, nvidia, firefox
 # For kernel only:
 * IgnorePkg = linux
+# View drivers in use 
+* lspci -v
+* sudo lspci -v
 
 That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced stuff:
 https://wiki.archlinux.org/
