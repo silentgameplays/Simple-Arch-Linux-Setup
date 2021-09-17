@@ -392,7 +392,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S libgcrypt openal 
 * sudo pacman -S lib32-openal gtk3 gtk4 qt6 lib32-fluidsynth fluidsynth
 * sudo pacman -S ark lrzip lzop p7zip unarchiver unrar 
-* sudo pacman -S gvfs-mtp gvfs-gphoto neofetch spectacle
+* sudo pacman -S gvfs-mtp neofetch spectacle
 * sudo pacman -S gimp shotcut obs-studio
 
 # 35. Update the whole system using:
