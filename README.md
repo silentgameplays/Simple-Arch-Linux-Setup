@@ -387,8 +387,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # Install a bunch of dependencies to make life sort of easier(optional):
 * sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt libgcrypt
-* sudo pacman -S lib32-sdl lib32-sdl2 lib32-sdl_mixer lib32-sdlttf sdl2 sdl_gfx sdl2_image sdl2_mixer sdl2_net sdl2_ttf sdl_ttf ssmpeg mpg123 lib32-mpg123 lib32- 
-* sudo pacman -S sdl_net lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt 
+* sudo pacman -S -S lib32-sdl lib32-sdl2 lib32-sdl_mixer lib32-sdl_ttf sdl2 sdl_gfx sdl2_image sdl2_mixer sdl2_net sdl2_ttf sdl_ttf mpg123 lib32-mpg123
+* sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt 
 * sudo pacman -S libgcrypt openal 
 * sudo pacman -S lib32-openal gtk3 gtk4 qt6 lib32-fluidsynth fluidsynth
 * sudo pacman -S ark lrzip lzop p7zip unarchiver unrar 
