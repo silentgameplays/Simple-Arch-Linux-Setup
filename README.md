@@ -509,7 +509,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Full blown automated ArchLinux + KDE installation + dependencies and optional packages ###
 # After booting into arch.iso launch
  * archinstall
-# The script installation is pretty straightforward,use ext4 for main partition volume,add your main user to the sudoers file when asked,use systemd for boot(grub does not work with proprietary drivers when using this script)  for the sound driver select pipewire instead of pulseaudio and some optional packages firefox,libreoffice-fresh,chromium,vlc,git
+# This script installation is pretty straightforward,use ext4 for main partition volume,add your main user to the sudoers file when asked,use systemd for boot(grub does not work with proprietary drivers when using this script) for the sound driver select pipewire instead of pulseaudio and some optional packages firefox,libreoffice-fresh,chromium,vlc,git
 # Configure the 32bit support in pacman.conf file
 * sudo nano /etc/pacman.conf
 # Uncomment these lines:
@@ -562,9 +562,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * yay -S gzdoom
  * yay -S freedm
  
- # Optional install spectacle for screenshots and neofetch and man pages support
- 
- * sudo pacman -S spectacle neofetch man
+ # Optional install spectacle for screenshots and neofetch and man pages support and flatpak
+  
+ * sudo pacman -S spectacle neofetch flatpak man
  
  # More dependencies:
  
@@ -573,8 +573,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * sudo pacman -Syyuu
  # Steam and lutris
  * sudo pacman -S steam lutris
- # Gnome multi-writer toolmuseful for creating usb sticks with os installs
- * sudo pacman -S gnome-multi-writer
+ # Gnome multi-writer tool, useful for creating usb sticks with OS installs and gnome-boxes:
+  * sudo pacman -S gnome-multi-writer
+  * sudo pacman -S gnome-boxes
  # Optional install itch and teamviewer:
  
  * yay -S itch teamviewer
@@ -609,6 +610,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * sudo pacman -S gst-plugin-pipewire pipewire-jack libpipewire02 lib32-pipewire-jack lib32-pipewire pipewire-pulse pipewire-zeroconf
  * sudo pacman -S easyeffects zam-plugins mda.lv2 lv2-host vst-host vst3-host ladspa-host
  * sudo pacman -S kmplayer
+
 # Ok we are done,update,clean the cache and orphan packages:
 * sudo pacman -Syyuu
 * sudo du -sh ~/.cache/
