@@ -2,15 +2,15 @@
 
 ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,flatpak it's a process,but the results are worth it.You will get a fully customizable system where you can make everything work exactly how you want it,sky is the limit!
 
-# 0. Downloading the installation image and creating a bootable device using rufus:
+# 0. Downloading the installation image and creating a bootable device using rufus or gnome-multi-writer utility:
 
 * Download image here via torrent or direct link:https://www.archlinux.org/download/
 * Use Rufus http://rufus.ie/ and select GPT and ISO mode for the image
-# (Optional) by default all current Arch installation mediums have a guided installer:
-* python -m archinstall guided
-# Alternative
+* On Linux use gnome-multi-writer utility 
+# By default all current Arch installation mediums have a guided installer:
 * archinstall
-
+# Alternative
+* python -m archinstall guided
 # 1.Creating partitions using cfdisk:
 
 # Run this command and delete everything,from free space create the following:
@@ -318,6 +318,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # 31. Update pacman libraries and system:
 
 * sudo pacman -Syu
+* sudo pacman -Syyuu
 
 # 32. Install NVIDIA or AMD proprietary drivers and utilities last!:
 
