@@ -34,7 +34,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * mkfs.fat -F32 /dev/sdx1
 
-# For the swap /dev/sdx2 use the following commands:
+# (Optional) For the swap /dev/sdx2 use the following commands:
 
 *  mkswap /dev/sdX2
 *  swapon /dev/sdX2
