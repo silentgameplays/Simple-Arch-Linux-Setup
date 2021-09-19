@@ -521,15 +521,20 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader opencl-nvidia libvdpau vkd3d lib32-vkd3d lib32-libva-vdpau-driver
 # Install a bunch of dependencies
 * sudo pacman -S opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver
-# reboot for changes to take effect,use the X11 don't use Wayland under KDE,especially for NVIDIA cards!:
+# reboot for changes to take effect,use the X11 don't use Wayland under KDE or any other DE,especially for NVIDIA cards!:
 * sudo reboot
-# Back to the terminal to install a bunch of dependencies:
+# Back to the terminal to install a bunch of pacakges and dependencies:
+
 * sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt libgcrypt lib32-sdl lib32-sdl2 lib32-sdl_mixer lib32-sdl_ttf sdl2 sdl_gfx sdl2_image sdl2_mixer sdl2_net sdl2_ttf sdl_ttf mpg123 lib32-mpg123 lib32-libpulse lib32-jack
+
 * sudo pacman -S lib32-fluidsynth fluidsynth lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt
+
 * sudo pacman -S openal lib32-openal gtk3 gtk4 qt6  gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-nfs clang freetds postgresql-libs unixodbc libfbclient mariadb-libs  gvfs-goa ark lrzip lzop p7zip unarchiver unrar gvfs-mtp neofetch spectacle go xdotool w3m libcaca jp2a chafa feh libheif djvulibre  imagemagick-doc libraw libxml2  ocl-icd openexr librsvg lirc aalib libgoom2  libnfs libkate projectm 
+
 # Optional installation of software in case you missed some: 
 * sudo pacman -S obs-studio vlc qbittorrent gnome-disk-utility gnome-multi-writer
-# Another bunch of dependencies:
+
+# Another bunch of packages-dependencies:
 * sudo pacman -S libdvdcss qt5-webkit lua52-socket libtiger ttf-dejavu zvbi libgme twolame libdc1394 libavc1394 libdvdcss lirc aalib libgoom2  libnfs libkate projectm exfat-utils dosfstools ntfs-3g  jfsutils flatpak lib32-opencl-nvidia opencl-nvidia libvdpau git xdg-utils gvfs-gphoto2 gphoto2 gvfs-nfs lib32-libiec61883 xvidcore lib32-libxvmc libxvmc ffmpeg ffmpegthumbs gst-libav xdg-desktop-portal-kde xdg-user-dirs
 * sudo pacman -S lib32-libxxf86vm libxxf86vm gst-plugins-good gst-plugins-bad
 * sudo pacman -S transcode libquicktime smpeg faac sndio
@@ -537,7 +542,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S libnma openresolv
 * sudo pacman -S python-opengl qt5-webkit qt5-xmlpatterns qt5-websockets  qt5-remoteobjects qt5-serialport python-pyqt5 bash-completion
 * sudo pacman -S  qt5-quick3d python-dbus python-gobject ufw gufw libnma libnm lib32-libnm libvoikko nuspell aspell lib32-giflib lib32-libxinerama  lib32-libxslt sane cups samba dosbox scummvm colord perl-term-readkey perl-tk  logrotate ipp-usb tk vtk ladspa-host vamp-host vamp-plugin-sdk libao sdl_image opencv rtaudio rubberband sox mono lua r tcl ocaml  gnome-desktop swh-plugins opencv t1utils dialog gcc-fortran tcl ttf-liberation
-# Install wine and some more dependencies:
+# Install wine and some more packages-dependencies:
 * sudo pacman -S wine wine-mono wine-gecko
 * sudo pacman -S lib32-v4l-utils lib32-libxcomposite lib32-opencl-icd-loader lib32-gst-plugins-base-libs
 * sudo pacman -Syyuu
