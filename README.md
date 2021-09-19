@@ -496,12 +496,14 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo nano /etc/pacman.conf
 # Uncomment
 * #IgnorePkg =
+* #IgnoreGroup = 
 # It should look like this for kernel and driver and for example firefox:
-* IgnorePkg = linux, nvidia, firefox
+* IgnorePkg = linux nvidia firefox
+* IgnoreGroup = linux nvidia firefox
 # For kernel only:
 
 * IgnorePkg = linux
-
+* IgnoreGroup = linux
 # View drivers in use 
 
 * lspci -v
