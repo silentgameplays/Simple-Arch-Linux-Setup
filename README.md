@@ -551,6 +551,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S lib32-fluidsynth fluidsynth lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt
 
 * sudo pacman -S openal lib32-openal gtk3 gtk4 qt6  gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-nfs clang freetds postgresql-libs unixodbc libfbclient mariadb-libs  gvfs-goa ark lrzip lzop p7zip unarchiver unrar gvfs-mtp neofetch spectacle go xdotool w3m libcaca jp2a chafa feh libheif djvulibre  imagemagick-doc libraw libxml2  ocl-icd openexr librsvg lirc aalib libgoom2  libnfs libkate projectm
+* sudo pacman -S gst-python gst-plugins-base gst-plugins-bad-libs gst-plugins-bad gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs gstreamermm phonon-qt5-gstreamer qt-gstreamer 
 
 # 8.Optional installation of software in case you missed some:
 
