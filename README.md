@@ -617,7 +617,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
  * yay -S freedm
 
-# 15. (Optional) Install spectacle for screenshots and neofetch to have "I use arch btw" in your CLI for screenshots and reddit,aslo man pages support and flatpak
+# 15. (Optional) Install spectacle for screenshots and neofetch to have "I use arch btw" in your CLI for screenshots and reddit,also man pages support to actually lear some stuff about what you install and flatpak for a wide variety of software,most of wich you can fing in AUR.
 
  * sudo pacman -S spectacle neofetch flatpak man
 
