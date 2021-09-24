@@ -686,6 +686,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * sudo pacman -S easyeffects zam-plugins mda.lv2 lv2-host vst-host vst3-host ladspa-host
 
  * sudo pacman -S kmplayer
+ 
+ * sudo pacman -S gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 # 22.Ok we are done,update,clean the cache and orphan packages,so that your system does not get cluttered:
 
