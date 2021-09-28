@@ -679,7 +679,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
  * sudo pacman -S lib32-wayland libaio x264 xvidcore lib32-libxvmc libxvmc ffms2 ffnvcodec-headers ffnvcodec-headers8.1 kmplayer opera-ffmpeg-codecs vivaldi-ffmpeg-codecs qtav avisynthplus vapoursynth mplayer
 
- * sudo pacman -S wavpack celt libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav xine libxinerama xine-lib libdbdnav lib32-libxinerama vcdimager aubio python-aubio gtkmm libev libltc libuv
+ * sudo pacman -S wavpack celt libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav xine libxinerama xine-lib libdvdnav lib32-libxinerama vcdimager aubio python-aubio gtkmm libev libltc libuv xine-lib xine-ui
+
 
  * sudo pacman -S gst-plugin-pipewire pipewire-jack libpipewire02 lib32-pipewire-jack lib32-pipewire pipewire-pulse pipewire-zeroconf
 
