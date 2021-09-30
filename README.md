@@ -376,7 +376,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * yay -S phoronix-test-suite
 
-# Installing gamehub,ecwolf,gzdoom,itch,teamviewer,some games (optional)
+# Installing gamehub,ecwolf,gzdoom,itch,ventoy,teamviewer,some games (optional)
 
 * yay -S gamehub 
 * yay -S ecwolf
@@ -387,6 +387,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo systemctl start teamviewerd.service
 * yay -S dunelegacy
 * yay -S sdlpop 
+* yay -S ventoy
 
 # Install a bunch of dependencies to make life sort of easier(optional):
 * sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt libgcrypt
@@ -679,14 +680,14 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
  * sudo pacman -S lib32-wayland libaio x264 xvidcore lib32-libxvmc libxvmc ffms2 ffnvcodec-headers ffnvcodec-headers8.1 kmplayer opera-ffmpeg-codecs vivaldi-ffmpeg-codecs qtav avisynthplus vapoursynth mplayer
 
- * sudo pacman -S wavpack celt libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav xine libxinerama xine-lib libdvdnav lib32-libxinerama vcdimager aubio python-aubio gtkmm libev libltc libuv xine-lib xine-ui
+ * sudo pacman -S wavpack celt libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav libdvdnav lib32-libxinerama vcdimager aubio python-aubio gtkmm libev libltc libuv xine-lib xine-ui 
 
 
  * sudo pacman -S gst-plugin-pipewire pipewire-jack libpipewire02 lib32-pipewire-jack lib32-pipewire pipewire-pulse pipewire-zeroconf
 
  * sudo pacman -S easyeffects zam-plugins mda.lv2 lv2-host vst-host vst3-host ladspa-host
 
- * sudo pacman -S kmplayer
+ * sudo pacman -S kmplayer mpv
  
  * sudo pacman -S gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
  
