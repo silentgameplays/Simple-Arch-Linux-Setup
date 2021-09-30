@@ -585,7 +585,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 11. ASP.NET/DOTNET libraries for Windows games and more C++ support,required by a bunch of API's:
 
-* sudo pacman -S aspnet-runtime aspnet-runtime-3.1 dotnet-sdk dotnet-runtime-3.1 dotnet-sdk-3.1 dotnet-runtime gcc-libs grilo
+* sudo pacman -S aspnet-runtime aspnet-runtime-3.1 dotnet-sdk dotnet-runtime-3.1 dotnet-sdk-3.1 dotnet-runtime gcc-libs grilo dotnet-host dotnet-targeting-pack-3.1 dotnet-targeting-pack aspnet-targeting-pack aspnet-targeting-pack-3.1
 
 * sudo pacman -S grilo-plugins
 
