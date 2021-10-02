@@ -442,9 +442,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # if there are no orphans left:error: argument '-' specified with empty stdin
 # Removing everything but essential packages
 * sudo pacman -D --asdeps $(pacman -Qqe)
-# This will remove evrything including Desktop Environment and drivers,except for core essential stuff,use as a last resort or if you like tinkering.
+# This command will remove everything,including Desktop Environment and drivers,except for core essential stuff,use as a last resort or if you like tinkering for many hours with your system or just want to do a clean install aggain using TTY.
 # Change the installation reason to "as explicitly" of only the essential packages, those you do not want to remove, in order to avoid targeting them: 
 * sudo pacman -D --asexplicit base linux linux-firmware
+# Removes stuff before using via terminal use "man rm" not to break anything
+* sudo pacman rm -rf./(name of directory or file) 
 
 # 38 Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
 * Download a Windows image from MS link below:
