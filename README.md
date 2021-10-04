@@ -20,7 +20,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # NB!The size of the EFI must be 512MB and type should be EFI
 
-# Swap patition size can be around 3-10GB 
+# (Optional) Swap patition size can be around 3-10GB 
 
 * /dev/sdx2 8-10GB swap
 
