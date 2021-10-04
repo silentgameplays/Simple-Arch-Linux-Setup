@@ -113,6 +113,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * wheel=ALL(ALL) ALL
 # Add yourself to the sudoers file under sudo:
 * username=ALL(ALL) ALL
+# More secure way by adding a new line under,without touching anything else:
+* @includedir /etc/sudoers.d
+* username=ALL(ALL) ALL
 # Save changes to the sudoers file:
 * :w! + Enter to exit and write changes
 * :q + Enter exit
