@@ -736,6 +736,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S	cutefish-icons
 * sudo pacamn -S arc-icon-theme
 * sudo pacman -S gnome-icon-theme
+* sudo pacman -S deepin-icon-theme
 
 # That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced stuff:
 https://wiki.archlinux.org/
