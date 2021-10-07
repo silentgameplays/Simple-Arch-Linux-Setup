@@ -144,7 +144,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * mkdir /boot/efi/EFI/BOOT
 * cp /boot/efi/EFI/GRUB/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
 
-# 19.Creating and editing the efi boot file so that system becomes bootable:
+# 19.(Optional) Creating and editing the efi boot file customization:
 
 * nano /boot/efi/startup.nsh
 
@@ -360,7 +360,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S libretro
 * sudo pacman -S dosbox
 * sudo pacman -S gnome-multi-writer
-
+* sudo pacman -S papirus-icon-theme
 # Installing AUR helper yay
 * sudo pacman -S git
 
@@ -523,7 +523,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
  * archinstall
 
-# 2.This script installation is pretty straightforward,use ext4 for main partition volume,add your main user to the sudoers file when asked,use systemd for boot (grub does not work with proprietary drivers when using archinstall script) for the sound driver select pipewire instead of pulseaudio and some optional packages firefox,libreoffice-fresh,chromium,vlc,git
+# 2.This script installation is pretty straightforward,use ext4 for main partition volume/dev/sda,add your main user to the sudoers file when asked,use systemd for boot (grub does not work with proprietary drivers when using archinstall script) for the sound driver select pipewire instead of pulseaudio and some optional packages firefox,libreoffice-fresh,chromium,vlc,git
 
 # 3. Configure the 32bit support in pacman.conf file
 
@@ -730,7 +730,12 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * history
 
 * sudo history
-
+# Optional install icon themes if you want:
+* sudo pacman -S papirus-icon-theme
+* sudo pacman -S budgie-desktop-view
+* sudo pacman -S	cutefish-icons
+* sudo pacamn -S arc-icon-theme
+* sudo pacman -S gnome-icon-theme
 
 # That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced stuff:
 https://wiki.archlinux.org/
@@ -740,12 +745,10 @@ and don't forget to install and use
 ### Example: man pacman ##
 Enjoy!
 Thank you!
-#gimalaji_blake
-#Silent Gameplay
+#SilentGameplayZZ
 * My YouTube!
-* https://www.youtube.com/c/SilentGameplays/
+* https://www.youtube.com/c/SilentGameplayZZ/
 * Small video on how to manually install ArchLinux with UEFI:
-* https://youtu.be/5mNEMWPVcec
 * Enjoy!
 
 
