@@ -738,18 +738,21 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S gnome-icon-theme
 * sudo pacman -S deepin-icon-theme
 
-# That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced stuff:
+# That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced commands and packages:
 https://wiki.archlinux.org/
-and don't forget to install and use
+# and don't forget to install and use
 * sudo pacman -S man
-* man <your command here>
-### Example: man pacman ##
+* man (your command here)
+# Example: man pacman
 Enjoy!
 Thank you!
-#SilentGameplayZZ
-* My YouTube!
+# SilentGameplayZZ Youtube channel:
 * https://www.youtube.com/c/SilentGameplayZZ/
-* Small video on how to manually install ArchLinux with UEFI:
+# Videos on how to install Archlinux manually and automatically:
+# Manual Archlinux install:
+* https://youtu.be/a9LDS1aLxBQ
+# Automated Archlinux install:
+* https://youtu.be/4_ZpKZLNEb8
 * Enjoy!
 
 
