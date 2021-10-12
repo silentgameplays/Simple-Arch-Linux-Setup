@@ -623,6 +623,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * yay -S gzdoom
 
  * yay -S freedm
+# Optional instead of regular Wine Glourious Eggroll versions of Proton and Wine:
+ 
+ * yay -S proton-ge-custom-bin
+ 
+ * yay -S wine-ge-custom
 
 # 15. (Optional) Install spectacle for screenshots and neofetch to have "I use arch btw" in your CLI for screenshots and reddit,also man pages support to actually lear some stuff about what you install and flatpak for a wide variety of software,most of wich you can fing in AUR.
 
