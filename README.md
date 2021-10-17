@@ -379,9 +379,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * yay -S phoronix-test-suite
 
-# Installing gamehub,ecwolf,gzdoom,itch,ventoy,teamviewer,some games (optional)
+# Installing ecwolf,gzdoom,itch,ventoy,teamviewer,some games (optional)
 
-* yay -S gamehub 
 * yay -S ecwolf
 * yay -S gzdoom
 * yay -S itch
@@ -391,6 +390,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * yay -S dunelegacy
 * yay -S sdlpop 
 * yay -S ventoy
+* sudo pacman -S 0ad
+* sudo pacman -S xonotic
+* sudo pacman -S wesnoth
 
 # Install a bunch of dependencies to make life sort of easier(optional):
 * sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt libgcrypt
@@ -614,15 +616,33 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S alsa pavucontrol pipewire-alsa pipewire-jack alsa-utils alsa-card-profiles lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins alsa-plugins alsa-lib gdal wavpack celt libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav libvncserver python-beautifulsoup4 python-cssselect python-html5lib python-lxml-docs python-genshi libx11 lib32-libx11
 
-# 14.(Optional) Install OpenMorrowind,ecwolf and gzdoom with sdlpop if you wish
+# 14.(Optional) Install OpenMorrowind,ecwolf and gzdoom with sdlpop and other suggested stuff if you wish:
 
- * sudo pacman -S openmw
+* sudo pacman -S openmw
+* yay -S ecwolf
+* yay -S gzdoom
+* yay -S itch
+* yay -S teamviewer
+* sudo systemctl enable teamviewerd.service
+* sudo systemctl start teamviewerd.service
+* yay -S dunelegacy
+* yay -S sdlpop 
+* yay -S ventoy
+* sudo pacman -S 0ad
+* sudo pacman -S xonotic
+* sudo pacman -S wesnoth
+* yay -S freedm
+* sudo pacman -S openra
+* sudo pacman -S freeciv
+* sudo pacman -S retroarch libretro
+* sudo pacman -S dwarffortress
+* sudo pacman -S kdenlive
+* sudo pacman -S shotcut
+* yay -s brave-bin
+* flatpak install flathub com.moddb.TotalChaos
+* yay -S opensurge
+* yay -S commander-genius-git
 
- * yay -S ecwolf sdlpop
-
- * yay -S gzdoom
-
- * yay -S freedm
 # (Optional) instead of regular Wine Glourious Eggroll versions of Proton and Wine:
  
  * yay -S proton-ge-custom-bin
