@@ -482,6 +482,28 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo usermod -a -G libvirt $(whoami)
 * sudo systemctl restart libvirtd.service
 
+# (Optional)For GPU passthrough enable IOMMU in GRUB or Systemd-boot:
+* For systemd-boot edit /boot/loader/entries/arch.conf and add intel_iommu=on OR amd_iommu=on, and iommu=pt.
+# For AMD CPUs
+* options root=/dev/sda2 amd_iommu=on iommu=pt
+---------------------------------------------
+# For Intel CPUs
+* options root=/dev/sda2 intel_iommu=on iommu=pt
+
+# grub
+* For grub edit /etc/default/grub and append your kernel options, intel_iommu=on OR amd_iommu=on and iommu=pt, to the GRUB_CMDLINE_LINUX_DEFAULT.
+# For AMD CPUs
+* GRUB_CMDLINE_LINUX_DEFAULT="amd_iommu=on iommu=pt"
+---------------------------------------------------
+# For Intel CPUs
+* GRUB_CMDLINE_LINUX_DEFAULT="intel_iommu=on iommu=pt"
+# And then automatically re-generate the grub.cfg file with:
+* sudo grub-mkconfig -o /boot/grub/grub.cfg
+# Check if IOMMU is working
+* dmesg | grep -e DMAR -e IOMMU
+# Download VBIOS
+* nvidia-smi -q | grep "VBIOS Version"
+* https://www.techpowerup.com/vgabios/
 # NB if having trouble with GNOME Disks Utility recognizing the NTFS file format
 * sudo pacman -S ntfs-3g
 # (optional) Install Nvidia shadowplay for obs on Arch
