@@ -483,7 +483,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo systemctl restart libvirtd.service
 
 # (Optional)For GPU passthrough enable IOMMU in GRUB or Systemd-boot:
-* For systemd-boot edit /boot/loader/entries/arch.conf and add intel_iommu=on OR amd_iommu=on, and iommu=pt.
+* For systemd-boot edit /boot/loader/loader.conf and add intel_iommu=on OR amd_iommu=on, and iommu=pt.
 # For AMD CPUs
 * options root=/dev/sda2 amd_iommu=on iommu=pt
 ---------------------------------------------
