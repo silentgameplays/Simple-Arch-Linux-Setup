@@ -108,10 +108,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Uncomment the settings in sudo file and add the main user to sudo(your username):
 
 # Lines to uncomment:
-* sudo=ALL(ALL) ALL
-* ALL=ALL(ALL) ALL
-* wheel=ALL(ALL) ALL
-# (Optional) Add yourself to the sudoers file under root:
+* sudo=ALL(ALL) ALL 
+# (Optional) Add yourself to the sudoers file under root(not recommended):
+* username=ALL(ALL) ALL
+# (Optional) Add yourself to sudoers file under sudo (safer option):
+* sudo=ALL(ALL) ALL 
 * username=ALL(ALL) ALL
 # More secure way by uncommenting the following lines,without touching anything else:
 * Defaults targetpw
@@ -489,7 +490,6 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 ---------------------------------------------
 # For Intel CPUs
 * options root=/dev/sda2 intel_iommu=on iommu=pt
-
 # grub
 * For grub edit /etc/default/grub and append your kernel options, intel_iommu=on OR amd_iommu=on and iommu=pt, to the GRUB_CMDLINE_LINUX_DEFAULT.
 # For AMD CPUs
@@ -501,8 +501,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo grub-mkconfig -o /boot/grub/grub.cfg
 # Check if IOMMU is working
 * dmesg | grep -e DMAR -e IOMMU
-# Download VBIOS
+# Check NVIDIA version: 
 * nvidia-smi -q | grep "VBIOS Version"
+# Donwlaod VBIOS and check other more complex tutorials on further steps,this is not recommended,it can cause issues,not all VBIOSES are supported,etc.
 * https://www.techpowerup.com/vgabios/
 # NB if having trouble with GNOME Disks Utility recognizing the NTFS file format
 * sudo pacman -S ntfs-3g
