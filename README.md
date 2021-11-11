@@ -571,9 +571,17 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver
 
-# Reboot for changes to take effect,use the X11 don't use Wayland under KDE or any other DE,especially for NVIDIA cards!:
+# Reboot for changes to take effect,use the X11 don't use Wayland under KDE Plasma or any other DE,especially for NVIDIA cards!:
 
 * sudo reboot
+
+# To disable screen tearing in games,login as root:
+
+* In Nvidia Settings set Force Composition Pipeline
+
+# Run this to improve perdormance:
+
+* sudo nvidia-xconfig
 
 # 7. Back to the terminal to install a bunch of pacakges and dependencies for multimedia audio/video decoding/encoding with 32bit support:
 
