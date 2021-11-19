@@ -793,7 +793,13 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacamn -S arc-icon-theme
 * sudo pacman -S gnome-icon-theme
 * sudo pacman -S deepin-icon-theme
-
+# (Optiona) Clear Buff/Cache Memory if the numbers scare you,it is ok,since Linux operates different than Windows 
+* sync; echo 3 | sudo tee /proc/sys/vm/drop_caches 
+# Check how much memory is available,system process checks:
+* free
+* top
+* htop
+* 
 # That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced commands and packages:
 https://wiki.archlinux.org/
 # and don't forget to install and use
