@@ -570,6 +570,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # 6. Install a bunch of packages-dependencies:
 
 * sudo pacman -S opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver
+# Nvidia dkms for LTS/Zen/Stable kernels:
+
+* sudo pamcn -S nvidia-dkms
 
 # Reboot for changes to take effect,use the X11 don't use Wayland under KDE Plasma or any other DE,especially for NVIDIA cards!:
 
@@ -674,11 +677,14 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * yay -S opensurge
 * yay -S commander-genius-git
 
-# (Optional) instead of regular Wine Glourious Eggroll versions of Proton and Wine:
+# (Optional) instead of regular Wine Glourious Eggroll versions of Proton and Wine,optional package for 32bit ffmpeg:
  
  * yay -S proton-ge-custom-bin
  
  * yay -S wine-ge-custom
+ 
+ * yay -S lib32-ffmpeg
+  
 
 # 15. (Optional) Install spectacle for screenshots and neofetch to have "I use arch btw" in your CLI for screenshots and reddit,also man pages support to actually lear some stuff about what you install and flatpak for a wide variety of software,most of wich you can fing in AUR.
 
