@@ -644,7 +644,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 13. More packages-dependencies for audio/video multimedia encoding/decoding and dxvk(DirectX to Vulkan API for Windows games)
 
-* sudo pacman -S mingw-w64 glslang
+* sudo pacman -S mingw-w64 glslang lib32-libvorbis
 
 * yay -S dxvk
 
