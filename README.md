@@ -742,9 +742,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
  * sudo pacman -S libcurl-gnutls curl libcurl-compat mingw-w64 gvfs-smb perl-getopt-argvfile gvfs-afc lib32-faudio lib32-expat lib32-at-spi2-atk lib32-fluidsynth lib32-glew glew lib32-glu lib32-gst-plugins-base-libs lib32-libjpeg-turbo lib32-mpg123 lib32-ocl-icd lib32-opus lib32-orc lib32-smpeg
 
- * sudo pacman -S lib32-wayland libaio x264 xvidcore lib32-libxvmc libxvmc ffms2 ffnvcodec-headers ffnvcodec-headers8.1 kmplayer opera-ffmpeg-codecs vivaldi-ffmpeg-codecs qtav avisynthplus vapoursynth mplayer
+ * sudo pacman -S lib32-wayland libaio x264 xvidcore lib32-libxvmc libxvmc ffms2 ffnvcodec-headers ffnvcodec-headers8.1 opera-ffmpeg-codecs vivaldi-ffmpeg-codecs qtav avisynthplus vapoursynth 
 
- * sudo pacman -S wavpack celt libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav libdvdnav lib32-libxinerama vcdimager aubio python-aubio gtkmm libev libltc libuv xine-lib xine-ui 
+ * sudo pacman -S wavpack celt libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav libdvdnav lib32-libxinerama vcdimager aubio python-aubio gtkmm libev libltc libuv xine-lib 
 
 
  * sudo pacman -S gst-plugin-pipewire pipewire-jack libpipewire02 lib32-pipewire-jack lib32-pipewire pipewire-pulse pipewire-zeroconf
@@ -755,7 +755,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  
  * sudo pacman -S gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
  
- * sudo pacman -S  cm256cc celt celt0.5.1 cppcodec speex libfdk-aac lib32-libdv lib32-flac lib32-celt kcodecs flac ffnvcodec-headers8.1 ffnvcodec-headers lib32-libtheora lib32-libvorbis lib32-libvpx lib32-libvpx1.3 lib32-opus lib32-speex libde265 libdv libfdk-aac libfreeaptx libilbc libjpeg-turbo mac mbelib  opera-ffmpeg-codecs opus-tools python-noseofyeti python-latexcodec python-reedsolo speex vivaldi-ffmpeg-codecs schroedinger libtheora  a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2  libvorbis libxv wavpack x264 xvidcore
+ * sudo pacman -S  cm256cc celt celt0.5.1 cppcodec speex libfdk-aac lib32-libdv lib32-flac lib32-celt kcodecs flac ffnvcodec-headers8.1 ffnvcodec-headers lib32-libtheora lib32-libvorbis lib32-libvpx lib32-libvpx1.3 lib32-opus lib32-speex libde265 libdv libfdk-aac libfreeaptx libilbc libjpeg-turbo mac mbelib  opera-ffmpeg-codecs opus-tools python-noseofyeti python-latexcodec python-reedsolo speex vivaldi-ffmpeg-codecs schroedinger libtheora  a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libvorbis libxv x264
  
 
 # 22.Ok we are done,update,clean the cache and orphan packages,so that your system does not get cluttered:
