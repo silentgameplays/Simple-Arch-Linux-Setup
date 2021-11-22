@@ -565,14 +565,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 5.Reinstall NVIDIA driver with proper libraries and dependencies for proper video support:
 
-* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader opencl-nvidia libvdpau vkd3d lib32-vkd3d lib32-libva-vdpau-driver
+* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d lib32-libva-vdpau-driver opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver
 
-# 6. Install a bunch of packages-dependencies:
+# 6. (Optional) Nvidia dkms for Zen/Hardened kernels:
 
-* sudo pacman -S opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver
-# Nvidia dkms for LTS/Zen/Stable kernels:
-
-* sudo pamcn -S nvidia-dkms
+* sudo pacman -S nvidia-dkms
 
 # Reboot for changes to take effect,use the X11 don't use Wayland under KDE Plasma or any other DE,especially for NVIDIA cards!:
 
