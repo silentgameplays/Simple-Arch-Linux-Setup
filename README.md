@@ -798,11 +798,19 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S deepin-icon-theme
 # (Optiona) Clear Buff/Cache Memory if the numbers scare you,it is ok,since Linux operates different than Windows 
 * sync; echo 3 | sudo tee /proc/sys/vm/drop_caches 
-# Check how much memory is available,system process checks:
+# Check how much memory is available,system process checks,temp checks:
 * free
 * top
-* htop
-* 
+* sudo pacman -S htop
+* sudo pacman -S conky
+* sudo pacman -S btop
+* sensors-detect
+* pwmconfig
+* sensors
+* fancontrol
+* sudo sensors 
+* sudo fancontrol
+
 # That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced commands and packages:
 https://wiki.archlinux.org/
 # and don't forget to install and use
