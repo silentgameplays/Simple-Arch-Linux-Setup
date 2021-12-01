@@ -58,9 +58,13 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # (Optional)
 # For LTS kernel (Long Term Support)
 * pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog network-manager-applet
+# Or if you hate networkmanager since it gimps the speed,but still need wifi:
+* pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim dhcpcd iwd iw wpa_supplicant dialog netctl 
 # (Optional)
 # For both Non-LTS and LTS(have both options)
 * pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog network-manager-applet
+# Or if you hate networkmanager since it gimps the speed,but still need wifi:
+* pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware nano vim dhcpcd iwd iw wpa_supplicant dialog netctl 
 
 # 6. Generating fstab file:
 
@@ -327,10 +331,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # 32. Install NVIDIA or AMD proprietary drivers and utilities last!:
 
 # For Nvidia Non-LTS (rolling)
-* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader 
+* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d lib32-libva-vdpau-driver opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver
 
 # For Nvidia LTS(Long Term Support)
-* sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader 
+* sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d lib32-libva-vdpau-driver opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver
+
 
 # For AMD
 * sudo pacman -S mesa lib32-mesa mesa-vdpau lib32-mesa-vdpau lib32-vulkan-radeon vulkan-radeon glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader
