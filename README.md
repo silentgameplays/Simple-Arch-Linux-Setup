@@ -172,8 +172,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo systemctl start NetworkManager.service
 * sudo reboot
 * sudo nmtui
-* # Select the desired wired connection it should be activated by default if not activate it
-* ping google.com
+# Select the desired wired connection it should be activated by default if not activate it
+* ping archlinux.org
 
 # 23.For Wi-Fi(Optional):
 # NB! Don't enable dhcpcd.service!
@@ -185,21 +185,28 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * # Activate the desired Wi-Fi there by entering the password
 * ping google.com 
 
-# 24. Install intel firmware it is important:
+# (Optional) instead of networkmanager enable and start dhcpcd and netctl:
+* sudo systemctl enable netctl.service
+* sudo systemctl start netctl.service
+* sudo systemctl enable dhcpcd.service
+* sudo systemctl start dhcpcd.service
 
+# 24. Install intel firmware it is important:
 * sudo pacman -S intel-ucode
 
 # 25. Install Xorg: 
-
 * sudo pacman -S xorg xorg-server xorg-xinit xorg-apps xterm xorg-xrandr
-
-# Optional for noveau drivers 
+# (Optional) for noveau drivers 
 
 * xf86-video-vesa mesa
 
-# 26. Install alsa audio drivers and utilities:
+# 26. Install alsa/pulseaudio drivers and utilities:
 
 * sudo pacman -S alsa alsa-utils pulseaudio pulseaudio-alsa pavucontrol
+
+# (Optional) Install alsa/pipewire drivers and utilities
+
+* sudo pacman -S alsa alsa-utils pipewire pipewire-alsa pipewire-pulse pavucontrol
 
 # 27.(Optional) Install another terminal and firewall:
 
@@ -215,7 +222,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # To make desktop look great
 
 * sudo pacman -S arc-gtk-theme
-# in case you missed it:
+# in case you missed it/need it:
 * pacman -S networkmanager network-manager-applet
 * sudo pacman -S pavucontrol
 
