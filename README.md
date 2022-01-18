@@ -191,11 +191,14 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo systemctl enable dhcpcd.service
 * sudo systemctl start dhcpcd.service
 
-# 24. Install intel firmware it is important:
+# 24. FOR Intel CPU's install Intel firmware kernel support driver  it is important:
 * sudo pacman -S intel-ucode
+# FOR AMD CPU's install AMD firmware kernel support driver  it is important:
+* sudo pacman -S amd-ucode
 
-# 25. Install Xorg: 
+# 25. Install Xorg(Wayland still works wonky on NVIDIA): 
 * sudo pacman -S xorg xorg-server xorg-xinit xorg-apps xterm xorg-xrandr
+
 # (Optional) for noveau drivers 
 
 * xf86-video-vesa mesa
@@ -244,16 +247,20 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S gnome gnome-extra
 
 # KDE (compatible display managers sddm)
+
 # (Full)
 * sudo pacman -S plasma kde-applications
+
 # (Essential)
 * sudo pacman -S plasma-meta
+
 # (Minimalist)
 * sudo pacman -S plasma-desktop
-# Or better minimalist and more up to date
-* sudo pacman -S plasma dolphin packagekit-qt5 konsole
 
-# For missing backends on KDE:
+# Or better minimalist and more up to date
+* sudo pacman -S plasma dolphin dolphin-utils packagekit-qt5 konsole
+
+# For missing backends on KDE Plasma:
 * sudo pacman -S packagekit-qt5
 
 # Cinnamon (compatible display managers gdm/lightdm):
@@ -374,6 +381,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S dosbox
 * sudo pacman -S gnome-multi-writer
 * sudo pacman -S papirus-icon-theme
+
 # Installing AUR helper yay
 * sudo pacman -S git
 
@@ -453,16 +461,20 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -Rns $(pacman -Qtdq)
 * yay -Scc
 
+
 # Recursively removing orphans when cluttered 
 * su
 * pacman -Qtdq | pacman -Rns -
 * exit
 # if there are no orphans left:error: argument '-' specified with empty stdin
+
 # Removing everything but essential packages
 * sudo pacman -D --asdeps $(pacman -Qqe)
 # This command will remove everything,including Desktop Environment and drivers,except for core essential stuff,use as a last resort or if you like tinkering for many hours with your system or just want to do a clean install aggain using TTY.
+
 # Change the installation reason to "as explicitly" of only the essential packages, those you do not want to remove, in order to avoid targeting them: 
 * sudo pacman -D --asexplicit base linux linux-firmware
+
 # Removes stuff before using via terminal use "man rm" not to break anything
 * sudo pacman rm -rf./(name of directory or file) 
 
@@ -515,10 +527,12 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * dmesg | grep -e DMAR -e IOMMU
 # Check NVIDIA version: 
 * nvidia-smi -q | grep "VBIOS Version"
-# Donwlaod VBIOS and check other more complex tutorials on further steps,this is not recommended,it can cause issues,not all VBIOSES are supported,etc.
+# Download VBIOS and check other more complex tutorials on further steps,this is not recommended,it can cause issues,not all VBIOSES are supported,etc.
 * https://www.techpowerup.com/vgabios/
-# NB if having trouble with GNOME Disks Utility recognizing the NTFS file format
+
+# NB if having trouble with GNOME Disks Utility or any other utility recognizing the NTFS file format
 * sudo pacman -S ntfs-3g
+
 # (optional) Install Nvidia shadowplay for obs on Arch
 * # Get nvidia-patch: https://github.com/keylase/nvidia-patch
 * Extract and go to the folder
@@ -536,18 +550,22 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * Create the following folders plugins->nvfbc->bin->64bit
 * paste nvfbc.so into 64bit
 * Go to OBS Studio and add the NvFBC Source to your scene
+
 # NB! Optional (recommended) disabling kernel and driver updates for more stable experience
 * sudo nano /etc/pacman.conf
+
 # Uncomment
 * #IgnorePkg =
 * #IgnoreGroup = 
+
 # It should look like this for kernel and driver and for example firefox:
 * IgnorePkg = linux nvidia firefox
 * IgnoreGroup = linux nvidia firefox
-# For kernel only:
 
+# For kernel only:
 * IgnorePkg = linux
 * IgnoreGroup = linux
+
 # View drivers in use 
 
 * lspci -v
