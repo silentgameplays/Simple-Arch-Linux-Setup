@@ -112,12 +112,12 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Uncomment the settings in sudo file and add the main user to sudo(your username):
 
 # Lines to uncomment:
-* sudo=ALL(ALL) ALL 
+* sudo=ALL=(ALL:ALL) ALL
 # (Optional) Add yourself to the sudoers file under root(not recommended):
-* username=ALL(ALL) ALL
+* username=ALL=(ALL:ALL) ALL
 # (Optional) Add yourself to sudoers file under sudo (safer option):
-* sudo=ALL(ALL) ALL 
-* username=ALL(ALL) ALL
+* sudo=ALL=(ALL:ALL) ALL
+* username=ALL=(ALL:ALL) ALL
 # More secure way by uncommenting the following lines,without touching anything else:
 * Defaults targetpw
 * ALL=ALL(ALL) ALL
