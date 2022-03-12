@@ -345,10 +345,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # 32. Install NVIDIA or AMD proprietary drivers and utilities last!:
 
 # For Nvidia Non-LTS (rolling)
-* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d lib32-libva-vdpau-driver opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver
+* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d lib32-libva-vdpau-driver opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver vulkan-validation-layers lib32-vulkan-validation-layers 
 
 # For Nvidia LTS(Long Term Support)
-* sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d lib32-libva-vdpau-driver opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver
+* sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d lib32-libva-vdpau-driver opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver vulkan-validation-layers lib32-vulkan-validation-layers 
 
 
 # For AMD
@@ -381,7 +381,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S dosbox
 * sudo pacman -S gnome-multi-writer
 * sudo pacman -S papirus-icon-theme
-
+* sudo pacman -S gamemode lib32-gamemode 
+* 
 # Installing AUR helper yay
 * sudo pacman -S git
 
@@ -595,7 +596,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 5.Reinstall NVIDIA driver with proper libraries and dependencies for proper video support:
 
-* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d lib32-libva-vdpau-driver opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver
+* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d lib32-libva-vdpau-driver opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver vulkan-validation-layers lib32-vulkan-validation-layers 
 
 # 6. (Optional) Nvidia dkms for Zen/Hardened kernels:
 
@@ -733,7 +734,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # 17. Steam and lutris
 
  * sudo pacman -S steam lutris
- * sudo gamemode lib32-gamemode 
+ * sudo pacman -S gamemode lib32-gamemode 
 
 # 18.(Optional) Gnome multi-writer tool, useful for creating usb sticks with OS installs and gnome-boxes for vm's useful GUI for QEMU:
 
