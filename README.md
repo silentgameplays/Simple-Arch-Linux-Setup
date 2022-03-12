@@ -631,7 +631,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S lib32-libxxf86vm libxxf86vm gst-plugins-good gst-plugins-bad
 
-* sudo pacman -S transcode libquicktime smpeg faac sndio
+* sudo pacman -S transcode smpeg faac sndio vulkan-validation-layers lib32-vulkan-validation-layers 
 
 * sudo pacman -S sdl2_image sdl2_net sdl2_ttf sdl2_gfx sdl sdl_net sdl_mixer sdl_sound sdl_gfx sdl_ttf git networkmanager-qt nm-connection-editor
 
@@ -790,7 +790,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  
  * sudo pacman -S gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
  
- * sudo pacman -S  cm256cc celt celt0.5.1 cppcodec speex libfdk-aac lib32-libdv lib32-flac lib32-celt kcodecs flac ffnvcodec-headers8.1 ffnvcodec-headers lib32-libtheora lib32-libvorbis lib32-libvpx lib32-libvpx1.3 lib32-opus lib32-speex libde265 libdv libfdk-aac libfreeaptx libilbc libjpeg-turbo mac mbelib  opera-ffmpeg-codecs opus-tools python-noseofyeti python-latexcodec python-reedsolo speex vivaldi-ffmpeg-codecs schroedinger libtheora  a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libvorbis libxv x264
+ * sudo pacman -S  cm256cc celt cppcodec speex libfdk-aac lib32-libdv lib32-flac lib32-celt kcodecs flac ffnvcodec-headers8.1 ffnvcodec-headers lib32-libtheora lib32-libvorbis lib32-libvpx lib32-libvpx1.3 lib32-opus lib32-speex libde265 libdv libfdk-aac libfreeaptx libilbc libjpeg-turbo mac mbelib  opera-ffmpeg-codecs opus-tools python-noseofyeti python-latexcodec python-reedsolo speex vivaldi-ffmpeg-codecs schroedinger libtheora  a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libvorbis libxv x264
  
 
 # 22.Ok we are done,update,clean the cache and orphan packages,so that your system does not get cluttered:
