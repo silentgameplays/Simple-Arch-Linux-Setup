@@ -427,8 +427,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S gimp shotcut 
 
 # 35. Update the whole system using:
+
 * sudo pacman -Syu
 * sudo pacman -Syyuu
+
 # (Optional) Check the history of CLI:
 * history
 
@@ -464,14 +466,18 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 
 # Recursively removing orphans when cluttered 
+
 * su
 * pacman -Qtdq | pacman -Rns -
 * exit
+
 # if there are no orphans left:error: argument '-' specified with empty stdin
 
 # Removing everything but essential packages
+
 * sudo pacman -D --asdeps $(pacman -Qqe)
-# This command will remove everything,including Desktop Environment and drivers,except for core essential stuff,use as a last resort or if you like tinkering for many hours with your system or just want to do a clean install aggain using TTY.
+
+# NB! This command will remove everything,including Desktop Environment and drivers,except for core essential stuff,use as a last resort or if you like tinkering for many hours with your system or just want to do a clean install aggain using TTY.
 
 # Change the installation reason to "as explicitly" of only the essential packages, those you do not want to remove, in order to avoid targeting them: 
 * sudo pacman -D --asexplicit base linux linux-firmware
@@ -535,11 +541,16 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S ntfs-3g
 
 # (optional) Install Nvidia shadowplay for obs on Arch
-* # Get nvidia-patch: https://github.com/keylase/nvidia-patch
+
+* yay -S nvidia-utils-nvlax
+
+# Get nvidia-patch: https://github.com/keylase/nvidia-patch
+
 * Extract and go to the folder
 * Open in terminal
 * sudo ./patch-fbc.sh
-* # Get obs-nvfbc: https://gitlab.com/fzwoch/obs-nvfbc
+
+# Get obs-nvfbc: https://gitlab.com/fzwoch/obs-nvfbc
 * Extract and go to folder
 * Open in terminal 
 * yay -S libgl-dev libobs-dev libsimde-dev meson ninja-build
@@ -753,8 +764,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * sudo systemctl start teamviewerd.service
 
 # 20.(Optional) Install Nvidia shadowplay for OBS Studio on Arch,so that gaming videos you make don't have tearing and look nice:
-
-* # Get nvidia-patch: https://github.com/keylase/nvidia-patch
+* yay -S nvidia-utils-nvlax
+# Get nvidia-patch: https://github.com/keylase/nvidia-patch
 * Extract and go to the folder
 * Open in terminal
 * sudo ./patch-fbc.sh
@@ -826,6 +837,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * history
 
 * sudo history
+
 # Optional install icon themes if you want:
 * sudo pacman -S papirus-icon-theme
 * sudo pacman -S budgie-desktop-view
@@ -833,8 +845,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacamn -S arc-icon-theme
 * sudo pacman -S gnome-icon-theme
 * sudo pacman -S deepin-icon-theme
+
 # (Optiona) Clear Buff/Cache Memory if the numbers scare you,it is ok,since Linux operates different than Windows 
 * sync; echo 3 | sudo tee /proc/sys/vm/drop_caches 
+
 # Check how much memory is available,system process checks,temp checks:
 * free
 * top
