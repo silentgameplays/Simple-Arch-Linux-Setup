@@ -870,8 +870,8 @@ https://wiki.archlinux.org/
 # Example: man pacman
 Enjoy!
 Thank you!
-# SilentGameplayZZ Youtube channel:
-* https://www.youtube.com/c/SilentGameplayZZ/
+# SilentGamePLS Youtube channel:
+* https://www.youtube.com/c/silentgamepls
 # Videos on how to install Archlinux manually and automatically:
 # Manual Archlinux install:
 * https://youtu.be/a9LDS1aLxBQ
