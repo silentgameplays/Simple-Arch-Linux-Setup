@@ -11,7 +11,21 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * archinstall
 # Alternative
 * python -m archinstall guided
-# 1.Creating partitions using cfdisk:
+
+# Formatting the SSD/HDD properly before installing Arch Linux or any other Linux distribution or operating system:
+* sudo cfdisk /dev/sda 
+* sudo cfdisk /dev/nvme0n1
+* Delete everything you see then Write>>Yes
+# Wipping the partition schemes 
+* sudo wipefs -a /dev/sda
+* sudo wipefs /dev/nvme0n1
+# Deleting everything properly so no forencisc recovery is possible
+* sudo shred -f -v /dev/sda
+* sudo shred -f -v /nvme0n1
+# Also this works but it does not show the process:
+* sudo shred /dev/sda
+* sudo shred /dev/nvme0n1
+# 1.Creating partitions using cfdisk(easiest):
 
 # Run this command and delete everything,from free space create the following:
 
@@ -861,6 +875,19 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * fancontrol
 * sudo sensors 
 * sudo fancontrol
+# Formatting the SSD/HDD properly before installing Arch Linux or any other Linux distribution or operating system:
+* sudo cfdisk /dev/sda 
+* sudo cfdisk /dev/nvme0n1
+* Delete everything you see then Write>>Yes
+# Wipping the partition schemes 
+* sudo wipefs -a /dev/sda
+* sudo wipefs /dev/nvme0n1
+# Deleting everything properly so no forencisc recovery is possible
+* sudo shred -f -v /dev/sda
+* sudo shred -f -v /nvme0n1
+# Also this works but it does not show the process:
+* sudo shred /dev/sda
+* sudo shred /dev/nvme0n1
 
 # That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced commands and packages:
 https://wiki.archlinux.org/
