@@ -344,6 +344,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * User=test
 * Session=default
 
+# (Optional) Use this theme for better icons on all DE's:
+
+* sudo pacman -S papirus-icon-theme
+
 # 30. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
 
 * sudo nano /etc/pacman.conf
@@ -400,55 +404,93 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * cd yay
 
 * makepkg -si
-# 34. Installing other stuff:
+# 34. (Optional)Installing other stuff:
+# Browsers 
 * sudo pacman -S firefox-developer-edition
 * sudo pacman -S chromium
-* sudo pacman -S vlc
-* sudo pacman -S libreoffice-fresh
-* sudo pacman -S chromium
-* sudo pacman -S obs-studio
 * sudo pacman -S firefox
+* yay -s brave-bin
+# LibreOffice rolling:
+* sudo pacman -S libreoffice-fresh
+# OR stable:
+* sudo pacman -S libreoffice-still
+# Other stuff,inlcuding OBS Studio,wine/lutris.
+* sudo pacman -S obs-studio
 * sudo pacman -S flatpak
 * sudo pacman -S wine
 * sudo pacman -S wine-gecko
 * sudo pacman -S wine-mono
 * sudo pacman -S lutris
 * sudo pacman -S openra
+* sudo pacman -S gimp
+* sudo pacman -S krita
+* sudo pacamn -S kate
+# Torrent clients:
+* sudo pacman -S qbittorrent
+* sudo pacman -S ktorrent
+* sudo pacman -S transmission-qt
+
+# OR for GTK based DE's (XFCE/GNOME)
+
+* sudo pacman -S transmission-gtk
+
+# Video Editors:
+
+* sudo pacman -S kdenlive
+* sudo pacman -S shotcut
+
+# Emulators:
+
+* sudo pacman -S libretro
+* sudo pacman -S dosbox
 * sudo pacman -S scummvm
 * sudo pacman -S pscx2
 * sudo pacman -S retroarch
-* sudo pacman -S qbittorrent
-* sudo pacman -S shotcut
-* sudo pacman -S libretro
-* sudo pacman -S dosbox
-* sudo pacman -S gnome-multi-writer
-* sudo pacman -S papirus-icon-theme
+
+# Optimization for gaming:
+
 * sudo pacman -S gamemode lib32-gamemode 
+
+# OpenMW and other mods
+
 * sudo pacman -S openmw
 * yay -S ecwolf
 * yay -S gzdoom
 * yay -S itch
+
+# Teamviewer from AUR:
+
 * yay -S teamviewer
 * sudo systemctl enable teamviewerd.service
 * sudo systemctl start teamviewerd.service
+
+# More mods,games and tools:
+
+* sudo pacman -S supertux
+* sudo pacman -S supertuxkart
 * yay -S dunelegacy
 * yay -S sdlpop 
-* yay -S ventoy
 * sudo pacman -S 0ad
 * sudo pacman -S xonotic
 * sudo pacman -S wesnoth
 * yay -S freedm
 * sudo pacman -S openra
 * sudo pacman -S freeciv
-* sudo pacman -S retroarch libretro
 * sudo pacman -S dwarffortress
-* sudo pacman -S kdenlive
-* sudo pacman -S shotcut
-* sudo pacmna -S obs-studio
-* yay -s brave-bin
 * flatpak install flathub com.moddb.TotalChaos
 * yay -S opensurge
 * yay -S commander-genius-git
+
+# USB writers:
+
+* yay -S ventoy
+* sudo pacamn -S gnome-multi-writer
+
+# Partition managers:
+
+* sudo pacman -S gnome-disk-utility
+* sudo pacman -S partitionmanager
+* sudo pacman -S gparted
 
 # Installing DXVK for DX10/DX11 conversion support:
 
