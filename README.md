@@ -617,7 +617,14 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * sudo pacman -S gnome-multi-writer
 
  * sudo pacman -S gnome-boxes
- * sudo pacmna -S virt-manager qemu
+ * sudo pacman -S virt-manager qemu
+ # To use virt manager isntead of GNOME Boxes properly run: 
+ * sudo systemctl enable libvirtd.service
+ * sudo systemctl start libvirtd.service
+ # OR 
+ * sudo systemctl enable --now libvirtd.service
+# Check this website for additional driver/video support on vm's for both GNOME BOXES and virtmanager:
+* https://www.spice-space.org/download.html
 
 # (Optional) install itch for indies games and teamviewer:
 
