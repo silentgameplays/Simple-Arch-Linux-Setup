@@ -465,6 +465,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S ark lrzip lzop p7zip unarchiver unrar 
 # Archiver tools for GNOME:
 * sudo pacman -S file-roller nemo-fileroller unzip lzop p7zip unrar unarchiver
+
 # Dependencies multimedia/libraries:
 
 * sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt libgcrypt lib32-sdl lib32-sdl2 lib32-sdl_mixer lib32-sdl_ttf sdl2 sdl_gfx sdl2_image sdl2_mixer sdl2_net sdl2_ttf sdl_ttf mpg123 lib32-mpg123 lib32-libpulse lib32-jack
@@ -499,10 +500,20 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S easyeffects zam-plugins mda.lv2 lv2-host vst-host vst3-host ladspa-host
 
-# (Optional) Media players (pick one or two):
-* sudo pacman -S  mpv vlc dragon kmplayer celluloid
+# (Optional) Media players (pick one or two or all or what works best):
 
-# More dependencies in case missed mostly for multimedia stuff: 
+* sudo pacman -S  mpv vlc dragon kmplayer celluloid mpd qtav
+
+# (Optional) In case you want a GNOME-desktop package on other DE(might solve some issues/might cause some issues):
+
+* sudo pacman -S gnome-desktop
+
+# (In case you are using meson builds)
+
+* sudo pacman -S meson
+
+# (Optional)Last set of multimedia dependencies in case missed mostly for multimedia stuff: 
+
 * sudo pacman -S  cm256cc celt cppcodec speex libfdk-aac lib32-libdv lib32-flac lib32-celt kcodecs flac ffnvcodec-headers8.1 ffnvcodec-headers lib32-libtheora lib32-libvorbis lib32-libvpx lib32-libvpx1.3 lib32-opus lib32-speex libde265 libdv libfdk-aac libfreeaptx libilbc libjpeg-turbo mac mbelib  opera-ffmpeg-codecs opus-tools python-noseofyeti python-latexcodec python-reedsolo speex vivaldi-ffmpeg-codecs schroedinger libtheora  a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libvorbis libxv x264 x265 libxv opus wavpack xvidcore gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 # (Optional)Install wine and some more packages-dependencies for gaming:
