@@ -134,10 +134,12 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * username=ALL=(ALL:ALL) ALL
 # More secure way by uncommenting the following lines,without touching anything else:
 * Defaults targetpw
-* ALL=ALL(ALL) ALL
+* ALL ALL=(ALL:ALL)
+
 # Save changes to the sudoers file:
 * :w! + Enter to exit and write changes
 * :q + Enter exit
+
 # edit sudoers file with nano anytime:
 * sudo nano /etc/sudoers 
 
