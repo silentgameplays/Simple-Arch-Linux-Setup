@@ -388,9 +388,21 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # 33. Install Steam 
 
 * sudo pacman -S steam
+# OR
+* sudo pacman -S steam-native-runtime
 
-# 34. Install VLC and other stuff:
+# Installing AUR helper yay
+* sudo pacman -S git
 
+# NB No sudo!
+* git clone https://aur.archlinux.org/yay.git
+
+* cd yay
+
+* makepkg -si
+# 34. Installing other stuff:
+* sudo pacman -S firefox-developer-edition
+* sudo pacman -S chromium
 * sudo pacman -S vlc
 * sudo pacman -S libreoffice-fresh
 * sudo pacman -S chromium
@@ -412,26 +424,6 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S gnome-multi-writer
 * sudo pacman -S papirus-icon-theme
 * sudo pacman -S gamemode lib32-gamemode 
-* 
-# Installing AUR helper yay
-* sudo pacman -S git
-
-# NB No sudo!
-* git clone https://aur.archlinux.org/yay.git
-
-* cd yay
-
-* makepkg -si
-
-# Installing DXVK for DX10/DX11 conversion support:
-
-* yay -S dxvk-bin
-
-# Installing benchmarking tool phoronix
-
-* yay -S phoronix-test-suite
-
-# (Optional) Install OpenMorrowind,ecwolf and gzdoom with sdlpop and other suggested stuff if you wish:
 * sudo pacman -S openmw
 * yay -S ecwolf
 * yay -S gzdoom
@@ -458,11 +450,22 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * yay -S opensurge
 * yay -S commander-genius-git
 
+# Installing DXVK for DX10/DX11 conversion support:
+
+* yay -S dxvk-bin
+
+# Installing benchmarking tool phoronix
+
+* yay -S phoronix-test-suite
+
 # Install a bunch of dependencies/packages to make life sort of easier(optional):
 * sudo pacman -S lib32-openal gtk3 gtk4 qt6 lib32-fluidsynth fluidsynth gvfs lib32-vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d
+
 # Archiver tool for Plasma:
 * sudo pacman -S ark lrzip lzop p7zip unarchiver unrar 
-# Dependencies:
+# Archiver tools for GNOME:
+* sudo pacman -S file-roller nemo-fileroller unzip lzop p7zip unrar unarchiver
+# Dependencies multimedia/libraries:
 
 * sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt libgcrypt lib32-sdl lib32-sdl2 lib32-sdl_mixer lib32-sdl_ttf sdl2 sdl_gfx sdl2_image sdl2_mixer sdl2_net sdl2_ttf sdl_ttf mpg123 lib32-mpg123 lib32-libpulse lib32-jack
 
@@ -484,7 +487,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S libnma openresolv
 
-* sudo pacman -S  qt5-quick3d python-dbus python-gobject ufw gufw libnma libnm lib32-libnm libvoikko nuspell aspell lib32-giflib lib32-libxinerama  lib32-libxslt sane cups samba dosbox scummvm colord perl-term-readkey perl-tk  logrotate ipp-usb tk vtk ladspa-host vamp-host vamp-plugin-sdk libao sdl_image opencv rtaudio rubberband sox mono lua r tcl ocaml  gnome-desktop swh-plugins opencv t1utils dialog gcc-fortran tcl ttf-liberation
+* sudo pacman -S  qt5-quick3d python-dbus python-gobject ufw gufw libnma libnm lib32-libnm libvoikko nuspell aspell lib32-giflib lib32-libxinerama  lib32-libxslt sane cups samba dosbox scummvm colord perl-term-readkey perl-tk  logrotate ipp-usb tk vtk ladspa-host vamp-host vamp-plugin-sdk libao sdl_image opencv rtaudio rubberband sox mono lua r tcl ocaml swh-plugins opencv t1utils dialog gcc-fortran tcl ttf-liberation
 
 * sudo pacman -S libcurl-gnutls curl libcurl-compat mingw-w64 gvfs-smb perl-getopt-argvfile gvfs-afc lib32-faudio lib32-expat lib32-at-spi2-atk lib32-fluidsynth lib32-glew glew lib32-glu lib32-gst-plugins-base-libs lib32-libjpeg-turbo lib32-mpg123 lib32-ocl-icd lib32-opus lib32-orc lib32-smpeg
 
@@ -524,7 +527,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * yay -S dxvk
 
-* sudo pacman -S alsa pavucontrol pipewire-alsa pipewire-jack alsa-utils alsa-card-profiles lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins alsa-plugins alsa-lib gdal wavpack celt libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav libvncserver python-beautifulsoup4 python-cssselect python-html5lib python-lxml-docs python-genshi libx11 lib32-libx11
+* sudo pacman -S alsa pavucontrol pipewire-alsa alsa-utils alsa-card-profiles lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins alsa-plugins alsa-lib gdal wavpack celt libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav libvncserver python-beautifulsoup4 python-cssselect python-html5lib python-lxml-docs python-genshi libx11 lib32-libx11
 
 # (Optional) instead of regular Wine Glourious Eggroll versions of Proton and Wine,optional package for 32bit ffmpeg:
  
@@ -541,11 +544,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * Copy/paste the extracted GE folder into /home/user/config/.steam/root/compatibilitytools.d
  * Restart Steam,enjoy the custom GE build
  
-# (Optional) Install spectacle for screenshots (KDE PLASMA) and neofetch to have "I use arch btw" in your CLI for screenshots and reddit,also man pages support to actually lear some stuff about what you install and flatpak for a wide variety of software,most of wich you can fing in AUR.
+# (Optional) Install spectacle for screenshots (KDE PLASMA) and neofetch to have "I use arch btw" in your CLI for screenshots and reddit,also man pages support to actually learn some stuff about what packages you install and flatpak for a wide variety of software,most of which you can find in AUR.
 
  * sudo pacman -S spectacle neofetch flatpak man
-
-* sudo pacman -S sonnet
+ 
+ * sudo pacman -S sonnet
 
  * sudo pacman -S enchant
 
