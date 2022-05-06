@@ -66,17 +66,19 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * lsblk
 * ip link
 
-# 5.Installing basic packages and important stuff:
+# 5.Installing basic packages and important stuff with wifi you will need the iw wpa_supplicant dialog packages:
 # For Non-LTS kernel(rolling)
-* pacstrap /mnt base base-devel linux linux-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog network-manager-applet
+* pacstrap /mnt base base-devel linux linux-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog 
 # (Optional)
 # For LTS kernel (Long Term Support)
-* pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog network-manager-applet
+* pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog
 # Or if you hate networkmanager since it gimps the speed,but still need wifi:
 * pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim dhcpcd iwd iw wpa_supplicant dialog netctl 
 # (Optional)
+
 # For both Non-LTS and LTS(have both options)
-* pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog network-manager-applet
+* pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog 
+
 # Or if you hate networkmanager since it gimps the speed,but still need wifi:
 * pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware nano vim dhcpcd iwd iw wpa_supplicant dialog netctl 
 
@@ -192,20 +194,23 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * ping archlinux.org
 
 # 23.For Wi-Fi(Optional):
-# NB! Don't enable dhcpcd.service!
+# NB! Don't enable dhcpcd.service with Network Manager!
 * sudo systemctl enable NetworkManager.service
-* sudo systemctl enable wpa_supplicant.service
 * sudo systemctl start NetworkManager.service
+* sudo systemctl enable wpa_supplicant.service
+* sudo systemctl start wpa_supplicant.service
 * sudo reboot
 * sudo nmtui
-* # Activate the desired Wi-Fi there by entering the password
-* ping google.com 
+# Activate the desired Wi-Fi there by entering the password
+* ping archlinux.org 
 
-# (Optional) instead of networkmanager enable and start dhcpcd and netctl:
+# (Optional) instead of networkmanager enable and start dhcpcd and netctl with wpa_supplicant:
 * sudo systemctl enable netctl.service
 * sudo systemctl start netctl.service
 * sudo systemctl enable dhcpcd.service
 * sudo systemctl start dhcpcd.service
+* sudo systemctl enable wpa_supplicant.service
+* sudo systemctl start wpa_supplicant.service
 
 # 24. FOR Intel CPU's install Intel firmware kernel support driver  it is important:
 * sudo pacman -S intel-ucode
