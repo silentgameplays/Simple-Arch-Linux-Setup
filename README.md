@@ -384,7 +384,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo reboot
 
-# To disable screen tearing in games,login as root:
+# To disable screen tearing in games and general performance improvement on NVIDIA GPU's,login as root(su):
 
 * In Nvidia Settings set Force Composition Pipeline
 
@@ -512,10 +512,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # Archiver tool for Plasma:
 * sudo pacman -S ark lrzip lzop p7zip unarchiver unrar 
+
 # Archiver tools for GNOME:
 * sudo pacman -S file-roller nemo-fileroller unzip lzop p7zip unrar unarchiver
 
-# Dependencies multimedia/libraries:
+# Dependencies multimedia/libraries(optional if you want full no bloatware system skip these,or choose the ones you need):
 
 * sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt libgcrypt lib32-sdl lib32-sdl2 lib32-sdl_mixer lib32-sdl_ttf sdl2 sdl_gfx sdl2_image sdl2_mixer sdl2_net sdl2_ttf sdl_ttf mpg123 lib32-mpg123 lib32-libpulse lib32-jack
 
