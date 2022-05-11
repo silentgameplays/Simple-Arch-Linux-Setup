@@ -67,13 +67,15 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * ip link
 
 # 5.Installing basic packages and important stuff with wifi you will need the iw wpa_supplicant dialog packages:
+
 # For Non-LTS kernel(rolling)
 * pacstrap /mnt base base-devel linux linux-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog 
+
 # (Optional)
+
 # For LTS kernel (Long Term Support)
 * pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog
-# Or if you hate networkmanager since it gimps the speed,but still need wifi:
-* pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim dhcpcd iwd iw wpa_supplicant dialog netctl 
+
 # (Optional)
 
 # For both Non-LTS and LTS(have both options)
@@ -104,6 +106,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 10.Setting locales:
 # A proper way to do it is to find this lines en_US.UTF-8 in locale.gen file and uncomment them:
+
 * nano /etc/locale.gen
 * locale-gen
 
@@ -129,12 +132,18 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # Lines to uncomment:
 * sudo=ALL=(ALL:ALL) ALL
+
 # (Optional) Add yourself to the sudoers file under root(not recommended):
+
 * username=ALL=(ALL:ALL) ALL
+
 # (Optional) Add yourself to sudoers file under sudo (safer option):
+
 * sudo=ALL=(ALL:ALL) ALL
 * username=ALL=(ALL:ALL) ALL
+
 # More secure way by uncommenting the following lines,without touching anything else:
+
 * Defaults targetpw
 * ALL ALL=(ALL:ALL)
 
@@ -146,8 +155,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo nano /etc/sudoers 
 
 # 14.Grub and efi tools installation(very important step!):
-
-* pacman -S grub efibootmgr dosfstools os-prober mtools fuse2 fuse3
+# Fuse 2 support (older option)
+* pacman -S grub efibootmgr dosfstools os-prober mtools fuse2 
+# Fuse 3 support (newer option)
+* pacman -S grub efibootmgr dosfstools os-prober mtools fuse3
 
 # 15. Creating efi boot directory on the EFI partition:
 
@@ -167,14 +178,13 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * mkdir /boot/efi/EFI/BOOT
 * cp /boot/efi/EFI/GRUB/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
 
-# 19.(Optional) Creating and editing the efi boot file customization:
+# 19.(Totaly Optional) Creating and editing the efi boot file customization:
 
 * nano /boot/efi/startup.nsh
-
 * bcf boot add 1 fs0:\EFI\GRUB\grubx64.efi “My grub bootloader”
-* exit
+# Ctrl+O,Ctrl+X
 
-# 20.Exiting root and rebboting:
+# 20.Exiting chroot and rebbot:
 
 * exit
 
@@ -190,6 +200,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo systemctl start NetworkManager.service
 * sudo reboot
 * sudo nmtui
+
 # Select the desired wired connection it should be activated by default if not activate it
 * ping archlinux.org
 
@@ -201,6 +212,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo systemctl start wpa_supplicant.service
 * sudo reboot
 * sudo nmtui
+
 # Activate the desired Wi-Fi there by entering the password
 * ping archlinux.org 
 
@@ -372,10 +384,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # 32. Install NVIDIA or AMD proprietary drivers and utilities last!:
 
 # For Nvidia Non-LTS (rolling)
-* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d lib32-libva-vdpau-driver opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver vulkan-validation-layers lib32-vulkan-validation-layers 
+* sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
 
 # For Nvidia LTS(Long Term Support)
-* sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d lib32-libva-vdpau-driver opencl-headers opencl-clhpp lib32-mesa-vdpau lib32-libva-mesa-driver vulkan-validation-layers lib32-vulkan-validation-layers 
+* sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
 
 # (Optional) Nvidia dkms for Zen/Hardened kernels:
 * sudo pacman -S nvidia-dkms
@@ -562,7 +574,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # (Optional)Last set of multimedia dependencies in case missed mostly for multimedia stuff: 
 
-* sudo pacman -S  cm256cc celt cppcodec speex libfdk-aac lib32-libdv lib32-flac lib32-celt kcodecs flac ffnvcodec-headers8.1 ffnvcodec-headers lib32-libtheora lib32-libvorbis lib32-libvpx lib32-libvpx1.3 lib32-opus lib32-speex libde265 libdv libfdk-aac libfreeaptx libilbc libjpeg-turbo mac mbelib  opera-ffmpeg-codecs opus-tools python-noseofyeti python-latexcodec python-reedsolo speex vivaldi-ffmpeg-codecs schroedinger libtheora  a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libvorbis libxv x264 x265 libxv opus wavpack xvidcore gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
+* sudo pacman -S  cm256cc celt cppcodec speex libfdk-aac lib32-libdv lib32-flac lib32-celt kcodecs ffnvcodec-headers8.1 ffnvcodec-headers lib32-libtheora lib32-libvorbis lib32-libvpx lib32-libvpx1.3 lib32-opus lib32-speex libde265 libdv libfdk-aac libfreeaptx libilbc libjpeg-turbo mac mbelib  opera-ffmpeg-codecs opus-tools python-noseofyeti python-latexcodec python-reedsolo speex vivaldi-ffmpeg-codecs schroedinger libtheora  a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libvorbis libxv x264 x265 libxv opus wavpack xvidcore gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 # (Optional)Install wine and some more packages-dependencies for gaming:
 
