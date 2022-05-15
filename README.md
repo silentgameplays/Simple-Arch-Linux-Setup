@@ -434,6 +434,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # OR stable:
 * sudo pacman -S libreoffice-still
 # Other stuff,inlcuding OBS Studio,wine/lutris.
+* yay -S dhewm3-git
 * sudo pacman -S obs-studio
 * sudo pacman -S flatpak
 * sudo pacman -S wine
