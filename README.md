@@ -68,20 +68,26 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 5.Installing basic packages and important stuff with wifi you will need the iw wpa_supplicant dialog packages:
 
-# For Non-LTS kernel(rolling)
-* pacstrap /mnt base base-devel linux linux-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog 
+# For Non-LTS kernel(rolling) with Wi-Fi
+* pacstrap /mnt base base-devel linux linux-headers linux-firmware nano vim networkmanager iw wpa_supplicant dialog 
+
+# Non-LTS kernel(rolling) without Wi-Fi
+* pacstrap /mnt base base-devel linux linux-headers linux-firmware nano vim networkmanager
 
 # (Optional)
 
-# For LTS kernel (Long Term Support)
-* pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog
+# For LTS kernel (Long Term Support) with Wi-Fi
+* pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim networkmanager iw wpa_supplicant dialog
+
+# LTS Without Wifi
+* pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim networkmanager
 
 # (Optional)
 
-# For both Non-LTS and LTS(have both options)
+# For both Non-LTS and LTS(have both options) with
 * pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog 
 
-# Or if you hate networkmanager since it gimps the speed,but still need wifi:
+# Or if you hate networkmanager,but still need Wi-Fi:
 * pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware nano vim dhcpcd iwd iw wpa_supplicant dialog netctl 
 
 # 6. Generating fstab file:
@@ -128,6 +134,12 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * visudo
 
+# Or
+
+* nano /etc/sudoers
+
+# Ctrl+O to save,Ctrl+ X to exit after chages with nano.
+
 # Uncomment the settings in sudo file and add the main user to sudo(your username):
 
 # Lines to uncomment:
@@ -155,8 +167,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo nano /etc/sudoers 
 
 # 14.Grub and efi tools installation(very important step!):
+
 # Fuse 2 support (older option)
 * pacman -S grub efibootmgr dosfstools os-prober mtools fuse2 
+
 # Fuse 3 support (newer option)
 * pacman -S grub efibootmgr dosfstools os-prober mtools fuse3
 
@@ -178,23 +192,16 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * mkdir /boot/efi/EFI/BOOT
 * cp /boot/efi/EFI/GRUB/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
 
-# 19.(Totaly Optional) Creating and editing the efi boot file customization:
-
-* nano /boot/efi/startup.nsh
-* bcf boot add 1 fs0:\EFI\GRUB\grubx64.efi “My grub bootloader”
-# Ctrl+O,Ctrl+X
-
-# 20.Exiting chroot and rebbot:
+# 19.Exiting chroot and reboot:
 
 * exit
 
-# 21.Unmounting the live partitions and rebooting:
+# Unmounting the live partitions and rebooting:
 
 * umount -R /mnt
 * reboot
 
-# 22.The easy way to activate the wired connection using network manager.NB!Don't enable dhcpcd.service in the previous steps it will conflict with the networkmanager!Just ignore it and it will make your life easier:
-
+# 20.The easy way to activate the wired connection using network manager.
 * sudo systemctl enable NetworkManager.service
 * sudo systemctl enable wpa_supplicant.service
 * sudo systemctl start NetworkManager.service
@@ -204,18 +211,16 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Select the desired wired connection it should be activated by default if not activate it
 * ping archlinux.org
 
-# 23.For Wi-Fi(Optional):
+# 21.For Wi-Fi(Optional):
 # NB! Don't enable dhcpcd.service with Network Manager!
 * sudo systemctl enable NetworkManager.service
 * sudo systemctl start NetworkManager.service
 * sudo systemctl enable wpa_supplicant.service
 * sudo systemctl start wpa_supplicant.service
 * sudo reboot
-* sudo nmtui
-
 # Activate the desired Wi-Fi there by entering the password
+* sudo nmtui
 * ping archlinux.org 
-
 # (Optional) instead of networkmanager enable and start dhcpcd and netctl with wpa_supplicant:
 * sudo systemctl enable netctl.service
 * sudo systemctl start netctl.service
@@ -224,34 +229,33 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo systemctl enable wpa_supplicant.service
 * sudo systemctl start wpa_supplicant.service
 
-# 24. FOR Intel CPU's install Intel firmware kernel support driver  it is important:
+# 22.FOR Intel CPU's install Intel firmware kernel support driver  it is important:
 * sudo pacman -S intel-ucode
 
 # FOR AMD CPU's install AMD firmware kernel support driver  it is important:
 * sudo pacman -S amd-ucode
 
-# 25. Install Xorg(Wayland still works wonky on NVIDIA): 
+# 23. Install Xorg(Wayland still works wonky on NVIDIA): 
 * sudo pacman -S xorg xorg-server xorg-xinit xorg-apps xterm xorg-xrandr
 
 # (Optional) for noveau drivers 
 
 * xf86-video-vesa mesa
 
-# 26. Install alsa/pulseaudio drivers and utilities:
+# 24. (Older) Install audio alsa/pulseaudio drivers and utilities:
 
 * sudo pacman -S alsa alsa-utils pulseaudio pulseaudio-alsa pavucontrol
 
-# (Optional) Install alsa/pipewire drivers and utilities
+# (Newer)Install audio alsa/pipewire drivers and utilities
 
 * sudo pacman -S alsa alsa-utils pipewire pipewire-alsa pipewire-pulse pavucontrol
 
-
-# 27.(Optional) Install another terminal and firewall:
+# 25.(Optional) Install another terminal and firewall:
 
 * sudo pacman -S lxterminal
 * sudo pacman -S ufw
 
-# 28. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
+# 26. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
 # Xfce (compatible display managers sddm)
 
@@ -260,9 +264,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # To make desktop look great
 
 * sudo pacman -S arc-gtk-theme
-# in case you missed it/need it:
-* pacman -S networkmanager network-manager-applet
-* sudo pacman -S pavucontrol
+
+# in case you need it:
+* pacman -S  network-manager-applet
 
 # Disable tearing in videogames on xfce:
 
@@ -327,7 +331,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -Scc
 * sudo pacman -Sc
 
-# 29. Enable the GUI desktop to start at launch via the required display manager: 
+# 27. Enable the GUI desktop to start at launch via the required display manager: 
 
 # In case lightdm is missing: 
 
@@ -350,6 +354,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # For LXDE (optional):
 
 * sudo pacman -S lxdm
+
 # or for gtk3
 * sudo pacman -S lxdm-gtk3
 * sudo systemctl enable lxdm
@@ -367,7 +372,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S papirus-icon-theme
 
-# 30. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch) for Steam and proprietary drivers: 
+# 28. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch support for 32bit) for Steam and proprietary drivers: 
 
 * sudo nano /etc/pacman.conf
 
@@ -376,12 +381,12 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * [multilib]
 * Include = /etc/pacman.d/mirrorlist
 
-# 31. Update pacman libraries and system:
+# 29. Update pacman libraries and system:
 
 * sudo pacman -Syu
 * sudo pacman -Syyuu
 
-# 32. Install NVIDIA or AMD proprietary drivers and utilities last!:
+# 30. Install NVIDIA or AMD proprietary drivers and utilities last!:
 
 # For Nvidia Non-LTS (rolling)
 * sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
@@ -408,22 +413,21 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S mesa lib32-mesa mesa-vdpau lib32-mesa-vdpau lib32-vulkan-radeon vulkan-radeon glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader
 * sudo reboot
 
-# 33. Install Steam 
-
+# 31. Install Steam 
 * sudo pacman -S steam
 # OR
 * sudo pacman -S steam-native-runtime
 
-# Installing AUR helper yay
+# 32. Installing AUR helper yay
 * sudo pacman -S git
 
 # NB No sudo!
+
 * git clone https://aur.archlinux.org/yay.git
-
 * cd yay
-
 * makepkg -si
-# 34. (Optional)Installing other stuff:
+
+# 33. (Optional)Installing other stuff:
 # Browsers 
 * sudo pacman -S firefox-developer-edition
 * sudo pacman -S chromium
@@ -433,6 +437,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S libreoffice-fresh
 # OR stable:
 * sudo pacman -S libreoffice-still
+
 # Other stuff,inlcuding OBS Studio,wine/lutris.
 * yay -S dhewm3-git
 * sudo pacman -S obs-studio
@@ -445,7 +450,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S gimp
 * sudo pacman -S krita
 * sudo pacamn -S kate
+
 # Torrent clients:
+
 * sudo pacman -S qbittorrent
 * sudo pacman -S ktorrent
 * sudo pacman -S transmission-qt
@@ -504,7 +511,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # USB writers:
 
 * yay -S ventoy
-* sudo pacamn -S gnome-multi-writer
+* sudo pacman -S gnome-multi-writer
 
 # Partition managers:
 
@@ -529,19 +536,19 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Archiver tools for GNOME:
 * sudo pacman -S file-roller nemo-fileroller unzip lzop p7zip unrar unarchiver
 
-# Dependencies multimedia/libraries(optional if you want full no bloatware system skip these,or choose the ones you need):
+# Dependencies multimedia/libraries(OPTIONAL if you want full no bloatware system skip these,or choose the ones you need):
 
 * sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt libgcrypt lib32-sdl lib32-sdl2 lib32-sdl_mixer lib32-sdl_ttf sdl2 sdl_gfx sdl2_image sdl2_mixer sdl2_net sdl2_ttf sdl_ttf mpg123 lib32-mpg123 lib32-libpulse lib32-jack
 
 * sudo pacman -S lib32-fluidsynth fluidsynth lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt
 
-* sudo pacman -S openal lib32-openal gtk3 gtk4 qt6  gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-nfs clang freetds postgresql-libs unixodbc libfbclient mariadb-libs  gvfs-goa gvfs-mtp go xdotool w3m libcaca jp2a chafa feh libheif djvulibre  imagemagick-doc libraw libxml2  ocl-icd openexr librsvg lirc aalib libgoom2  libnfs libkate projectm
+* sudo pacman -S openal lib32-openal gtk3 gtk4 qt6  gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-nfs clang freetds postgresql-libs unixodbc libfbclient mariadb-libs gvfs-goa gvfs-mtp go xdotool w3m libcaca jp2a chafa feh libheif djvulibre imagemagick-doc libraw libxml2  ocl-icd openexr librsvg lirc aalib libgoom2  libnfs libkate projectm
 
-* sudo pacman -S gst-python gst-plugins-base gst-plugins-bad-libs gst-plugins-bad gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs gstreamermm phonon-qt5-gstreamer qt-gstreamer mpd imlib
+* sudo pacman -S gst-python gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs gstreamermm phonon-qt5-gstreamer qt-gstreamer mpd imlib
 
 * sudo pacman -S libdvdcss lua52-socket libtiger ttf-dejavu zvbi libgme twolame libdc1394 libavc1394 libdvdcss lirc aalib libgoom2  libnfs libkate projectm exfat-utils ntfs-3g  jfsutils flatpak lib32-opencl-nvidia opencl-nvidia libvdpau git xdg-utils gvfs-gphoto2 gphoto2 gvfs-nfs lib32-libiec61883 xvidcore lib32-libxvmc libxvmc ffmpeg ffmpegthumbs gst-libav xdg-desktop-portal-kde xdg-user-dirs
 
-* sudo pacman -S lib32-libxxf86vm libxxf86vm gst-plugins-good gst-plugins-bad
+* sudo pacman -S lib32-libxxf86vm libxxf86vm gst-plugins-good gst-plugins-bad 
 
 * sudo pacman -S transcode smpeg faac sndio vulkan-validation-layers lib32-vulkan-validation-layers 
 
@@ -549,7 +556,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S libnma openresolv
 
-* sudo pacman -S  qt5-quick3d python-dbus python-gobject ufw gufw libnma libnm lib32-libnm libvoikko nuspell aspell lib32-giflib lib32-libxinerama  lib32-libxslt sane cups samba dosbox scummvm colord perl-term-readkey perl-tk  logrotate ipp-usb tk vtk ladspa-host vamp-host vamp-plugin-sdk libao sdl_image opencv rtaudio rubberband sox mono lua r tcl ocaml swh-plugins opencv t1utils dialog gcc-fortran tcl ttf-liberation
+* sudo pacman -S  qt5-quick3d python-dbus python-gobject gufw libnma libnm lib32-libnm libvoikko nuspell aspell lib32-giflib lib32-libxinerama  lib32-libxslt sane cups samba dosbox scummvm colord perl-term-readkey perl-tk  logrotate ipp-usb tk vtk ladspa-host vamp-host vamp-plugin-sdk libao sdl_image opencv rtaudio rubberband sox mono lua r tcl ocaml swh-plugins opencv t1utils dialog gcc-fortran tcl 
 
 * sudo pacman -S libcurl-gnutls curl libcurl-compat mingw-w64 gvfs-smb perl-getopt-argvfile gvfs-afc lib32-faudio lib32-expat lib32-at-spi2-atk lib32-fluidsynth lib32-glew glew lib32-glu lib32-gst-plugins-base-libs lib32-libjpeg-turbo lib32-mpg123 lib32-ocl-icd lib32-opus lib32-orc lib32-smpeg
 
@@ -656,7 +663,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * sudo systemctl start teamviewerd.service
 * sudo pacman -S gvfs-mtp neofetch spectacle
 
-# 35. Update the whole system using:
+# 34. Update the whole system using:
 * sudo pacman -Syu
 # OR
 * sudo pacman -Syyuu
@@ -664,10 +671,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # (Optional) Check the history of CLI:
 * history
 
-# 36.(Optional) Clear terminal by using:
+# 35.(Optional) Clear terminal by using:
 * clear
 
-# 37.Auto-mounting drives the easy way:
+# 36.Auto-mounting drives the easy way:
 
 * sudo pacman -S gnome-disk-utility
 
@@ -715,7 +722,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Removes stuff before using via terminal use "man rm" not to break anything
 * sudo pacman rm -rf./(name of directory or file) 
 
-# 38 Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
+# 37. Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
 * Download a Windows image from MS link below:
 * https://www.microsoft.com/en-us/software-download/windows10
 * Insert USB Drive
@@ -833,7 +840,6 @@ Thank you!
 # Automated Archlinux install:
 * https://youtu.be/4_ZpKZLNEb8
 * Enjoy!
-
 
 
 
