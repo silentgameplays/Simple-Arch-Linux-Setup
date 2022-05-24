@@ -638,9 +638,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # (Optional) Gnome multi-writer tool, useful for creating usb sticks with OS installs and gnome-boxes for vm's useful GUI for QEMU:
 
  * sudo pacman -S gnome-multi-writer
-
  * sudo pacman -S gnome-boxes
- * sudo pacman -S virt-manager qemu
+ * sudo pacman -S virt-manager qemu-desktop
+ 
  # To use virt manager isntead of GNOME Boxes properly run: 
  * sudo systemctl enable libvirtd.service
  * sudo systemctl start libvirtd.service
