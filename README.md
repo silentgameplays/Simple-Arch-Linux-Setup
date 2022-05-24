@@ -6,7 +6,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * Download image here via torrent or direct link:https://www.archlinux.org/download/
 * Use Rufus http://rufus.ie/ and select GPT and ISO mode for the image
-* On Linux use gnome-multi-writer utility 
+* Also Balena Etcher portable is a nice tool https://www.balena.io/etcher/
+* On Linux use gnome-multi-writer utility or ventoy 
 # By default all current Arch installation mediums have a guided installer(better to use manual installation):
 * archinstall
 # Alternative
