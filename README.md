@@ -557,7 +557,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S libnma openresolv
 
-* sudo pacman -S  qt5-quick3d python-dbus python-gobject gufw libnma libnm lib32-libnm libvoikko nuspell aspell lib32-giflib lib32-libxinerama  lib32-libxslt sane cups samba dosbox scummvm colord perl-term-readkey perl-tk  logrotate ipp-usb tk vtk libao sdl_image opencv rtaudio rubberband sox mono lua r tcl ocaml swh-plugins opencv t1utils dialog gcc-fortran tcl 
+* sudo pacman -S  qt5-quick3d python-dbus python-gobject gufw libnma libnm lib32-libnm libvoikko nuspell aspell lib32-giflib lib32-libxinerama  lib32-libxslt sane cups samba dosbox scummvm colord perl-term-readkey perl-tk  logrotate ipp-usb tk vtk libao sdl_image opencv rtaudio sox mono lua r tcl ocaml swh-plugins opencv t1utils dialog gcc-fortran tcl 
 
 * sudo pacman -S libcurl-gnutls curl libcurl-compat mingw-w64 gvfs-smb perl-getopt-argvfile gvfs-afc lib32-faudio lib32-expat lib32-at-spi2-atk lib32-fluidsynth lib32-glew glew lib32-glu lib32-gst-plugins-base-libs lib32-libjpeg-turbo lib32-mpg123 lib32-ocl-icd lib32-opus lib32-orc lib32-smpeg
 
