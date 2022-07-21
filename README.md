@@ -563,7 +563,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S lib32-wayland libaio x264 xvidcore lib32-libxvmc libxvmc ffms2 ffnvcodec-headers ffnvcodec-headers8.1 opera-ffmpeg-codecs vivaldi-ffmpeg-codecs avisynthplus vapoursynth 
 
-* sudo pacman -S wavpack celt libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav libdvdnav lib32-libxinerama vcdimager aubio python-aubio gtkmm libev libltc libuv xine-lib 
+* sudo pacman -S wavpack libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav libdvdnav lib32-libxinerama vcdimager aubio python-aubio gtkmm libev libltc libuv xine-lib 
 
 * sudo pacman -S gst-plugin-pipewire libpipewire02 lib32-pipewire pipewire-pulse pipewire-zeroconf
 
@@ -583,7 +583,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # (Optional)Last set of multimedia dependencies in case missed mostly for multimedia stuff: 
 
-* sudo pacman -S  cm256cc celt cppcodec speex libfdk-aac lib32-libdv lib32-flac lib32-celt kcodecs ffnvcodec-headers8.1 ffnvcodec-headers lib32-libtheora lib32-libvorbis lib32-libvpx lib32-libvpx1.3 lib32-opus lib32-speex libde265 libdv libfdk-aac libfreeaptx libilbc libjpeg-turbo mac mbelib  opera-ffmpeg-codecs opus-tools python-noseofyeti python-latexcodec python-reedsolo speex vivaldi-ffmpeg-codecs schroedinger libtheora  a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libvorbis libxv x264 x265 libxv opus wavpack xvidcore gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
+* sudo pacman -S  cm256cc cppcodec speex libfdk-aac lib32-libdv lib32-flac lib32-celt kcodecs ffnvcodec-headers8.1 ffnvcodec-headers lib32-libtheora lib32-libvorbis lib32-libvpx lib32-libvpx1.3 lib32-opus lib32-speex libde265 libdv libfdk-aac libfreeaptx libilbc libjpeg-turbo mac mbelib  opera-ffmpeg-codecs opus-tools python-noseofyeti python-latexcodec python-reedsolo speex vivaldi-ffmpeg-codecs schroedinger libtheora  a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libvorbis libxv x264 x265 libxv opus wavpack xvidcore gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 # (Optional)Install wine and some more packages-dependencies for gaming:
 
@@ -604,7 +604,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * yay -S dxvk
 
-* sudo pacman -S alsa pavucontrol pipewire-alsa alsa-utils alsa-card-profiles lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins alsa-plugins alsa-lib gdal wavpack celt libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav libvncserver python-beautifulsoup4 python-cssselect python-html5lib python-lxml-docs python-genshi libx11 lib32-libx11
+* sudo pacman -S alsa pavucontrol pipewire-alsa alsa-utils alsa-card-profiles lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins alsa-plugins alsa-lib gdal wavpack libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav libvncserver python-beautifulsoup4 python-cssselect python-html5lib python-lxml-docs python-genshi libx11 lib32-libx11
 
 # (Optional) instead of regular Wine Glourious Eggroll versions of Proton and Wine,optional package for 32bit ffmpeg:
  
