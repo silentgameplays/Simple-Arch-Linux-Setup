@@ -829,6 +829,13 @@ https://wiki.archlinux.org/
 * sudo pacman -S man
 * man (your command here)
 # Example: man pacman
+# If you start getting errors like  "signature from "John Smith <john.smith@archlinux.org>" is marginal trust" do these steps:
+* sudo pacman -S archlinux-keyring
+* sudo pacman -Syu  archlinux-keyring
+* sudo pacman -Syyuu
+# Run  this in case it still occurs:
+* sudo pacman-key --refresh-keys
+* sudo pacman -Syu archlinux-keyring
 Enjoy!
 Thank you!
 # SilentGamePLS Youtube channel:
