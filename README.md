@@ -192,7 +192,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * grub-install --target=x86_64-efi   --bootloader-id=grub --efi-directory=/boot/efi 
 * grub-mkconfig -o /boot/grub/grub.cfg
 
-# 18.Additional security measures so that the boot does not become unbootable:
+# 18.Additional measures so that the boot does not become unbootable:
 
 * mkdir /boot/efi/EFI/BOOT
 * cp /boot/efi/EFI/GRUB/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
