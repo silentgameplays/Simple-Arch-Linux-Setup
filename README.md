@@ -26,6 +26,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Also this works but it does not show the process:
 * sudo shred /dev/sda
 * sudo shred /dev/nvme0n1
+
+# NB!! when you are running into weird pgp errors during pacstrap,don't forget to run this command from the Arch ISO!:
+* pacman -Sy archlinux-keyring
+
 # 1.Creating partitions using cfdisk(easiest):
 
 # Run this command and delete everything,from free space create the following:
