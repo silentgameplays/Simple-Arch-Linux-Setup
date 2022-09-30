@@ -781,8 +781,21 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S ntfs-3g
 
 # (optional depricated) Install Nvidia shadowplay for obs on Arch(DEPRICATED for OBS 28 and up because OBS version 28 no longer uses GLX)
-
-* yay -S nvidia-utils-nvlax
+# NB if you still want to make NVFBC plugin work you need to use downgrade tool from AUR!!!
+# REMOVE OBS STUDIO 28 completely into oblivion.
+* sudo pacman -Rscn obs-studio
+# Delete the home>config>obs-studio directory
+# install the donwgrade tool from AUR:
+* yay -S downgrade
+# Run the tool to download older version of obs-studio
+* sudo downgrade obs-studio
+# Select the older version from remote the one that works with NVENC and NVFBC is 27.2.4,you should be good now you can install the nvfbc plugin
+# Disable obs-studio from updating
+* sudo nano /etc/pacman.conf
+# Add obs-studio to ignore package groups to never update: 
+* IgnorePkg   = obs-studio
+* IgnoreGroup = obs-studio
+# You are good!
 
 # Get nvidia-patch: https://github.com/keylase/nvidia-patch
 
@@ -793,7 +806,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Get obs-nvfbc: https://gitlab.com/fzwoch/obs-nvfbc
 * Extract and go to folder
 * Open in terminal 
-* yay -S libgl-dev libobs-dev libsimde-dev meson ninja-build
+* sudo pacman -S meson
 * meson build
 * ninja -C build
 * Go back to GUI and copy nvfbc.so
