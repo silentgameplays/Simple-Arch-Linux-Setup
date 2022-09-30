@@ -780,7 +780,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # NB if having trouble with GNOME Disks Utility or any other utility recognizing the NTFS file format
 * sudo pacman -S ntfs-3g
 
-# (optional) Install Nvidia shadowplay for obs on Arch
+# (optional depricated) Install Nvidia shadowplay for obs on Arch(DEPRICATED for OBS 28 and up because OBS version 28 no longer uses GLX)
 
 * yay -S nvidia-utils-nvlax
 
