@@ -99,23 +99,25 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * genfstab -U /mnt >> /mnt/etc/fstab
 
-# 7.Switching to root.All the below commands must be used as root!
 
-* arch-chroot /mnt /bin/bash
-
-# 8.Setting date,region and time,use these commands:
+# 7.Setting date,region and time,use these commands:
 
 * timedatectl set-ntp true
 * timedatectl list-timezones
 * timedatectl set-timezone Zone/SubZone
-* ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 * hwclock --systohc
+* ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 
-# 9.Setting the hostname
+# 8.(Optional can be done after the install )Setting the hostname
 
 * hostnamectl set-hostname myhostname
 
+# 9.Switching to root.All the below commands must be used as root!
+
+* arch-chroot /mnt /bin/bash
+
 # 10.Setting locales:
+
 # A proper way to do it is to find this lines en_US.UTF-8 in locale.gen file and uncomment them:
 
 * nano /etc/locale.gen
@@ -563,7 +565,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S  qt5-quick3d python-dbus python-gobject gufw libnma libnm lib32-libnm libvoikko nuspell aspell lib32-giflib lib32-libxinerama  lib32-libxslt sane cups samba dosbox scummvm colord perl-term-readkey perl-tk  logrotate ipp-usb tk vtk libao sdl_image opencv rtaudio sox mono lua r tcl ocaml swh-plugins opencv t1utils dialog gcc-fortran tcl 
 
-* sudo pacman -S libcurl-gnutls curl libcurl-compat mingw-w64 gvfs-smb perl-getopt-argvfile gvfs-afc lib32-faudio lib32-expat lib32-at-spi2-atk lib32-fluidsynth lib32-glew glew lib32-glu lib32-gst-plugins-base-libs lib32-libjpeg-turbo lib32-mpg123 lib32-ocl-icd lib32-opus lib32-orc lib32-smpeg
+* sudo pacman -S libcurl-gnutls curl libcurl-compat mingw-w64 gvfs-smb perl-getopt-argvfile gvfs-afc lib32-faudio lib32-expat lib32-fluidsynth lib32-glew glew lib32-glu lib32-gst-plugins-base-libs lib32-libjpeg-turbo lib32-mpg123 lib32-ocl-icd lib32-opus lib32-orc lib32-smpeg
 
 * sudo pacman -S lib32-wayland libaio x264 xvidcore lib32-libxvmc libxvmc ffms2 ffnvcodec-headers ffnvcodec-headers8.1 opera-ffmpeg-codecs vivaldi-ffmpeg-codecs avisynthplus vapoursynth 
 
