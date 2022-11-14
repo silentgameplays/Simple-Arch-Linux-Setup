@@ -571,7 +571,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S wavpack libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav libdvdnav lib32-libxinerama vcdimager aubio python-aubio gtkmm libev libltc libuv xine-lib 
 
-* sudo pacman -S gst-plugin-pipewire libpipewire02 lib32-pipewire pipewire-pulse pipewire-zeroconf
+* sudo pacman -S gst-plugin-pipewire lib32-pipewire pipewire-pulse pipewire-zeroconf
 
 * sudo pacman -S easyeffects 
 
