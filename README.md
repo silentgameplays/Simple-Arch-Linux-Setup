@@ -100,34 +100,22 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * genfstab -U /mnt >> /mnt/etc/fstab
 
 
-# 7.Setting date,region and time,use these commands:
-
-* timedatectl set-ntp true
-* timedatectl list-timezones
-* timedatectl set-timezone Zone/SubZone
-* hwclock --systohc
-* ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
-
-# 8.(Optional can be done after the install )Setting the hostname
-
-* hostnamectl set-hostname myhostname
-
-# 9.Switching to root.All the below commands must be used as root!
+# 7.Switching to root.All the below commands must be used as root!
 
 * arch-chroot /mnt /bin/bash
 
-# 10.Setting locales:
+# 8.Setting locales:
 
 # A proper way to do it is to find this lines en_US.UTF-8 in locale.gen file and uncomment them:
 
 * nano /etc/locale.gen
 * locale-gen
 
-# 11.Adding a main user:
+# 9.Adding a main user:
 
 * useradd -g users -G power,storage,wheel -m test
 
-# 12.Assigning passwords for root and main user
+# 10.Assigning passwords for root and main user
 
 # Password for root:
 
@@ -137,7 +125,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * passwd your_new_user
 
-# 13.Editing the sudoers file:
+# 11.Editing the sudoers file:
 
 * visudo
 
@@ -173,7 +161,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # edit sudoers file with nano anytime:
 * sudo nano /etc/sudoers 
 
-# 14.Grub and efi tools installation(very important step!):
+# 12.Grub and efi tools installation(very important step!):
 
 # Fuse 2 support (older option)
 * pacman -S grub efibootmgr dosfstools os-prober mtools fuse2 
@@ -181,25 +169,25 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Fuse 3 support (newer option)
 * pacman -S grub efibootmgr dosfstools os-prober mtools fuse3
 
-# 15. Creating efi boot directory on the EFI partition:
+# 13. Creating efi boot directory on the EFI partition:
 
 * mkdir /boot/efi
 
-# 16. Mounting the FAT32 EFI partition:
+# 14. Mounting the FAT32 EFI partition:
 
 * mount /dev/sdx1 /boot/efi  #Mount FAT32 EFI partition 
 
-# 17. Grub installation and configuration(very important,otherwise system will not boot!): 
+# 15. Grub installation and configuration(very important,otherwise system will not boot!): 
 
 * grub-install --target=x86_64-efi   --bootloader-id=grub --efi-directory=/boot/efi 
 * grub-mkconfig -o /boot/grub/grub.cfg
 
-# 18.Additional measures so that the boot does not become unbootable:
+# 16.Additional measures so that the boot does not become unbootable:
 
 * mkdir /boot/efi/EFI/BOOT
 * cp /boot/efi/EFI/GRUB/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
 
-# 19.Exiting chroot and reboot:
+# 17.Exiting chroot and reboot:
 
 * exit
 
@@ -208,7 +196,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * umount -R /mnt
 * reboot
 
-# 20.The easy way to activate the wired connection using network manager.
+# 18.The easy way to activate the wired connection using network manager.
 * sudo systemctl enable NetworkManager.service
 * sudo systemctl enable wpa_supplicant.service
 * sudo systemctl start NetworkManager.service
@@ -218,7 +206,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Select the desired wired connection it should be activated by default if not activate it
 * ping archlinux.org
 
-# 21.For Wi-Fi(Optional):
+# 19.For Wi-Fi(Optional):
 # NB! Don't enable dhcpcd.service with Network Manager!
 * sudo systemctl enable NetworkManager.service
 * sudo systemctl start NetworkManager.service
@@ -228,6 +216,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Activate the desired Wi-Fi there by entering the password
 * sudo nmtui
 * ping archlinux.org 
+
 # (Optional) instead of networkmanager enable and start dhcpcd and netctl with wpa_supplicant:
 * sudo systemctl enable netctl.service
 * sudo systemctl start netctl.service
@@ -236,20 +225,32 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo systemctl enable wpa_supplicant.service
 * sudo systemctl start wpa_supplicant.service
 
-# 22.FOR Intel CPU's install Intel firmware kernel support driver  it is important:
+# 20.Setting date,region and time,use these commands:
+
+* sudo timedatectl set-ntp true
+* sudo timedatectl list-timezones
+* sudo timedatectl set-timezone Zone/SubZone
+* sudo hwclock --systohc
+* sudo ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+
+# Setting the hostname
+
+* sudo hostnamectl set-hostname myhostname
+
+# 21.FOR Intel CPU's install Intel firmware kernel support driver  it is important:
 * sudo pacman -S intel-ucode
 
 # FOR AMD CPU's install AMD firmware kernel support driver  it is important:
 * sudo pacman -S amd-ucode
 
-# 23. Install Xorg(Wayland still works wonky on NVIDIA): 
+# 22. Install Xorg(Wayland still works wonky on NVIDIA): 
 * sudo pacman -S xorg xorg-server xorg-xinit xorg-apps xterm xorg-xrandr
 
 # (Optional) for noveau drivers 
 
 * xf86-video-vesa mesa
 
-# 24. (Older) Install audio alsa/pulseaudio drivers and utilities:
+# 23.(Older) Install audio alsa/pulseaudio drivers and utilities:
 
 * sudo pacman -S alsa alsa-utils pulseaudio pulseaudio-alsa pavucontrol
 
@@ -257,14 +258,14 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S alsa alsa-utils pipewire pipewire-alsa pipewire-pulse pavucontrol
 
-# 25.(Optional) Install another terminal and firewall:
+# 24.(Optional) Install another terminal and firewall:
 
 * sudo pacman -S lxterminal
 * sudo pacman -S ufw
 
-# 26. Install Deepin/Gnome/XFCE/KDE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
+# 25. Installing GNOME/KDE PLASMA/XFCE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
-# Xfce (compatible display managers sddm)
+# XFCE (compatible display managers sddm)
 
 * sudo pacman -S xfce4 xfce4-goodies gvfs
 
@@ -292,7 +293,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S gnome gnome-extra
 
-# KDE (compatible display managers sddm)
+# KDE PLASMA(compatible display managers sddm)
 
 # (Full)
 * sudo pacman -S plasma kde-applications
@@ -325,7 +326,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S lxqt  breeze-icons
 
-# For all DE's after installing create user directories:
+# 26. For all DE's after installing create user directories:
 * sudo pacman -S xdg-user-dirs
 * xdg-user-dirs-update
 
@@ -333,12 +334,12 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -Rscn application name
 
-# Clearing cache
+# 27. Clearing cache
 
 * sudo pacman -Scc
 * sudo pacman -Sc
 
-# 27. Enable the GUI desktop to start at launch via the required display manager: 
+# 28. Enable the GUI desktop to start at launch via the required display manager: 
 
 # In case lightdm is missing: 
 
@@ -379,7 +380,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S papirus-icon-theme
 
-# 28. Edit the pacman conf file to enable mirror list so we can enable multilib(same as multiarch support for 32bit) for Steam and proprietary drivers: 
+# 29. Edit the pacman conf file to enable mirror list to enable multilib support(for 32bit) for Steam and proprietary drivers: 
 
 * sudo nano /etc/pacman.conf
 
@@ -388,7 +389,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * [multilib]
 * Include = /etc/pacman.d/mirrorlist
 
-# 29. Update pacman libraries and system:
+# Update pacman libraries and system:
 
 * sudo pacman -Syu
 * sudo pacman -Syyuu
@@ -440,8 +441,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S chromium
 * sudo pacman -S firefox
 * yay -s brave-bin
+
 # LibreOffice rolling:
 * sudo pacman -S libreoffice-fresh
+
 # OR stable:
 * sudo pacman -S libreoffice-still
 
@@ -844,24 +847,31 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced commands and packages:
 https://wiki.archlinux.org/
 
-# and don't forget to install and use
+# Don't forget to install and use man
 * sudo pacman -S man
 * man (your command here)
+
 # Example: man pacman
+
 # If you start getting errors like  "signature from "John Smith <john.smith@archlinux.org>" is marginal trust" do these steps:
 * sudo pacman -S archlinux-keyring
 * sudo pacman -Syu  archlinux-keyring
 * sudo pacman -Syyuu
+
 # Run  this in case it still occurs:
 * sudo pacman-key --refresh-keys
 * sudo pacman -Syu archlinux-keyring
 Enjoy!
 Thank you!
+
 # SilentGamePLS Youtube channel:
 * https://www.youtube.com/c/silentgamepls
+
 # Videos on how to install Archlinux manually and automatically:
+
 # Manual Archlinux install:
 * https://youtu.be/a9LDS1aLxBQ
+
 # Automated Archlinux install:
 * https://youtu.be/4_ZpKZLNEb8
 * Enjoy!
