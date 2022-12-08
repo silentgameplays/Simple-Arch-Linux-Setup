@@ -405,6 +405,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # (Optional) Nvidia dkms for Zen/Hardened kernels:
 * sudo pacman -S nvidia-dkms
 
+# If you are experiencing NVIDIA Driver Errors with latest kernels run this:
+
+* sudo mkinitcpio -P
+
 # Reboot for changes to take effect,use the X11 don't use Wayland under KDE Plasma or any other DE,especially for NVIDIA cards!:
 
 * sudo reboot
@@ -874,6 +878,16 @@ Thank you!
 
 # Automated Archlinux install:
 * https://youtu.be/4_ZpKZLNEb8
+
+# Arch Linux manual install tutorials:
+
+XFCE:
+https://youtu.be/ECbJ7wetRqM
+GNOME:
+https://youtu.be/mueDWwjp7Ps
+KDE PLASMA:
+https://youtu.be/1O-dh6dm8Rg
+
 * Enjoy!
 
 
