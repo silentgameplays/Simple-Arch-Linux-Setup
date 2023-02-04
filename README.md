@@ -909,12 +909,14 @@ Thank you!
 
 # Arch Linux manual install tutorials:
 
-XFCE:
-https://youtu.be/ECbJ7wetRqM
-GNOME:
-https://youtu.be/mueDWwjp7Ps
-KDE PLASMA:
-https://youtu.be/1O-dh6dm8Rg
+# XFCE Arch Linux Install :
+* https://youtu.be/ECbJ7wetRqM
+
+# GNOME Arch Linux Install :
+* https://youtu.be/mueDWwjp7Ps
+
+# KDE PLASMA Arch Linux Install:
+* https://youtu.be/1O-dh6dm8Rg
 
 * Enjoy!
 
