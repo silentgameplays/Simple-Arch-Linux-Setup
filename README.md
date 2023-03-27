@@ -159,14 +159,17 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * :q + Enter exit
 
 # edit sudoers file with nano anytime:
+
 * sudo nano /etc/sudoers 
 
 # 12.Grub and efi tools installation(very important step!):
 
 # Fuse 2 support (older option)
+
 * pacman -S grub efibootmgr dosfstools os-prober mtools fuse2 
 
 # Fuse 3 support (newer option)
+
 * pacman -S grub efibootmgr dosfstools os-prober mtools fuse3
 
 # 13. Creating efi boot directory on the EFI partition:
@@ -175,11 +178,12 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 14. Mounting the FAT32 EFI partition:
 
-* mount /dev/sdx1 /boot/efi  #Mount FAT32 EFI partition 
+* mount /dev/sdx1 /boot/efi  
 
 # 15. Grub installation and configuration(very important,otherwise system will not boot!): 
 
 * grub-install --target=x86_64-efi   --bootloader-id=grub --efi-directory=/boot/efi 
+
 * grub-mkconfig -o /boot/grub/grub.cfg
 
 # 16.Additional measures so that the boot does not become unbootable:
@@ -197,6 +201,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * reboot
 
 # 18.The easy way to activate the wired connection using network manager.
+
 * sudo systemctl enable NetworkManager.service
 * sudo systemctl enable wpa_supplicant.service
 * sudo systemctl start NetworkManager.service
@@ -208,16 +213,19 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 19.For Wi-Fi(Optional):
 # NB! Don't enable dhcpcd.service with Network Manager!
+
 * sudo systemctl enable NetworkManager.service
 * sudo systemctl start NetworkManager.service
 * sudo systemctl enable wpa_supplicant.service
 * sudo systemctl start wpa_supplicant.service
 * sudo reboot
+
 # Activate the desired Wi-Fi there by entering the password
 * sudo nmtui
 * ping archlinux.org 
 
 # (Optional) instead of networkmanager enable and start dhcpcd and netctl with wpa_supplicant:
+
 * sudo systemctl enable netctl.service
 * sudo systemctl start netctl.service
 * sudo systemctl enable dhcpcd.service
@@ -266,20 +274,6 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # 25. Installing GNOME/KDE PLASMA/XFCE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
 # XFCE (compatible display managers sddm or gdm or lightdm,choose one)
-
-# SDDM with customizable settings:
-
-* sudo pacman -S sddm sddm-kcm
-* sudo systemctl enable --now sddm 
-
-# LIGHTDM with customizable settings:
-
-* sudo pacman -S lightdm lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-* sudo systemctl enable --now lightdm 
-
-# GDM with customizable settings:
-* sudo pacman -S gdm libgdm
-* sudo systemctl enable --now gdm
 
 # XFCE with extras
 * sudo pacman -S xfce4 xfce4-goodies gvfs
@@ -373,21 +367,35 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 28. Enable the GUI desktop to start at launch via the required display manager: 
 
-# In case lightdm is missing: 
+# SDDM with customizable settings:
 
-* pacman -S lightdm
+* sudo pacman -S sddm sddm-kcm
+* sudo systemctl enable --now sddm 
+
+# LIGHTDM with customizable settings:
+
+* sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+* sudo systemctl enable --now lightdm 
+
+# GDM with customizable settings:
+* sudo pacman -S gdm libgdm
+* sudo systemctl enable --now gdm
+
+# (Longer way) In case LIGHTDM is missing: 
+
+* sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 * sudo systemctl enable lightdm.service
 * sudo systemctl start lightdm.service
 
-# In case gdm is missing:
+# In case GDM is missing:
 
-* sudo pacman -S gdm
+* sudo pacman -S gdm libgdm
 * sudo systemctl enable gdm.service
 * sudo systemctl start  gdm.service
 
-# In case sddm is missing:
+# In case SDDM is missing:
 
-* sudo pacman -S sddm
+* sudo pacman -S sddm sddm-kcm
 * sudo systemctl enable sddm
 * sudo systemctl start sddm
 
@@ -400,7 +408,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo systemctl enable lxdm
 * sudo systemctl start  lxdm
 
-# For XFCE you might want to enable autologin in the conf file:
+# (Optional) For XFCE you might want to enable autologin in the conf file:
 
 * sudo nano /etc/sddm.conf.d/autologin.conf
 
@@ -411,6 +419,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # (Optional) Use this theme for better icons on all DE's:
 
 * sudo pacman -S papirus-icon-theme
+* sudo pacman -S noto-fonts noto-fonts-emoji
+* sudo pacman -S arc-gtk-theme
 
 # 29. Edit the pacman conf file to enable mirror list to enable multilib support(for 32bit) for Steam and proprietary drivers: 
 
@@ -656,10 +666,14 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * sudo pacman -S virt-manager qemu-desktop
  
  # To use virt manager isntead of GNOME Boxes properly run: 
+ 
  * sudo systemctl enable libvirtd.service
  * sudo systemctl start libvirtd.service
+ 
  # OR 
+ 
  * sudo systemctl enable --now libvirtd.service
+ 
 # Check this website for additional driver/video support on vm's for both GNOME BOXES and virtmanager:
 * https://www.spice-space.org/download.html
 
@@ -672,17 +686,24 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * sudo systemctl enable teamviewerd.service
 
  * sudo systemctl start teamviewerd.service
-* sudo pacman -S gvfs-mtp neofetch spectacle
+# (Optional) Install neofetch and spectacle if you need them:
+
+ * sudo pacman -S gvfs-mtp neofetch spectacle
 
 # 34. Update the whole system using:
+
 * sudo pacman -Syu
+
 # OR
+
 * sudo pacman -Syyuu
 
 # (Optional) Check the history of CLI:
+
 * history
 
 # 35.(Optional) Clear terminal by using:
+
 * clear
 
 # 36.Auto-mounting drives the easy way:
