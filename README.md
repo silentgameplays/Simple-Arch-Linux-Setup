@@ -553,35 +553,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # Dependencies multimedia/libraries(OPTIONAL if you want full no bloatware system skip these,or choose the ones you need):
 
-* sudo pacman -S lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-alsa-plugins lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt libgcrypt lib32-sdl lib32-sdl2 lib32-sdl_mixer lib32-sdl_ttf sdl2 sdl_gfx sdl2_image sdl2_mixer sdl2_net sdl2_ttf sdl_ttf mpg123 lib32-mpg123 lib32-libpulse lib32-jack
-
-* sudo pacman -S lib32-fluidsynth fluidsynth lib32-gnutls lib32-libldap lib32-libgpg-error lib32-libxml2 lib32-sdl2 lib32-freetype2 lib32-dbus lib32-libgcrypt
-
-* sudo pacman -S openal lib32-openal gtk3 gtk4 qt6  gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-nfs clang freetds postgresql-libs unixodbc libfbclient mariadb-libs gvfs-goa gvfs-mtp w3m libcaca jp2a chafa feh libheif djvulibre libraw libxml2  ocl-icd openexr librsvg lirc aalib libgoom2  libnfs libkate projectm
-
-* sudo pacman -S gst-python gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs gstreamermm phonon-qt5-gstreamer qt-gstreamer mpd imlib
-
-* sudo pacman -S libdvdcss lua52-socket libtiger ttf-dejavu zvbi libgme twolame libdc1394 libavc1394 libdvdcss lirc aalib libgoom2  libnfs libkate projectm exfat-utils ntfs-3g  jfsutils lib32-opencl-nvidia opencl-nvidia libvdpau git xdg-utils gvfs-gphoto2 gphoto2 gvfs-nfs lib32-libiec61883 xvidcore lib32-libxvmc libxvmc ffmpeg ffmpegthumbs gst-libav 
-
-* sudo pacman -S lib32-libxxf86vm libxxf86vm gst-plugins-good gst-plugins-bad 
-
-* sudo pacman -S transcode smpeg faac sndio vulkan-validation-layers lib32-vulkan-validation-layers 
-
-* sudo pacman -S sdl2_image sdl2_net sdl2_ttf sdl2_gfx sdl sdl_net sdl_mixer sdl_sound sdl_gfx sdl_ttf git
-
-* sudo pacman -S libnma openresolv
-
-* sudo pacman -S  sane cups samba dosbox scummvm libao sdl_image opencv rtaudio sox mono lua r tcl ocaml 
-
-* sudo pacman -S mingw-w64 gvfs-smb gvfs-afc lib32-faudio lib32-expat lib32-fluidsynth lib32-glew glew lib32-glu lib32-gst-plugins-base-libs lib32-libjpeg-turbo lib32-mpg123 lib32-ocl-icd lib32-opus lib32-orc lib32-smpeg
-
-* sudo pacman -S lib32-wayland libaio x264 xvidcore lib32-libxvmc libxvmc ffms2 ffnvcodec-headers avisynthplus vapoursynth 
-
-* sudo pacman -S wavpack libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e svt-av1 gst-libav libdvdnav lib32-libxinerama vcdimager aubio python-aubio gtkmm libev libltc libuv xine-lib 
-
-* sudo pacman -S gst-plugin-pipewire lib32-pipewire pipewire-pulse pipewire-zeroconf
-
-* sudo pacman -S easyeffects 
+* sudo pacman -S fluidsynth lib32-fluidsynth openal lib32-openal gtk3 gtk4 qt6  gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma openresolv x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis  faad2  libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libmpeg2 
 
 # (Optional) Media players (pick one or two or all or what works best):
 
@@ -594,10 +566,6 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # (In case you are using meson builds)
 
 * sudo pacman -S meson
-
-# (Optional)Last set of multimedia dependencies in case missed mostly for multimedia stuff: 
-
-* sudo pacman -S  cm256cc cppcodec speex libfdk-aac lib32-libdv lib32-flac kcodecs ffnvcodec-headers lib32-libtheora lib32-libvorbis lib32-opus lib32-speex libde265 libdv libfdk-aac libfreeaptx libilbc libjpeg-turbo mac mbelib  opera-ffmpeg-codecs opus-tools vivaldi-ffmpeg-codecs schroedinger libtheora  a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libvorbis x264 x265 libxv opus wavpack xvidcore gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire pipewire-v4l2 pipewire-x11-bell lib32-pipewire-v4l2 lib32-pipewire
 
 
 # (Optional)Install wine and some more packages-dependencies for gaming:
@@ -613,13 +581,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S gcc-libs grilo grilo-plugins
 
 
-# (Optional) More packages-dependencies for audio/video multimedia encoding/decoding and dxvk(DirectX to Vulkan API for Windows games)
+# (Optional) More packages-dependencies for Wine,Dosbox,Scummvm for older games:
 
-* sudo pacman -S mingw-w64 glslang lib32-libvorbis
-
+* sudo pacman -S mingw-w64 glslang lib32-libvorbis 
+* sudo pacman -S  dosbox scummvm 
 * yay -S dxvk
-
-* sudo pacman -S alsa pavucontrol pipewire-alsa alsa-utils alsa-card-profiles lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins alsa-plugins alsa-lib gdal wavpack libmad a52dec libvorbis speex opencore-amr libdca faad2 libfdk-aac aom libwebp libavif libheif libmpeg2 libtheora libvpx libde265 libdv  dav1d rav1e svt-av1 gst-libav libvncserver libx11 lib32-libx11
 
 # (Optional) instead of regular Wine Glourious Eggroll versions of Proton and Wine,optional package for 32bit ffmpeg:
  
@@ -743,7 +709,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * Select your USB Drive and in the top right=corner click the menu select Format Disk
 * In Partitioning select Compatible with modern systems and hard disks>2TB (GPT)
 * Click Format wait for it to finish 
-* Click Partition>For Use with Windows(NTFS) (in Volume labele type Windows or ESD)
+* Click Partition> For Use with Windows(NTFS) (in Volume labele type Windows or ESD)
 * Mount the USB and Open it
 * Go to the place where you downloaded Windows 10 ISO and select Open with Disk Image Mounter
 * Open Copy everything from the Windows 10 ISO and paste into your USB Drive,wait for it to finish(takes a while)
