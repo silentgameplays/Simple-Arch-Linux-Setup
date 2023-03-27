@@ -542,18 +542,19 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * yay -S phoronix-test-suite
 
-# Install a bunch of dependencies/packages to make life sort of easier(optional):
-* sudo pacman -S lib32-openal gtk3 gtk4 qt6 lib32-fluidsynth fluidsynth gvfs lib32-vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d
+# Install a bunch of dependencies/packages to make life sort of easier(Optional):
+* sudo pacman -S gtk3 gtk4 qt5 qt6 gvfs 
 
 # Archiver tool for Plasma:
 * sudo pacman -S ark lrzip lzop p7zip unarchiver unrar 
 
-# Archiver tools for GNOME:
+# Archiver tools for GNOME,for XFCE both ark and file-roller can be used:
 * sudo pacman -S file-roller nemo-fileroller unzip lzop p7zip unrar unarchiver
+
 
 # Dependencies multimedia/libraries(OPTIONAL if you want full no bloatware system skip these,or choose the ones you need):
 
-* sudo pacman -S fluidsynth lib32-fluidsynth openal lib32-openal gtk3 gtk4 qt6  gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma openresolv x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis  faad2  libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libmpeg2 
+* sudo pacman -S fluidsynth lib32-fluidsynth openal lib32-openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma openresolv x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis  faad2  libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libmpeg2 
 
 # (Optional) Media players (pick one or two or all or what works best):
 
