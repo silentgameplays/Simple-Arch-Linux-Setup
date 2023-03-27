@@ -265,16 +265,47 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 25. Installing GNOME/KDE PLASMA/XFCE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
 
-# XFCE (compatible display managers sddm)
+# XFCE (compatible display managers sddm or gdm or lightdm,choose one)
 
+# SDDM with customizable settings:
+
+* sudo pacman -S sddm sddm-kcm
+* sudo systemctl enable --now sddm 
+
+# LIGHTDM with customizable settings:
+
+* sudo pacman -S lightdm lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+* sudo systemctl enable --now lightdm 
+
+# GDM with customizable settings:
+* sudo pacman -S gdm libgdm
+* sudo systemctl enable --now gdm
+
+# XFCE with extras
 * sudo pacman -S xfce4 xfce4-goodies gvfs
 
-# To make desktop look great
+# (Optional) To make desktop look great
 
 * sudo pacman -S arc-gtk-theme
+* sudo pacman -S papirus-icon-theme
+* sudo pacman -S noto-fonts noto-fonts-emoji
+
+# After the AUR is installed and enabled:
+* yay -S numix-icon-theme-git
+* yay -S apple-fonts
 
 # in case you need it:
-* pacman -S  network-manager-applet
+* pacman -S network-manager-applet
+
+# If you want to make your XFCE look better with more custom themes:
+
+* Go to your /home/user/ directory
+* Enable view hidden files and folders in Thunar
+* Create two directories .themes  and .icons
+* Download custom themes here: 
+* https://www.xfce-look.org/browse/ 
+* Extract and copy/paste into the .theme and .icons folders
+* Change in Appearance Settings
 
 # Disable tearing in videogames on xfce:
 
@@ -759,19 +790,27 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # (optional depricated) Install Nvidia shadowplay for obs on Arch(DEPRICATED for OBS 28 and up because OBS version 28 no longer uses GLX)
 # NB if you still want to make NVFBC plugin work you need to use downgrade tool from AUR!!!
+
 # REMOVE OBS STUDIO 28 completely into oblivion.
 * sudo pacman -Rscn obs-studio
+
 # Delete the home>config>obs-studio directory
+
 # install the donwgrade tool from AUR:
 * yay -S downgrade
+
 # Run the tool to download older version of obs-studio
 * sudo downgrade obs-studio
+
 # Select the older version from remote the one that works with NVENC and NVFBC is 27.2.4,you should be good now you can install the nvfbc plugin
+
 # Disable obs-studio from updating
 * sudo nano /etc/pacman.conf
+
 # Add obs-studio to ignore package groups to never update: 
 * IgnorePkg   = obs-studio
 * IgnoreGroup = obs-studio
+
 # You are good!
 
 # Get nvidia-patch: https://github.com/keylase/nvidia-patch
@@ -861,9 +900,6 @@ https://wiki.archlinux.org/
 # Save the changes and exit,reboot,you are good 
 
 
-Enjoy!
-Thank you!
-
 # SilentGamePLS Youtube channel:
 * https://www.youtube.com/c/silentgamepls
 
@@ -886,7 +922,9 @@ Thank you!
 # KDE PLASMA Arch Linux Install:
 * https://youtu.be/1O-dh6dm8Rg
 
-* Enjoy!
+*Enjoy!
+Thank you!
+#silentgamepls
 
 
 
