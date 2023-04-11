@@ -260,11 +260,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 23.(Older) Install audio alsa/pulseaudio drivers and utilities:
 
-* sudo pacman -S alsa alsa-utils pulseaudio pulseaudio-alsa pavucontrol
+* sudo pacman -S alsa-firmware alsa-utils pulseaudio pulseaudio-alsa pavucontrol
 
 # (Newer)Install audio alsa/pipewire drivers and utilities
 
-* sudo pacman -S alsa alsa-utils pipewire pipewire-alsa pipewire-pulse pavucontrol
+* sudo pacman -S alsa-firmware alsa-utils pipewire pipewire-alsa pipewire-pulse pavucontrol
 
 # 24.(Optional) Install another terminal and firewall:
 
