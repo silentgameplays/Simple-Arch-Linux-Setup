@@ -819,7 +819,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # install the donwgrade tool from AUR:
 * yay -S downgrade
-
+# Fix outdated yay or paru issues fast instead of reinstalling them:
+* sudo ln -s /usr/lib/libalpm.so.14.0.0 /usr/lib/libalpm.so.13 
 # Run the tool to download older version of obs-studio
 * sudo downgrade obs-studio
 
@@ -923,25 +924,6 @@ https://wiki.archlinux.org/
 
 # SilentGamePLS Youtube channel:
 * https://www.youtube.com/c/silentgamepls
-
-# Videos on how to install Archlinux manually and automatically:
-
-# Manual Archlinux install:
-* https://youtu.be/a9LDS1aLxBQ
-
-# Automated Archlinux install:
-* https://youtu.be/4_ZpKZLNEb8
-
-# Arch Linux manual install tutorials:
-
-# XFCE Arch Linux Install :
-* https://youtu.be/ECbJ7wetRqM
-
-# GNOME Arch Linux Install :
-* https://youtu.be/mueDWwjp7Ps
-
-# KDE PLASMA Arch Linux Install:
-* https://youtu.be/1O-dh6dm8Rg
 
 *Enjoy!
 Thank you!
