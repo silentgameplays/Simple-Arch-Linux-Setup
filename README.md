@@ -809,31 +809,13 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # NB if having trouble with GNOME Disks Utility or any other utility recognizing the NTFS file format
 * sudo pacman -S ntfs-3g
 
-# (optional depricated) Install Nvidia shadowplay for obs on Arch(DEPRICATED for OBS 28 and up because OBS version 28 no longer uses GLX)
-# NB if you still want to make NVFBC plugin work you need to use downgrade tool from AUR!!!
-
-# REMOVE OBS STUDIO 28 completely into oblivion.
-* sudo pacman -Rscn obs-studio
-
-# Delete the home>config>obs-studio directory
-
-# install the donwgrade tool from AUR:
-* yay -S downgrade
+# Install and use the donwgrade tool from AUR:
+* yay -S downgrade package name
+  
 # Fix outdated yay or paru issues fast instead of reinstalling them:
 * sudo ln -s /usr/lib/libalpm.so.14.0.0 /usr/lib/libalpm.so.13 
-# Run the tool to download older version of obs-studio
-* sudo downgrade obs-studio
 
-# Select the older version from remote the one that works with NVENC and NVFBC is 27.2.4,you should be good now you can install the nvfbc plugin
-
-# Disable obs-studio from updating
-* sudo nano /etc/pacman.conf
-
-# Add obs-studio to ignore package groups to never update: 
-* IgnorePkg   = obs-studio
-* IgnoreGroup = obs-studio
-
-# You are good!
+# NVIDIA Shadowplay with GPU screen recorder on Arch Linux
 
 # Get nvidia-patch: https://github.com/keylase/nvidia-patch
 
@@ -841,22 +823,14 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * Open in terminal
 * sudo ./patch-fbc.sh
 
-# Get obs-nvfbc: https://gitlab.com/fzwoch/obs-nvfbc
-* Extract and go to folder
-* Open in terminal 
-* sudo pacman -S meson
-* meson build
-* ninja -C build
-* Go back to GUI and copy nvfbc.so
-* Enable hidden files and fodlers
-* Go to /home/user/.config/obs-studio
-* Create the following folders plugins->nvfbc->bin->64bit
-* paste nvfbc.so into 64bit
-* Go to OBS Studio and add the NvFBC Source to your scene
+# Make sure you have yay or paru installed for AUR:
 
-# NB! Optional (recommended) disabling kernel and driver updates for more stable experience
+* yay -S gpu-screen-recorder-git
+
+* yay -S  gpu-screen-recorder-gtk
+
+# NB! Optional (not recommended) disabling kernel and driver updates for more stable experience
 * sudo nano /etc/pacman.conf
-
 # Uncomment
 * #IgnorePkg =
 * #IgnoreGroup = 
