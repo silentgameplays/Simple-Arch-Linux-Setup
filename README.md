@@ -443,7 +443,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # For Nvidia LTS(Long Term Support)
 * sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
+# NVIDIA Wayland Support
 
+* sudo pacman -S egl-wayland ibglvnd
+  
 # (Optional) Nvidia dkms for Zen/Hardened kernels:
 * sudo pacman -S nvidia-dkms
 
@@ -891,7 +894,7 @@ https://wiki.archlinux.org/
 * /dev/sr0        /media/cdrom0   udf,iso9660 user,noauto     0       0
 
 # Add your SSD/HDD with its mount point here:
-* /dev/sdb1       /media/user/Backup                        ext4    defaults,noatime 0      2
+* /dev/sdb1       /media/user/Backup                        ext4    defaults,auto 0      2
 
 # Save the changes and exit,reboot,you are good 
 
