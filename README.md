@@ -537,6 +537,14 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S gamemode lib32-gamemode 
 
+# (Optional) increase max vm.max_map_count to prevent more demanding games from crashing:
+
+* sudo nano /usr/lib/sysctl.d/10-arch.conf
+* change vm.max_map_count=2147483642
+* reboot
+* cat /proc/sys/vm/max_map_count 
+
+
 # OpenMW and other mods
 
 * sudo pacman -S openmw
@@ -713,7 +721,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -S gnome-disk-utility
 
-# Automount using gnomedisk:
+# Automount using gnome disk utility:
 * Edit mount options
 * Add this line: 
 * nosuid,nodev,nofail,x-gvfs-show,auto
