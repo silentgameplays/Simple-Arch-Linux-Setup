@@ -334,7 +334,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S plasma dolphin dolphin-plugins packagekit-qt5 konsole
 
 # For missing backends on KDE Plasma:
-* sudo pacman -S packagekit-qt5
+* sudo pacman -S packagekit-qt6
 
 # Cinnamon (compatible display managers gdm/lightdm):
 
