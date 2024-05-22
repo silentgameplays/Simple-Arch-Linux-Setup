@@ -668,7 +668,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # (Optional) Steam and lutris,gamemode optimization package:
 
  * sudo pacman -S steam lutris
- * sudo pacman -S gamemode lib32-gamemode 
+ * sudo pacman -S gamemode lib32-gamemode
+ * sudo pacman -S mono
 
 # (Optional) Gnome multi-writer tool, useful for creating usb sticks with OS installs and gnome-boxes for vm's useful GUI for QEMU:
 
