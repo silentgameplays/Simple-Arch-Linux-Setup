@@ -443,22 +443,46 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # For Nvidia LTS(Long Term Support)
 * sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
-# NVIDIA Wayland Support
+
+# NVIDIA DRM Wayland Support With RTX Cards:
+
+# Edit /etc/mkinitcpio.conf
+
+* sudo nano /etc/mkinitcpio.conf
+  
+# * Change MODULES=()
+# * To MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+
+* sudo mkinitcpio -P
+  
+# Edit GRUB /etc/default/grub for other bootloaders check the Arch Wiki https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
+
+* sudo nano /etc/default/grub
+  
+# * Change GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"
+# * To GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1"
+
+* sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# to check if everything works:
+* sudo cat /sys/module/nvidia_drm/parameters/modeset
+
 
 * sudo pacman -S egl-wayland ibglvnd
   
 # (Optional) Nvidia dkms for Zen/Hardened kernels:
+
 * sudo pacman -S nvidia-dkms
 
-# If you are experiencing NVIDIA Driver Errors with latest kernels run this:
+# If you are experiencing NVIDIA Driver Errors with latest kernels or after updates run this:
 
 * sudo mkinitcpio -P
 
-# Reboot for changes to take effect,use the X11 don't use Wayland under KDE Plasma or any other DE,especially for NVIDIA cards!:
+# Reboot for changes to take effect,if using X11 as main:
 
 * sudo reboot
 
-# To disable screen tearing in games and general performance improvement on NVIDIA GPU's,login as root(su):
+# To disable screen tearing in games and general performance improvement on NVIDIA GPU's,login as root(su) for X11 no such thing for Wayland:
 
 * In Nvidia Settings set Force Composition Pipeline
 
@@ -466,7 +490,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo nvidia-xconfig
 
-# For AMD
+# Drivers For AMD, no need to tinker with DRM
 * sudo pacman -S mesa lib32-mesa mesa-vdpau lib32-mesa-vdpau lib32-vulkan-radeon vulkan-radeon glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader
 * sudo reboot
 
@@ -781,18 +805,12 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # Additional tinkering for optimal gaming experience
 
-# 38.Adding nvidia-drm.modeset to Arch Linux with GRUB for wayland gamescope:
-* sudo nano /etc/default/grub
-* Find GRUB_CMDLINE_LINUX=""
-* Change to GRUB_CMDLINE_LINUX="nvidia-drm.modeset=1"
-* sudo grub-mkconfig -o /boot/grub/grub.cfg
-# Check if the changes applied
-* cat /sys/module/nvidia_drm/parameters/modeset
 # 39. Fixing audio crackling in wine games in pipewire
 * sudo nano /usr/share/pipewire/pipewire.conf
-* In pipewire.conf change #default.clock.allowed-rates = [ 48000 ]
-* default.clock.allowed-rates = [ 44100 48000 ]
+# * Change #default.clock.allowed-rates = [ 48000 ]
+# * To #default.clock.allowed-rates = [ 44100 48000 ]
 * reboot
+
 # 40 (Optional) Installing KVM an QEMU
 * LC_ALL=C lscpu | grep Virtualization
 * zgrep CONFIG_KVM /proc/config.gz
@@ -819,19 +837,19 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # Fix outdated yay or paru issues fast instead of reinstalling them:
 * sudo ln -s /usr/lib/libalpm.so.14.0.0 /usr/lib/libalpm.so.13 
 
-# NVIDIA Shadowplay with GPU screen recorder on Arch Linux
-
-# Get nvidia-patch: https://github.com/keylase/nvidia-patch
-
-* Extract and go to the folder
-* Open in terminal
-* sudo ./patch-fbc.sh
+# 41. NVIDIA Shadowplay with GPU screen recorder on Arch Linux
 
 # Make sure you have yay or paru installed for AUR:
 
 * yay -S gpu-screen-recorder-git
 
 * yay -S  gpu-screen-recorder-gtk
+
+# (Optional) Get nvidia-patch: https://github.com/keylase/nvidia-patch
+
+* Extract and go to the folder
+* Open in terminal
+* sudo ./patch-fbc.sh
 
 # NB! Optional (not recommended) disabling kernel and driver updates for more stable experience
 * sudo nano /etc/pacman.conf
