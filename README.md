@@ -779,7 +779,21 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * Go to the place where you downloaded Windows 10 ISO and select Open with Disk Image Mounter
 * Open Copy everything from the Windows 10 ISO and paste into your USB Drive,wait for it to finish(takes a while)
 
-# (Optional) Installing KVM an QEMU
+# Additional tinkering for optimal gaming experience
+
+# 38.Adding nvidia-drm.modeset to Arch Linux with GRUB for wayland gamescope:
+* sudo nano /etc/default/grub
+* Find GRUB_CMDLINE_LINUX=""
+* Change to GRUB_CMDLINE_LINUX="nvidia-drm.modeset=1"
+* sudo grub-mkconfig -o /boot/grub/grub.cfg
+# Check if the changes applied
+* cat /sys/module/nvidia_drm/parameters/modeset
+# 39. Fixing audio crackling in wine games in pipewire
+* sudo nano /usr/share/pipewire/pipewire.conf
+* In pipewire.conf change #default.clock.allowed-rates = [ 48000 ]
+* default.clock.allowed-rates = [ 44100 48000 ]
+* reboot
+# 40 (Optional) Installing KVM an QEMU
 * LC_ALL=C lscpu | grep Virtualization
 * zgrep CONFIG_KVM /proc/config.gz
 * sudo pacman -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
@@ -795,33 +809,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo usermod -a -G libvirt $(whoami)
 * sudo systemctl restart libvirtd.service
 
-# (Optional)For GPU passthrough enable IOMMU in GRUB or Systemd-boot:
-* For systemd-boot edit /boot/loader/loader.conf and add intel_iommu=on OR amd_iommu=on, and iommu=pt.
-# For AMD CPUs
-* options root=/dev/sda2 amd_iommu=on iommu=pt
----------------------------------------------
-# For Intel CPUs
-* options root=/dev/sda2 intel_iommu=on iommu=pt
-# grub
-* For grub edit /etc/default/grub and append your kernel options, intel_iommu=on OR amd_iommu=on and iommu=pt, to the GRUB_CMDLINE_LINUX_DEFAULT.
-# For AMD CPUs
-* GRUB_CMDLINE_LINUX_DEFAULT="amd_iommu=on iommu=pt"
----------------------------------------------------
-# For Intel CPUs
-* GRUB_CMDLINE_LINUX_DEFAULT="intel_iommu=on iommu=pt"
-# And then automatically re-generate the grub.cfg file with:
-* sudo grub-mkconfig -o /boot/grub/grub.cfg
-# Check if IOMMU is working
-* dmesg | grep -e DMAR -e IOMMU
-# Check NVIDIA version: 
-* nvidia-smi -q | grep "VBIOS Version"
-# Download VBIOS and check other more complex tutorials on further steps,this is not recommended,it can cause issues,not all VBIOSES are supported,etc.
-* https://www.techpowerup.com/vgabios/
 
 # NB if having trouble with GNOME Disks Utility or any other utility recognizing the NTFS file format
 * sudo pacman -S ntfs-3g
 
-# Install and use the donwgrade tool from AUR:
+# Install and use the donwgrade tool from AUR for any package you want downgraded:
 * yay -S downgrade package name
   
 # Fix outdated yay or paru issues fast instead of reinstalling them:
@@ -905,6 +897,7 @@ https://wiki.archlinux.org/
 # Add your SSD/HDD with its mount point here:
 * /dev/sdb1       /media/user/Backup                        ext4    defaults,auto 0      2
 
+ 
 # Save the changes and exit,reboot,you are good 
 
 
