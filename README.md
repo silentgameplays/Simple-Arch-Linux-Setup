@@ -444,7 +444,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # For Nvidia LTS(Long Term Support)
 * sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
 
-# NVIDIA DRM Wayland Support With RTX Cards:
+# NVIDIA DRM Wayland Support and generally improved gaming support on X11 as well With RTX Cards:
 
 # Edit /etc/mkinitcpio.conf
 
