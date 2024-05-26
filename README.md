@@ -496,8 +496,6 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 31. Install Steam 
 * sudo pacman -S steam
-# OR
-* sudo pacman -S steam-native-runtime
 
 # 32. Installing AUR helper yay
 * sudo pacman -S git
@@ -521,13 +519,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # OR stable:
 * sudo pacman -S libreoffice-still
 
-# Other stuff,inlcuding OBS Studio,wine/lutris.
+# Other stuff,inlcuding OBS Studio.
 * yay -S dhewm3-git
 * sudo pacman -S obs-studio
 * sudo pacman -S flatpak
-* sudo pacman -S wine
-* sudo pacman -S wine-gecko
-* sudo pacman -S wine-mono
 * sudo pacman -S lutris
 * sudo pacman -S openra
 * sudo pacman -S gimp
@@ -557,9 +552,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S pscx2
 * sudo pacman -S retroarch
 
-# Optimization for gaming:
+# Optimization for gaming gamemode and gamescope:
 
-* sudo pacman -S gamemode lib32-gamemode 
+* sudo pacman -S gamemode lib32-gamemode
+* sudo pacman -S gamescope 
 
 # (Optional) increase max vm.max_map_count to prevent more demanding games from crashing:
 
@@ -619,7 +615,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * yay -S phoronix-test-suite
 
 # Install a bunch of dependencies/packages to make life sort of easier(Optional):
-* sudo pacman -S gtk3 gtk4 qt5 qt6 gvfs 
+* sudo pacman -S gtk3 gtk4 qt6 gvfs 
 
 # Archiver tool for Plasma:
 * sudo pacman -S ark lrzip lzop p7zip unarchiver unrar 
@@ -647,9 +643,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # (Optional)Install wine and some more packages-dependencies for gaming:
 
-* sudo pacman -S wine wine-mono wine-gecko lutris steam-native-runtime
-
-* sudo pacman -S lib32-v4l-utils lib32-libxcomposite lib32-opencl-icd-loader lib32-gst-plugins-base-libs
+* sudo pacman -S wine wine-mono wine-gecko lutris steam
+* sudo pacman -S mono  
+* sudo pacman -S lib32-v4l-utils lib32-libxcomposite lib32-opencl-icd-loader lib32-gst-plugins-base-libs 
 
 * sudo pacman -Syyuu
 
@@ -664,13 +660,6 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S  dosbox scummvm 
 * yay -S dxvk
 
-# (Optional) instead of regular Wine Glourious Eggroll versions of Proton and Wine,optional package for 32bit ffmpeg:
- 
- * yay -S proton-ge-custom-bin
- 
- * yay -S wine-ge-custom
- 
- * yay -S lib32-ffmpeg
 
 # (Optional) Install Glourious Eggroll Proton GE the easy way:
  * Download the latest release here: https://github.com/GloriousEggroll/proton-ge-custom/releases
@@ -688,12 +677,6 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * sudo pacman -S enchant
 
  * sudo pacman -Syyuu
-
-# (Optional) Steam and lutris,gamemode optimization package:
-
- * sudo pacman -S steam lutris
- * sudo pacman -S gamemode lib32-gamemode
- * sudo pacman -S mono
 
 # (Optional) Gnome multi-writer tool, useful for creating usb sticks with OS installs and gnome-boxes for vm's useful GUI for QEMU:
 
@@ -722,6 +705,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
  * sudo systemctl enable teamviewerd.service
 
  * sudo systemctl start teamviewerd.service
+
 # (Optional) Install neofetch and spectacle if you need them:
 
  * sudo pacman -S gvfs-mtp neofetch spectacle
