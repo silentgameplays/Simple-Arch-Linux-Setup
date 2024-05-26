@@ -436,7 +436,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -Syu
 * sudo pacman -Syyuu
 
-# 30. Install NVIDIA or AMD proprietary drivers and utilities last!:
+# 30. Install NVIDIA protprietary or AMD open source drivers and utilities last!:
 
 # For Nvidia Non-LTS (rolling)
 * sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
