@@ -904,7 +904,7 @@ https://wiki.archlinux.org/
 
 
 # SilentGamePLS Youtube channel:
-* https://www.youtube.com/c/silentgamepls
+* https://www.youtube.com/@silentgameplays/
 
 *Enjoy!
 Thank you!
