@@ -440,9 +440,28 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # For Nvidia Non-LTS (rolling)
 * sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
+# Run mkinitcpio after installation and reboot:
 
+* sudo mkinitcpio -P
+  
 # For Nvidia LTS(Long Term Support)
-* sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
+* sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers
+
+# Run mkinitcpio after installation and reboot:
+* sudo mkinitcpio -P
+
+# NVIDIA DKMS Driver For Zen and Multiple Kernels
+* sudo pacman -S nvidia-dkms nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
+
+# Run mkinitcpio after installation and reboot:
+* sudo mkinitcpio -P 
+
+# NVIDIA Open Source Driver
+* sudo pacman -S nvidia-open nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
+
+# Run mkinitcpio after installation and reboot:
+
+* sudo mkinitcpio -P 
 
 # NVIDIA DRM Wayland Support and generally improved gaming support on X11 as well With RTX Cards:
 
@@ -467,24 +486,27 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # to check if everything works:
 * sudo cat /sys/module/nvidia_drm/parameters/modeset
 
+# Extra Steps with GNOME/GDM
+
+# Removing the gdm udev that disables wayland
+* sudo ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
+* sudo reboot
+
+# Dependencies,usually provided by KDE/GNOME
 
 * sudo pacman -S egl-wayland ibglvnd
   
-# (Optional) Nvidia dkms for Zen/Hardened kernels:
-
-* sudo pacman -S nvidia-dkms
-
-# If you are experiencing NVIDIA Driver Errors with latest kernels or after updates run this:
+# After NVIDIA Driver updates run:
 
 * sudo mkinitcpio -P
 
-# Reboot for changes to take effect,if using X11 as main:
+# Reboot for changes to take effect:
 
 * sudo reboot
 
 # To disable screen tearing in games and general performance improvement on NVIDIA GPU's,login as root(su) for X11 no such thing for Wayland:
 
-* In Nvidia Settings set Force Composition Pipeline
+* In Nvidia Settings set Force Full Composition Pipeline
 
 # Run this to improve perdormance:
 
