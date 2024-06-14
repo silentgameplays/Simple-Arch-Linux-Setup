@@ -774,7 +774,9 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo rm -rf ~/.cache/*
 * sudo pacman -Qtdq
 * sudo pacman -Rns $(pacman -Qtdq)
+* yay -Sc
 * yay -Scc
+* sudo rm /var/cache/pacman/pkg/*
 
 # Recursively removing orphans when cluttered 
 
