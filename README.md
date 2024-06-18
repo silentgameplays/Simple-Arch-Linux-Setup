@@ -494,7 +494,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # Dependencies,usually provided by KDE/GNOME
 
-* sudo pacman -S egl-wayland ibglvnd
+* sudo pacman -S egl-wayland libglvnd
   
 # After NVIDIA Driver updates run:
 
