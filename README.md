@@ -504,10 +504,6 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo reboot
 
-# To disable screen tearing in games and general performance improvement on NVIDIA GPU's,login as root(su) for X11 no such thing for Wayland:
-
-* In Nvidia Settings set Force Full Composition Pipeline
-
 # Run this to improve perdormance:
 
 * sudo nvidia-xconfig
