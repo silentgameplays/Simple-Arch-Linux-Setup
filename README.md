@@ -670,7 +670,8 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S opusfile
 
 * sudo pacman -S gcc-libs grilo grilo-plugins
-
+# For better wine support
+* sudo systemctl restart systemd-binfmt
 
 # (Optional) More packages-dependencies for Wine,Dosbox,Scummvm for older games:
 
