@@ -260,11 +260,11 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 # 23.(Older) Install audio alsa/pulseaudio drivers and utilities:
 
-* sudo pacman -S alsa-firmware alsa-utils pulseaudio pulseaudio-alsa pavucontrol
+* sudo pacman -S alsa-firmware alsa-utils pulseaudio pulseaudio-alsa 
 
 # (Newer)Install audio alsa/pipewire drivers and utilities
 
-* sudo pacman -S alsa-firmware alsa-utils pipewire pipewire-alsa pipewire-pulse pavucontrol
+* sudo pacman -S alsa-firmware alsa-utils pipewire pipewire-alsa pipewire-pulse 
 
 # 24.(Optional) Install another terminal and firewall:
 
@@ -524,7 +524,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * cd yay
 * makepkg -si
 
-# 33. (Optional)Installing other stuff:
+# 33.(Optional)Installing other stuff:
 # Browsers 
 * sudo pacman -S firefox-developer-edition
 * sudo pacman -S chromium
@@ -678,6 +678,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S mingw-w64 glslang lib32-libvorbis 
 * sudo pacman -S  dosbox scummvm 
 * yay -S dxvk
+* sudo pacman -S mangohud lib32-mangohud
 
 
 # (Optional) Install Glourious Eggroll Proton GE the easy way:
@@ -774,8 +775,14 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * yay -Sc
 * yay -Scc
 * sudo rm /var/cache/pacman/pkg/*
-# Removingonly the stated packages:
-* sudo pacman -Rdd
+
+# Removing only the stated packages without dependencies:
+
+* sudo pacman -Rdd package name
+
+# Removing only the stated packages with dependencies
+
+* sudo pacman -Rscn package name
 
 # Recursively removing orphans when cluttered 
 
@@ -926,7 +933,7 @@ https://wiki.archlinux.org/
 # Save the changes and exit,reboot,you are good 
 
 
-# SilentGamePLS Youtube channel:
+# silentgameplays Youtube channel:
 * https://www.youtube.com/@silentgameplays/
 
 *Enjoy!
