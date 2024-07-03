@@ -1,4 +1,4 @@
-# Simple-ArchLinux-Install-Guide
+# Simple-Arch Linux-Setup-Guide
 
 ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,flatpak it's a process,but the results are worth it.You will get a fully customizable system where you can make everything work exactly how you want it,sky is the limit!
 
