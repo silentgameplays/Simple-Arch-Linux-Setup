@@ -1,358 +1,409 @@
-# Simple-Arch Linux-Setup-Guide
+# Arch Linux Manual Installation With GRUB Bootloader Cheat Sheet
 
-ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,flatpak it's a process,but the results are worth it.You will get a fully customizable system where you can make everything work exactly how you want it,sky is the limit!
+# 1. Downloading the installation image and creating a bootable USB device
+* Download Arch Linux ISO image here via torrent or direct link:
+* https://archlinux.org/download/
+* Use Rufus https://rufus.ie/en/ and select GPT and ISO mode for the image
+* Balena Etcher is another great tool
+* https://etcher.balena.io/
+* for creating bootable USB's
+# (Optional) On Linux you can use gnome-disk-utility or Ventoy
 
-# 0. Downloading the installation image and creating a bootable device using rufus or gnome-multi-writer utility:
+# 2. Before installing Arch Linux on bare metal it is recommended to remove previous filesystems and data, after backing up what the user needs
 
-* Download image here via torrent or direct link:https://www.archlinux.org/download/
-* Use Rufus http://rufus.ie/ and select GPT and ISO mode for the image
-* Also Balena Etcher portable is a nice tool https://www.balena.io/etcher/
-* On Linux use gnome-multi-writer utility or ventoy 
-# By default all current Arch installation mediums have a guided installer(better to use manual installation):
-* archinstall
-# Alternative
-* python -m archinstall guided
+# wipefs can be used to erase existing signatures on a device:
 
-# Formatting the SSD/HDD properly before installing Arch Linux or any other Linux distribution or operating system:
-* sudo cfdisk /dev/sda 
-* sudo cfdisk /dev/nvme0n1
-* Delete everything you see then Write>>Yes
-# Wipping the partition schemes 
+# For regular SSD's/HDD's
+
 * sudo wipefs -a /dev/sda
+
+# For NVME SSD's
+
 * sudo wipefs /dev/nvme0n1
-# Deleting everything properly so no forencisc recovery is possible
+
+# (Opional) Deleting everything with shred command properly while overwriting so no forensics recovery is possible, also helps fix bad blocks in some cases:
+
+# For regular SSD's/HDD's
+
 * sudo shred -f -v /dev/sda
+
+# For NVME SSD's
+
 * sudo shred -f -v /nvme0n1
-# Also this works but it does not show the process:
-* sudo shred /dev/sda
-* sudo shred /dev/nvme0n1
 
-# NB!! when you are running into weird pgp errors during pacstrap,don't forget to run this command from the Arch ISO!:
-* pacman -Sy archlinux-keyring
+# 3. Using cfdisk to format and create paritions on SSD/HDD before installing Arch Linux
 
-# 1.Creating partitions using cfdisk(easiest):
+# For regular SSD's/HDD's
 
-# Run this command and delete everything,from free space create the following:
+* sudo cfdisk /dev/sda
 
-* cfdisk 
-* /dev/sdx1 512M  Fat32(EFI)
+# For NVME SSD's
 
-# NB!The size of the EFI must be 512MB and type should be EFI
+* sudo cfdisk /dev/nvme0n1
 
-# (Optional) Swap patition size can be around 3-10GB 
+# When prompted by cfdisk, delete everything you see then Write>>Yes
 
-* /dev/sdx2 8-10GB swap
+# 4. Creating partitions using cfdisk:
 
-# Main partition,remaining size can be as large as you want it to be: 
+# From free space on the SSD/HDD create the following partitions using cfdisk' TUI (Terminal User Interface):
 
-* /dev/sdx3 200GB ext 4
+# Required UEFI partition:
 
-# 2.Formatting the drives:
+# For regular SSD's/HDD's
 
-# For the /dev/sdx1 use the following command:
+* /dev/sda1 512M  Fat32(EFI)
 
-* mkfs.fat -F32 /dev/sdx1
+# For NVME SSD's
 
-# (Optional) For the swap /dev/sdx2 use the following commands:
+* /dev/nvme01p1 512M  Fat32(EFI)
 
-*  mkswap /dev/sdX2
-*  swapon /dev/sdX2
+# The size of the EFI partition must be 512MB and type of the partition needs to be EFI.
 
-# For the primary partition use the following command:
+# (Optional) SWAP partition size can be around 8-10GB, but it is not required if you have 16GB/32GB or more RAM
 
-* mkfs.ext4 /dev/sdX3
+# For regular SSD's/HDD's
 
-# 3.Mounting the drives:
+* /dev/sda2 8-10GB swap
 
-* mount /dev/sdX3 /mnt
+# For NVME SSD's
 
-# 4 Checking if everything worked:
+* /dev/nvme0n1p2 8-10GB swap
 
-* lsblk
-* ip link
+# Required main partition for your main user /mnt, remaining size can be as large as you want it to be:
 
-# 5.Installing basic packages and important stuff with wifi you will need the iw wpa_supplicant dialog packages:
+# For regular SSD's/HDD's
 
-# For Non-LTS kernel(rolling) with Wi-Fi
-* pacstrap /mnt base base-devel linux linux-headers linux-firmware nano vim networkmanager iw wpa_supplicant dialog 
+* /dev/sda3 1000GB ext4
 
-# Non-LTS kernel(rolling) without Wi-Fi
-* pacstrap /mnt base base-devel linux linux-headers linux-firmware nano vim networkmanager
+# For NVME SSD's
 
-# (Optional)
+* /dev/nvme0n1p3 1000GB ext4
 
-# For LTS kernel (Long Term Support) with Wi-Fi
-* pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim networkmanager iw wpa_supplicant dialog
+# Save changes in cfdisk, by using Write option in the cfdisk TUI and exit cfdisk.
 
-# LTS Without Wifi
-* pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano vim networkmanager
+# 5.Format partitions,create UEFI partition, mount point partition (main user partition) and swap partition
 
-# (Optional)
+# UEFI partition
 
-# For both Non-LTS and LTS(have both options) with
-* pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware nano vim dhcpcd networkmanager iw wpa_supplicant dialog 
+# For regular SSD's/HDD's
 
-# Or if you hate networkmanager,but still need Wi-Fi:
-* pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware nano vim dhcpcd iwd iw wpa_supplicant dialog netctl 
+* mkfs.fat -F32 /dev/sda
 
-# 6. Generating fstab file:
+# For NVME SSD's
+
+* mkfs.fat -F32 /dev/nvme0n1p1
+
+# SWAP partition
+
+# For regular SSD's/HDD's
+
+* mkswap /dev/sda2
+
+* swapon /dev/sda2
+
+# For NVME SSD's
+
+* mkswap /dev/nvme0n1p2
+
+* swapon /dev/nvme0n1p2
+
+# Primary partition
+
+# For regular SSD's/HDD's
+
+* mkfs.ext4 /dev/sda3
+
+# For NVME SSD's
+
+* mkfs.ext4 /dev/nvme0n1p3
+
+# 6. Mounting the primary partition
+
+# For regular SSD's/HDD's
+
+* mount /dev/sda3 /mnt
+
+# For NVME SSD's
+
+* mount /dev/nvme0n1p3 /mnt
+
+# Check if everything worked by using lsblk command.
+
+# 7.Base Arch Linux installation
+
+# Check if internet works by using the ip link command.
+
+# Standard Arch Linux installation with standard Ethernet and Wi-Fi support,nano as text editor:
+
+* pacstrap /mnt base base-devel linux linux-headers linux-firmware nano networkmanager
+
+# Generate fstab file:
 
 * genfstab -U /mnt >> /mnt/etc/fstab
 
+# (Optional choice) Standard Arch Linux installation with better Wi-Fi support and nano as text editor:
 
-# 7.Switching to root.All the below commands must be used as root!
+* pacstrap /mnt base base-devel linux linux-headers linux-firmware nano networkmanager iw wpa_supplicant dialog
+
+# Generate fstab file:
+* genfstab -U /mnt >> /mnt/etc/fstab
+
+# (Optional choice) LTS(Long Term Support) Arch Linux installation with standard Ethernet and Wi-Fi support,nano as text editor:
+
+* pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano networkmanager
+
+# Generate fstab file:
+
+* genfstab -U /mnt >> /mnt/etc/fstab
+
+# (Optional choice) LTS (Long Term Support) Kernel Arch Linux installation with better Wi-Fi support and nano as text editor:
+
+* pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano networkmanager iw wpa_supplicant dialog
+
+# Generate fstab file:
+
+* genfstab -U /mnt >> /mnt/etc/fstab
+
+# (Optional choice) Standard Arch Linux installation with LTS (Long Term Support) Kernel as backup and nano as text editor:
+
+* pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware nano networkmanager iw wpa_supplicant dialog
+
+# Generate fstab file:
+* genfstab -U /mnt >> /mnt/etc/fstab
+
+# 8. Basic Arch Linux configuration with chroot
+
+# Log into your installation as chroot:
 
 * arch-chroot /mnt /bin/bash
 
-# 8.Setting locales:
-
-# A proper way to do it is to find this lines en_US.UTF-8 in locale.gen file and uncomment them:
+# Set locales:
 
 * nano /etc/locale.gen
+
+# (Example) For US locale find this line en_US.UTF-8 in locale.gen file and uncomment the line.
+
+# Generate locale
+
 * locale-gen
 
-# 9.Adding a main user:
+# Creating and adding a main user:
 
-* useradd -g users -G power,storage,wheel -m test
+* useradd -g users -G power,storage,wheel -m user
 
-# 10.Assigning passwords for root and main user
+# Creating passwords for root and main user
 
 # Password for root:
 
-* passwd 
+* passwd
+
+# Type in the root password.
 
 # Password for main user:
 
-* passwd your_new_user
+* passwd user
 
-# 11.Editing the sudoers file:
+# Type in the user password.
+
+# 9. Editing the sudoers file:
 
 * visudo
 
-# Or
+# or
 
 * nano /etc/sudoers
 
-# Ctrl+O to save,Ctrl+ X to exit after chages with nano.
-
-# Uncomment the settings in sudo file and add the main user to sudo(your username):
+# Uncomment the settings in sudoers file and add the main user to sudo (user):
 
 # Lines to uncomment:
-* sudo=ALL=(ALL:ALL) ALL
-
-# (Optional) Add yourself to the sudoers file under root(not recommended):
-
-* username=ALL=(ALL:ALL) ALL
-
-# (Optional) Add yourself to sudoers file under sudo (safer option):
 
 * sudo=ALL=(ALL:ALL) ALL
-* username=ALL=(ALL:ALL) ALL
 
-# More secure way by uncommenting the following lines,without touching anything else:
+# Add yourself to sudoers file under sudo
+
+* user=ALL=(ALL:ALL) ALL
+
+# More secure way by uncommenting the following lines,without touching anything else in the sudoers file:
 
 * Defaults targetpw
+
 * ALL ALL=(ALL:ALL)
 
 # Save changes to the sudoers file:
-* :w! + Enter to exit and write changes
-* :q + Enter exit
 
-# edit sudoers file with nano anytime:
+# For vi text editor:
 
-* sudo nano /etc/sudoers 
+  # :w! + Enter to exit and write changes
+  # :q + Enter to exit
 
-# 12.Grub and efi tools installation(very important step!):
+# For nano text editor:
 
-# Fuse 2 support (older option)
+# Ctrl+O to save,Ctrl+ X to exit after making changes with nano text editor.
 
-* pacman -S grub efibootmgr dosfstools os-prober mtools fuse2 
+# (Optional) Edit sudoers file with nano anytime:
 
-# Fuse 3 support (newer option)
+* sudo nano /etc/sudoers
+
+# 10. GRUB Bootloader Installation and configuration for UEFI boot
+
+# Install the following packages along with GRUB Bootloader for UEFI support:
 
 * pacman -S grub efibootmgr dosfstools os-prober mtools fuse3
 
-# 13. Creating efi boot directory on the EFI partition:
+# Create an EFI boot directory on the EFI partition:
 
 * mkdir /boot/efi
 
-# 14. Mounting the FAT32 EFI partition:
+# Mount the FAT32 EFI partition:
 
-* mount /dev/sdx1 /boot/efi  
+# For regular SSD's/HDD's
 
-# 15. Grub installation and configuration(very important,otherwise system will not boot!): 
+* mount /dev/sda1 /boot/efi
 
-* grub-install --target=x86_64-efi   --bootloader-id=grub --efi-directory=/boot/efi 
+# For NVME SSD's
+
+* mount /dev/nvme0n1p1 /boot/efi
+
+# GRUB Bootloader Installation:
+
+* grub-install --target=x86_64-efi --bootloader-id=grub --efi-directory=/boot/efi
+
+# Generating GRUB Bootloader configuration file:
 
 * grub-mkconfig -o /boot/grub/grub.cfg
 
-# 16.Additional measures so that the boot does not become unbootable:
+# Additional measures for boot partition to not become unbootable
 
 * mkdir /boot/efi/EFI/BOOT
+
 * cp /boot/efi/EFI/GRUB/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
 
-# 17.Exiting chroot and reboot:
+# 11. Exit chroot,unmount Arch Linux ISO and reboot:
 
 * exit
 
-# Unmounting the live partitions and rebooting:
-
 * umount -R /mnt
+
 * reboot
 
-# 18.The easy way to activate the wired connection using network manager.
+# 12. Desktop Environment installation,enabling the network and sound, Xorg installation,Date/Time configuration
 
-* sudo systemctl enable NetworkManager.service
-* sudo systemctl enable wpa_supplicant.service
-* sudo systemctl start NetworkManager.service
-* sudo reboot
+# Ethernet
+
+* sudo systemctl enable --now NetworkManager.service
+
+# Ethernet + WiFi
+
+* sudo systemctl enable --now NetworkManager.service
+
+* sudo systemctl enable --now wpa_supplicant.service
+
 * sudo nmtui
 
-# Select the desired wired connection it should be activated by default if not activate it
+# Select the desired wireless connection,wired connections should be activated by default,connect to Wi-Fi using your password.
+
+# Check if internet works:
+
 * ping archlinux.org
 
-# 19.For Wi-Fi(Optional):
-# NB! Don't enable dhcpcd.service with Network Manager!
-
-* sudo systemctl enable NetworkManager.service
-* sudo systemctl start NetworkManager.service
-* sudo systemctl enable wpa_supplicant.service
-* sudo systemctl start wpa_supplicant.service
-* sudo reboot
-
-# Activate the desired Wi-Fi there by entering the password
-* sudo nmtui
-* ping archlinux.org 
-
-# (Optional) instead of networkmanager enable and start dhcpcd and netctl with wpa_supplicant:
-
-* sudo systemctl enable netctl.service
-* sudo systemctl start netctl.service
-* sudo systemctl enable dhcpcd.service
-* sudo systemctl start dhcpcd.service
-* sudo systemctl enable wpa_supplicant.service
-* sudo systemctl start wpa_supplicant.service
-
-# 20.Setting date,region and time,use these commands:
+# 13. Set date,region and time.
 
 * sudo timedatectl set-ntp true
+
 * sudo timedatectl list-timezones
+
 * sudo timedatectl set-timezone Zone/SubZone
+
 * sudo hwclock --systohc
+
 * sudo ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 
-# Setting the hostname
+# Hostname configuration
 
 * sudo hostnamectl set-hostname myhostname
 
-# 21.FOR Intel CPU's install Intel firmware kernel support driver  it is important:
+# 14. Intel CPU firmware kernel support driver:
+
 * sudo pacman -S intel-ucode
 
-# FOR AMD CPU's install AMD firmware kernel support driver  it is important:
+# AMD CPU firmware kernel support driver:
 * sudo pacman -S amd-ucode
 
-# 22. Install Xorg(Wayland still works wonky on NVIDIA): 
-* sudo pacman -S xorg xorg-server xorg-xinit xorg-apps xterm xorg-xrandr
+# 15. Xorg installation,Wayland is provided with all the popular DE's:
+* sudo pacman -S xorg xorg-server xorg-xinit xorg-apps xterm xorg-xrandr xdg-user-dirs
 
+# Run:
+
+* xdg-user-dirs-update
+
+# 16. Enable 32-bit support for Steam,Wine,Lutris
+
+* sudo nano /etc/pacman.conf
+
+# Uncomment these lines:
+
+* [multilib] Include = /etc/pacman.d/mirrorlist
+
+# Update:
+
+  * sudo pacman -Syu
+
+# 17. Install audio support
+
+  * sudo pacman -S alsa-firmware alsa-utils pipewire pipewire-alsa pipewire-pulse
+
+# 18. GNOME/KDE Plasma/XFCE/Desktop environments
+
+# XFCE
+
+  * sudo pacman -S xfce4 xfce4-goodies gvfs
+
+# Display Manager:
+
+  * sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+
+  * sudo systemctl enable --now lightdm.service
+
+# 19. GNOME
+
+  * sudo pacman -S gnome gnome-extra
+
+# For missing backends on GNOME:
+
+  * sudo pacman -S gnome-packagekit
+
+# Display Manager:
+
+  * sudo pacman -S gdm libgdm
+
+  * sudo systemctl enable --now gdm
+
+# 20. KDE PLasma
+
+  * sudo pacman -S plasma kde-applications
+
+# For missing backends on KDE Plasma:
+
+  * sudo pacman -S packagekit-qt6
+
+# Display Manager:
+
+  * sudo pacman -S sddm sddm-kcm
+
+  * sudo systemctl enable --now sddm
+
+
+# 21.(Optional) Additional dependencies
 # (Optional) for noveau drivers 
 
 * xf86-video-vesa mesa
 
-# 23.(Older) Install audio alsa/pulseaudio drivers and utilities:
+# 22.(Older) Install audio alsa/pulseaudio drivers and utilities:
 
 * sudo pacman -S alsa-firmware alsa-utils pulseaudio pulseaudio-alsa 
 
-# (Newer)Install audio alsa/pipewire drivers and utilities
 
-* sudo pacman -S alsa-firmware alsa-utils pipewire pipewire-alsa pipewire-pulse 
-
-# 24.(Optional) Install another terminal and firewall:
-
-* sudo pacman -S lxterminal
-* sudo pacman -S ufw
-
-# 25. Installing GNOME/KDE PLASMA/XFCE/Cinnamon/LXDE/LXQt desktop environments(choose one): 
-
-# XFCE (compatible display managers sddm or gdm or lightdm,choose one)
-
-# XFCE with extras
-* sudo pacman -S xfce4 xfce4-goodies gvfs
-
-# (Optional) To make desktop look great
-
-* sudo pacman -S arc-gtk-theme
-* sudo pacman -S papirus-icon-theme
-* sudo pacman -S noto-fonts noto-fonts-emoji
-
-# After the AUR is installed and enabled:
-* yay -S numix-icon-theme-git
-* yay -S apple-fonts
-
-# in case you need it:
-* pacman -S network-manager-applet
-
-# If you want to make your XFCE look better with more custom themes:
-
-* Go to your /home/user/ directory
-* Enable view hidden files and folders in Thunar
-* Create two directories .themes  and .icons
-* Download custom themes here: 
-* https://www.xfce-look.org/browse/ 
-* Extract and copy/paste into the .theme and .icons folders
-* Change in Appearance Settings
-
-# Disable tearing in videogames on xfce:
-
-* xfconf-query -c xfwm4 -p /general/use_compositing -s false
-
-# Check if compositing is enabled in xfwm4, you can run :
-
-* xfconf-query -c xfwm4 -p /general/use_compositing
-
-# Deepin (compatible display managers lightdm)
-
-* sudo mkdir home 
-* sudo pacman -S deepin deepin-extra
-
-# Gnome(compatible display managers gdm/lightdm)
-
-* sudo pacman -S gnome gnome-extra
-* sudo pacman -S gnome-packagekit
-
-# KDE PLASMA(compatible display managers sddm)
-
-# (Full)
-* sudo pacman -S plasma kde-applications
-
-# (Essential)
-* sudo pacman -S plasma-meta
-
-# (Minimalist)
-* sudo pacman -S plasma-desktop
-
-# Or better minimalist and more up to date
-* sudo pacman -S plasma dolphin dolphin-plugins packagekit-qt6 konsole
-
-# For missing backends on KDE Plasma:
-* sudo pacman -S packagekit-qt6
-
-# Cinnamon (compatible display managers gdm/lightdm):
-
-* sudo pacman -S cinnamon
-
-# MATE (compatible display managers gdm/lightdm)
-
-* sudo pacman -S mate mate-extra
-
-# LXDE (compatible display managers sddm/lxdm)
-
-* sudo pacman -S lxde
-
-# LXQt (compatible display managers sddm)
-
-* sudo pacman -S lxqt  breeze-icons
-
-# 26. For all DE's after installing create user directories:
+# 23. For all DE's after installing create user directories:
 * sudo pacman -S xdg-user-dirs
 * xdg-user-dirs-update
 
@@ -360,12 +411,12 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * sudo pacman -Rscn application name
 
-# 27. Clearing cache
+# 24. Clearing cache
 
 * sudo pacman -Scc
 * sudo pacman -Sc
 
-# 28. Enable the GUI desktop to start at launch via the required display manager: 
+# 25. Enable the GUI desktop to start at launch via the required display manager: 
 
 # SDDM with customizable settings:
 
@@ -422,7 +473,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S noto-fonts noto-fonts-emoji
 * sudo pacman -S arc-gtk-theme
 
-# 29. Edit the pacman conf file to enable mirror list to enable multilib support(for 32bit) for Steam and proprietary drivers: 
+# 26. Edit the pacman conf file to enable mirror list to enable multilib support(for 32bit) for Steam and proprietary drivers: 
 
 * sudo nano /etc/pacman.conf
 
@@ -436,7 +487,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -Syu
 * sudo pacman -Syyuu
 
-# 30. Install NVIDIA protprietary or AMD open source drivers and utilities last!:
+# 27. Install NVIDIA protprietary or AMD open source drivers and utilities last!:
 
 # For Nvidia Non-LTS (rolling)
 * sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
@@ -512,10 +563,10 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S mesa lib32-mesa mesa-vdpau lib32-mesa-vdpau lib32-vulkan-radeon vulkan-radeon glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader
 * sudo reboot
 
-# 31. Install Steam 
+# 28. Install Steam 
 * sudo pacman -S steam
 
-# 32. Installing AUR helper yay
+# 19. Installing AUR helper yay
 * sudo pacman -S git
 
 # NB No sudo!
@@ -524,7 +575,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * cd yay
 * makepkg -si
 
-# 33.(Optional)Installing other stuff:
+# 30.(Optional)Installing other stuff:
 # Browsers 
 * sudo pacman -S firefox-developer-edition
 * sudo pacman -S chromium
@@ -537,7 +588,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 # OR stable:
 * sudo pacman -S libreoffice-still
 
-# Other stuff,inlcuding OBS Studio.
+# 31. Other stuff,inlcuding OBS Studio.
 * yay -S dhewm3-git
 * sudo pacman -S obs-studio
 * sudo pacman -S flatpak
@@ -632,7 +683,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 
 * yay -S phoronix-test-suite
 
-# Install a bunch of dependencies/packages to make life sort of easier(Optional):
+# 32. Install a bunch of dependencies/packages to make life sort of easier(Optional):
 * sudo pacman -S gtk3 gtk4 qt6 gvfs 
 
 # Archiver tool for Plasma:
@@ -642,7 +693,7 @@ ArchLinux Installation From Scratch UEFI,GUI,Steam,VLC,Libre Office,OBS-STUDIO,f
 * sudo pacman -S file-roller nemo-fileroller unzip lzop p7zip unrar unarchiver
 
 
-# Dependencies multimedia/libraries(OPTIONAL if you want full no bloatware system skip these,or choose the ones you need):
+# 33. Dependencies multimedia/libraries(OPTIONAL if you want full no bloatware system skip these,or choose the ones you need):
 
 * sudo pacman -S fluidsynth lib32-fluidsynth openal lib32-openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma openresolv x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis  faad2  libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libmpeg2 
 
@@ -938,7 +989,7 @@ https://wiki.archlinux.org/
 
 *Enjoy!
 Thank you!
-#silentgamepls
+#silentgameplays
 
 
 
