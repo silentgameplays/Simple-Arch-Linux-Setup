@@ -268,6 +268,10 @@
 
 * grub-install --target=x86_64-efi --bootloader-id=grub --efi-directory=/boot/efi
 
+# (Optional\Experimental) GRUB Bootloader Installation with --removable command to avoid doing Additional measures step.
+
+* grub-install --target=x86_64-efi --bootloader-id=grub --efi-directory=/boot/efi --removable
+
 # Generating GRUB Bootloader configuration file:
 
 * grub-mkconfig -o /boot/grub/grub.cfg
@@ -512,6 +516,13 @@
 
 # Run mkinitcpio after installation and reboot:
 
+* sudo mkinitcpio -P
+
+# NVIDIA Open Source DKMS Driver
+* sudo pacman -S nvidia-open-dkms nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
+
+# Run mkinitcpio after installation and reboot:
+
 * sudo mkinitcpio -P 
 
 # NVIDIA DRM Wayland Support and generally improved gaming support on X11 as well With RTX Cards:
@@ -566,7 +577,7 @@
 # 28. Install Steam 
 * sudo pacman -S steam
 
-# 19. Installing AUR helper yay
+# 29. Installing AUR helper yay
 * sudo pacman -S git
 
 # NB No sudo!
@@ -855,7 +866,7 @@
 # Removes stuff before using via terminal use "man rm" not to break anything
 * sudo pacman rm -rf./(name of directory or file) 
 
-# 37. Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
+# 35. Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
 * Download a Windows image from MS link below:
 * https://www.microsoft.com/en-us/software-download/windows10
 * Insert USB Drive
@@ -870,13 +881,13 @@
 
 # Additional tinkering for optimal gaming experience
 
-# 39. Fixing audio crackling in wine games in pipewire
+# 36. Fixing audio crackling in wine games in pipewire
 * sudo nano /usr/share/pipewire/pipewire.conf
 # * Change #default.clock.allowed-rates = [ 48000 ]
 # * To #default.clock.allowed-rates = [ 44100 48000 ]
 * reboot
 
-# 40 (Optional) Installing KVM an QEMU
+# 37 (Optional) Installing KVM an QEMU
 * LC_ALL=C lscpu | grep Virtualization
 * zgrep CONFIG_KVM /proc/config.gz
 * sudo pacman -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
@@ -902,7 +913,7 @@
 # Fix outdated yay or paru issues fast instead of reinstalling them:
 * sudo ln -s /usr/lib/libalpm.so.14.0.0 /usr/lib/libalpm.so.13 
 
-# 41. NVIDIA Shadowplay with GPU screen recorder on Arch Linux
+# 38. NVIDIA Shadowplay with GPU screen recorder on Arch Linux
 
 # Make sure you have yay or paru installed for AUR:
 
@@ -989,7 +1000,7 @@ https://wiki.archlinux.org/
 
 *Enjoy!
 Thank you!
-#silentgameplays
+# silentgameplays
 
 
 
