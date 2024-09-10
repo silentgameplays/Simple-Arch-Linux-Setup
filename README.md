@@ -750,9 +750,9 @@
  * Copy/paste the extracted GE folder into /home/user/config/.steam/root/compatibilitytools.d
  * Restart Steam,enjoy the custom GE build
  
-# (Optional) Install spectacle for screenshots (KDE PLASMA) and neofetch to have "I use arch btw" in your CLI for screenshots and reddit,also man pages support to actually learn some stuff about what packages you install and flatpak for a wide variety of software,most of which you can find in AUR.
+# (Optional) Install spectacle for screenshots (KDE PLASMA) and fastfetch to have "I use arch btw" in your CLI for screenshots and reddit,also man pages support to actually learn some stuff about what packages you install and flatpak for a wide variety of software,most of which you can find in AUR.
 
- * sudo pacman -S spectacle neofetch flatpak man
+ * sudo pacman -S spectacle fastfetch flatpak man
  
  * sudo pacman -S sonnet
 
