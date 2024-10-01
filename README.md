@@ -268,10 +268,6 @@
 
 * grub-install --target=x86_64-efi --bootloader-id=grub --efi-directory=/boot/efi
 
-# (Optional\Experimental) GRUB Bootloader Installation with --removable command to avoid doing Additional measures step.
-
-* grub-install --target=x86_64-efi --bootloader-id=grub --efi-directory=/boot/efi --removable
-
 # Generating GRUB Bootloader configuration file:
 
 * grub-mkconfig -o /boot/grub/grub.cfg
