@@ -913,7 +913,7 @@
 
 # Make sure you have yay or paru installed for AUR:
 
-* yay -S gpu-screen-recorder-git
+* yay -S gpu-screen-recorder
 
 * yay -S  gpu-screen-recorder-gtk
 
