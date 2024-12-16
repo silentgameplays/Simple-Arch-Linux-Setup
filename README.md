@@ -568,7 +568,12 @@
 
 # Drivers For AMD, no need to tinker with DRM
 * sudo pacman -S mesa lib32-mesa mesa-vdpau lib32-mesa-vdpau lib32-vulkan-radeon vulkan-radeon glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader
+# For X11:
+* sudo pacman -S xf86-video-amdgpu
 * sudo reboot
+
+# For monitoring all GPU's:
+* sudo pacman -S nvtop
 
 # 28. Install Steam 
 * sudo pacman -S steam
@@ -700,9 +705,9 @@
 * sudo pacman -S file-roller nemo-fileroller unzip lzop p7zip unrar unarchiver
 
 
-# 33. Dependencies multimedia/libraries(OPTIONAL if you want full no bloatware system skip these,or choose the ones you need):
+# 33. Dependencies multimedia libraries for decoding/encoding (OPTIONAL if you want full no bloatware system skip these,or choose the ones you need):
 
-* sudo pacman -S fluidsynth lib32-fluidsynth openal lib32-openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma openresolv x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis  faad2  libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libmpeg2 
+* sudo pacman -S fluidsynth lib32-fluidsynth openal lib32-openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma openresolv x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis faad2 libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugin-va gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libmpeg2 libavif faac libwebp libheif libjxl jasper aom svt-av1
 
 # (Optional) Media players (pick one or two or all or what works best):
 
@@ -899,7 +904,6 @@
 * sudo usermod -a -G libvirt $(whoami)
 * sudo systemctl restart libvirtd.service
 
-
 # NB if having trouble with GNOME Disks Utility or any other utility recognizing the NTFS file format
 * sudo pacman -S ntfs-3g
 
@@ -909,7 +913,7 @@
 # Fix outdated yay or paru issues fast instead of reinstalling them:
 * sudo ln -s /usr/lib/libalpm.so.14.0.0 /usr/lib/libalpm.so.13 
 
-# 38. NVIDIA Shadowplay with GPU screen recorder on Arch Linux
+# 38. NVIDIA Shadowplay with GPU screen recorder on Arch Linux, works on AMD and Intel GPU's
 
 # Make sure you have yay or paru installed for AUR:
 
@@ -962,30 +966,6 @@ https://wiki.archlinux.org/
 # Run  this in case it still occurs:
 * sudo pacman-key --refresh-keys
 * sudo pacman -Syu archlinux-keyring
-
-## (Optional) Adding a secondary SSD/HDD in fstab manually:
-
-# If it is an existing SSD/HDD that you already formatted with ext4 or btrfs and automounted in filemanager like Dolphin or Nemo,then you have to check in properties for example "/media/user/Backup" that is your mount point.
-
-* sudo lsblk -f
-
-* sudo nano /etc/fstab 
-
-# Contents of FSTAB:
-
-# < file system > < mount point >   < type >  < options >                        < dump >  < pass >
-
-* / was on /dev/sda2 during installation
-* UUID=362fe9a2-29fc-43fe-824d-09d1d93b1549 /               ext4    errors=remount-ro 0       1
-* /boot/efi was on /dev/sda1 during installation
-* UUID=64EF-0C84  /boot/efi       vfat    umask=0077      0       1
-
-* swap was on /dev/sda3 during installation
-* UUID=b36261ad-191e-4cb5-ba0e-f2715e32f82c none            swap    sw              0       0
-* /dev/sr0        /media/cdrom0   udf,iso9660 user,noauto     0       0
-
-# Add your SSD/HDD with its mount point here:
-* /dev/sdb1       /media/user/Backup                        ext4    defaults,auto 0      2
 
  
 # Save the changes and exit,reboot,you are good 
