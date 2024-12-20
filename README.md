@@ -713,10 +713,6 @@
 
 * sudo pacman -S  mpv vlc dragon kmplayer celluloid mpd qtav
 
-# (Optional) In case you want a GNOME-desktop package on other DE(might solve some issues/might cause some issues):
-
-* sudo pacman -S gnome-desktop
-
 # (In case you are using meson builds)
 
 * sudo pacman -S meson
@@ -726,13 +722,12 @@
 
 * sudo pacman -S wine wine-mono wine-gecko lutris steam
 * sudo pacman -S mono  
-* sudo pacman -S lib32-v4l-utils lib32-libxcomposite lib32-opencl-icd-loader lib32-gst-plugins-base-libs 
+* sudo pacman -S lib32-v4l-utils lib32-libxcomposite lib32-opencl-icd-loader lib32-gst-plugins-base-libs grilo grilo-plugins
 
-* sudo pacman -Syyuu
+* sudo pacman -Syu
 
 * sudo pacman -S opusfile
 
-* sudo pacman -S gcc-libs grilo grilo-plugins
 # For better wine support
 * sudo systemctl restart systemd-binfmt
 
@@ -888,7 +883,7 @@
 # * To #default.clock.allowed-rates = [ 44100 48000 ]
 * reboot
 
-# 37 (Optional) Installing KVM an QEMU
+# 37 (Optional) Installing KVM and QEMU
 * LC_ALL=C lscpu | grep Virtualization
 * zgrep CONFIG_KVM /proc/config.gz
 * sudo pacman -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
