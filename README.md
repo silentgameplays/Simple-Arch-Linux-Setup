@@ -676,10 +676,6 @@
 * yay -S opensurge
 * yay -S commander-genius-git
 
-# USB writers:
-
-* yay -S ventoy
-* sudo pacman -S gnome-multi-writer
 
 # Partition managers:
 
@@ -699,10 +695,10 @@
 * sudo pacman -S gtk3 gtk4 qt6 gvfs 
 
 # Archiver tool for Plasma:
-* sudo pacman -S ark lrzip lzop p7zip unarchiver unrar 
+* sudo pacman -S ark lrzip lzop 7zip unarchiver unrar 
 
 # Archiver tools for GNOME,for XFCE both ark and file-roller can be used:
-* sudo pacman -S file-roller nemo-fileroller unzip lzop p7zip unrar unarchiver
+* sudo pacman -S file-roller nemo-fileroller unzip lzop 7zip unrar unarchiver
 
 
 # 33. Dependencies multimedia libraries for decoding/encoding (OPTIONAL if you want full no bloatware system skip these,or choose the ones you need):
