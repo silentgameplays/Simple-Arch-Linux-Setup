@@ -487,7 +487,7 @@
 * sudo pacman -Syu
 * sudo pacman -Syyuu
 
-# 27. Install NVIDIA protprietary or AMD open source drivers and utilities last!:
+# 27. Install NVIDIA protprietary or AMD open source drivers and utilities:
 
 # For Nvidia Non-LTS (rolling)
 * sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers 
@@ -566,21 +566,23 @@
 
 * sudo nvidia-xconfig
 
-# Drivers For AMD, no need to tinker with DRM
-* sudo pacman -S mesa mesa-utils lib32-mesa mesa-vdpau lib32-mesa-vdpau opencl-clover-mesa lib32-opencl-clover-mesa lib32-vulkan-radeon vulkan-radeon vulkan-mesa-layers lib32-vulkan-mesa-layers glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader
+# 28. Drivers For AMD GPU's, no need to tinker with DRM kernel parameters:
+* sudo pacman -S mesa mesa-utils lib32-mesa mesa-vdpau lib32-mesa-vdpau opencl-clover-mesa lib32-opencl-clover-mesa lib32-vulkan-radeon vulkan-radeon vulkan-mesa-layers lib32-vulkan-mesa-layers glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader xf86-video-amdgpu
 * sudo mkinitcpio -P
-# For X11:
-* sudo pacman -S xf86-video-amdgpu
-* sudo reboot
+* reboot
+
 # (Optional) AMD Vulkan Drivers with proprietary shader stack if vulkan-radeon lib32-vulkan-radeon give issues.
 * sudo pacman -S amdvlk lib32-amdvlk
 
 # For monitoring all GPU's:
 * sudo pacman -S nvtop
 
-# 28. Install Steam 
-* sudo pacman -S steam
+# Whole System
+* sudo pacman -S btop rocm-smi-lib
 
+# Only temps
+* sensors
+  
 # 29. Installing AUR helper yay
 * sudo pacman -S git
 
@@ -595,7 +597,6 @@
 * sudo pacman -S firefox-developer-edition
 * sudo pacman -S chromium
 * sudo pacman -S firefox
-* yay -s brave-bin
 
 # LibreOffice rolling:
 * sudo pacman -S libreoffice-fresh
@@ -604,7 +605,6 @@
 * sudo pacman -S libreoffice-still
 
 # 31. Other stuff,inlcuding OBS Studio.
-* yay -S dhewm3-git
 * sudo pacman -S obs-studio
 * sudo pacman -S flatpak
 * sudo pacman -S lutris
@@ -650,17 +650,11 @@
 
 
 # OpenMW and other mods
-
 * sudo pacman -S openmw
-* yay -S ecwolf
-* yay -S gzdoom
-* yay -S itch
 
 # Teamviewer from AUR:
-
 * yay -S teamviewer
-* sudo systemctl enable teamviewerd.service
-* sudo systemctl start teamviewerd.service
+* sudo systemctl enable --now teamviewerd.service
 
 # More mods,games and tools:
 
@@ -679,20 +673,16 @@
 * yay -S opensurge
 * yay -S commander-genius-git
 
-
 # Partition managers:
 
 * sudo pacman -S gnome-disk-utility
 * sudo pacman -S partitionmanager
 * sudo pacman -S gparted
 
-# Installing DXVK for DX10/DX11 conversion support:
+# (Optional)Installing VKD3D and/or DXVK for DX10/DX11 conversion support outswide of Steam/Lutris:
 
+* sudo pacman -S python-protobuf lib32-vkd3d vkd3d
 * yay -S dxvk-bin
-
-# Installing benchmarking tool phoronix
-
-* yay -S phoronix-test-suite
 
 # 32. Install a bunch of dependencies/packages to make life sort of easier(Optional):
 * sudo pacman -S gtk3 gtk4 qt6 gvfs 
@@ -710,21 +700,18 @@
 
 # (Optional) Media players (pick one or two or all or what works best):
 
-* sudo pacman -S  mpv vlc dragon kmplayer celluloid mpd qtav
+* sudo pacman -S  mpv vlc dragon kmplayer celluloid mpd qtav showtime
 
 # (In case you are using meson builds)
 
 * sudo pacman -S meson
-
 
 # (Optional)Install wine and some more packages-dependencies for gaming:
 
 * sudo pacman -S wine wine-mono wine-gecko lutris steam
 * sudo pacman -S mono  
 * sudo pacman -S lib32-v4l-utils lib32-libxcomposite lib32-opencl-icd-loader lib32-gst-plugins-base-libs grilo grilo-plugins
-
 * sudo pacman -Syu
-
 * sudo pacman -S opusfile
 
 # For better wine support
@@ -747,7 +734,7 @@
  
 # (Optional) Install spectacle for screenshots (KDE PLASMA) and fastfetch to have "I use arch btw" in your CLI for screenshots and reddit,also man pages support to actually learn some stuff about what packages you install and flatpak for a wide variety of software,most of which you can find in AUR.
 
- * sudo pacman -S spectacle fastfetch flatpak man
+ * sudo pacman -S spectacle fastfetch man
  
  * sudo pacman -S sonnet
 
@@ -755,9 +742,8 @@
 
  * sudo pacman -Syyuu
 
-# (Optional) Gnome multi-writer tool, useful for creating usb sticks with OS installs and gnome-boxes for vm's useful GUI for QEMU:
+# (Optional) Gnome boxes, useful for creating usb sticks with OS installs and gnome-boxes for vm's useful GUI for QEMU:
 
- * sudo pacman -S gnome-multi-writer
  * sudo pacman -S gnome-boxes
  * sudo pacman -S virt-manager qemu-desktop
  
