@@ -567,7 +567,8 @@
 * sudo nvidia-xconfig
 
 # Drivers For AMD, no need to tinker with DRM
-* sudo pacman -S mesa mesa-utils lib32-mesa mesa-vdpau lib32-mesa-vdpau opencl-clover-mesa lib32-opencl-clover-mesa lib32-vulkan-radeon vulkan-radeon vulkan-mesa-layers lib32-vulkan-mesa-layers glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader
+* sudo pacman -S mesa mesa-utils lib32-mesa mesa-vdpau lib32-mesa-vdpau opencl-clover-mesa lib32-opencl-clover-mesa lib32-vulkan-radeon vulkan-radeon vulkan-mesa-layers lib32-vulkan-mesa-layers glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader amdvlk lib32-amdvlk
+* sudo mkinitcpio -P
 # For X11:
 * sudo pacman -S xf86-video-amdgpu
 * sudo reboot
