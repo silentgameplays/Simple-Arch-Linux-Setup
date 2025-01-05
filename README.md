@@ -567,7 +567,7 @@
 * sudo nvidia-xconfig
 
 # 28. Drivers For AMD GPU's, no need to tinker with DRM kernel parameters:
-* sudo pacman -S mesa mesa-utils lib32-mesa mesa-vdpau lib32-mesa-vdpau opencl-clover-mesa lib32-opencl-clover-mesa lib32-vulkan-radeon vulkan-radeon vulkan-mesa-layers lib32-vulkan-mesa-layers glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader xf86-video-amdgpu
+* sudo pacman -S mesa mesa-utils lib32-mesa opencl-clover-mesa lib32-opencl-clover-mesa lib32-vulkan-radeon vulkan-radeon vulkan-mesa-layers lib32-vulkan-mesa-layers glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader xf86-video-amdgpu
 * sudo mkinitcpio -P
 * reboot
 
