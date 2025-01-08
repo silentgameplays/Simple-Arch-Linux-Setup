@@ -352,7 +352,8 @@
 
   * sudo pacman -S alsa-firmware alsa-utils pipewire pipewire-alsa pipewire-pulse
 
-# NB! Fixing the new systemd suser@XXX.service is not active, cannot reload. errors
+# NB! Fixing the new systemd suser@XXX.service is not active, cannot reload. errors for sddm, gdm, lightdm display managers, insert the one you use.
+
 * sudo chage -l sddm
   # Or 
 * sudo chage --list sddm
