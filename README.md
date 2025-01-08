@@ -947,7 +947,7 @@ https://wiki.archlinux.org/
 * sudo pacman-key --refresh-keys
 * sudo pacman -Syu archlinux-keyring
 
-# Fixing the new systemd suser@970.service is not active, cannot reload. errors
+# Fixing the new systemd suser@XXX.service is not active, cannot reload. errors
 * sudo chage -l sddm
   # Or 
 * sudo chage --list sddm
