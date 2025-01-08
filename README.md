@@ -352,6 +352,14 @@
 
   * sudo pacman -S alsa-firmware alsa-utils pipewire pipewire-alsa pipewire-pulse
 
+# NB! Fixing the new systemd suser@XXX.service is not active, cannot reload. errors
+* sudo chage -l sddm
+  # Or 
+* sudo chage --list sddm
+ # Then Run
+* sudo chage -E -1 sddm
+* sudo reboot
+
 # 18. GNOME/KDE Plasma/XFCE/Desktop environments
 
 # XFCE
@@ -947,13 +955,6 @@ https://wiki.archlinux.org/
 * sudo pacman-key --refresh-keys
 * sudo pacman -Syu archlinux-keyring
 
-# Fixing the new systemd suser@XXX.service is not active, cannot reload. errors
-* sudo chage -l sddm
-  # Or 
-* sudo chage --list sddm
- # Then Run
-* sudo chage -E -1 sddm
- 
 # Save the changes and exit,reboot,you are good 
 
 
