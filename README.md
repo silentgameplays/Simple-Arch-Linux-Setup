@@ -714,7 +714,7 @@
 
 * ``sudo pacman -S dwarffortress``
 
-* ``sudo pacman -S 
+* ``sudo pacman -S bass``
 
 * ``flatpak install flathub com.moddb.TotalChaos``
 
