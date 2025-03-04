@@ -386,7 +386,7 @@
 
 # Extra Deepin
 
-* ``sudo pacman -S lightdm ``
+* ``sudo pacman -S lightdm  lightdm-gtk-greeter lightdm-gtk-greeter-settings``
 
 * ``sudo pacman -S deepin deepin-extra``
 
@@ -397,7 +397,15 @@
 * greeter-session=lightdm-deepin-greeter
   
 * ``sudo systemctl enable --now lightdm ``
-  
+
+# Extra Pantheon
+
+* ``sudo pacman -S lightdm lightdm-pantheon-greeter lightdm-gtk-greeter lightdm-gtk-greeter-settings``
+
+* ``sudo pacman -S pantheon``
+
+* ``sudo systemctl enable --now lightdm ``
+
 # 21.(Optional) Additional dependencies
 
 # (Optional) for noveau drivers 
