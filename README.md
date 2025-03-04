@@ -384,6 +384,20 @@
 
 * ``sudo systemctl enable --now sddm``
 
+# Extra Deepin
+
+* ``sudo pacman -S lightdm ``
+
+* ``sudo pacman -S deepin deepin-extra``
+
+* ``sudo nano /etc/lightdm/lightdm.conf``
+
+# Add this line then Ctrl+),Ctrl+X
+
+* greeter-session=lightdm-deepin-greeter
+  
+* ``sudo systemctl enable --now lightdm ``
+  
 # 21.(Optional) Additional dependencies
 
 # (Optional) for noveau drivers 
