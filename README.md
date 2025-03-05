@@ -873,6 +873,57 @@
 * Go to the place where you downloaded Windows 10 ISO and select Open with Disk Image Mounter
 * Open Copy everything from the Windows 10 ISO and paste into your USB Drive,wait for it to finish(takes a while)
 
+# (Optional) Custom DNS configuration
+
+* sudo nano /etc/resolv.conf
+# change/add lines from
+
+OpenDNS
+
+* nameserver 208.67.222.222
+* nameserver 208.67.220.220
+* nameserver 2620:119:35::35	
+* nameservet 2620:119:53::53
+
+Google DNS
+
+* nameserver 8.8.8.8
+* nameserver 8.8.4.4
+
+CloudFlare DNS
+
+* nameserver 1.1.1.1
+* nameserver 1.0.0.1
+* nameserver 2606:4700:4700::1111
+* nameserver 2606:4700:4700::1001
+
+Alternate DNS	
+
+* nameserver 198.101.242.72
+* nameserver 23.253.163.53
+
+Dyn DNS
+
+* nameserver 216.146.35.35
+* nameserver 216.146.36.36
+
+OpenNIC DNS
+* nameserver 58.6.115.42
+* nameserver 58.6.115.43
+* nameserver 119.31.230.42
+* nameserver 2001:470:8388:2:20e:2eff:fe63:d4a9
+* nameserver 2001:470:1f07:38b::1
+* nameserver 2001:470:1f10:c6::2001
+* nameserver 200.252.98.162
+* nameserver 217.79.186.148
+* nameserver 81.89.98.6
+* nameserver 78.159.101.37
+* nameserver 203.167.220.153
+* nameserver 82.229.244.191
+* nameserver 216.87.84.211
+* nameserver 66.244.95.20
+* nameserver 207.192.69.155
+* nameserver 72.14.189.120
 
 # NB! Optional (not recommended) disabling kernel and driver updates for more stable experience
 * ``sudo nano /etc/pacman.conf``
