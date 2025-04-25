@@ -983,8 +983,20 @@ https://wiki.archlinux.org/
 
 * ``sudo pacman -Syu archlinux-keyring``
 
-# Save the changes and exit,reboot,you are good 
+# Extra steps workarounds:
+# Enable pipewire without restart/configure alsa settings for audio devices, requires alsa-firmware and alsa-utils packages:
 
+* ''systemctl --user restart pipewire pipewire-pulse''
+* ''alsamixer''
+
+# Refresh mirrorlists:
+
+* ''sudo pacman -Syyu --refresh -y''
+
+# Install advanced networking tools:
+* ''sudo pacman -S bind''
+
+# Save the changes and exit,reboot,you are good 
 
 # silentgameplays Youtube channel:
 * https://www.youtube.com/@silentgameplays/
