@@ -832,6 +832,7 @@
 # OR
 
 * ``sudo pacman -Syyuu``
+* ``sudo pacman -Syyu --refresh -y``
 
 # Check the history of CLI:
 
