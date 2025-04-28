@@ -384,8 +384,8 @@
 
 # Add these lines, save and reboot:
 
-``[Service]
-Environment=POWERDEVIL_NO_DDCUTIL=1``
+``[Service]``
+``Environment=POWERDEVIL_NO_DDCUTIL=1``
 
 # Display Manager:
 
