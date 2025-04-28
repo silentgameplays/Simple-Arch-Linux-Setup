@@ -378,6 +378,15 @@
 
 * ``sudo pacman -S packagekit-qt6``
 
+# Inconsistent brightness levels fix Plasma 6.3 and higher:
+
+* ``systemctl --user edit plasma-powerdevil.service``
+
+# Add these lines, save and reboot:
+
+``[Service]
+Environment=POWERDEVIL_NO_DDCUTIL=1``
+
 # Display Manager:
 
 * ``sudo pacman -S sddm sddm-kcm``
