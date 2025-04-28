@@ -382,10 +382,10 @@
 
 * ``systemctl --user edit plasma-powerdevil.service``
 
-# Add these lines, save and reboot:
+# Add these lines, save Ctrl+O Ctrl+X and reboot:
 
-``[Service]``
-``Environment=POWERDEVIL_NO_DDCUTIL=1``
+* ``[Service]``
+* ``Environment=POWERDEVIL_NO_DDCUTIL=1``
 
 # Display Manager:
 
@@ -401,7 +401,7 @@
 
 * ``sudo nano /etc/lightdm/lightdm.conf``
 
-# Add this line then Ctrl+),Ctrl+X
+# Add this line then Ctrl+O,Ctrl+X
 
 * greeter-session=lightdm-deepin-greeter
   
