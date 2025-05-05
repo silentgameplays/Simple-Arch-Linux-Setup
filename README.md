@@ -1006,6 +1006,56 @@ https://wiki.archlinux.org/
 # Install advanced networking tools:
 * ``sudo pacman -S bind``
 
+# (Optional/Experimental) Secure boot setup cheat sheet:
+
+* ``sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --modules="tpm" --disable-shim-lock``
+
+1. Regenerate your grub configuration:
+
+* ``sudo grub-mkconfig -o /boot/grub/grub.cfg``
+
+2. Install the sbctl tool:
+
+* ``sudo pacman -S sbctl``
+
+2. As a pre-requisite, in your UEFI settings, set your secure boot mode to setup mode. Upon re-booting, verify that you are in setup mode:
+
+* ``sbctl status``
+
+4. Create your custom secure boot keys:
+
+* ``sudo sbctl create-keys``
+
+5. Enroll your custom keys (note -m is required to include Microsoft's CA certificates)
+
+* ``sudo sbctl enroll-keys -m``
+
+6. Verify that your keys have successfully been enrolled:
+
+* ``sbctl status``
+
+7. Check which files need to be signed for secure boot to work:
+
+* ``sudo sbctl verify``
+
+8. Sign all unsigned files (adjust to your setup):
+
+* ``sudo sbctl sign -s /efi/EFI/GRUB/grubx64.efi``
+
+9. You may get an error because of an issue with certain files being immutable. To make those files mutable, run the following command for each file then re-sign afterwards:
+
+* ``sudo chattr -i /sys/firmware/efi/efivars/<filename>``
+
+10. Verify that everything has been signed:
+
+* ``sudo sbctl verify``
+
+11. In your UEFI settings, enable secure boot, and reboot. Verify that secure boot is enabled:
+
+* ``sbctl status``
+
+# NB sbctl comes with a pacman hook for automatic signing, so you don't need to worry when you update your system. 
+
 # Save the changes and exit,reboot,you are good 
 
 # silentgameplays Youtube channel:
