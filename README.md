@@ -870,6 +870,15 @@
 # full system update
 * ``sudo pacman -Syu``
 
+# Audio enhancements similar to Windows Loudness Equalization for games like Wicher
+
+* ``sudo pacman -Syu easyeffects lsp-plugins calf zam-plugins-lv2``
+
+# Launch EasyEffects and apply presets either from this repository or download the one provided here in .json format
+
+* https://github.com/Digitalone1/EasyEffects-Presets
+  
+
 # 35. Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
 * Download a Windows image from MS link below:
 * https://www.microsoft.com/en-us/software-download/windows10
