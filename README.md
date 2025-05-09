@@ -762,7 +762,9 @@
 * ``sudo pacman -S gnome-disk-utility``
 * ``sudo pacman -S partitionmanager``
 * ``sudo pacman -S gparted``
+  
 # GPU Screen Recorder similar to shadowplay:
+
 * ``yay -S gpu-screen-recorder``
 * ``yay -S gpu-screen-recorder-gtk``
 
@@ -874,7 +876,7 @@
 
 * ``sudo pacman -Syu easyeffects lsp-plugins calf zam-plugins-lv2``
 
-# Launch EasyEffects and apply presets either from this repository or download the one provided here in .json format
+# Launch EasyEffects and apply presets either from this repository or download the one provided here LoudnessEqualizer.json:
 
 * https://github.com/Digitalone1/EasyEffects-Presets
   
