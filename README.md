@@ -902,7 +902,7 @@
 
 # (Optional) Custom DNS configuration
 
-* sudo nano /etc/resolv.conf
+* ``sudo nano /etc/resolv.conf``
 # change/add lines from
 
 OpenDNS
