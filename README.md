@@ -31,6 +31,12 @@
 
 * ``sudo shred -f -v /nvme0n1``
 
+# Faster way to delete everything on SSD's/HDD's/NVME SSD's
+
+* ``sudo blkdiscard /dev/sda``
+
+* ``sudo blkdiscard /dev/nvme0n1``
+
 # 3. Using cfdisk to format and create paritions on SSD/HDD before installing Arch Linux
 
 # For regular SSD's/HDD's
