@@ -848,7 +848,7 @@
 
 # OR
 
-* ``sudo pacman -Syyuu``
+* ``sudo pacman -Syyu``
 * ``sudo pacman -Syyu --refresh -y``
 
 # Check the history of CLI:
@@ -873,7 +873,7 @@
 * ``sudo systemctl status``
 
 # refresh system databases in case something breaks
-* ``sudo pacman -Syyuu``
+* ``sudo pacman -Syyu``
 
 # full system update
 * ``sudo pacman -Syu``
