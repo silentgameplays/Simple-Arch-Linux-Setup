@@ -577,7 +577,7 @@
 
 # gamemode and gamescope:
 * ``sudo pacman -S gamemode lib32-gamemode``
-* ``sudo pacman -S gamescope lib32-gamescope``
+* ``sudo pacman -S gamescope``
 
 # mangohud for FPS measurements and monitoring:
 
