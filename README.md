@@ -636,7 +636,7 @@
 
 # Removing only the stated packages with dependencies
 
-* ``sudo pacman -Rscn application name`
+* ``sudo pacman -Rscn application name``
 
 # Recursively removing orphans when cluttered 
 
