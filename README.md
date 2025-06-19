@@ -1023,6 +1023,15 @@ https://wiki.archlinux.org/
 # Install advanced networking tools:
 * ``sudo pacman -S bind``
 
+
+# Remove leftovers from apps and other files
+
+* ``find ~ -type d -name 'app-name*'``
+
+* ``rm -r /home/user/.local/share/application/app/x86_64/app-name``
+
+* ``find ~ -type f -name '*.torrent *'``
+
 # (Optional/Experimental) Secure boot setup cheat sheet:
 
 * ``sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --modules="tpm" --disable-shim-lock``
