@@ -878,15 +878,29 @@
 # full system update
 * ``sudo pacman -Syu``
 
-# Audio enhancements similar to Windows Loudness Equalization for games like Wicher
 
+# Audio enhancements similar to Windows Loudness Equalization for games like Witcher 3
+# Pipewire:
+
+* Set in Sound Sonfiguration as Pro Audio instead of Analog Stereo Duplex
+  
+* ``sudo nano /usr/share/pipewire/pipewire.conf``
+
+# Find this line 
+
+* ``#default.clock.allowed-rates = [ 48000 ]``
+
+# Change to
+
+* ``#default.clock.allowed-rates = [ 44100 48000 96000 ]``
+
+# Install required dependencies for Easy Effects:
 * ``sudo pacman -Syu easyeffects lsp-plugins calf zam-plugins-lv2``
 
 # Launch EasyEffects and apply presets either from this repository or download the one provided here LoudnessEqualizer.json:
 
 * https://github.com/Digitalone1/EasyEffects-Presets
   
-
 # 35. Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
 * Download a Windows image from MS link below:
 * https://www.microsoft.com/en-us/software-download/windows10
