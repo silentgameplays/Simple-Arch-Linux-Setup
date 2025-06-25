@@ -384,6 +384,10 @@
 
 * ``sudo pacman -S packagekit-qt6``
 
+# NB! X11 support for KDE Plasma is now only available when plasma-x11-session package is installed:
+
+* ``sudo pacman -S plasma-x11-session``
+
 # Inconsistent brightness levels fix Plasma 6.3 and higher:
 
 * ``systemctl --user edit plasma-powerdevil.service``
