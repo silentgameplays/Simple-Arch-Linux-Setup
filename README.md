@@ -659,6 +659,9 @@
 # Media players (pick one or two or all or what works best):
 
 * ``sudo pacman -S  mpv vlc dragon kmplayer celluloid mpd qtav showtime``
+# NEW vlc player+full plugin support
+
+* ``sudo pacman -S vlc vlc-plugins-all``
 
 # Browsers 
 
