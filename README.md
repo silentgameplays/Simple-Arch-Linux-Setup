@@ -396,6 +396,12 @@
 
 * ``[Service]``
 * ``Environment=POWERDEVIL_NO_DDCUTIL=1``
+  
+# Disable/purge/view status baloo search to reduce CPU usage, enable to imptove search after disabling:
+* ``balooctl6 status``
+* ``balooctl6 disable``
+* ``balooctl6 purge``
+* ``balooctl6 enable``
 
 # Display Manager:
 
@@ -1044,7 +1050,6 @@ https://wiki.archlinux.org/
 # Install advanced networking tools:
 * ``sudo pacman -S bind``
 
-
 # Remove leftovers from apps and other files
 
 * ``find ~ -type d -name 'app-name*'``
@@ -1052,6 +1057,21 @@ https://wiki.archlinux.org/
 * ``rm -r /home/user/.local/share/application/app/x86_64/app-name``
 
 * ``find ~ -type f -name '*.torrent *'``
+
+# View BIOS/UEFI/SLOT/CPU/Memory Info
+
+* ``sudo dmidecode | less``
+* ``sudo dmidecode -s bios-version``
+* ``sudo dmidecode -s bios-release-date``
+* ``sudo dmidecode -t bios``
+* ``sudo dmidecode -t baseboard``
+* ``sudo dmidecode -t 2``
+* ``sudo dmidecode -t slot``
+* ``sudo dmidecode -t processor``
+* ``sudo dmidecode -s processor-version``
+* ``sudo dmidecode -s processor-frequency``
+* ``sudo dmidecode -t memory``
+* ``cat /sys/devices/virtual/dmi/id/board_{vendor,name,version}``
 
 # (Optional/Experimental) Secure boot setup cheat sheet:
 
