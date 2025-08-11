@@ -1073,6 +1073,11 @@ https://wiki.archlinux.org/
 * ``sudo dmidecode -t memory``
 * ``cat /sys/devices/virtual/dmi/id/board_{vendor,name,version}``
 
+  
+# How to check mesa vulkan driver versions:
+
+* ``glxinfo | grep "Mesa" ``
+
 # (Optional/Experimental) Secure boot setup cheat sheet:
 
 * ``sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --modules="tpm" --disable-shim-lock``
