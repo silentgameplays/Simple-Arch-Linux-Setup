@@ -1084,7 +1084,7 @@ https://wiki.archlinux.org/
 
 # Firewall:
 
-* `` sudo pacman -S ufw''
+* `` sudo pacman -S ufw``
 
 # Enable firewall 
 
