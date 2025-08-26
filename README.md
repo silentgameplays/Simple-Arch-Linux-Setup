@@ -397,7 +397,8 @@
 * ``[Service]``
 * ``Environment=POWERDEVIL_NO_DDCUTIL=1``
   
-# Disable/purge/view status baloo search to reduce CPU usage, enable to imptove search after disabling:
+# KDE Plasma Disable/purge/view status baloo search to reduce CPU usage,enable if you want to improve search after disabling:
+
 * ``balooctl6 status``
 * ``balooctl6 disable``
 * ``balooctl6 purge``
