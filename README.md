@@ -1026,6 +1026,7 @@ https://wiki.archlinux.org/
 * ``sudo reboot``
 
 # If you start getting errors like  "signature from "John Smith <john.smith@archlinux.org>" is marginal trust" do these steps:
+
 * ``sudo pacman -S archlinux-keyring``
 
 * ``sudo pacman -Syu  archlinux-keyring``
@@ -1038,6 +1039,7 @@ https://wiki.archlinux.org/
 * ``sudo pacman -Syu archlinux-keyring``
 
 # Extra steps workarounds:
+
 # Enable pipewire without restart/configure alsa settings for audio devices, requires alsa-firmware and alsa-utils packages:
 
 * ``systemctl --user restart pipewire pipewire-pulse``
@@ -1132,7 +1134,7 @@ https://wiki.archlinux.org/
 
 *``sudo pacman -S clamav``
 
-* ``sudo freshclam``
+*``sudo freshclam``
 
 *``clamscan -r --bell -i /home /tmp /var/tmp``
 
