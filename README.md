@@ -665,6 +665,7 @@
 # Media players (pick one or two or all or what works best):
 
 * ``sudo pacman -S  mpv vlc dragon kmplayer celluloid mpd qtav showtime``
+  
 # NEW vlc player+full plugin support
 
 * ``sudo pacman -S vlc vlc-plugins-all``
@@ -891,7 +892,6 @@
 # full system update
 * ``sudo pacman -Syu``
 
-
 # Audio enhancements similar to Windows Loudness Equalization for games like Witcher 3
 # Pipewire:
 
@@ -1077,6 +1077,78 @@ https://wiki.archlinux.org/
 # How to check mesa vulkan driver versions:
 
 * ``glxinfo | grep "Mesa" ``
+
+# Cybersecurity basics, firewall and rootkit/malware detection:
+
+# Firewall:
+
+* `` sudo pacman -S ufw''
+
+# Enable firewall 
+
+# Check manually for malware activity with ls or in your file browser,XDG autostart jobs, bash or zsh (weird entries and services):
+
+* ``ls ~/.config/autostart/ ``
+
+* ``ls ~/.bashrc /``
+
+* ``ls ~/.zshrc ``
+
+# Systemd user services:
+  
+* ``ls ~/.config/systemd/user/``
+
+* ``ls /etc/systemd/system/``
+
+* ``ls  /usr/local/bin/ ``
+
+# Checking strage cron jobs 
+
+*``crontab -e``
+
+*``sudo crontab -e``
+
+# Check suspicious shadow bin entries:
+
+* ``ls /usr/local/bin/``
+
+# Check process tree for strange activity:
+
+* ``pstree -a -p``
+
+# Look for anything strange such as:
+
+* makepkg → gcc → wget → /tmp/a.out → runs as root
+
+* xdg-open readme.eml → bash → curl <IP> → ./payload
+
+# History of execution for today
+
+*``journalctl _COMM=exe -S today``
+
+*``ausearch -m execve --success yes``
+
+# AV ClamAV 
+
+*``sudo pacman -S clamav``
+
+* ``sudo freshclam``
+
+*``clamscan -r --bell -i /home /tmp /var/tmp``
+
+*``sudo systemctl start clamav-daemon``
+
+# Full scan if you have time
+
+*``clamdscan --multiscan --fdpass / ``
+
+# Rootkit hunter:
+
+*``sudo pacman -S rkhunter``
+
+*``sudo rkhunter --update``
+
+*``sudo rkhunter --check``
 
 # (Optional/Experimental) Secure boot setup cheat sheet:
 
