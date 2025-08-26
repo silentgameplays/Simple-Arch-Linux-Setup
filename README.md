@@ -1107,9 +1107,9 @@ https://wiki.archlinux.org/
 
 # Checking strage cron jobs 
 
-*``crontab -e``
+* ``crontab -e``
 
-*``sudo crontab -e``
+* ``sudo crontab -e``
 
 # Check suspicious shadow bin entries:
 
@@ -1127,31 +1127,31 @@ https://wiki.archlinux.org/
 
 # History of execution for today
 
-*``journalctl _COMM=exe -S today``
+* ``journalctl _COMM=exe -S today``
 
-*``ausearch -m execve --success yes``
+* ``ausearch -m execve --success yes``
 
 # AV ClamAV 
 
-*``sudo pacman -S clamav``
+* ``sudo pacman -S clamav``
 
-*``sudo freshclam``
+* ``sudo freshclam``
 
-*``clamscan -r --bell -i /home /tmp /var/tmp``
+* ``clamscan -r --bell -i /home /tmp /var/tmp``
 
-*``sudo systemctl start clamav-daemon``
+* ``sudo systemctl start clamav-daemon``
 
 # Full scan if you have time
 
-*``clamdscan --multiscan --fdpass / ``
+* ``clamdscan --multiscan --fdpass / ``
 
 # Rootkit hunter:
 
-*``sudo pacman -S rkhunter``
+* ``sudo pacman -S rkhunter``
 
-*``sudo rkhunter --update``
+* ``sudo rkhunter --update``
 
-*``sudo rkhunter --check``
+* ``sudo rkhunter --check``
 
 # (Optional/Experimental) Secure boot setup cheat sheet:
 
