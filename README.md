@@ -7,257 +7,259 @@
 * Balena Etcher is another great tool
 * https://etcher.balena.io/
 * for creating bootable USB's
-# (Optional) On Linux you can use gnome-disk-utility or Ventoy
+  
+**(Optional) On Linux you can use gnome-disk-utility or Ventoy**
 
 # 2. Before installing Arch Linux on bare metal it is recommended to remove previous filesystems and data, after backing up what the user needs
 
-# wipefs can be used to erase existing signatures on a device:
+**wipefs can be used to erase existing signatures on a device:**
 
-# For regular SSD's/HDD's
+**For regular SSD's/HDD's**
 
 * ``sudo wipefs -a /dev/sda``
 
-# For NVME SSD's
+**For NVME SSD's**
 
 * ``sudo wipefs -a /dev/nvme0n1``
 
-# (Opional) Deleting everything with shred command properly while overwriting so no forensics recovery is possible, also helps fix bad blocks in some cases:
+**(Opional) Deleting everything with shred command properly while overwriting so no forensics recovery is possible, also helps fix bad blocks in some cases:**
 
-# For regular SSD's/HDD's
+**For regular SSD's/HDD's**
 
 * ``sudo shred -f -v /dev/sda``
 
-# For NVME SSD's
+**For NVME SSD's**
 
 * ``sudo shred -f -v /nvme0n1``
 
-# Faster way to delete everything on SSD's/HDD's/NVME SSD's
+**Faster way to delete everything on SSD's/HDD's/NVME SSD's**
 
 * ``sudo blkdiscard /dev/sda``
 
 * ``sudo blkdiscard /dev/nvme0n1``
 
-# 3. Using cfdisk to format and create paritions on SSD/HDD before installing Arch Linux
+**3. Using cfdisk TUI to format and create paritions on SSD/HDD before installing Arch Linux:**
 
-# For regular SSD's/HDD's
+**For regular SSD's/HDD's**
 
 * ``sudo cfdisk /dev/sda``
 
-# For NVME SSD's
+**For NVME SSD's**
 
 * ``sudo cfdisk /dev/nvme0n1``
 
-# When prompted by cfdisk, delete everything you see then Write>>Yes
+**When prompted by cfdisk, delete everything you see then Write>>Yes**
 
 # 4. Creating partitions using cfdisk:
 
-# From free space on the SSD/HDD create the following partitions using cfdisk' TUI (Terminal User Interface):
+**From free space on the SSD/HDD create the following partitions using cfdisk' TUI (Terminal User Interface):**
 
-# Required UEFI partition:
+**Required UEFI partition:**
 
-# For regular SSD's/HDD's
+**For regular SSD's/HDD's**
 
 * /dev/sda1 512M  Fat32(EFI)
 
-# For NVME SSD's
+**For NVME SSD's**
 
 * /dev/nvme01p1 512M  Fat32(EFI)
 
-# The size of the EFI partition must be 512MB and type of the partition needs to be EFI.
+**The size of the EFI partition must be 512MB and type of the partition needs to be EFI.**
 
-# (Optional) SWAP partition size can be around 8-10GB, but it is not required if you have 16GB/32GB or more RAM
+**(Optional) SWAP partition size can be around 8-10GB, but it is not required if you have 16GB/32GB or more RAM**
 
-# For regular SSD's/HDD's
+**For regular SSD's/HDD's:**
 
 * /dev/sda2 8-10GB swap
 
-# For NVME SSD's
+**For NVME SSD's:**
 
 * /dev/nvme0n1p2 8-10GB swap
 
-# Required main partition for your main user /mnt, remaining size can be as large as you want it to be:
+**Required main partition for your main user /mnt, remaining size can be as large as you want it to be:**
 
-# For regular SSD's/HDD's
+**For regular SSD's/HDD's**
 
 * /dev/sda3 1000GB ext4
 
-# For NVME SSD's
+**For NVME SSD's**
 
 * /dev/nvme0n1p3 1000GB ext4
 
-# Save changes in cfdisk, by using Write option in the cfdisk TUI and exit cfdisk.
+**Save changes in cfdisk, by using Write option in the cfdisk TUI and exit cfdisk.**
 
 # 5.Format partitions,create UEFI partition, mount point partition (main user partition) and swap partition
 
-# UEFI partition
+**UEFI partition**
 
-# For regular SSD's/HDD's
+**For regular SSD's/HDD's**
 
 * ``mkfs.fat -F32 /dev/sda``
 
-# For NVME SSD's
+**For NVME SSD's**
 
 * ``mkfs.fat -F32 /dev/nvme0n1p1``
 
-# SWAP partition
+**SWAP partition 10-35 GB, depending on the amount of RAM**
 
-# For regular SSD's/HDD's
+**For regular SSD's/HDD's**
 
 * ``mkswap /dev/sda2``
 
 * ``swapon /dev/sda2``
 
-# For NVME SSD's
+**For NVME SSD's**
 
 * ``mkswap /dev/nvme0n1p2``
 
 * ``swapon /dev/nvme0n1p2``
 
-# Primary partition
+**Primary partition**
 
-# For regular SSD's/HDD's
+**For regular SSD's/HDD's**
 
 * ``mkfs.ext4 /dev/sda3``
 
-# For NVME SSD's
+**For NVME SSD's**
 
 * ``mkfs.ext4 /dev/nvme0n1p3``
 
 # 6. Mounting the primary partition
 
-# For regular SSD's/HDD's
+**For regular SSD's/HDD's**
 
 * ``mount /dev/sda3 /mnt``
 
-# For NVME SSD's
+**For NVME SSD's:**
 
 * ``mount /dev/nvme0n1p3 /mnt``
 
-# Check if everything worked by using lsblk command.
+**Check if everything worked by using lsblk command.**
+
 * ``lsblk``
 
 # 7.Base Arch Linux installation
 
-# Check if internet works by using the ip link command.
+**Check if internet works by using the ip link command.**
 
-# Standard Arch Linux installation with standard Ethernet and Wi-Fi support,nano as text editor:
+**Standard Arch Linux installation with standard Ethernet and Wi-Fi support,nano as text editor:**
 
 * ``pacstrap /mnt base base-devel linux linux-headers linux-firmware nano networkmanager``
 
-# Generate fstab file:
+**Generate fstab file:**
 
 * ``genfstab -U /mnt >> /mnt/etc/fstab``
 
-# (Optional choice) LTS(Long Term Support) Arch Linux installation with standard Ethernet and Wi-Fi support,nano as text editor:
+**(Optional choice) LTS(Long Term Support) Arch Linux installation with standard Ethernet and Wi-Fi support,nano as text editor:**
 
 * ``pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware nano networkmanager``
 
-# Generate fstab file:
+**Generate fstab file:**
 
 * ``genfstab -U /mnt >> /mnt/etc/fstab``
 
 # 8. Basic Arch Linux configuration with chroot
 
-# Log into your installation as chroot:
+**Log into your installation as chroot:**
 
 * ``arch-chroot /mnt /bin/bash``
 
-# Set locales:
+**Set locales:**
 
 * ``nano /etc/locale.gen``
 
-# (Example) For US locale find this line en_US.UTF-8 in locale.gen file and uncomment the line.
+**(Example) For US locale find this line en_US.UTF-8 in locale.gen file and uncomment the line.**
 
-# Generate locale
+**Generate locale:**
 
 * ``locale-gen``
 
-# Creating and adding a main user:
+**Creating and adding a main user:**
 
 * ``useradd -g users -G power,storage,wheel -m user``
 
-# Creating passwords for root and main user
+**Creating passwords for root and main user:**
 
-# Password for root:
+**Password for root:**
 
 * ``passwd``
 
-# Type in the root password.
+**Type in the root password.**
 
-# Password for main user:
+**Password for main user:**
 
 * ``passwd user``
 
-# Type in the user password.
+**Type in the user password.**
 
 # 9. Editing the sudoers file:
 
 * ``visudo``
 
-# or
+**Or:**
 
 * ``nano /etc/sudoers``
 
-# Uncomment the settings in sudoers file and add the main user to sudo (user):
+**Uncomment the settings in sudoers file and add the main user to sudo (user):**
 
-# Lines to uncomment:
+**Lines to uncomment:**
 
 * sudo=ALL=(ALL:ALL) ALL
 
-# Add yourself to sudoers file under sudo
+**Add yourself to sudoers file under sudo**
 
 * user=ALL=(ALL:ALL) ALL
 
-# More secure way by uncommenting the following lines,without touching anything else in the sudoers file:
+**More secure way by uncommenting the following lines,without touching anything else in the sudoers file:**
 
 * Defaults targetpw
 
 * ALL ALL=(ALL:ALL)
 
-# Save changes to the sudoers file:
+**Save changes to the sudoers file:**
 
-# For vi text editor:
+**For vi text editor:**
 
-  # :w! + Enter to exit and write changes
-  # :q + Enter to exit
+  **:w! + Enter to exit and write changes**
+  **:q + Enter to exit**
 
-# For nano text editor:
+**For nano text editor:**
 
-# Ctrl+O to save,Ctrl+ X to exit after making changes with nano text editor.
+**Ctrl+O to save,Ctrl+ X to exit after making changes with nano text editor.**
 
-# (Optional) Edit sudoers file with nano anytime:
+**(Optional) Edit sudoers file with nano anytime:**
 
 * ``sudo nano /etc/sudoers``
 
 # 10. GRUB Bootloader Installation and configuration for UEFI boot
 
-# Install the following packages along with GRUB Bootloader for UEFI support:
+**Install the following packages along with GRUB Bootloader for UEFI support:**
 
 * ``pacman -S grub efibootmgr dosfstools os-prober mtools fuse3``
 
-# Create an EFI boot directory on the EFI partition:
+**Create an EFI boot directory on the EFI partition:**
 
 * ``mkdir /boot/efi``
 
-# Mount the FAT32 EFI partition:
+**Mount the FAT32 EFI partition:**
 
-# For regular SSD's/HDD's
+**For regular SSD's/HDD's**
 
 * ``mount /dev/sda1 /boot/efi``
 
-# For NVME SSD's
+**For NVME SSD's**
 
 * ``mount /dev/nvme0n1p1 /boot/efi``
 
-# GRUB Bootloader Installation:
+**GRUB Bootloader Installation:**
 
 * ``grub-install --target=x86_64-efi --bootloader-id=grub --efi-directory=/boot/efi``
 
-# Generating GRUB Bootloader configuration file:
+**Generating GRUB Bootloader configuration file:**
 
 * ``grub-mkconfig -o /boot/grub/grub.cfg``
 
-# Additional measures for boot partition to not become unbootable
+**Additional measures for boot partition to not become unbootable**
 
 * ``mkdir /boot/efi/EFI/BOOT``
 
@@ -273,11 +275,11 @@
 
 # 12. Desktop Environment installation,enabling the network and sound, Xorg installation,Date/Time configuration
 
-# Ethernet
+**Ethernet**
 
 * ``sudo systemctl enable --now NetworkManager.service``
 
-# Ethernet + WiFi
+**Ethernet + WiFi**
 
 * ``sudo systemctl enable --now NetworkManager.service``
 
@@ -285,9 +287,9 @@
 
 * ``sudo nmtui``
 
-# Select the desired wireless connection,wired connections should be activated by default,connect to Wi-Fi using your password.
+**Select the desired wireless connection,wired connections should be activated by default,connect to Wi-Fi using your password.**
 
-# Check if internet works:
+**Check if internet works:**
 
 * ``ping archlinux.org``
 
@@ -303,7 +305,7 @@
 
 * ``sudo ln -sf /usr/share/zoneinfo/Region/City /etc/localtime``
 
-# Hostname configuration
+**Hostname configuration**
 
 * ``sudo hostnamectl set-hostname myhostname``
 
@@ -311,7 +313,7 @@
 
 * ``sudo pacman -S intel-ucode``
 
-# AMD CPU firmware kernel support driver:
+**AMD CPU firmware kernel support driver:**
 
 * ``sudo pacman -S amd-ucode``
 
@@ -319,7 +321,7 @@
 
 * ``sudo pacman -S xorg xorg-server xorg-xinit xorg-apps xterm xorg-xrandr xdg-user-dirs``
 
-# Run to get user directories:
+**Run to get user directories:**
 
 * ``xdg-user-dirs-update``
 
@@ -327,11 +329,11 @@
 
 * ``sudo nano /etc/pacman.conf``
 
-# Uncomment these lines:
+**Uncomment these lines:**
 
 * [multilib] Include = /etc/pacman.d/mirrorlist
 
-# Update:
+**Update:**
 
 * ``sudo pacman -Syu``
 
@@ -339,24 +341,24 @@
 
 * ``sudo pacman -S alsa-firmware alsa-utils pipewire pipewire-alsa pipewire-pulse``
 
-# (Older) Install audio alsa/pulseaudio drivers and utilities:
+**(Older) Install audio alsa/pulseaudio drivers and utilities:**
 
 * ``sudo pacman -S alsa-firmware alsa-utils pulseaudio pulseaudio-alsa ``
 
 
 # 18. GNOME/KDE Plasma/XFCE/Desktop environments
 
-# XFCE
+**XFCE**
 
 * ``sudo pacman -S xfce4 xfce4-goodies gvfs``
 
-# Display Managers:
+**Display Managers:**
 
 * ``sudo pacman -S sddm sddm-kcm``
   
 * ``sudo systemctl enable --now sddm``
 
-# Or
+**Or**
 
 * ``sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings``
   
@@ -366,11 +368,11 @@
 
 * ``sudo pacman -S gnome gnome-extra``
 
-# For missing backends on GNOME:
+**For missing backends on GNOME:**
 
 * ``sudo pacman -S gnome-packagekit``
 
-# Display Manager:
+**Display Manager:**
 
 * ``sudo pacman -S gdm libgdm``
 
@@ -380,37 +382,42 @@
 
 * ``sudo pacman -S plasma kde-applications``
 
-# For missing backends on KDE Plasma:
+**For missing backends on KDE Plasma:**
 
 * ``sudo pacman -S packagekit-qt6``
 
-# NB! X11 support for KDE Plasma is now only available when plasma-x11-session package is installed:
+**NB! X11 support for KDE Plasma is now only available when plasma-x11-session package is installed:**
 
 * ``sudo pacman -S plasma-x11-session``
 
-# Inconsistent brightness levels fix Plasma 6.3 and higher:
+**Inconsistent brightness levels fix Plasma 6.3 and higher:**
 
 * ``systemctl --user edit plasma-powerdevil.service``
 
-# Add these lines, save Ctrl+O Ctrl+X and reboot:
+**Add these lines, save Ctrl+O Ctrl+X and reboot:**
 
 * ``[Service]``
 * ``Environment=POWERDEVIL_NO_DDCUTIL=1``
   
-# KDE Plasma Disable/purge/view status baloo search to reduce CPU usage,enable if you want to improve search after disabling:
+**KDE Plasma Disable/purge/view status baloo search to reduce CPU usage,enable if you want to improve search after disabling:**
 
 * ``balooctl6 status``
+
 * ``balooctl6 disable``
+
 * ``balooctl6 purge``
+
+**Enable baloo back if you need it:**
+
 * ``balooctl6 enable``
 
-# Display Manager:
+**Display Manager:**
 
 * ``sudo pacman -S sddm sddm-kcm``
 
 * ``sudo systemctl enable --now sddm``
 
-# Extra Deepin
+**Extra Deepin**
 
 * ``sudo pacman -S lightdm  lightdm-gtk-greeter lightdm-gtk-greeter-settings``
 
@@ -418,13 +425,13 @@
 
 * ``sudo nano /etc/lightdm/lightdm.conf``
 
-# Add this line then Ctrl+O,Ctrl+X
+**Add this line then Ctrl+O,Ctrl+X**
 
-* greeter-session=lightdm-deepin-greeter
+* ``greeter-session=lightdm-deepin-greeter``
   
 * ``sudo systemctl enable --now lightdm ``
 
-# Extra Pantheon
+**Extra Pantheon**
 
 * ``sudo pacman -S lightdm lightdm-pantheon-greeter lightdm-gtk-greeter lightdm-gtk-greeter-settings``
 
@@ -434,49 +441,49 @@
 
 # 21.(Optional) Additional dependencies
 
-# (Optional) for noveau drivers 
+**(Optional) for noveau drivers **
 
 * ``xf86-video-vesa mesa``
 
 # 22. Enable the GUI desktop to start at launch via the required display manager for yur desktop environment: 
 
-# SDDM with customizable settings:
+**SDDM with customizable settings:**
 
 * ``sudo pacman -S sddm sddm-kcm``
   
 * ``sudo systemctl enable --now sddm``
 
-# LIGHTDM with customizable settings:
+**LIGHTDM with customizable settings:**
 
 * ``sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings``
   
 * ``sudo systemctl enable --now lightdm``
 
-# GDM with customizable settings:
+**GDM with customizable settings:**
 
 * ``sudo pacman -S gdm libgdm``
   
 * ``sudo systemctl enable --now gdm``
 
-# (Longer way) In case LIGHTDM is missing: 
+**(Longer way) In case LIGHTDM is missing:**
 
 * ``sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings``
 * ``sudo systemctl enable lightdm.service``
 * ``sudo systemctl start lightdm.service``
 
-# In case GDM is missing:
+**In case GDM is missing:**
 
 * ``sudo pacman -S gdm libgdm``
 * ``sudo systemctl enable gdm.service``
 * ``sudo systemctl start  gdm.service``
 
-# In case SDDM is missing:
+**In case SDDM is missing:**
 
 * ``sudo pacman -S sddm sddm-kcm``
 * ``sudo systemctl enable sddm``
 * ``sudo systemctl start sddm``
 
-# (Optional) Use this theme for better icons on all DE's:
+**(Optional) Use this theme for better icons on all DE's:**
 
 * ``sudo pacman -S papirus-icon-theme``
 * ``sudo pacman -S noto-fonts noto-fonts-emoji``
@@ -484,7 +491,7 @@
 
 # 23. Install NVIDIA protprietary or AMD open source drivers and utilities:
 
-# For Nvidia Non-LTS (rolling)
+**For Nvidia Non-LTS (rolling)**
 * ``sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers``
   
 # Run mkinitcpio after installation and reboot:
