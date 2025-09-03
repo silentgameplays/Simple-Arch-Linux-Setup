@@ -38,7 +38,7 @@
 
 * ``sudo blkdiscard /dev/nvme0n1``
 
-**3. Using cfdisk TUI to format and create paritions on SSD/HDD before installing Arch Linux:**
+# 3. Use cfdisk TUI to format and create paritions on SSD/HDD before installing Arch Linux:
 
 **For regular SSD's/HDD's**
 
@@ -489,135 +489,142 @@
 * ``sudo pacman -S noto-fonts noto-fonts-emoji``
 * ``sudo pacman -S arc-gtk-theme``
 
-# 23. Install NVIDIA protprietary or AMD open source drivers and utilities:
+# 23. NVIDIA drivers and utilities installation:
 
 **For Nvidia Non-LTS (rolling)**
 * ``sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers``
   
-# Run mkinitcpio after installation and reboot:
+**Run mkinitcpio after installation and reboot:**
 
 * ``sudo mkinitcpio -P``
   
-# For Nvidia LTS(Long Term Support)
+**For Nvidia LTS(Long Term Support)**
 * ``sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers``
 
-# Run mkinitcpio after installation and reboot:
+**Run mkinitcpio after installation and reboot:**
 * ``sudo mkinitcpio -P``
 
-# NVIDIA DKMS Driver For Zen and Multiple Kernels
+**NVIDIA DKMS Driver For Zen and Multiple Kernels**
 
 * ``sudo pacman -S nvidia-dkms nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers``
 
-# Run mkinitcpio after installation and reboot:
+**Run mkinitcpio after installation and reboot:**
 
 * ``sudo mkinitcpio -P`` 
 
-# NVIDIA Open Source Driver
+**NVIDIA Open Source Driver**
 * ``sudo pacman -S nvidia-open nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers`` 
 
-# Run mkinitcpio after installation and reboot:
+**Run mkinitcpio after installation and reboot:**
 
 * ``sudo mkinitcpio -P``
 
-# NVIDIA Open Source DKMS Driver
+**NVIDIA Open Source DKMS Driver**
 
 * ``sudo pacman -S nvidia-open-dkms nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers`` 
 
-# Run mkinitcpio after installation and reboot:
+**Run mkinitcpio after installation and reboot:**
 
 * ``sudo mkinitcpio -P`` 
 
-# NVIDIA DRM Wayland Support and generally improved gaming support on X11 as well With RTX Cards:
+**NVIDIA DRM Wayland Support with GTX and RTX Cards with proprietary drivers not nvidia-open or nvidia-open-dkms:**
 
-# Edit /etc/mkinitcpio.conf
+**Edit /etc/mkinitcpio.conf**
 
 * ``sudo nano /etc/mkinitcpio.conf``
   
-# * Change MODULES=()
-# * To MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+**Change** ``MODULES=()``
+**To** ``MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)``
 
 * ``sudo mkinitcpio -P``
   
-# Edit GRUB /etc/default/grub for other bootloaders check the Arch Wiki https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
+**Edit GRUB /etc/default/grub** 
+**For other bootloaders check the Arch Wiki**
+https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``sudo nano /etc/default/grub``
   
-# * Change GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"
-# * To GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1"
+**Change** ``GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"``
+
+**To** ``GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1"``
 
 * ``sudo grub-mkconfig -o /boot/grub/grub.cfg``
 * ``sudo reboot``
 
-# to check if everything works:
+**Check if everything works:**
 
 * ``sudo cat /sys/module/nvidia_drm/parameters/modeset``
 
-# Extra Steps with GNOME/GDM
+**Extra Steps with GNOME/GDM**
 
-# Removing the gdm udev that disables wayland
+**Removing the gdm udev that disables Wayland**
+
 * ``sudo ln -s /dev/null /etc/udev/rules.d/61-gdm.rules``
 * ``sudo reboot``
 
-# Dependencies,usually provided by KDE/GNOME
+**Dependencies,usually provided by KDE/GNOME**
 
 * ``sudo pacman -S egl-wayland libglvnd``
   
-# After NVIDIA Driver updates run:
+**After NVIDIA Driver updates run:**
 
 * ``sudo mkinitcpio -P``
 
-# Reboot for changes to take effect:
+**Reboot for changes to take effect:**
 
 * ``sudo reboot``
 
-# Run this to improve perdormance:
+**Run this to improve perdormance:**
 
 * ``sudo nvidia-xconfig``
 
-# 24. Drivers For AMD GPU's, no need to tinker with DRM kernel parameters:
+# 24. AMD Drivers installation, no need to tinker with DRM kernel parameters:
 
 * ``sudo pacman -S mesa mesa-utils lib32-mesa opencl-mesa lib32-opencl-mesa lib32-vulkan-radeon vulkan-radeon vulkan-mesa-layers lib32-vulkan-mesa-layers glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d xf86-video-amdgpu``
 * ``sudo mkinitcpio -P``
 * ``reboot``
 
-# AMD Vulkan Drivers with proprietary shader stack if vulkan-radeon lib32-vulkan-radeon give issues,can be installed with everything else without conflicts.
+**AMD Vulkan Drivers with proprietary shader stack if vulkan-radeon lib32-vulkan-radeon give issues,can be installed with everything else without conflicts.**
 
 * ``sudo pacman -S amdvlk lib32-amdvlk``
 
 # 25. Additional optimizations for gaming:
 
-# Increase max vm.max_map_count to prevent more demanding games from crashing:
+**Increase max vm.max_map_count to prevent more demanding games from crashing:**
 
 * ``sudo nano /usr/lib/sysctl.d/10-arch.conf``
-* change vm.max_map_count=2147483642
+* **Change to Steam Declk values**:``vm.max_map_count=2147483642``
 * ``sudo reboot``
 * ``cat /proc/sys/vm/max_map_count``
 
-# gamemode and gamescope:
+**gamemode and gamescope:**
+
 * ``sudo pacman -S gamemode lib32-gamemode``
 * ``sudo pacman -S gamescope``
 
-# mangohud for FPS measurements and monitoring:
+**mangohud for FPS measurements and monitoring:**
 
 * ``sudo pacman -S mangohud lib32-mangohud``
 
 # 26. Monitoring tools for temps\usage
 
-# For monitoring all GPU's:
+**For monitoring all GPU's:**
 
 * ``sudo pacman -S nvtop``
 
-# Whole System btop or htop:
+**Whole system btop or htop:**
 * ``sudo pacman -S btop rocm-smi-lib``
 * ``sudo pacman -S htop``
 
-# Only temps
+**Only temps**
+* ``sudo pacman -S lm-sensors``
 * ``sensors``
   
 # 27. Installing AUR helper yay
+
 * ``sudo pacman -S git``
 
-# NB No sudo!
+**NB No sudo!**
 
 * ``git clone https://aur.archlinux.org/yay.git``
 * ``cd yay``
@@ -638,25 +645,25 @@
 
 * ``sudo pacman -Rns $(pacman -Qtdq)``
 
-# For yay AUR helper:
+**For yay AUR helper:**
 
 * ``yay -Sc``
 
 * ``yay -Scc``
  
-# Cleaning pacman cache
+**Cleaning pacman cache**
 
 * ``sudo rm /var/cache/pacman/pkg/*``
 
-# Removing only the stated packages without dependencies:
+**Removing only the stated packages without dependencies:**
 
 * ``sudo pacman -Rdd package name``
 
-# Removing only the stated packages with dependencies
+**Removing only the stated packages with dependencies:**
 
 * ``sudo pacman -Rscn application name``
 
-# Recursively removing orphans when cluttered 
+**Recursively removing orphans when cluttered**
 
 * ``su``
 * ``pacman -Qtdq | pacman -Rns -``
@@ -664,21 +671,23 @@
 
 # 29.(Optional)Installing other stuff:
 
-# Archiver tool for Plasma:
+**Archiver tool for Plasma:**
+
 * ``sudo pacman -S ark lrzip lzop 7zip unarchiver unrar`` 
 
-# Archiver tools for GNOME,for XFCE both ark and file-roller can be used:
+**Archiver tools for GNOME,for XFCE both ark and file-roller can be used:**
+
 * ``sudo pacman -S file-roller nemo-fileroller unzip lzop 7zip unrar unarchiver``
 
-# Media players (pick one or two or all or what works best):
+**Media players (pick one or two or all or what works best):**
 
 * ``sudo pacman -S  mpv vlc dragon kmplayer celluloid mpd qtav showtime``
   
-# NEW vlc player+full plugin support
+**NEW vlc player+full plugin support**
 
 * ``sudo pacman -S vlc vlc-plugins-all``
 
-# Browsers 
+**Browsers**
 
 * ``sudo pacman -S firefox-developer-edition``
 
@@ -698,11 +707,11 @@
 
 * ``yay -S microsoft-edge-stable-bin``
 
-# LibreOffice rolling:
+**LibreOffice rolling:**
 
 * ``sudo pacman -S libreoffice-fresh``
 
-# OR stable:
+**Or stable:**
 
 * ``sudo pacman -S libreoffice-still``
 
@@ -720,36 +729,37 @@
 
 * ``sudo pacamn -S kate``
 
-# Torrent clients:
+**Torrent clients:**
 
 * ``sudo pacman -S qbittorrent``
 * ``sudo pacman -S ktorrent``
 * ``sudo pacman -S transmission-qt``
 
-# OR for GTK based DE's (XFCE/GNOME)
+**Or for GTK based DE's (XFCE/GNOME)**
 
 * ``sudo pacman -S transmission-gtk``
 
-# Video Editors:
+**Video Editors:**
 
 * ``sudo pacman -S kdenlive``
 * ``sudo pacman -S shotcut``
 * ``sudo pacman -S blender``
 * ``sudo pacman -S openshot``
 
-# Emulators:
+**Emulators:**
+
 * ``sudo pacman -S libretro``
 * ``sudo pacman -S dosbox``
 * ``sudo pacman -S scummvm``
 * ``sudo pacman -S pscx2``
 * ``sudo pacman -S retroarch``
 
-# Teamviewer install and configure from AUR:
+**Teamviewer install and configure from AUR:**
 
 * ``yay -S teamviewer``
 * ``sudo systemctl enable --now teamviewerd.service``
 
-# More mods,games and tools:
+**More mods,games and tools:**
 
 * ``sudo pacman -S openmw``
 
@@ -785,18 +795,18 @@
 
 * ``yay -S commander-genius-git``
 
-# Partition managers:
+**Partition managers:**
 
 * ``sudo pacman -S gnome-disk-utility``
 * ``sudo pacman -S partitionmanager``
 * ``sudo pacman -S gparted``
   
-# GPU Screen Recorder similar to shadowplay:
+**GPU Screen Recorder similar to shadowplay:**
 
 * ``yay -S gpu-screen-recorder``
 * ``yay -S gpu-screen-recorder-gtk``
 
-# (Optional)Installing VKD3D and/or DXVK for DX10/DX11 conversion support outswide of Steam/Lutris:
+**(Optional)Installing VKD3D and/or DXVK for DX10/DX11 conversion support outswide of Steam/Lutris:**
 
 * ``sudo pacman -S python-protobuf lib32-vkd3d vkd3d``
 * ``yay -S dxvk-bin``
@@ -809,11 +819,11 @@
 
 * ``sudo pacman -S fluidsynth lib32-fluidsynth openal lib32-openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma openresolv x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis faad2 libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugin-va gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libmpeg2 libavif faac libwebp libheif libjxl jasper aom svt-av1``
 
-# (In case you are using meson builds)
+**(In case you are using meson builds)**
 
 * ``sudo pacman -S meson``
 
-# Install wine and some more packages-dependencies for gaming:
+**Install wine and some more packages-dependencies for gaming:**
 
 * ``sudo pacman -S wine wine-mono wine-gecko lutris steam``
 * ``sudo pacman -S mono``  
@@ -821,22 +831,22 @@
 * ``sudo pacman -Syu``
 * ``sudo pacman -S opusfile``
 
-# For better wine support
+**For better wine support**
 
 * ``sudo systemctl restart systemd-binfmt``
 
-# (Optional) More packages-dependencies for Wine,Dosbox,Scummvm for older games:
+**(Optional) More packages-dependencies for Wine,Dosbox,Scummvm for older games:**
 
 * ``sudo pacman -S mingw-w64 glslang lib32-libvorbis ``
 
-# (Optional) Install Glourious Eggroll Proton GE the easy way:
+**(Optional) Install Glourious Eggroll Proton GE the easy way:**
  * Download the latest release here: https://github.com/GloriousEggroll/proton-ge-custom/releases
  * Extract,enable hidden files and folders 
  * Create a folder in your /home/user/steam/root/compatibilitytools.d if it does not exist.
  * Copy/paste the extracted GE folder into /home/user/config/.steam/root/compatibilitytools.d
  * Restart Steam,enjoy the custom GE build
  
-# (Optional) Install spectacle for screenshots (KDE PLASMA) and fastfetch to have "I use arch btw" in your CLI for screenshots and reddit,also man pages support to actually learn some stuff about what packages you install and flatpak for a wide variety of software,most of which you can find in AUR.
+**(Optional) Install spectacle for screenshots (KDE PLASMA) and fastfetch**
 
  * ``sudo pacman -S spectacle fastfetch man``
  
@@ -846,21 +856,21 @@
 
  * ``sudo pacman -Syu``
 
-# (Optional) Gnome boxes, useful for creating usb sticks with OS installs and gnome-boxes for vm's useful GUI for QEMU:
-
+ **(Optional) Gnome boxes, useful for creating usb sticks with OS installs and gnome-boxes for vm's useful GUI for QEMU:**
+ 
  * ``sudo pacman -S gnome-boxes``
  * ``sudo pacman -S virt-manager qemu-desktop``
  
- # To use virt manager isntead of GNOME Boxes properly run: 
+ **To use virt manager isntead of GNOME Boxes properly run:**
  
  * ``sudo systemctl enable libvirtd.service``
  * ``sudo systemctl start libvirtd.service``
  
- # OR 
+ **Or**
  
  * ``sudo systemctl enable --now libvirtd.service``
  
-# Check this website for additional driver/video support on vm's for both GNOME BOXES and virtmanager:
+**Check this website for additional driver/video support on vm's for both GNOME BOXES and virtmanager:**
 * https://www.spice-space.org/download.html
 
 
@@ -868,12 +878,12 @@
 
 * ``sudo pacman -Syu``
 
-# OR
+**Or**
 
 * ``sudo pacman -Syyu``
 * ``sudo pacman -Syyu --refresh -y``
 
-# Check the history of CLI:
+**Check the history of CLI:**
 
 * ``history``
 
@@ -885,40 +895,40 @@
 
 * ``sudo pacman -S gnome-disk-utility``
 
-# Automount using gnome disk utility:
+**Automount using gnome disk utility:**
 
 * Edit mount options
 * Add this line: 
 * nosuid,nodev,nofail,x-gvfs-show,auto
   
-# show system status
+**show system status**
 * ``sudo systemctl status``
 
-# refresh system databases in case something breaks
+**refresh system databases in case something breaks**
 * ``sudo pacman -Syyu``
 
-# full system update
+**full system update**
 * ``sudo pacman -Syu``
 
-# Audio enhancements similar to Windows Loudness Equalization for games like Witcher 3
-# Pipewire:
+**Audio enhancements similar to Windows Loudness Equalization for games like Witcher 3**
+**Pipewire:**
 
-* Set in Sound Sonfiguration as Pro Audio instead of Analog Stereo Duplex
+**Set in Sound Sonfiguration as Pro Audio instead of Analog Stereo Duplex**
   
 * ``sudo nano /usr/share/pipewire/pipewire.conf``
 
-# Find this line 
+**Find this line**
 
 * ``#default.clock.allowed-rates = [ 48000 ]``
 
-# Change to
+**Change to:**
 
 * ``#default.clock.allowed-rates = [ 44100 48000 96000 ]``
 
-# Install required dependencies for Easy Effects:
+**Install required dependencies for Easy Effects:**
 * ``sudo pacman -Syu easyeffects lsp-plugins calf zam-plugins-lv2``
 
-# Launch EasyEffects and apply presets either from this repository or download the one provided here LoudnessEqualizer.json:
+**Launch EasyEffects and apply presets either from this repository or download the one provided here LoudnessEqualizer.json:**
 
 * https://github.com/Digitalone1/EasyEffects-Presets
   
@@ -935,10 +945,11 @@
 * Go to the place where you downloaded Windows 10 ISO and select Open with Disk Image Mounter
 * Open Copy everything from the Windows 10 ISO and paste into your USB Drive,wait for it to finish(takes a while)
 
-# (Optional) Custom DNS configuration
+**(Optional) Custom DNS configuration**
 
 * ``sudo nano /etc/resolv.conf``
-# change/add lines from
+  
+**change/add lines from**
 
 OpenDNS
 
@@ -952,88 +963,54 @@ Google DNS
 * nameserver 8.8.8.8
 * nameserver 8.8.4.4
 
-CloudFlare DNS
 
-* nameserver 1.1.1.1
-* nameserver 1.0.0.1
-* nameserver 2606:4700:4700::1111
-* nameserver 2606:4700:4700::1001
+**NB! Optional (not recommended) disabling kernel and driver updates for more stable experience**
 
-Alternate DNS	
-
-* nameserver 198.101.242.72
-* nameserver 23.253.163.53
-
-Dyn DNS
-
-* nameserver 216.146.35.35
-* nameserver 216.146.36.36
-
-OpenNIC DNS
-* nameserver 58.6.115.42
-* nameserver 58.6.115.43
-* nameserver 119.31.230.42
-* nameserver 2001:470:8388:2:20e:2eff:fe63:d4a9
-* nameserver 2001:470:1f07:38b::1
-* nameserver 2001:470:1f10:c6::2001
-* nameserver 200.252.98.162
-* nameserver 217.79.186.148
-* nameserver 81.89.98.6
-* nameserver 78.159.101.37
-* nameserver 203.167.220.153
-* nameserver 82.229.244.191
-* nameserver 216.87.84.211
-* nameserver 66.244.95.20
-* nameserver 207.192.69.155
-* nameserver 72.14.189.120
-
-# NB! Optional (not recommended) disabling kernel and driver updates for more stable experience
 * ``sudo nano /etc/pacman.conf``
-# Uncomment
+
+**Uncomment**
+
 * #IgnorePkg =
 * #IgnoreGroup = 
 
-# It should look like this for kernel and driver and for example firefox:
+**It should look like this for kernel and driver and for example firefox:**
 * IgnorePkg = linux nvidia firefox
 * IgnoreGroup = linux nvidia firefox
 
-# For kernel only:
+**For kernel only:**
 * IgnorePkg = linux
 * IgnoreGroup = linux
 
-# View drivers in use 
+**View drivers in use** 
 
 * ``lspci -v``
 * ``sudo lspci -v``
 
-# (Optional) mkinitcpio:
+**(Optional) mkinitcpio:**
 
 * ``sudo mkinitcpio``
 
-# That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced commands and packages:
-https://wiki.archlinux.org/
-
-# Don't forget to install and use man
+**Don't forget to install and use man**
 * ``sudo pacman -S man``
 * ``man`` (your command here)
 
-# Example: man pacman
+**Example: man pacman**
 
-# Fixing the new systemd suser@XXX.service is not active, cannot reload. errors for sddm, gdm, lightdm display managers, insert the one you use.
+**Fixing the new systemd suser@XXX.service is not active, cannot reload. errors for sddm, gdm, lightdm display managers, insert the one you use.**
 
 * ``sudo chage -l sddm``
 
-# Or 
+**Or**
 
 * ``sudo chage --list sddm``
 
-# Then Run
+**Then run**
 
 * ``sudo chage -E -1 sddm``
 
 * ``sudo reboot``
 
-# If you start getting errors like  "signature from "John Smith <john.smith@archlinux.org>" is marginal trust" do these steps:
+**If you start getting errors like  "signature from "John Smith <john.smith@archlinux.org>" is marginal trust" do these steps:**
 
 * ``sudo pacman -S archlinux-keyring``
 
@@ -1041,26 +1018,26 @@ https://wiki.archlinux.org/
 
 * ``sudo pacman -Syyuu``
 
-# Run  this in case it still occurs:
+**Run  this in case it still occurs:**
 * ``sudo pacman-key --refresh-keys``
 
 * ``sudo pacman -Syu archlinux-keyring``
 
-# Extra steps workarounds:
+**Extra steps workarounds:**
 
-# Enable pipewire without restart/configure alsa settings for audio devices, requires alsa-firmware and alsa-utils packages:
+**Enable pipewire without restart/configure alsa settings for audio devices, requires alsa-firmware and alsa-utils packages:**
 
 * ``systemctl --user restart pipewire pipewire-pulse``
 * ``alsamixer``
 
-# Refresh mirrorlists:
+**Refresh mirrorlists:**
 
 * ``sudo pacman -Syyu --refresh -y``
 
-# Install advanced networking tools:
+**Install advanced networking tools:**
 * ``sudo pacman -S bind``
 
-# Remove leftovers from apps and other files
+**Remove leftovers from apps and other files**
 
 * ``find ~ -type d -name 'app-name*'``
 
@@ -1068,7 +1045,7 @@ https://wiki.archlinux.org/
 
 * ``find ~ -type f -name '*.torrent *'``
 
-# View BIOS/UEFI/SLOT/CPU/Memory Info
+# 36.View BIOS/UEFI/SLOT/CPU/Memory Info
 
 * ``sudo dmidecode | less``
 * ``sudo dmidecode -s bios-version``
@@ -1084,19 +1061,19 @@ https://wiki.archlinux.org/
 * ``cat /sys/devices/virtual/dmi/id/board_{vendor,name,version}``
 
   
-# How to check mesa vulkan driver versions:
+**How to check mesa vulkan driver versions:**
 
 * ``glxinfo | grep "Mesa" ``
 
-# Cybersecurity basics, firewall and rootkit/malware detection:
+# 37.Cybersecurity basics, firewall and rootkit/malware detection:
 
-# Firewall:
+**Firewall:**
 
 * `` sudo pacman -S ufw``
 
-# Enable firewall 
+**Enable firewall** 
 
-# Check manually for malware activity with ls or in your file browser,XDG autostart jobs, bash or zsh (weird entries and services):
+**Check manually for malware activity with ls or in your file browser,XDG autostart jobs, bash or zsh (weird entries and services):**
 
 * ``ls ~/.config/autostart/ ``
 
@@ -1104,7 +1081,7 @@ https://wiki.archlinux.org/
 
 * ``ls ~/.zshrc ``
 
-# Systemd user services:
+**Systemd user services:**
   
 * ``ls ~/.config/systemd/user/``
 
@@ -1112,33 +1089,33 @@ https://wiki.archlinux.org/
 
 * ``ls  /usr/local/bin/ ``
 
-# Checking strage cron jobs 
+**Check strange cron jobs** 
 
 * ``crontab -e``
 
 * ``sudo crontab -e``
 
-# Check suspicious shadow bin entries:
+**Check suspicious shadow bin entries:**
 
 * ``ls /usr/local/bin/``
 
-# Check process tree for strange activity:
+**Check process tree for strange activity:**
 
 * ``pstree -a -p``
 
-# Look for anything strange such as:
+**Look for anything strange such as:**
 
 * makepkg → gcc → wget → /tmp/a.out → runs as root
 
 * xdg-open readme.eml → bash → curl <IP> → ./payload
 
-# History of execution for today
+**History of execution for today**
 
 * ``journalctl _COMM=exe -S today``
 
 * ``ausearch -m execve --success yes``
 
-# AV ClamAV 
+**AV ClamAV**
 
 * ``sudo pacman -S clamav``
 
@@ -1148,11 +1125,11 @@ https://wiki.archlinux.org/
 
 * ``sudo systemctl start clamav-daemon``
 
-# Full scan if you have time
+**Full scan if you have time**
 
 * ``clamdscan --multiscan --fdpass / ``
 
-# Rootkit hunter:
+**Rootkit hunter:**
 
 * ``sudo pacman -S rkhunter``
 
@@ -1160,64 +1137,63 @@ https://wiki.archlinux.org/
 
 * ``sudo rkhunter --check``
 
-# (Optional/Experimental) Secure boot setup cheat sheet:
+# 38.(Optional/Experimental) Secure boot setup cheat sheet:
 
 * ``sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --modules="tpm" --disable-shim-lock``
 
-1. Regenerate your grub configuration:
+1. **Regenerate your grub configuration:**
 
 * ``sudo grub-mkconfig -o /boot/grub/grub.cfg``
 
-2. Install the sbctl tool:
+2. **Install the sbctl tool:**
 
 * ``sudo pacman -S sbctl``
 
-2. As a pre-requisite, in your UEFI settings, set your secure boot mode to setup mode. Upon re-booting, verify that you are in setup mode:
+2. **As a pre-requisite, in your UEFI settings, set your secure boot mode to setup mode. Upon re-booting, verify that you are in setup mode:**
 
 * ``sbctl status``
 
-4. Create your custom secure boot keys:
+4. **Create your custom secure boot keys:**
 
 * ``sudo sbctl create-keys``
 
-5. Enroll your custom keys (note -m is required to include Microsoft's CA certificates)
+5. **Enroll your custom keys (note -m is required to include Microsoft's CA certificates)**
 
 * ``sudo sbctl enroll-keys -m``
 
-6. Verify that your keys have successfully been enrolled:
+6. **Verify that your keys have successfully been enrolled:**
 
 * ``sbctl status``
 
-7. Check which files need to be signed for secure boot to work:
+7. **Check which files need to be signed for secure boot to work:**
 
 * ``sudo sbctl verify``
 
-8. Sign all unsigned files (adjust to your setup):
+8. **Sign all unsigned files (adjust to your setup):**
 
 * ``sudo sbctl sign -s /efi/EFI/GRUB/grubx64.efi``
 
-9. You may get an error because of an issue with certain files being immutable. To make those files mutable, run the following command for each file then re-sign afterwards:
+9. **You may get an error because of an issue with certain files being immutable. To make those files mutable, run the following command for each file then re-sign afterwards:**
 
 * ``sudo chattr -i /sys/firmware/efi/efivars/<filename>``
 
-10. Verify that everything has been signed:
+10. **Verify that everything has been signed:**
 
 * ``sudo sbctl verify``
 
-11. In your UEFI settings, enable secure boot, and reboot. Verify that secure boot is enabled:
+11. **In your UEFI settings, enable secure boot, and reboot. Verify that secure boot is enabled:**
 
 * ``sbctl status``
 
-# NB sbctl comes with a pacman hook for automatic signing, so you don't need to worry when you update your system. 
+**NB sbctl comes with a pacman hook for automatic signing, so you don't need to worry when you update your system.**
 
-# Save the changes and exit,reboot,you are good 
+**Save the changes and exit,reboot,you are good**
 
-# silentgameplays Youtube channel:
-* https://www.youtube.com/@silentgameplays/
+**That's it you are good for using pure ArchLinux and don't forget to view archwiki for more advanced commands and packages:**
+https://wiki.archlinux.org/
 
-* Enjoy!
-Thank you!
-# silentgameplays
+**silentgameplays Youtube channel:** https://www.youtube.com/@silentgameplays/
+
 
 
 
