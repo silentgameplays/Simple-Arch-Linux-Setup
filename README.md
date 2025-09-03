@@ -669,7 +669,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 * ``pacman -Qtdq | pacman -Rns -``
 * ``exit``
 
-# 29.(Optional)Installing other stuff:
+# 29. (Optional)Installing other stuff:
 
 **Archiver tool for Plasma:**
 
@@ -1038,7 +1038,7 @@ Google DNS
 
 * ``find ~ -type f -name '*.torrent *'``
 
-# 36.View BIOS/UEFI/SLOT/CPU/Memory Info
+# 36. View BIOS/UEFI/SLOT/CPU/Memory Info
 
 * ``sudo dmidecode | less``
 * ``sudo dmidecode -s bios-version``
@@ -1058,7 +1058,7 @@ Google DNS
 
 * ``glxinfo | grep "Mesa" ``
 
-# 37.Cybersecurity basics, firewall and rootkit/malware detection:
+# 37. Cybersecurity firewall and rootkit/malware detection:
 
 **Firewall:**
 
@@ -1130,7 +1130,7 @@ Google DNS
 
 * ``sudo rkhunter --check``
 
-# 38.(Optional/Experimental) Secure boot setup cheat sheet:
+# 38. (Optional/Experimental) Secure boot setup cheat sheet:
 
 * ``sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --modules="tpm" --disable-shim-lock``
 
