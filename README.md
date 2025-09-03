@@ -210,7 +210,7 @@
 
 * user=ALL=(ALL:ALL) ALL
 
-**More secure way by uncommenting the following lines,without touching anything else in the sudoers file:**
+***More secure way by uncommenting the following lines,without touching anything else in the sudoers file:***
 
 * Defaults targetpw
 
@@ -220,14 +220,14 @@
 
 **For vi text editor:**
 
-  **:w! + Enter to exit and write changes**
-  **:q + Enter to exit**
+  *:w! + Enter to exit and write changes*
+  *:q + Enter to exit*
 
 **For nano text editor:**
 
-**Ctrl+O to save,Ctrl+ X to exit after making changes with nano text editor.**
+*Ctrl+O to save,Ctrl+ X to exit after making changes with nano text editor.*
 
-**(Optional) Edit sudoers file with nano anytime:**
+**(Optional) Edit sudoers file with nano any time:**
 
 * ``sudo nano /etc/sudoers``
 
