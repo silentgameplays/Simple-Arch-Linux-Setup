@@ -204,17 +204,17 @@
 
 **Lines to uncomment:**
 
-* sudo=ALL=(ALL:ALL) ALL
+* ``sudo=ALL=(ALL:ALL) ALL``
 
-**Add yourself to sudoers file under sudo**
+**Add yourself to sudoers file under sudo, so it looks like this**
 
-* user=ALL=(ALL:ALL) ALL
+* ``user=ALL=(ALL:ALL) ALL``
 
 ***More secure way by uncommenting the following lines,without touching anything else in the sudoers file:***
 
-* Defaults targetpw
+* ``Defaults targetpw``
 
-* ALL ALL=(ALL:ALL)
+* ``ALL ALL=(ALL:ALL)``
 
 **Save changes to the sudoers file:**
 
@@ -617,7 +617,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 * ``sudo pacman -S htop``
 
 **Only temps**
-* ``sudo pacman -S lm-sensors``
+* ``sudo pacman -S lm_sensors``
 * ``sensors``
   
 # 27. Installing AUR helper yay
@@ -698,14 +698,6 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 * ``sudo pacman -S chromium``
 
 * ``sudo pacman -S firefox``
-
-* ``yay -S firefox-esr-bin``
-
-* ``yay -S librewolf-bin``
-
-* ``yay -S google-chrome``
-
-* ``yay -S microsoft-edge-stable-bin``
 
 **LibreOffice rolling:**
 
@@ -819,9 +811,9 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``sudo pacman -S fluidsynth lib32-fluidsynth openal lib32-openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma openresolv x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis faad2 libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugin-va gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libmpeg2 libavif faac libwebp libheif libjxl jasper aom svt-av1``
 
-**(In case you are using meson builds)**
+**(In case you are using meson and ninja builds)**
 
-* ``sudo pacman -S meson``
+* ``sudo pacman -S ninja meson``
 
 **Install wine and some more packages-dependencies for gaming:**
 
@@ -840,6 +832,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 * ``sudo pacman -S mingw-w64 glslang lib32-libvorbis ``
 
 **(Optional) Install Glourious Eggroll Proton GE the easy way:**
+
  * Download the latest release here: https://github.com/GloriousEggroll/proton-ge-custom/releases
  * Extract,enable hidden files and folders 
  * Create a folder in your /home/user/steam/root/compatibilitytools.d if it does not exist.
