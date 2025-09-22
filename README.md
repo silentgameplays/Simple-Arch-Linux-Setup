@@ -593,7 +593,9 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 **Increase max vm.max_map_count to prevent more demanding games from crashing:**
 
 * ``sudo nano /usr/lib/sysctl.d/10-arch.conf``
+
 * **Change to Steam Declk values**:``vm.max_map_count=2147483642``
+
 * ``sudo reboot``
 * ``cat /proc/sys/vm/max_map_count``
 
@@ -1057,6 +1059,7 @@ Google DNS
 **How to check mesa vulkan driver versions:**
 
 * ``glxinfo | grep "Mesa" ``
+* ``glxinfo | grep OpenGL``
 
 # 37. Cybersecurity firewall and rootkit/malware detection:
 
