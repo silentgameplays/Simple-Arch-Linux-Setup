@@ -1061,6 +1061,10 @@ Google DNS
 * ``glxinfo | grep "Mesa" ``
 * ``glxinfo | grep OpenGL``
 
+**How to check pipewire version:**
+
+* ``pactl info|grep "Server Name"``
+
 # 37. Cybersecurity firewall and rootkit/malware detection:
 
 **Firewall:**
