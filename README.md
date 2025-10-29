@@ -378,6 +378,14 @@
 
 * ``sudo systemctl enable --now gdm``
 
+**Enable VRR (freesync/gsync) Support for GNOME**
+
+* ``gsettings set org.gnome.mutter experimental-features "['variable-refresh-rate']"``
+
+**Exit the current Wayland session, re-login and type to check, the output should be "variable-refresh-rate"**
+
+* ``gsettings get org.gnome.mutter experimental-features``
+
 # 20. KDE PLasma, sddm display manager is packaged with Plasma package used by default:
 
 * ``sudo pacman -S plasma kde-applications``
