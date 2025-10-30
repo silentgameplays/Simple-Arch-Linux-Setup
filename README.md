@@ -1062,6 +1062,7 @@ Google DNS
 * ``sudo dmidecode -s processor-frequency``
 * ``sudo dmidecode -t memory``
 * ``cat /sys/devices/virtual/dmi/id/board_{vendor,name,version}``
+* ``sudo lspci -v | less``
 
   
 **How to check mesa vulkan driver versions:**
