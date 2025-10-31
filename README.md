@@ -1146,6 +1146,33 @@ Google DNS
 
 * ``sudo rkhunter --check``
 
+**(Bonus) Reset Windows Password from a Arch Linux Live USB**
+* ``sudo pacman -S chntpw``
+* ``sudo sfdisk -l``
+
+**For regular SSD's/HDD's:**
+
+* ``sudo mount /dev/sda2 /mnt/Microsoft/``
+
+**For NVME SSD's:**
+
+* ``sudo mount /dev/nvme0n1p2 /mnt/Microsoft``
+* ``cd /mnt/Microsoft/Windows/System32/config/``
+* ``sudo chntpw -i SAM``
+
+**Then type 1 (for Edit user data and passwords):**
+![passwordreset_username-1](https://github.com/user-attachments/assets/c41cd77c-6420-4620-a4fd-869bb4f87f6a)
+
+**Type your user account name (i.e., Archit-PC in this example) for the username:**
+![passwordreset_username-2](https://github.com/user-attachments/assets/44eabc2a-6a23-4cbf-b26a-4b8a4c58c99e)
+
+**Type 1 to clear the user password or 2 to set a new password for the Archit-PC user, then quit and save the changes:**
+![passwordreset_username-1](https://github.com/user-attachments/assets/e7bfc201-c189-4198-869d-64eba3a29a9b)
+
+![passwordreset_username-2](https://github.com/user-attachments/assets/142fec77-b047-43a7-b5ce-62b8a3f820a3)
+
+**Reboot into Windows and login**
+
 # 38. (Optional/Experimental) Secure boot setup cheat sheet:
 
 * ``sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --modules="tpm" --disable-shim-lock``
