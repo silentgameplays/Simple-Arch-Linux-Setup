@@ -368,6 +368,10 @@
 
 * ``sudo pacman -S gnome gnome-extra``
 
+**(Optional) GNOME extensions and tweaks**
+
+* ``sudo pacman-S gnome-tweaks gnome-shell-extension-manager gnome-shell-extensions gnome-shell-extensions-extra``
+
 **For missing backends on GNOME:**
 
 * ``sudo pacman -S gnome-packagekit``
