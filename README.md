@@ -683,6 +683,10 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 * ``pacman -Qtdq | pacman -Rns -``
 * ``exit``
 
+**Check and delete history:**
+* ``history``
+* ``history -c; rm ~/.bash_history``
+
 # 29. (Optional)Installing other stuff:
 
 **Archiver tool for Plasma:**
