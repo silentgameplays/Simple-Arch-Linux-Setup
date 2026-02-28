@@ -390,6 +390,77 @@
 
 * ``gsettings get org.gnome.mutter experimental-features``
 
+**Disable VRR for GNOME**
+* ``gsettings set org.gnome.mutter experimental-features "[]"``
+
+**Exit the current Wayland session, re-login and type to check, the output should be "[]"**
+
+* ``gsettings get org.gnome.mutter experimental-features``
+
+**Disable the annoying Force Quit pop up on GNOME:**
+
+**60 seconds**
+
+* ``gsettings set org.gnome.mutter check-alive-timeout 60000``
+
+**Never check***
+
+* ``gsettings set org.gnome.mutter check-alive-timeout 0``
+  
+**Disable notification sounds on GNOME DE**
+* ``gsettings set org.gnome.desktop.sound event-sounds false``
+
+**Another "PROPER" way to disable suspend and hybernate on GNOME**
+
+* ``sudo nano /etc/systemd/sleep.conf``
+
+**Uncomment and set to no**
+* ``[Sleep]``
+* ``#AllowSuspend=yes`` 
+* ``#AllowHibernation=yes``
+* ``#AllowSuspendThenHibernate=yes``
+* ``#AllowHybridSleep=yes``
+  
+**To disable suspend it should look like this**
+
+* ``[Sleep]``
+* ``AllowSuspend=no``
+* ``AllowHibernation=no``
+* ``AllowSuspendThenHibernate=no``
+* ``AllowHybridSleep=no`` 
+
+**Check if worked**
+* ``systemctl suspend``
+**This is the error message you should get**
+* ``Call to Suspend failed: Sleep verb 'suspend' is disabled by config``
+**To re-enable suspend just revert the changes**
+
+**(Additional steps) Disable suspend on GNOME**
+
+**Check types if active will reply `suspend`**
+
+* ``gsettings get org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type``
+
+**Check states should reply `true`**
+
+* ``gsettings writable org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type``
+
+**Check range of available states**
+
+* ``gsettings range org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type``
+  
+**Enter**
+
+* ``gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'``
+
+**Check again should reply `nothing`**
+
+* ``gsettings get org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type``
+
+**Exit the current Wayland session, re-login and type to check, the output should be "variable-refresh-rate"**
+
+* ``gsettings get org.gnome.mutter experimental-features``
+
 # 20. KDE PLasma, sddm display manager is packaged with Plasma package used by default:
 
 * ``sudo pacman -S plasma kde-applications``
