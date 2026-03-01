@@ -667,9 +667,14 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 * ``sudo mkinitcpio -P``
 * ``reboot``
 
-**AMD Vulkan Drivers with proprietary shader stack if vulkan-radeon lib32-vulkan-radeon give issues,can be installed with everything else without conflicts.**
+**(Optional) On some kernels it is posible to experience GPU hangs because of ring 0 issues.Check AMD GPUs for ring 0 issues**
+* ``sudo journalctl -b -1 -o cat --no-pager | grep "amdgpu: ring"``
+* ``sudo journalctl -b -2 -o cat --no-pager | grep "amdgpu: ring"``
+* ``sudo journalctl -b -0 -o cat --no-pager | grep "amdgpu: ring"``
 
-* ``sudo pacman -S amdvlk lib32-amdvlk``
+**If all is normal then the response will be normal, issues will look like an error with "ring ... timeout","ring vcn...timeout" or "ring comp... timeout" or "ring gfx... timeout"**
+**To fix the ring 0 issues user needs to remove any overclocking in BIOS,another way is revert to 6.12 LTS stable kernel version,other way is to install LACT, and set Performance Level to Manual, and the Power Profile Mode to 3D_FULL_SCREEN permanently**
+  
 
 # 25. Additional optimizations for gaming:
 
