@@ -410,7 +410,7 @@
 **Disable notification sounds on GNOME DE**
 * ``gsettings set org.gnome.desktop.sound event-sounds false``
 
-**Another "PROPER" way to disable suspend and hybernate on GNOME**
+**Another "PROPER" way to disable suspend and hybernate**
 
 * ``sudo nano /etc/systemd/sleep.conf``
 
@@ -674,7 +674,21 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 **If all is normal then the response will be normal, issues will look like an error with "ring ... timeout","ring vcn...timeout" or "ring comp... timeout" or "ring gfx... timeout"**
 **To fix the ring 0 issues user needs to remove any overclocking in BIOS,another way is revert to 6.12 LTS stable kernel version,other way is to install LACT, and set Performance Level to Manual, and the Power Profile Mode to 3D_FULL_SCREEN permanently**
-  
+
+**How to install and use LTS kernel**  
+ * ``sudo pacman -S linux-lts linux-lts-headers``
+ * ``sudo nano /etc/default/grub``
+
+**Uncomment and save these parameters**
+
+* ``GRUB_DEFAULT=saved``
+* ``GRUB_SAVEDEFAULT=true``
+* ``GRUB_DISABLE_SUBMENU=y``
+
+**Run grub mkconfig and reboot**
+
+* ``sudo grub-mkconfig -o /boot/grub/grub.cfg``
+
 
 # 25. Additional optimizations for gaming:
 
