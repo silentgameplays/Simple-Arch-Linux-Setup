@@ -1136,7 +1136,7 @@ Google DNS
 * ``sudo pacman -Syyu --refresh -y``
 
 **Install advanced networking tools:**
-* ``sudo pacman -S bind``
+* ``sudo pacman -S bind whois``
 
 **Remove leftovers from apps and other files**
 
@@ -1205,6 +1205,18 @@ Google DNS
 **Check suspicious shadow bin entries:**
 
 * ``ls /usr/local/bin/``
+
+**(Optional) Searching for files related to an application like steam,wine,net or anything else:**
+
+* ``find . -type f -name *.inf -exec grep -n 'steam' /dev/null {} +``
+* ``find . -type f -name *.inf -exec grep -n 'steam' /dev/null {} +``
+
+**(Optional)Monitoring network**
+* ``ss -4``
+* ``ss -6``
+* ``ss -p``
+* ``nslookup archlinux.org``
+* ``whois 127.0.0.1``
 
 **Check process tree for strange activity:**
 
