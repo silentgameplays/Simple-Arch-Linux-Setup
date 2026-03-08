@@ -184,12 +184,17 @@
 
 * ``usermod -aG sudo username``
 
-**You can check if the user has been added to the sudoers file by running**
+**You can check if the user has been added to the sudoers file by running these commands after the installation, you can try running them during installation without sudo under your root account**
 
 * ``sudo whoami``
-* ``sudo -l -U username``
 
 **Answer should be root**
+
+* ``sudo -l -U username``
+
+**To remove any user from the sudoers group**
+  
+* ``sudo deluser username sudo``
 
 **Creating passwords for root and main user:**
 
@@ -201,7 +206,7 @@
 
 **Password for main user:**
 
-* ``passwd user``
+* ``passwd username``
 
 **Type in the user password.**
 
