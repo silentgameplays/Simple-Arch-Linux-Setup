@@ -162,7 +162,7 @@
 
 * ``genfstab -U /mnt >> /mnt/etc/fstab``
 
-# 8. Basic Arch Linux configuration with chroot
+# 8. Basic Arch Linux configuration, create a user and add user to the sudoers group with chroot
 
 **Log into your installation as chroot:**
 
@@ -174,17 +174,17 @@
 
 **(Example) For US locale find this line en_US.UTF-8 in locale.gen file and uncomment the line.**
 
-**Generate locale:**
+**Generate locale, run this again after exiting chroot as your sudo user:**
 
 * ``locale-gen``
 
-**Creating and adding a main user to sudoers list:**
+**Creating and a user and adding that user to the sudoers group:**
 
 * ``useradd -g users -G power,storage,wheel -m username``
 
 * ``usermod -aG sudo username``
 
-**You can check if the user has been added to the sudoers file by running these commands after the installation, you can try running them during installation without sudo under your root account**
+**You can check if the user has been added to the sudoers group by running these commands after the installation, you can try running them during installation without sudo under your root account**
 
 * ``sudo whoami``
 
