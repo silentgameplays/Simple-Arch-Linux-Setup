@@ -799,6 +799,10 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``sudo pacman -Ss``
 
+**List all packages on the system**
+* ``sudo pacman -Q``
+* ``sudo pacman -Qn``
+
 **For yay AUR helper:**
 
 * ``yay -Sc``
@@ -1326,9 +1330,13 @@ Google DNS
 **Reset Linux user passwords**
 
 **login as root or Alt+F4/F5/F2 TTY**
+
 * ``sudo su``
+
 * ``usermod -s /usr/bin/bash user``
+
 * ``passwd user``
+
 * ``sudo reboot``
 
 **(Bonus) Reset Windows Password from a Arch Linux Live USB**
