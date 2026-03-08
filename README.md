@@ -178,9 +178,18 @@
 
 * ``locale-gen``
 
-**Creating and adding a main user:**
+**Creating and adding a main user to sudoers list:**
 
-* ``useradd -g users -G power,storage,wheel -m user``
+* ``useradd -g users -G power,storage,wheel -m username``
+
+* ``usermod -aG sudo username``
+
+**You can check if the user has been added to the sudoers file by running**
+
+* ``sudo whoami``
+* ``sudo -l -U username``
+
+**Answer should be root**
 
 **Creating passwords for root and main user:**
 
@@ -196,7 +205,7 @@
 
 **Type in the user password.**
 
-# 9. Editing the sudoers file:
+# 9.(Optional) Checking and editing the sudoers file:
 
 * ``visudo``
 
@@ -204,7 +213,7 @@
 
 * ``nano /etc/sudoers``
 
-**Uncomment the settings in sudoers file and add the main user to sudo (user):**
+**(Optional,insecure)Uncomment the settings in sudoers file and add the main user to sudo (user):**
 
 **Lines to uncomment:**
 
@@ -214,7 +223,7 @@
 
 * ``user=ALL=(ALL:ALL) ALL``
 
-***More secure way by uncommenting the following lines,without touching anything else in the sudoers file:***
+***(Optional)More secure way by uncommenting the following lines,without touching anything else in the sudoers file:***
 
 * ``Defaults targetpw``
 
