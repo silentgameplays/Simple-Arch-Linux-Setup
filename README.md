@@ -38,6 +38,10 @@
 
 * ``sudo blkdiscard /dev/nvme0n1``
 
+**Automaded installation, just run archinstall script and follow instructions:**
+
+* ``sudo archinstall``
+
 # 3. Use cfdisk TUI to format and create paritions on SSD/HDD before installing Arch Linux:
 
 **For regular SSD's/HDD's**
