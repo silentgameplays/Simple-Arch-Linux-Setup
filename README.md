@@ -959,9 +959,9 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``sudo pacman -S ninja meson``
 
-**Install wine and some more packages-dependencies for gaming:**
+**Install wine, steam and some more packages-dependencies for gaming:**
 
-* ``sudo pacman -S wine wine-mono wine-gecko lutris steam``
+* ``sudo pacman -S wine wine-mono wine-gecko lutris steam dosbox scummvm``
 * ``sudo pacman -S mono``  
 * ``sudo pacman -S lib32-v4l-utils lib32-libxcomposite lib32-opencl-icd-loader lib32-gst-plugins-base-libs grilo grilo-plugins``
 * ``sudo pacman -Syu``
@@ -974,6 +974,17 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 **(Optional) More packages-dependencies for Wine,Dosbox,Scummvm for older games:**
 
 * ``sudo pacman -S mingw-w64 glslang lib32-libvorbis ``
+
+**(Optional) For every older like Devil May Cry collection or newer game that does not display cutscenes properly,regardless of Proton/Wine version, go into the games folder with videos, open the terminal inside the folders with videos and use this fix, ffmpeg installed on the system is a reuirement**
+
+* ``sudo pacman -S ffmpeg``
+**This is for mpg/mp4**
+
+* ``for FMV in *.wmv; do ffmpeg -i $FMV ${FMV:0:-4}.mp4; rm $FMV; mv -- ${FMV:0:-4}.mp4 $FMV; done``
+
+**This is for bin, you can experiment by removing qscale or testing different values of qscale**
+
+*  ``for FMV in *.bin; do ffmpeg -i $FMV -qscale 4 ${FMV:0:-4}.wmv; rm $FMV; mv -- ${FMV:0:-4}.wmv $FMV; done``
 
 **(Optional) Install Glourious Eggroll Proton GE the easy way:**
 
