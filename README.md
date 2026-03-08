@@ -463,9 +463,15 @@
 
 # 20. KDE PLasma, sddm display manager is packaged with Plasma package used by default:
 
-* ``sudo pacman -S plasma kde-applications``
+**Full Plasma installation**
 
-**For missing backends on KDE Plasma:**
+* ``sudo pacman -S plasma kde-applications``
+  
+**Standard Plasma installation**
+
+* ``sudo pacman -S plasma-desktop konsole kate dolphin ark plasma-workspace plasma-login-manager ``
+
+**(Optional, not recommended)For missing backends on KDE Plasma:**
 
 * ``sudo pacman -S packagekit-qt6``
 
@@ -494,7 +500,7 @@
 
 * ``balooctl6 enable``
 
-**Display Manager:**
+**SDDM Display Manager:**
 
 * ``sudo pacman -S sddm sddm-kcm``
 
@@ -524,11 +530,26 @@
 
 # 21.(Optional) Additional dependencies
 
-**(Optional) for noveau drivers **
+**(Optional) for NVIDIA noveau drivers **
 
 * ``xf86-video-vesa mesa``
 
 # 22. Enable the GUI desktop to start at launch via the required display manager for yur desktop environment: 
+
+**Plasma Login maanger for KDE Plasma 6.6 and up**
+
+* ``sudo pacman -S plasma-login-manager``
+* ``sudo systemctl enable --now plasmalogin.service``
+
+**To modify it manually, create a configuration file in ``/etc/plasmalogin.conf``. You can also drop configuration files in ``/etc/plasmalogin.conf.d/``**
+
+* ``sudo nano /etc/plasmalogin.conf.d/autologin.conf``
+
+```
+[Autologin]
+User=john
+Session=plasma.desktop
+```
 
 **SDDM with customizable settings:**
 
@@ -551,20 +572,22 @@
 **(Longer way) In case LIGHTDM is missing:**
 
 * ``sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings``
-* ``sudo systemctl enable lightdm.service``
-* ``sudo systemctl start lightdm.service``
+* ``sudo systemctl enable --now lightdm.service``
 
 **In case GDM is missing:**
 
 * ``sudo pacman -S gdm libgdm``
-* ``sudo systemctl enable gdm.service``
-* ``sudo systemctl start  gdm.service``
+* ``sudo systemctl enable --now gdm.service``
 
 **In case SDDM is missing:**
 
 * ``sudo pacman -S sddm sddm-kcm``
-* ``sudo systemctl enable sddm``
-* ``sudo systemctl start sddm``
+* ``sudo systemctl enable --now sddm.service``
+
+**Plasma Login maanger for KDE Plasma 6.6 and up**
+
+* ``sudo pacman -S plasma-login-manager``
+* ``sudo systemctl enable --now plasmalogin.service``
 
 **(Optional) Use this theme for better icons on all DE's:**
 
@@ -749,6 +772,15 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``sudo pacman -Rns $(pacman -Qtdq)``
 
+**List required dependencies**
+
+* ``sudo pacman -Qi``
+* ``sudo pacman -Si``
+
+**Search for package**
+
+* ``sudo pacman -Ss``
+
 **For yay AUR helper:**
 
 * ``yay -Sc``
@@ -917,7 +949,11 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 # 32. Dependencies multimedia libraries for decoding/encoding (OPTIONAL if you want full no bloatware system skip these,or choose the ones you need):
 
-* ``sudo pacman -S fluidsynth lib32-fluidsynth openal lib32-openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma openresolv x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis faad2 libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugin-va gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libmpeg2 libavif faac libwebp libheif libjxl jasper aom svt-av1``
+* ``sudo pacman -S openal lib32-openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma openresolv x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis faad2 libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugin-va gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libmpeg2 libavif faac libwebp libheif libjxl jasper aom svt-av1``
+
+**(Very optional)**
+
+* ``sudo pacman -S fluidsynth lib32-fluidsynth``
 
 **(In case you are using meson and ninja builds)**
 
@@ -1000,7 +1036,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * Edit mount options
 * Add this line: 
-* nosuid,nodev,nofail,x-gvfs-show,auto
+* ``nosuid,nodev,nofail,x-gvfs-show,auto``
   
 **show system status**
 * ``sudo systemctl status``
@@ -1092,6 +1128,7 @@ Google DNS
 * ``sudo mkinitcpio``
 
 **Don't forget to install and use man**
+
 * ``sudo pacman -S man``
 * ``man`` (your command here)
 
@@ -1120,6 +1157,7 @@ Google DNS
 * ``sudo pacman -Syyuu``
 
 **Run  this in case it still occurs:**
+
 * ``sudo pacman-key --refresh-keys``
 
 * ``sudo pacman -Syu archlinux-keyring``
@@ -1255,6 +1293,14 @@ Google DNS
 * ``sudo rkhunter --update``
 
 * ``sudo rkhunter --check``
+
+**Reset Linux user passwords**
+
+**login as root or Alt+F4/F5/F2 TTY**
+* ``sudo su``
+* ``usermod -s /usr/bin/bash user``
+* ``passwd user``
+* ``sudo reboot``
 
 **(Bonus) Reset Windows Password from a Arch Linux Live USB**
 * ``sudo pacman -S chntpw``
