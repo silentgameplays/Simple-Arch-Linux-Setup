@@ -490,7 +490,11 @@
   
 **Standard Plasma installation**
 
-* ``sudo pacman -S plasma-desktop konsole kate dolphin ark plasma-workspace plasma-login-manager ``
+* ``sudo pacman -S plasma-meta konsole kate dolphin dolphin-plugins ark plasma-workspace plasma-login-manager ``
+
+**Bare minimum Plasma installation**
+
+* ``sudo pacman -S plasma-desktop konsole kate dolphin ark plasma-workspace plasma-login-manager ``  
 
 **(Optional, not recommended)For missing backends on KDE Plasma:**
 
