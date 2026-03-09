@@ -182,7 +182,9 @@
 
 * ``useradd -g users -G power,storage,wheel -m username``
 
-* ``usermod -aG sudo username``
+* ''pacman -S sudo''
+
+* ``usermod -aG wheel username``
 
 **You can check if the user has been added to the sudoers group by running these commands after the installation, you can try running them during installation without sudo under your root account**
 
@@ -194,7 +196,7 @@
 
 **To remove any user from the sudoers group**
   
-* ``sudo deluser username sudo``
+* ``sudo deluser username wheel``
 
 **Creating passwords for root and main user:**
 
@@ -210,7 +212,7 @@
 
 **Type in the user password.**
 
-# 9.(Optional) Checking and editing the sudoers file:
+# 9.Checking and editing the sudoers file:
 
 * ``visudo``
 
@@ -220,12 +222,13 @@
 
 **(Optional,insecure)Uncomment the settings in sudoers file and add the main user to sudo (user):**
 
-**Lines to uncomment:**
+**Line to uncomment to add sudo use properly:**
+
+* ``%wheel=ALL=(ALL:ALL) ALL``
+
+**(Bad Option)Add yourself to sudoers file under sudo, so it looks like this**
 
 * ``sudo=ALL=(ALL:ALL) ALL``
-
-**Add yourself to sudoers file under sudo, so it looks like this**
-
 * ``user=ALL=(ALL:ALL) ALL``
 
 ***(Optional)More secure way by uncommenting the following lines,without touching anything else in the sudoers file:***
