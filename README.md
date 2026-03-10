@@ -1134,7 +1134,7 @@ Google DNS
 
 * ``sudo reboot``
 
-**If you start getting errors like  "signature from "John Smith <john.smith@archlinux.org>" is marginal trust" do these steps:**
+# 40.If you start getting errors like  "signature from "John Smith <john.smith@archlinux.org>" is marginal trust" do these steps:
 
 * ``sudo pacman -S archlinux-keyring``
 
@@ -1191,7 +1191,7 @@ Google DNS
 
 * ``pactl info|grep "Server Name"``
 
-# 37. Cybersecurity firewall and rootkit/malware detection:
+# 42. Cybersecurity firewall and rootkit/malware detection:
 
 **Firewall:**
 
@@ -1314,7 +1314,7 @@ Google DNS
 
 **Reboot into Windows and login**
 
-# 38. (Optional/Experimental) Secure boot setup cheat sheet:
+# 43. (Optional/Experimental) Secure boot setup cheat sheet:
 
 * ``sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --modules="tpm" --disable-shim-lock``
 
