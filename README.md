@@ -220,9 +220,7 @@
 
 * ``nano /etc/sudoers``
 
-**(Optional,insecure)Uncomment the settings in sudoers file and add the main user to sudo (user):**
-
-**Line to uncomment to add sudo use properly:**
+**Lines to uncomment to add sudo use properly:**
 
 * ``%wheel=ALL=(ALL:ALL) ALL``
 
@@ -231,7 +229,7 @@
 * ``sudo=ALL=(ALL:ALL) ALL``
 * ``user=ALL=(ALL:ALL) ALL``
 
-***(Optional)More secure way by uncommenting the following lines,without touching anything else in the sudoers file:***
+**(Optional)More secure way by uncommenting the following lines,without touching anything else in the sudoers file:**
 
 * ``Defaults targetpw``
 
@@ -367,7 +365,7 @@
 * ``sudo pacman -S alsa-firmware alsa-utils pulseaudio pulseaudio-alsa ``
 
 
-# 18. GNOME/KDE Plasma/XFCE/Desktop environments
+# 18. XFCE
 
 **XFCE**
 
@@ -431,31 +429,6 @@
 **Disable notification sounds on GNOME DE**
 * ``gsettings set org.gnome.desktop.sound event-sounds false``
 
-**Another "PROPER" way to disable suspend and hybernate**
-
-* ``sudo nano /etc/systemd/sleep.conf``
-
-**Uncomment and set to no**
-* ``[Sleep]``
-* ``#AllowSuspend=yes`` 
-* ``#AllowHibernation=yes``
-* ``#AllowSuspendThenHibernate=yes``
-* ``#AllowHybridSleep=yes``
-  
-**To disable suspend it should look like this**
-
-* ``[Sleep]``
-* ``AllowSuspend=no``
-* ``AllowHibernation=no``
-* ``AllowSuspendThenHibernate=no``
-* ``AllowHybridSleep=no`` 
-
-**Check if worked**
-* ``systemctl suspend``
-**This is the error message you should get**
-* ``Call to Suspend failed: Sleep verb 'suspend' is disabled by config``
-**To re-enable suspend just revert the changes**
-
 **(Additional steps) Disable suspend on GNOME**
 
 **Check types if active will reply `suspend`**
@@ -482,7 +455,7 @@
 
 * ``gsettings get org.gnome.mutter experimental-features``
 
-# 20. KDE PLasma, sddm display manager is packaged with Plasma package used by default:
+# 20. KDE PLasma section:
 
 **Full Plasma installation**
 
@@ -620,6 +593,37 @@ Session=plasma.desktop
 * ``sudo pacman -S noto-fonts noto-fonts-emoji``
 * ``sudo pacman -S arc-gtk-theme``
 
+
+**Disable suspend and hybernate for Desktop PC's for gaming, don't use it on laptops**
+
+* ``sudo nano /etc/systemd/sleep.conf``
+
+**Uncomment and set to no**
+
+* ``[Sleep]``
+* ``#AllowSuspend=yes`` 
+* ``#AllowHibernation=yes``
+* ``#AllowSuspendThenHibernate=yes``
+* ``#AllowHybridSleep=yes``
+  
+**To disable suspend it should look like this**
+
+* ``[Sleep]``
+* ``AllowSuspend=no``
+* ``AllowHibernation=no``
+* ``AllowSuspendThenHibernate=no``
+* ``AllowHybridSleep=no`` 
+
+**Check if worked**
+
+* ``systemctl suspend``
+
+**This is the error message you should get**
+
+* ``Call to Suspend failed: Sleep verb 'suspend' is disabled by config``
+
+**To re-enable suspend just revert the changes**
+
 # 23. NVIDIA drivers and utilities installation:
 
 **For Nvidia Non-LTS (rolling)**
@@ -671,6 +675,7 @@ Session=plasma.desktop
   
 **Edit GRUB /etc/default/grub** 
 **For other bootloaders check the Arch Wiki**
+
 https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``sudo nano /etc/default/grub``
@@ -711,7 +716,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 # 24. AMD Drivers installation, no need to tinker with DRM kernel parameters:
 
-* ``sudo pacman -S mesa mesa-utils lib32-mesa opencl-mesa lib32-opencl-mesa lib32-vulkan-radeon vulkan-radeon vulkan-mesa-layers lib32-vulkan-mesa-layers vulkan-mesa-implicit-layers vulkan-tools glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d xf86-video-amdgpu``
+* ``sudo pacman -S mesa lib32-mesa mesa-utils lib32-mesa-utils opencl-mesa lib32-opencl-mesa vulkan-radeon lib32-vulkan-radeon vulkan-mesa-layers lib32-vulkan-mesa-layers glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d xf86-video-amdgpu``
 * ``sudo mkinitcpio -P``
 * ``reboot``
 
@@ -856,17 +861,9 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``sudo pacman -S vlc vlc-plugins-all``
 
-**Browsers**
+**Browsers (Choose one or two based on personal preferences)**
 
-* ``sudo pacman -S firefox-developer-edition``
-
-* ``sudo pacman -S falkon``
-  
-* ``sudo pacman -S epiphany``
-
-* ``sudo pacman -S chromium``
-
-* ``sudo pacman -S firefox``
+* ``sudo pacman -S firefox-developer-edition falkon epiphany chromium firefox``
 
 **LibreOffice rolling:**
 
@@ -876,19 +873,9 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``sudo pacman -S libreoffice-still``
 
-# 30. Other stuff,inlcuding OBS Studio.
+# 30. Other otpional packages,inlcuding OBS Studio (Choose based on personal preferences).
 
-* ``sudo pacman -S obs-studio``
-
-* ``sudo pacman -S flatpak``
-
-* ``sudo pacman -S openra``
-
-* ``sudo pacman -S gimp``
-
-* ``sudo pacman -S krita``
-
-* ``sudo pacamn -S kate``
+* ``sudo pacman -S obs-studio flatpak openra gimp krita kate``
 
 **Torrent clients:**
 
@@ -900,61 +887,22 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``sudo pacman -S transmission-gtk``
 
-**Video Editors:**
+**Video Editors (Choose based on personal preferences):**
 
-* ``sudo pacman -S kdenlive``
-* ``sudo pacman -S shotcut``
-* ``sudo pacman -S blender``
-* ``sudo pacman -S openshot``
+* ``sudo pacman -S kdenlive shotcut blender openshot``
 
 **Emulators:**
 
-* ``sudo pacman -S libretro``
-* ``sudo pacman -S dosbox``
-* ``sudo pacman -S scummvm``
-* ``sudo pacman -S pscx2``
-* ``sudo pacman -S retroarch``
+* ``sudo pacman -S libretro dosbox scummvm pscx2 retroarch``
 
 **Teamviewer install and configure from AUR:**
 
 * ``yay -S teamviewer``
 * ``sudo systemctl enable --now teamviewerd.service``
 
-**More mods,games and tools:**
+**More mods,games and tools (Choose based on personal preferences):**
 
-* ``sudo pacman -S openmw``
-
-* ``sudo pacman -S supertux``
-
-* ``sudo pacman -S freedroidrpg``
-
-* ``sudo pacman -S supertuxkart``
-
-* ``sudo pacman -S kapman``
-
-* ``sudo pacman -S 0ad``
-
-* ``sudo pacman -S xonotic``
-
-* ``sudo pacman -S wesnoth``
-
-* ``sudo pacman -S openra``
-
-* ``sudo pacman -S freeciv``
-
-* ``sudo pacman -S dwarffortress``
-
-* ``sudo pacman -S bass``
-
-* ``flatpak install flathub com.moddb.TotalChaos``
-
-* ``yay -S dunelegacy``
-
-* ``yay -S sdlpop``
-
-* ``yay -S opensurge``
-
-* ``yay -S commander-genius-git``
+* ``sudo pacman -S openmw supertux freedroidrpg supertuxkart kapman 0ad xonotic wesnoth openra freeciv dwarffortress bass``
 
 **Partition managers:**
 
@@ -962,7 +910,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 * ``sudo pacman -S partitionmanager``
 * ``sudo pacman -S gparted``
   
-**GPU Screen Recorder similar to shadowplay:**
+**(Optional)GPU Screen Recorder similar to shadowplay:**
 
 * ``yay -S gpu-screen-recorder``
 * ``yay -S gpu-screen-recorder-gtk``
@@ -970,15 +918,10 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 **(Optional)Installing VKD3D and/or DXVK for DX10/DX11 conversion support outswide of Steam/Lutris:**
 
 * ``sudo pacman -S python-protobuf lib32-vkd3d vkd3d``
-* ``yay -S dxvk-bin``
 
-# 31. Install a bunch of dependencies/packages to make life sort of easier(Optional):
+# 31. Dependencies multimedia libraries for decoding/encoding (OPTIONAL if you want system with no bloatware skip these,or choose the ones you need):
 
-* ``sudo pacman -S gtk3 gtk4 qt6 gvfs ``
-
-# 32. Dependencies multimedia libraries for decoding/encoding (OPTIONAL if you want full no bloatware system skip these,or choose the ones you need):
-
-* ``sudo pacman -S openal lib32-openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma openresolv x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis faad2 libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugin-va gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libmpeg2 libavif faac libwebp libheif libjxl jasper aom svt-av1``
+* ``sudo pacman -S openal lib32-openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav lib32-gst-plugins-good gst-plugin-gtk lib32-gstreamer lib32-gst-plugins-base lib32-gst-plugins-base-libs xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis faad2 libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugin-va gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libavif faac libwebp libheif libjxl jasper aom svt-av1``
 
 **(Very optional)**
 
@@ -988,7 +931,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``sudo pacman -S ninja meson``
 
-**Install wine, steam and some more packages-dependencies for gaming:**
+# 32.Install wine, steam and some more packages-dependencies for gaming:
 
 * ``sudo pacman -S wine wine-mono wine-gecko lutris steam dosbox scummvm``
 * ``sudo pacman -S mono``  
@@ -1015,7 +958,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 *  ``for FMV in *.bin; do ffmpeg -i $FMV -qscale 4 ${FMV:0:-4}.wmv; rm $FMV; mv -- ${FMV:0:-4}.wmv $FMV; done``
 
-**(Optional) Install Glourious Eggroll Proton GE the easy way:**
+# 33.(Optional) Install Glourious Eggroll Proton GE the easy way:
 
  * Download the latest release here: https://github.com/GloriousEggroll/proton-ge-custom/releases
  * Extract,enable hidden files and folders 
@@ -1025,13 +968,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
  
 **(Optional) Install spectacle for screenshots (KDE PLASMA) and fastfetch**
 
- * ``sudo pacman -S spectacle fastfetch man``
- 
- * ``sudo pacman -S sonnet``
-
- * ``sudo pacman -S enchant``
-
- * ``sudo pacman -Syu``
+ * ``sudo pacman -S spectacle fastfetch man sonnet enchant``
 
  **(Optional) Gnome boxes, useful for creating usb sticks with OS installs and gnome-boxes for vm's useful GUI for QEMU:**
  
@@ -1048,6 +985,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
  * ``sudo systemctl enable --now libvirtd.service``
  
 **Check this website for additional driver/video support on vm's for both GNOME BOXES and virtmanager:**
+
 * https://www.spice-space.org/download.html
 
 
@@ -1064,11 +1002,11 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``history``
 
-# 35.Clear terminal by using:
+**Clear terminal by using:**
 
 * ``clear``
 
-# 36.Auto-mounting drives the easy way:
+# 35.Other tools and workarounds:
 
 * ``sudo pacman -S gnome-disk-utility``
 
@@ -1087,7 +1025,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 **full system update**
 * ``sudo pacman -Syu``
 
-**Audio enhancements similar to Windows Loudness Equalization for games like Witcher 3**
+# 36. Audio enhancements similar to Windows Loudness Equalization for games like Witcher 3
 **Pipewire:**
 
 **Set in Sound Sonfiguration as Pro Audio instead of Analog Stereo Duplex**
@@ -1108,8 +1046,13 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 **Launch EasyEffects and apply presets either from this repository or download the one provided here LoudnessEqualizer.json:**
 
 * https://github.com/Digitalone1/EasyEffects-Presets
+
+**Enable pipewire without restart/configure alsa settings for audio devices, requires alsa-firmware and alsa-utils packages:**
+
+* ``systemctl --user restart pipewire pipewire-pulse``
+* ``alsamixer``
   
-# 35. Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
+# 37. Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
 * Download a Windows image from MS link below:
 * https://www.microsoft.com/en-us/software-download/windows10
 * Insert USB Drive
@@ -1122,7 +1065,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 * Go to the place where you downloaded Windows 10 ISO and select Open with Disk Image Mounter
 * Open Copy everything from the Windows 10 ISO and paste into your USB Drive,wait for it to finish(takes a while)
 
-**(Optional) Custom DNS configuration**
+# 38.(Optional) Custom DNS configuration
 
 * ``sudo nano /etc/resolv.conf``
   
@@ -1141,7 +1084,7 @@ Google DNS
 * nameserver 8.8.4.4
 
 
-**NB! Optional (not recommended) disabling kernel and driver updates for more stable experience**
+# 39. NB! Optional (not recommended) disabling kernel and driver updates for more stable experience**
 
 * ``sudo nano /etc/pacman.conf``
 
@@ -1166,6 +1109,9 @@ Google DNS
 **(Optional) mkinitcpio:**
 
 * ``sudo mkinitcpio``
+
+* ``sudo mkinitcpio -P``
+
 
 **Don't forget to install and use man**
 
@@ -1204,11 +1150,6 @@ Google DNS
 
 **Extra steps workarounds:**
 
-**Enable pipewire without restart/configure alsa settings for audio devices, requires alsa-firmware and alsa-utils packages:**
-
-* ``systemctl --user restart pipewire pipewire-pulse``
-* ``alsamixer``
-
 **Refresh mirrorlists:**
 
 * ``sudo pacman -Syyu --refresh -y``
@@ -1224,7 +1165,7 @@ Google DNS
 
 * ``find ~ -type f -name '*.torrent *'``
 
-# 36. View BIOS/UEFI/SLOT/CPU/Memory Info
+# 41. View BIOS/UEFI/SLOT/CPU/Memory Info
 
 * ``sudo dmidecode | less``
 * ``sudo dmidecode -s bios-version``
