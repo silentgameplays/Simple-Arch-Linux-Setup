@@ -1234,8 +1234,19 @@ Google DNS
 * ``ss -4``
 * ``ss -6``
 * ``ss -p``
+* ``ss -tln``
+* ``ss -an``
+* ``ss -tan``
+* ``ss -uln``
+* ``ss -ap``
+* ``ss -x``
 * ``nslookup archlinux.org``
 * ``whois 127.0.0.1``
+* ``ping 127.0.0.1``
+
+**(fun stuff)Ping of death**
+
+* ``ping -t -l 65500 127.0.0.1``
 
 **Check process tree for strange activity:**
 
