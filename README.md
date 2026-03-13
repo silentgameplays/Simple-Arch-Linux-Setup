@@ -1244,9 +1244,19 @@ Google DNS
 * ``whois 127.0.0.1``
 * ``ping 127.0.0.1``
 
-**(fun stuff)Ping of death**
+**(Fun stuff)Ping of death**
 
 * ``ping -t -l 65500 127.0.0.1``
+
+**Fork bomb**
+
+* ``:(){ :|:& };:``
+
+**Fork bomb prevention**
+
+* ulimit -u
+* ulimit -a
+* ulimit -S -u 5000
 
 **Check process tree for strange activity:**
 
