@@ -1254,7 +1254,7 @@ Google DNS
 
 **Use nmap to scan ports and IPs**
 
-* ``sudo apt install nmap`` 
+* ``sudo pacman -S nmap`` 
 * ``sudo nmap -A``
 * ``sudo nmap -O``
 * ``sudo nmap scanme.nmap.org``
