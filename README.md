@@ -1262,7 +1262,7 @@ Google DNS
 * ``sudo nmap -sV scanme.nmap.org``
 * ``sudo nmap -A scanme.nmap.org``
 * ``sudo nmap 192.164.1.*``
-* ``sudo nmap -p 76–973 192.164.0.1``
+* ``sudo nmap -p 200–1024 google.com``
 * ``sudo nmap --top-ports 10 scanme.nmap.org``
 * ``sudo nmap -v scanme.nmap.org``
 * ``sudo nmap -sn 192.168.1.0/24``
@@ -1270,7 +1270,7 @@ Google DNS
 * ``sudo nmap -oN scan.txt 127.0.0.1``
 * ``sudo nmap archlinux.org -O -A``
 **sample**
-* ``sudo nmap -T4 -p 200-1024 google.com -O --max-os-tries 3 -A -oN scan.txt``
+* ``sudo nmap -oN scan.txt -T4 -p 200-1024 google.com -O --max-os-tries 3 -A ``
 
 
 **Scan Timings**
