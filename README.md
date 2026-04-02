@@ -148,7 +148,7 @@
 
 **Standard Arch Linux installation with standard Ethernet and Wi-Fi support,nano as text editor:**
 
-* ``pacstrap /mnt base base-devel linux linux-headers linux-firmware nano networkmanager``
+* ``pacstrap /mnt base base-devel linux linux-headers linux-api-headers linux-firmware nano networkmanager``
 
 **Generate fstab file:**
 
