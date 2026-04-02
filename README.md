@@ -1247,16 +1247,16 @@ Google DNS
 * ``nslookup archlinux.org``
 * ``whois 127.0.0.1``
 * ``ping 127.0.0.1``
+* ``ip addr show | grep inet``
 
 **(Fun stuff)Ping of death**
 
 * ``ping -t -l 65500 127.0.0.1``
 
 **Use nmap to scan ports and IPs**
-
 * ``sudo pacman -S nmap`` 
-* ``sudo nmap -A``
-* ``sudo nmap -O``
+* ``sudo nmap -A 127.0.0.1``
+* ``sudo nmap -O 127.0.0.1``
 * ``sudo nmap scanme.nmap.org``
 * ``sudo nmap -sV scanme.nmap.org``
 * ``sudo nmap -sV scanme.nmap.org``
@@ -1292,9 +1292,9 @@ Google DNS
 
 **Fork bomb prevention**
 
-* ulimit -u
-* ulimit -a
-* ulimit -S -u 5000
+* ``ulimit -u``
+* ``ulimit -a``
+* ``ulimit -S -u 5000``
 
 **Check process tree for strange activity:**
 
