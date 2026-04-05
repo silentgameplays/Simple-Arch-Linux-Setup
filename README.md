@@ -939,7 +939,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``sudo pacman -S wine wine-mono wine-gecko lutris steam dosbox scummvm``
 * ``sudo pacman -S mono``  
-* ``sudo pacman -S lib32-v4l-utils lib32-libxcomposite lib32-opencl-icd-loader lib32-gst-plugins-base-libs grilo grilo-plugins``
+* ``sudo pacman -S lib32-v4l-utils lib32-libxcomposite lib32-opencl-icd-loader grilo grilo-plugins``
 * ``sudo pacman -Syu``
 * ``sudo pacman -S opusfile``
 
