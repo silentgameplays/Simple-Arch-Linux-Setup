@@ -362,11 +362,11 @@
 
 # 17. Install audio support
 
-* ``sudo pacman -S alsa-firmware alsa-utils pipewire pipewire-alsa pipewire-pulse``
+* ``sudo pacman -S alsa-firmware alsa-utils alsa-tools pipewire pipewire-alsa pipewire-pulse``
 
 **(Older) Install audio alsa/pulseaudio drivers and utilities:**
 
-* ``sudo pacman -S alsa-firmware alsa-utils pulseaudio pulseaudio-alsa ``
+* ``sudo pacman -S alsa-firmware alsa-utils alsa-tools pulseaudio pulseaudio-alsa ``
 
 
 # 18. XFCE
