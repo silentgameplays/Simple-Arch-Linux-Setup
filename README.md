@@ -1195,6 +1195,11 @@ Google DNS
 
 * ``pactl info|grep "Server Name"``
 
+**List package and all related packages**
+
+* ``sudo pacman -Q | grep pipewire``
+* ``sudo pacman -Qe``
+
 # 42. Cybersecurity firewall and rootkit/malware detection:
 
 **Firewall:**
