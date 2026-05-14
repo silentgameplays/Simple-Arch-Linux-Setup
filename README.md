@@ -1055,6 +1055,13 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``systemctl --user restart pipewire pipewire-pulse``
 * ``alsamixer``
+**Additional Troubleshooting for Gigabyte motherboards**
+* ``sudo dmesg | grep -E 'snd|sof'``
+* ``aplay -lL #alsa-utils``
+* ``aplay -l``
+
+**If something is missing or showing Razer Audio instead of ALC897 then install the sof-firmware package and reboot**
+* ``sudo pacman -S sof-firmware``
   
 # 37. Creating a bootable Windows 10 USB using Disks utility (Possible on any linux distro even without GNOME)
 * Download a Windows image from MS link below:
