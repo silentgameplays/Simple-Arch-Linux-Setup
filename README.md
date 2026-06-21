@@ -186,7 +186,7 @@
 
 * ``useradd -g users -G power,storage,wheel -m username``
 
-* ''pacman -S sudo''
+* ``pacman -S sudo``
 
 * ``usermod -aG wheel username``
 
@@ -778,10 +778,11 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 * ``sudo pacman -S htop``
 
 **Only temps**
+
 * ``sudo pacman -S lm_sensors``
 * ``sensors``
   
-# 27. Installing AUR helper yay
+# 27.(NB! Optional,not recommended to use AUR,use at your own risk) Installing AUR helper yay and other AUR packages
 
 * ``sudo pacman -S git``
 
@@ -791,7 +792,24 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 * ``cd yay``
 * ``makepkg -si``
 
+**For yay AUR helper:**
 
+* ``yay -Sc``
+* ``yay -Scc``
+
+**Teamviewer install and configure from AUR:**
+
+* ``yay -S teamviewer``
+* ``sudo systemctl enable --now teamviewerd.service``
+
+**Heroic games launcher**
+
+* ``yay -S heroic-games-launcher-bin`` 
+
+**(In case you are using meson and ninja builds)**
+
+* ``sudo pacman -S ninja meson``
+  
 # 28. Removing packages, clearing cache,orphans,unneeded dependencies so the system does not get cluttered:
 
 * ``sudo pacman -Scc``
@@ -818,12 +836,6 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 **List all packages on the system**
 * ``sudo pacman -Q``
 * ``sudo pacman -Qn``
-
-**For yay AUR helper:**
-
-* ``yay -Sc``
-
-* ``yay -Scc``
  
 **Cleaning pacman cache**
 
@@ -879,7 +891,8 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 # 30. Other otpional packages,inlcuding OBS Studio (Choose based on personal preferences).
 
-* ``sudo pacman -S obs-studio flatpak openra gimp krita kate``
+* ``sudo pacman -S obs-studio cef flatpak openra gimp krita kate``
+* ``sudo pacman -S gpu-screen-recorder gpu-screen-recorder-ui``
 
 **Torrent clients:**
 
@@ -899,11 +912,6 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``sudo pacman -S libretro dosbox scummvm pscx2 retroarch``
 
-**Teamviewer install and configure from AUR:**
-
-* ``yay -S teamviewer``
-* ``sudo systemctl enable --now teamviewerd.service``
-
 **More mods,games and tools (Choose based on personal preferences):**
 
 * ``sudo pacman -S openmw supertux freedroidrpg supertuxkart kapman 0ad xonotic wesnoth openra freeciv dwarffortress bass``
@@ -914,11 +922,6 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 * ``sudo pacman -S partitionmanager``
 * ``sudo pacman -S gparted``
   
-**(Optional)GPU Screen Recorder similar to shadowplay:**
-
-* ``yay -S gpu-screen-recorder``
-* ``yay -S gpu-screen-recorder-gtk``
-
 **(Optional)Installing VKD3D and/or DXVK for DX10/DX11 conversion support outswide of Steam/Lutris:**
 
 * ``sudo pacman -S python-protobuf lib32-vkd3d vkd3d``
@@ -930,10 +933,6 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 **(Very optional)**
 
 * ``sudo pacman -S fluidsynth lib32-fluidsynth``
-
-**(In case you are using meson and ninja builds)**
-
-* ``sudo pacman -S ninja meson``
 
 # 32.Install wine, steam and some more packages-dependencies for gaming:
 
@@ -954,6 +953,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 **(Optional) For every older like Devil May Cry collection or newer game that does not display cutscenes properly,regardless of Proton/Wine version, go into the games folder with videos, open the terminal inside the folders with videos and use this fix, ffmpeg installed on the system is a reuirement**
 
 * ``sudo pacman -S ffmpeg``
+
 **This is for mpg/mp4**
 
 * ``for FMV in *.wmv; do ffmpeg -i $FMV ${FMV:0:-4}.mp4; rm $FMV; mv -- ${FMV:0:-4}.mp4 $FMV; done``
@@ -1055,9 +1055,13 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 * ``systemctl --user restart pipewire pipewire-pulse``
 * ``alsamixer``
+
 **Additional Troubleshooting for Gigabyte motherboards**
+
 * ``sudo dmesg | grep -E 'snd|sof'``
+
 * ``aplay -lL #alsa-utils``
+
 * ``aplay -l``
 
 **If something is missing or showing Razer Audio instead of ALC897 then install the sof-firmware package and reboot**
