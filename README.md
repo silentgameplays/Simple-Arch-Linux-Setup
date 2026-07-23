@@ -362,7 +362,11 @@
 
 # 17. Install audio support
 
-* ``sudo pacman -S alsa-firmware alsa-utils alsa-tools pipewire pipewire-alsa pipewire-pulse``
+* ``sudo pacman -S alsa-firmware alsa-utils alsa-tools pipewire pipewire-alsa pipewire-pulse jack2``
+
+**Or pipewire-jack**
+
+* ``sudo pacman -S alsa-firmware alsa-utils alsa-tools pipewire pipewire-alsa pipewire-pulse pipewire-jack``
 
 **(Older) Install audio alsa/pulseaudio drivers and utilities:**
 
