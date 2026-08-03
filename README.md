@@ -634,35 +634,22 @@ Session=plasma.desktop
 
 # 23. NVIDIA drivers and utilities installation:
 
-**For Nvidia Non-LTS (rolling)**
-* ``sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers``
-  
-**Run mkinitcpio after installation and reboot:**
 
-* ``sudo mkinitcpio -P``
-  
-**For Nvidia LTS(Long Term Support)**
-* ``sudo pacman -S nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers``
-
-**Run mkinitcpio after installation and reboot:**
-* ``sudo mkinitcpio -P``
-
-**NVIDIA DKMS Driver For Zen and Multiple Kernels**
-
-* ``sudo pacman -S nvidia-dkms nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers``
-
-**Run mkinitcpio after installation and reboot:**
-
-* ``sudo mkinitcpio -P`` 
-
-**NVIDIA Open Source Driver**
+**NVIDIA Open Driver**
 * ``sudo pacman -S nvidia-open nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers`` 
 
 **Run mkinitcpio after installation and reboot:**
 
 * ``sudo mkinitcpio -P``
 
-**NVIDIA Open Source DKMS Driver**
+**NVIDIA Open LTS Driver**
+* ``sudo pacman -S nvidia-open-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers`` 
+
+**Run mkinitcpio after installation and reboot:**
+
+* ``sudo mkinitcpio -P``
+
+**NVIDIA Open DKMS Driver**
 
 * ``sudo pacman -S nvidia-open-dkms nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers`` 
 
