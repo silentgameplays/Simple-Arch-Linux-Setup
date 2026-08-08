@@ -721,8 +721,8 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 * ``sudo journalctl -b -0 -o cat --no-pager | grep "amdgpu: ring"``
 * ``sudo journalctl -b -0 --no-pager | grep -i "amdgpu\|gpu hung\|fence" | tail -50``
 * ``sudo dmesg | grep -i "amdgpu\|gpu\|fence\|timeout" | tail -50``
-* ``lspci | grep -i vga``
-* ``dmesg -T | grep amdgpu``
+* ``sudo lspci | grep -i vga``
+* ``sudo dmesg -T | grep amdgpu``
 
 **If all is normal then the response will be normal, issues will look like an error with "ring ... timeout","ring vcn...timeout" or "ring comp... timeout" or "ring gfx... timeout"**
 **To fix the ring 0 issues user needs to remove any overclocking in BIOS,another way is revert to 6.12 LTS stable kernel version,other way is to install LACT, and set Performance Level to Manual, and the Power Profile Mode to 3D_FULL_SCREEN permanently**
