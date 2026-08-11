@@ -1206,6 +1206,18 @@ Google DNS
 * ``sudo pacman -Q | grep pipewire``
 * ``sudo pacman -Qe``
 
+**Checking RAM memory and GPU VRAM memory for issues**
+
+* ``sudo pacman -S memtester``
+* ``sudo memtester 512M``
+* ``sudo memtester 8G``
+* ``sudo memtester 16G``
+
+* ``sudo pacman -S memtest_vulkan``
+* ``memtest_vulkan``
+
+**for memtest_vulkan 5 minutes is enough to spot most issues, unless you want to wait for more than 2 hours** 
+
 # 42. Cybersecurity firewall and rootkit/malware detection:
 
 **Firewall:**
