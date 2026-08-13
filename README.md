@@ -711,7 +711,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 # 24. AMD Drivers installation, no need to tinker with DRM kernel parameters:
 
-* ``sudo pacman -S mesa lib32-mesa mesa-utils lib32-mesa-utils opencl-mesa lib32-opencl-mesa vulkan-radeon lib32-vulkan-radeon vulkan-mesa-layers lib32-vulkan-mesa-layers mesa-amber lib32-mesa-amber glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader vulkan-mesa-implicit-layers lib32-vulkan-mesa-implicit-layers vulkan-gfxstream lib32-vulkan-gfxstream xf86-video-amdgpu``
+* ``sudo pacman -S mesa lib32-mesa mesa-utils lib32-mesa-utils opencl-mesa lib32-opencl-mesa vulkan-radeon lib32-vulkan-radeon vulkan-mesa-layers lib32-vulkan-mesa-layers glu lib32-glu vulkan-icd-loader lib32-vulkan-icd-loader vulkan-mesa-implicit-layers lib32-vulkan-mesa-implicit-layers vulkan-gfxstream lib32-vulkan-gfxstream xf86-video-amdgpu``
 * ``sudo mkinitcpio -P``
 * ``reboot``
 
