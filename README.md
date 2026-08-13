@@ -636,14 +636,14 @@ Session=plasma.desktop
 
 
 **NVIDIA Open Driver**
-* ``sudo pacman -S nvidia-open nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers`` 
+* ``sudo pacman -S nvidia-open nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers`` 
 
 **Run mkinitcpio after installation and reboot:**
 
 * ``sudo mkinitcpio -P``
 
 **NVIDIA Open LTS Driver**
-* ``sudo pacman -S nvidia-open-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers`` 
+* ``sudo pacman -S nvidia-open-lts nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers`` 
 
 **Run mkinitcpio after installation and reboot:**
 
@@ -651,7 +651,7 @@ Session=plasma.desktop
 
 **NVIDIA Open DKMS Driver**
 
-* ``sudo pacman -S nvidia-open-dkms nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers`` 
+* ``sudo pacman -S nvidia-open-dkms nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau lib32-libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader opencl-headers opencl-clhpp vulkan-validation-layers lib32-vulkan-validation-layers`` 
 
 **Run mkinitcpio after installation and reboot:**
 
@@ -919,11 +919,11 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
   
 **(Optional)Installing VKD3D and/or DXVK for DX10/DX11 conversion support outswide of Steam/Lutris:**
 
-* ``sudo pacman -S python-protobuf lib32-vkd3d vkd3d``
+* ``sudo pacman -S vkd3d lib32-vkd3d``
 
 # 31. Dependencies multimedia libraries for decoding/encoding (OPTIONAL if you want system with no bloatware skip these,or choose the ones you need):
 
-* ``sudo pacman -S openal lib32-openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav gst-plugin-gtk xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis faad2 libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugin-va gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libavif faac libwebp libheif libjxl jasper aom svt-av1 vkd3d lib32-vkd3d ``
+* ``sudo pacman -S openal lib32-openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav gst-plugin-gtk xvidcore lib32-libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis faad2 libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugin-va gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg lib32-smpeg mac opus lib32-opus opus-tools opusfile libavif faac libwebp libheif libjxl jasper aom svt-av1``
 
 **(Very optional)**
 
