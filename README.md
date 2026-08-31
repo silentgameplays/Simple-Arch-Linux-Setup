@@ -1218,6 +1218,38 @@ Google DNS
 
 **for memtest_vulkan 5 minutes is enough to spot most issues, unless you want to wait for more than 2 hours** 
 
+**Checking SSD's and HDD's for issues, if not installed, install smartmontools package**
+
+* ``sudo pacman -S smartmontools``
+
+**To get a detailed SMART report**
+
+* ``sudo smartctl -a /dev/sda``
+* ``sudo smartctl -a /dev/nvme0n1``
+
+**To get accurate I/O reports with sysstat**
+
+* ``sudo pacman -S sysstat``
+* ``iostat -d``
+* ``iostat -c``
+  
+**To get real time I/O reports from all disks**  
+
+* ``iostat -x 1``
+
+**To get real time I/O from 2 disks in 6 second intervals**
+
+* ``iostat -x sda sdb 2 6``
+* ``iostat -x nvme0n1 nvme1n1 2 6`` \
+
+**Use TestDisk to recover deleted files**
+
+* ``sudo pacman -S testdisk``
+
+* ``sudo testdisk /dev/sda1``
+
+* ``sudo testdisk /dev/nvme0n1p1``
+
 # 42. Cybersecurity firewall and rootkit/malware detection:
 
 **Firewall:**
