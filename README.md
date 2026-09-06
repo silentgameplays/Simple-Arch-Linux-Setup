@@ -282,7 +282,7 @@
 
 * ``grub-mkconfig -o /boot/grub/grub.cfg``
 
-**Additional measures for boot partition to not become unbootable**
+**(Optional)Additional measures for boot partition to not become unbootable**
 
 * ``mkdir /boot/efi/EFI/BOOT``
 
