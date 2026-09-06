@@ -923,7 +923,7 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 # 31. Dependencies multimedia libraries for decoding/encoding (OPTIONAL if you want system with no bloatware skip these,or choose the ones you need):
 
-* ``sudo pacman -S openal openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav gst-plugin-gtk xvidcore libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis faad2 libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugin-va gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg smpeg mac opus lib32-opus opus-tools opusfile libavif faac libwebp libheif libjxl jasper aom svt-av1``
+* ``sudo pacman -S openal gvfs gvfs-nfs libkate gst-plugins-base gst-plugins-bad-libs gst-libav gst-plugin-gtk xvidcore libxvmc libxvmc ffmpeg gst-libav gst-plugins-good gst-plugins-bad smpeg faac sndio libnma x264 x265 opus sane lame libao wavpack libmad a52dec libvorbis faad2 libmpeg2 libtheora libvpx libde265 libdv schroedinger dav1d rav1e gst-libav gst-plugins-base gst-plugin-va gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire lib32-pipewire pipewire-zeroconf flac lib32-flac smpeg smpeg mac opus lib32-opus opus-tools opusfile libavif faac libwebp libheif libjxl jasper aom svt-av1``
 
 **(Very optional)**
 
