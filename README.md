@@ -957,15 +957,17 @@ https://wiki.archlinux.org/title/Kernel_module#Setting_module_options
 
 *  ``for FMV in *.bin; do ffmpeg -i $FMV -qscale 4 ${FMV:0:-4}.wmv; rm $FMV; mv -- ${FMV:0:-4}.wmv $FMV; done``
 
-# 33.(Optional) Install Glourious Eggroll Proton GE the easy way:
+# 33.**(Optional) Install Glourious Eggroll Proton GE, CachyOS Proton,Wineland Proton the easy way without ProtonPlus:**
 
- * Download the latest release here: https://github.com/GloriousEggroll/proton-ge-custom/releases
- * Extract,enable hidden files and folders 
+ * Download the latest Glorious Eggroll release here: https://github.com/GloriousEggroll/proton-ge-custom/releases
+ * Wineland Proton: https://github.com/nanomatters/proton-salkim/releases
+ * CachyOS Proton: https://github.com/CachyOS/proton-cachyos/releases
+ * Extract,enable hidden files and folders for your Desktop Environment
  * Create a folder in your /home/user/steam/root/compatibilitytools.d if it does not exist.
  * Copy/paste the extracted GE folder into /home/user/config/.steam/root/compatibilitytools.d
- * Restart Steam,enjoy the custom GE build
- 
-**(Optional) Install spectacle for screenshots (KDE PLASMA) and fastfetch**
+ * Restart Steam,enjoy the custom Protons
+   
+**(Optional) Install spectacle for screenshots (KDE PLASMA Desktop) and fastfetch**
 
  * ``sudo pacman -S spectacle fastfetch man sonnet enchant``
 
